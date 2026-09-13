@@ -1,0 +1,148 @@
+{
+  "editpost": {
+    "languageSelector": {
+      "label": "Aktuelle Sprache:",
+      "placeholder": "Bitte wähle eine Sprache",
+      "willCreate": "Diese Sprachversion existiert nicht, es wird eine neue Version erstellt"
+    },
+    "actions": {
+      "saveCurrentLanguage": "Speichern",
+      "generate": "Generieren",
+      "upload": "Bild hochladen",
+      "uploading": "Wird hochgeladen...",
+      "selectMedia": "Bild auswählen",
+      "selectImage": "Bild auswählen",
+      "clearCover": "Titelbild entfernen",
+      "insertAdSlot": "Anzeigenplatz einfügen",
+      "add": "Hinzufügen",
+      "addCategory": "Kategorie hinzufügen",
+      "addTag": "Tag hinzufügen",
+      "back": "Zurück",
+      "publish": "Veröffentlichen",
+      "publishing": "Wird veröffentlicht...",
+      "published": "Veröffentlicht"
+    },
+    "tabs": {
+      "basic": "Grundinformationen",
+      "content": "Inhaltsbearbeitung",
+      "seo": "SEO-Einstellungen"
+    },
+    "sections": {
+      "basic": "Grundinformationen",
+      "categoryTag": "Kategorie und Tags"
+    },
+    "fields": {
+      "title": "Titel",
+      "slug": "Slug",
+      "cover": "Titelbild",
+      "excerpt": "Zusammenfassung",
+      "category": "Kategorie",
+      "tags": "Tags",
+      "articleId": "Artikel-ID",
+      "seoTitle": "SEO-Titel",
+      "seoDescription": "SEO-Beschreibung",
+      "seoKeyword": "SEO-Schlüsselwörter"
+    },
+    "placeholders": {
+      "title": "Bitte gib den Artikel-Titel ein",
+      "slug": "URL-Identifikator des Artikels",
+      "coverPreview": "Titelbild-Vorschau",
+      "coverEmpty": "Vorschaubereich",
+      "coverUrl": "https://example.com/cover.jpg",
+      "excerpt": "Artikel-Zusammenfassung. Wenn leer gelassen, wird sie automatisch aus dem Inhalt extrahiert",
+      "noCategory": "Bitte wähle oder erstelle",
+      "noTag": "Bitte wähle oder erstelle",
+      "seoTitle": "Wenn leer gelassen, wird der Artikel-Titel verwendet",
+      "seoDescription": "Wenn leer gelassen, wird die Artikel-Zusammenfassung verwendet",
+      "seoKeyword": "Mehrere Schlüsselwörter durch Kommas getrennt, z.B.: Schlüsselwort1, Schlüsselwort2, Schlüsselwort3"
+    },
+    "hints": {
+      "title": "Maximal {max} Zeicheneinheiten",
+      "excerpt": "Maximal {max} Zeicheneinheiten",
+      "content": "Mindestens {min}, maximal {max} Zeicheneinheiten",
+      "seoTitle": "Empfohlene Länge: {min}-{max} Zeichen",
+      "seoDescription": "Empfohlene Länge: {min}-{max} Zeichen",
+      "seoKeyword": "Mehrere Schlüsselwörter durch Kommas getrennt"
+    },
+    "tooltips": {
+      "selectLanguageFirst": "Bitte wähle zuerst eine Sprache"
+    },
+    "messages": {
+      "slugInvalid": "Der Slug darf nur Kleinbuchstaben, Zahlen und Bindestriche enthalten",
+      "categoryCreateSuccess": "Kategorie erfolgreich erstellt",
+      "categoryCreateFailed": "Fehler beim Erstellen der Kategorie",
+      "tagCreateSuccess": "Tag erfolgreich erstellt",
+      "tagCreateFailed": "Fehler beim Erstellen des Tags",
+      "enterCategoryNameAndLanguage": "Bitte gib zuerst den Kategorienamen ein und wähle eine Sprache",
+      "enterTagNameAndLanguage": "Bitte gib zuerst den Tagnamen ein und wähle eine Sprache",
+      "translateSlugSuccess": "Slug erfolgreich durch Übersetzung generiert",
+      "translateSlugFailed": "Übersetzung fehlgeschlagen. Bitte verwende die lokale Generierung",
+      "pleaseEnterTitle": "Bitte gib zuerst den Titel ein",
+      "pleaseSelectLanguage": "Bitte wähle zuerst eine Sprache",
+      "generateSlugByTranslation": "Slug auf Englisch durch Übersetzung generieren",
+      "selectLanguage": "Bitte wähle eine Sprache",
+      "pleaseFillRequiredFields": "Bitte fülle alle erforderlichen Felder aus",
+      "titleExceedsLimit": "Titel überschreitet das Limit: maximal {max} Zeicheneinheiten",
+      "excerptExceedsLimit": "Zusammenfassung überschreitet das Limit: maximal {max} Zeicheneinheiten",
+      "contentTooShort": "Inhalt zu kurz: mindestens {min} Zeicheneinheiten erforderlich",
+      "contentExceedsLimit": "Inhalt überschreitet das Limit: maximal {max} Zeicheneinheiten",
+      "coverUploadSuccess": "Titelbild erfolgreich hochgeladen",
+      "coverUploadFailed": "Fehler beim Hochladen des Titelbilds",
+      "saveSuccess": "Erfolgreich gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen",
+      "saveArticleFailed": "Fehler beim Speichern des Artikels",
+      "articlePublished": "Artikel veröffentlicht",
+      "articleSaved": "Artikel gespeichert",
+      "articleCreatedAndPublished": "Artikel erstellt und veröffentlicht",
+      "articleCreatedAndSaved": "Artikel erstellt und gespeichert"
+    },
+    "newCategoryDialog": {
+      "title": "Kategorie hinzufügen",
+      "fields": {
+        "name": "Kategoriename",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "Bitte gib den Kategorienamen ein",
+        "slug": "URL-Identifikator der Kategorie (wird automatisch generiert)"
+      },
+      "hints": {
+        "slug": "Darf nur Kleinbuchstaben, Zahlen und Bindestriche enthalten"
+      },
+      "buttons": {
+        "cancel": "Abbrechen",
+        "create": "Erstellen",
+        "creating": "Wird erstellt..."
+      },
+      "tooltips": {
+        "enterName": "Bitte gib zuerst den Kategorienamen ein",
+        "selectLanguage": "Bitte wähle zuerst eine Sprache",
+        "generateSlug": "Slug auf Englisch durch Übersetzung generieren"
+      }
+    },
+    "newTagDialog": {
+      "title": "Tag hinzufügen",
+      "fields": {
+        "name": "Tag-Name",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "Bitte gib den Tag-Namen ein",
+        "slug": "URL-Identifikator des Tags (wird automatisch generiert)"
+      },
+      "hints": {
+        "slug": "Darf nur Kleinbuchstaben, Zahlen und Bindestriche enthalten"
+      },
+      "buttons": {
+        "cancel": "Abbrechen",
+        "create": "Erstellen",
+        "creating": "Wird erstellt..."
+      },
+      "tooltips": {
+        "enterName": "Bitte gib zuerst den Tag-Namen ein",
+        "selectLanguage": "Bitte wähle zuerst eine Sprache",
+        "generateSlug": "Slug auf Englisch durch Übersetzung generieren"
+      }
+    }
+  }
+}

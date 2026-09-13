@@ -1,0 +1,37 @@
+{
+  "creatorApplications": {
+    "title": "创作者申请",
+    "filters": {
+      "all": "全部",
+      "pending": "待审核",
+      "approved": "已通过",
+      "rejected": "已驳回",
+      "search": "搜索笔名/ID/理由..."
+    },
+    "table": {
+      "applicant": "申请人",
+      "penName": "笔名",
+      "key": "个人ID",
+      "message": "申请理由",
+      "status": "状态",
+      "createdAt": "申请时间",
+      "actions": "操作"
+    },
+    "status": {
+      "pending": "待审核",
+      "approved": "已通过",
+      "rejected": "已驳回"
+    },
+    "approve": "通过",
+    "reject": "驳回",
+    "rejectReason": "驳回原因",
+    "rejectReasonPlaceholder": "选填，告知申请人未通过原因",
+    "noData": "暂无申请",
+    "messages": {
+      "loadFailed": "加载列表失败",
+      "approveSuccess": "已通过",
+      "rejectSuccess": "已驳回",
+      "actionFailed": "操作失败"
+    }
+  }
+}

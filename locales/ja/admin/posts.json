@@ -1,0 +1,157 @@
+{
+  "posts": {
+    "title": "私の記事",
+    "searchPlaceholder": "タイトルまたは slug を検索、空白や読点で区切る",
+    "filters": {
+      "allStatus": "すべてのステータス",
+      "draft": "下書き",
+      "published": "公開済み",
+      "allLanguages": "すべての言語",
+      "allCategories": "すべてのカテゴリ",
+      "allTags": "すべてのタグ",
+      "apply": "フィルター",
+      "refresh": "更新",
+      "sortBy": "並び替え",
+      "sortOrder": "順序",
+      "sortOptions": {
+        "createdAt": "作成日時",
+        "viewCount": "閲覧数",
+        "updatedAt": "更新日時"
+      },
+      "sortOrderOptions": {
+        "desc": "降順",
+        "asc": "昇順"
+      }
+    },
+    "actions": {
+      "create": "新規",
+      "edit": "編集",
+      "loading": "読み込み中...",
+      "noArticles": "記事がありません",
+      "createHint": "右上の「新しい記事」をクリックして開始",
+      "translate": "他の言語に翻訳",
+      "view": "記事を表示",
+      "delete": "記事を削除",
+      "comments": "コメント",
+      "visitAnalysis": "アクセストレンド",
+      "generateWithAI": "AI記事作成",
+      "aiGenerationLogs": "生成履歴",
+      "publish": "記事を公開",
+      "pin": "トップに固定",
+      "unpin": "固定を解除"
+    },
+    "status": {
+      "published": "公開済み",
+      "draft": "下書き",
+      "pinned": "固定"
+    },
+    "deleteDialog": {
+      "title": "記事を削除",
+      "warning": "警告",
+      "warningText": "この操作は元に戻せません。記事とそのすべての言語バージョンが永久に削除されます。",
+      "articleTitle": "記事タイトル：",
+      "cancel": "キャンセル",
+      "deleting": "削除中...",
+      "confirm": "削除を確認"
+    },
+    "translateDialog": {
+      "title": "記事を翻訳",
+      "important": "重要",
+      "hint1": "翻訳は既存の他の言語バージョンの内容をすべて上書きします",
+      "hint2": "翻訳には数分かかる場合があります。しばらくお待ちください",
+      "hint3": "翻訳タスクはバックグラウンドで実行され、ページ操作をブロックしません",
+      "sourceLanguage": "ソース言語",
+      "selectSourceLanguage": "ソース言語を選択",
+      "sourceLanguageHint": "翻訳のソースとして使用する言語バージョンを選択",
+      "articleTitle": "記事タイトル：",
+      "targetLanguages": "対象言語",
+      "selectAll": "すべて選択",
+      "deselectAll": "すべて解除",
+      "targetLanguagesHint": "翻訳先の対象言語を選択してください（複数選択可）",
+      "noTargetLanguages": "利用可能な対象言語がありません",
+      "provider": "翻訳プロバイダー",
+      "useDefaultProvider": "システムデフォルトを使用",
+      "providerHint": "翻訳プロバイダーを選択してください。システムデフォルトの設定を使用します",
+      "cancel": "キャンセル",
+      "translating": "翻訳中...",
+      "confirm": "翻訳を確認"
+    },
+    "date": {
+      "today": "今日",
+      "yesterday": "昨日",
+      "daysAgo": "{days}日前"
+    },
+    "availableLanguages": "言語",
+    "visitAnalysis": {
+      "title": "記事アクセストレンド",
+      "timeRange": "期間",
+      "language": "言語",
+      "allLanguages": "すべての言語",
+      "days7": "過去7日",
+      "days30": "過去30日",
+      "days100": "過去100日",
+      "noData": "データなし",
+      "visitCount": "アクセス数"
+    },
+    "generateArticleDialog": {
+      "title": "AI記事作成",
+      "articleTitle": "記事タイトル",
+      "articleTitlePlaceholder": "記事タイトルを入力",
+      "articleTitleHint": "記事のタイトルを入力してください。AIはそれに基づいてコンテンツを生成します",
+      "language": "記事の言語",
+      "selectLanguage": "言語を選択",
+      "languageHint": "記事の言語を選択",
+      "contentRequirement": "内容要件",
+      "contentRequirementPlaceholder": "内容要件を説明してください。例：トピック、対象読者、スタイル、重要なポイントなど",
+      "contentRequirementHint": "AIに生成してほしい内容を詳しく説明してください。詳細であればあるほど、より良い結果が得られます",
+      "aiProvider": "AIプロバイダー",
+      "useDefaultProvider": "システムデフォルトを使用",
+      "aiProviderHint": "AIプロバイダーを選択してください。空白のままにすると、システムのデフォルト設定を使用します",
+      "generating": "生成中...",
+      "generate": "生成"
+    },
+    "messages": {
+      "translateStarted": "翻訳タスクを開始しました。バックグラウンドで実行中です",
+      "translateFailed": "翻訳タスクの開始に失敗しました",
+      "selectTargetLanguages": "少なくとも1つの対象言語を選択してください",
+      "noLanguageVersion": "記事に利用可能な言語バージョンがありません",
+      "deleteSuccess": "記事を削除しました",
+      "deleteFailed": "記事の削除に失敗しました",
+      "publishSuccess": "記事を公開しました",
+      "publishFailed": "記事の公開に失敗しました",
+      "articleTitleRequired": "記事タイトルは必須です",
+      "languageRequired": "記事の言語を選択してください",
+      "contentRequirementRequired": "内容要件は必須です",
+      "generateSuccess": "AI記事の生成に成功しました",
+      "generateFailed": "AI記事の生成に失敗しました",
+      "pinSuccess": "トップに固定しました",
+      "pinFailed": "固定に失敗しました",
+      "unpinSuccess": "固定を解除しました",
+      "unpinFailed": "固定解除に失敗しました"
+    },
+    "aiGenerationLogsModal": {
+      "title": "AI 生成履歴",
+      "searchPlaceholder": "タイトルまたは要件を検索...",
+      "noLogs": "生成履歴はありません",
+      "language": "言語",
+      "provider": "AI プロバイダー",
+      "createdAt": "送信日時",
+      "contentLength": "{count} 文字を生成",
+      "viewDetail": "詳細を見る",
+      "hideDetail": "詳細を閉じる",
+      "reuse": "パラメータを再利用",
+      "editArticle": "記事を編集",
+      "statusAll": "すべて",
+      "statusSuccess": "成功",
+      "statusFailed": "失敗",
+      "statusProcessing": "処理中"
+    },
+    "commentsModal": {
+      "title": "記事のコメント",
+      "noComments": "コメントはまだありません",
+      "replyPlaceholder": "返信を入力...",
+      "submitReply": "返信する",
+      "addReply": "コメントを追加"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "translationlogs": {
+    "title": "翻译日志",
+    "filters": {
+      "allTypes": "全部类型",
+      "allStatus": "全部状态",
+      "allSourceLanguages": "全部源语言",
+      "allTargetLanguages": "全部目标语言",
+      "apply": "筛选"
+    },
+    "taskTypes": {
+      "TASK": "翻译任务",
+      "FAILURE_LOG": "失败日志"
+    },
+    "status": {
+      "PENDING": "待处理",
+      "PROCESSING": "处理中",
+      "COMPLETED": "已完成",
+      "FAILED": "失败",
+      "PENDING_RETRY": "待重试",
+      "RESOLVED": "已解决",
+      "IGNORED": "已忽略"
+    },
+    "fields": {
+      "articleId": "文章ID:",
+      "translationDirection": "翻译方向:",
+      "errorMessage": "错误信息:",
+      "created": "创建:",
+      "started": "开始:",
+      "completed": "完成:",
+      "retryCount": "重试次数:"
+    },
+    "actions": {
+      "loading": "加载中...",
+      "noLogs": "暂无翻译日志",
+      "retry": "重新执行",
+      "retryTitle": "重新执行",
+      "retryAllFailed": "重试所有",
+      "copyArticleId": "复制文章ID",
+      "delete": "删除",
+      "deleteTitle": "删除日志"
+    },
+    "pagination": {
+      "total": "共 {total} 条，第 {page} / {totalPages} 页",
+      "previous": "上一页",
+      "next": "下一页"
+    },
+    "date": {
+      "justNow": "刚刚",
+      "minutesAgo": "{minutes} 分钟前",
+      "hoursAgo": "{hours} 小时前",
+      "daysAgo": "{days} 天前"
+    },
+    "messages": {
+      "retrySuccess": "任务已重新加入队列，等待执行",
+      "retryFailed": "重新执行任务失败",
+      "retryAllFailedConfirm": "确定要重新处理所有失败的任务吗？最早的任务将立即执行，其他任务将加入队列等待执行。",
+      "retryAllFailedSuccess": "已重新处理所有失败任务，最早的任务已立即执行",
+      "retryAllFailedFailed": "一键重新处理失败任务失败",
+      "loadFailed": "加载翻译日志失败",
+      "copySuccess": "文章ID已复制到剪贴板",
+      "copyFailed": "复制失败，请手动复制",
+      "deleteConfirm": "确定要删除文章ID为 {articleId} 的翻译日志吗？此操作不可恢复。",
+      "deleteSuccess": "删除成功",
+      "deleteFailed": "删除失败"
+    }
+  }
+}

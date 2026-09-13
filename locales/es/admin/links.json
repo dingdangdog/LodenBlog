@@ -1,0 +1,31 @@
+{
+  "links": {
+    "title": "Enlaces de amigos",
+    "add": "Agregar enlace",
+    "edit": "Editar",
+    "parse": "Análisis automático",
+    "noData": "Aún no hay enlaces",
+    "filters": {
+      "all": "Todos",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "search": "Buscar nombre/url/descripción..."
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo"
+    },
+    "messages": {
+      "loadFailed": "Error al cargar",
+      "updateSuccess": "Actualizado correctamente",
+      "createSuccess": "Creado correctamente",
+      "saveFailed": "Error al guardar",
+      "deleteConfirm": "¿Eliminar este enlace?",
+      "deleteSuccess": "Eliminado correctamente",
+      "deleteFailed": "Error al eliminar",
+      "parseSuccess": "Análisis correcto, campos completados automáticamente",
+      "parseFailed": "Error en el análisis",
+      "parseNoUrl": "Primero introduce la URL de destino"
+    }
+  }
+}

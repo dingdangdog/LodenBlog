@@ -1,0 +1,43 @@
+{
+  "visit": {
+    "filters": {
+      "recordType": "Datensatztyp:",
+      "normalVisitor": "Normaler Besucher",
+      "adminVisitor": "Admin-Besucher",
+      "refresh": "Aktualisieren"
+    },
+    "title": {
+      "normalVisitorRecords": "Normaler Besucherdatensätze",
+      "adminVisitorRecords": "Admin-Besucherdatensätze"
+    },
+    "status": {
+      "loading": "Wird geladen...",
+      "noRecords": "Keine Besucherdatensätze",
+      "loadMore": "Mehr laden...",
+      "noMoreData": "Keine weiteren Daten"
+    },
+    "fields": {
+      "ip": "IP:",
+      "userId": "Benutzer-ID:",
+      "recordId": "Datensatz-ID",
+      "requestUri": "Anfrage-URI",
+      "ipAddress": "IP-Adresse",
+      "userIdLabel": "Benutzer-ID",
+      "userAgent": "User Agent",
+      "createdAt": "Erstellt am"
+    },
+    "modal": {
+      "title": "Besucherdatensatz-Details",
+      "close": "Schließen"
+    },
+    "date": {
+      "justNow": "Gerade eben",
+      "minutesAgo": "vor {minutes} Minuten",
+      "hoursAgo": "vor {hours} Stunden",
+      "daysAgo": "vor {days} Tagen"
+    },
+    "messages": {
+      "loadFailed": "Fehler beim Laden der Besucherdatensätze"
+    }
+  }
+}

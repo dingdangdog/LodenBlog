@@ -1,0 +1,41 @@
+{
+  "users": {
+    "title": "User Management",
+    "table": {
+      "username": "Username",
+      "name": "Nickname",
+      "email": "Email",
+      "role": "Role",
+      "creator": "Creator",
+      "status": "Status",
+      "createdAt": "Created At",
+      "actions": "Actions",
+      "noCreator": "None"
+    },
+    "role": {
+      "user": "User",
+      "creator": "Creator",
+      "admin": "Admin"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "actions": {
+      "grantCreator": "Grant Creator",
+      "granting": "Granting...",
+      "revokeCreator": "Revoke Creator",
+      "revoking": "Revoking...",
+      "alreadyCreator": "Already Creator"
+    },
+    "messages": {
+      "loadFailed": "Failed to load user list",
+      "grantConfirm": "Are you sure you want to grant creator permission to user \"{username}\"?",
+      "grantSuccess": "Grant creator permission successfully",
+      "grantFailed": "Grant creator permission failed",
+      "revokeConfirm": "Are you sure you want to revoke creator permission from user \"{username}\"?",
+      "revokeSuccess": "Revoke creator permission successfully",
+      "revokeFailed": "Revoke creator permission failed"
+    }
+  }
+}

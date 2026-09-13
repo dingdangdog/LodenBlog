@@ -1,0 +1,53 @@
+{
+  "media": {
+    "title": "メディア管理",
+    "upload": "画像をアップロード",
+    "uploading": "アップロード中...",
+    "scanArticles": "記事の画像をスキャン",
+    "scanning": "スキャン中...",
+    "dropZone": {
+      "text": "ここに画像をドラッグ＆ドロップするか、上のボタンをクリック",
+      "hint": "JPG、PNG、GIF対応、最大10MB、WebP形式に自動変換されます"
+    },
+    "loading": "読み込み中...",
+    "empty": "メディアファイルがありません",
+    "selectTitle": "画像を選択",
+    "selectedCount": "選択済み",
+    "selected": "選択済み",
+    "notSelected": "未選択",
+    "actions": {
+      "edit": "編集",
+      "delete": "削除",
+      "save": "保存",
+      "cancel": "キャンセル",
+      "confirm": "確定",
+      "copyUrl": "URLをコピー",
+      "copyMarkdown": "Markdownをコピー"
+    },
+    "modal": {
+      "edit": "メディアを編集",
+      "filename": "ファイル名",
+      "alt": "代替テキスト (Alt)",
+      "altPlaceholder": "画像の代替テキスト",
+      "caption": "説明 (Caption)",
+      "captionPlaceholder": "画像の説明"
+    },
+    "messages": {
+      "uploadImageOnly": "画像ファイルのみアップロードしてください",
+      "fileTooLarge": "ファイルサイズは10MB以下である必要があります",
+      "uploadSuccess": "アップロードに成功しました",
+      "uploadFailed": "アップロードに失敗しました",
+      "saveSuccess": "保存に成功しました",
+      "saveFailed": "保存に失敗しました",
+      "deleteSuccess": "削除に成功しました",
+      "deleteFailed": "削除に失敗しました",
+      "loadFailed": "メディアリストの読み込みに失敗しました",
+      "deleteConfirm": "\"{name}\" を削除してもよろしいですか？",
+      "imageLoadError": "画像の読み込みに失敗しました",
+      "copySuccess": "コピーに成功しました",
+      "copyFailed": "コピーに失敗しました",
+      "scanSuccess": "スキャン完了：合計 {total} 枚の画像が見つかりました。既存 {existing} 枚、新規追加 {added} 枚、失敗 {failed} 枚",
+      "scanFailed": "スキャンに失敗しました"
+    }
+  }
+}

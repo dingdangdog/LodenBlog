@@ -1,0 +1,71 @@
+{
+  "dashboard": {
+    "creator": {
+      "overviewTitle": "Datenübersicht",
+      "overviewDesc": "Ihre Artikel- und Inhaltsstatistiken"
+    },
+    "overview": "Datenübersicht",
+    "resources": "Website-Ressourcen",
+    "enabledLanguages": "Aktivierte Sprachen",
+    "availableThemes": "Verfügbare Themen",
+    "themeCount": "Themen",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "noUpdate": "Keine",
+    "enter": "Öffnen",
+    "siteOverview": "Website-Übersicht",
+    "siteOverviewDesc": "Inhalte und Grundkonfiguration",
+    "visitBoard": "Besuchs-Dashboard",
+    "visitBoardDesc": "Fokus: menschliche Besuche, Bot-Besuche, Bot-Herkunft",
+    "lastNDays": "Letzte {n} Tage",
+    "trendHumanVsBot": "Besuchstrend (Mensch vs. Bot)",
+    "byDay": "Nach Kalendertag",
+    "visitorDist": "Besucherverteilung (letzte {n} Tage)",
+    "totalVisits": "Besuche gesamt",
+    "humanIpBotRatio": "Menschliche IPs / Bot-Anteil",
+    "humanVisits": "Menschliche Besuche",
+    "botVisits": "Bot-Besuche",
+    "humanIps": "Menschliche IPs",
+    "botVendorDist": "Bot-Herstellerverteilung",
+    "noBotData": "Keine Bot-Daten",
+    "todaySummary": "Heutige Zusammenfassung",
+    "rankingHuman": "Mensch",
+    "rankingBot": "Bot",
+    "rankingAll": "Gesamt",
+    "chartTotal": "Gesamt",
+    "chartHuman": "Mensch",
+    "chartBot": "Bot",
+    "quickLinks": "Schnellzugriff",
+    "goTo": "Gehe zu →",
+    "stats": {
+      "totalArticles": "Gesamtanzahl Artikel",
+      "published": "Veröffentlicht",
+      "drafts": "Entwürfe",
+      "totalViews": "Kumulierte Aufrufe",
+      "todayVisits": "Heutige Besuche",
+      "totalVisitCount": "Gesamtbesuche",
+      "totalHumanVisitCount": "Menschliche Besuche gesamt",
+      "totalBotVisitCount": "Bot-Besuche gesamt"
+    },
+    "visitAnalysis": {
+      "title": "Besuchsanalyse",
+      "todayRanking": "Heutige beliebte Artikel",
+      "articleRanking": "Artikel-Ranking",
+      "rangeToday": "Heute",
+      "rangeWeek": "Diese Woche",
+      "rangeAll": "Gesamte Zeit",
+      "visitTrend": "Besuchstrend",
+      "days7": "Letzte 7 Tage",
+      "days30": "Letzte 30 Tage",
+      "days100": "Letzte 100 Tage",
+      "noData": "Keine Daten",
+      "visitCount": "Besuchsanzahl"
+    },
+    "links": {
+      "profile": "Profil",
+      "posts": "Artikel erstellen",
+      "themes": "Themenverwaltung",
+      "media": "Medienverwaltung",
+      "translationlogs": "Übersetzungsprotokoll"
+    }
+  }
+}

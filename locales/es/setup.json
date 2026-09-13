@@ -1,0 +1,153 @@
+{
+  "title": "Inicialización del sistema",
+  "subtitle": "Bienvenido al sistema. Por favor, completa la configuración inicial",
+  "steps": {
+    "welcome": "Bienvenida",
+    "site": "Información SEO",
+    "r2": "Almacenamiento R2",
+    "logo": "Logo e iconos",
+    "admin": "Administrador",
+    "confirm": "Confirmar"
+  },
+  "step1": {
+    "title": "Bienvenido a Loden",
+    "subtitle": "Un potente sistema de blogs multilingüe. ¡Empecemos a configurarlo!",
+    "selectLanguage": "Seleccionar idioma predeterminado",
+    "selectPrimaryLanguage": "Seleccionar idioma principal",
+    "selectEnabledLanguages": "Seleccionar idiomas a habilitar",
+    "enabledLanguagesHint": "Los idiomas habilitados aparecerán en el selector de idioma. Los deshabilitados se guardan y se pueden volver a habilitar en Ajustes de idioma.",
+    "enabled": "Habilitado",
+    "disabled": "Deshabilitado"
+  },
+  "step2": {
+    "title": "Información SEO del sitio",
+    "subtitle": "Configura la información SEO básica del sitio, esto afectará la indexación en los motores de búsqueda",
+    "siteTitle": "Título del sitio",
+    "siteTitlePlaceholder": "Por ejemplo: Mi blog",
+    "siteTitleHelp": "Se muestra en las pestañas del navegador y en los resultados de búsqueda",
+    "siteDescription": "Descripción del sitio",
+    "siteDescriptionPlaceholder": "Describe brevemente el contenido y las características de tu sitio...",
+    "siteDescriptionHelp": "Se muestra en el resumen de los resultados de búsqueda. Se recomiendan entre 120 y 160 caracteres",
+    "siteKeyword": "Palabras clave del sitio",
+    "siteKeywordPlaceholder": "Por ejemplo: tecnología, blog, compartir",
+    "siteKeywordHelp": "Separadas por comas, ayudan a los motores de búsqueda a entender el contenido del sitio",
+    "siteDomain": "Dominio del sitio",
+    "siteDomainPlaceholder": "Por ejemplo: www.ejemplo.com o ejemplo.com",
+    "siteDomainHelp": "Se usa para enlaces en Términos, Privacidad, etc. Se rellena automáticamente con el host actual cuando es posible."
+  },
+  "stepR2": {
+    "title": "Configuración de almacenamiento Cloudflare R2",
+    "subtitle": "Configurar el almacenamiento R2 para admitir la carga de archivos (Logo, iconos, etc.)",
+    "hint": "💡 Consejo: La configuración de R2 es necesaria para cargar logotipos e iconos. Si aún no tienes configuración de R2, puedes omitir la configuración de logotipo e iconos por ahora y configurarla más tarde en la configuración del sistema.",
+    "r2Url": "R2 Endpoint URL",
+    "r2UrlPlaceholder": "https://xxx.r2.cloudflarestorage.com",
+    "r2UrlHelp": "URL del endpoint de Cloudflare R2",
+    "r2SecretId": "R2 Access Key ID",
+    "r2SecretIdPlaceholder": "Access Key ID de 32 caracteres",
+    "r2SecretIdHelp": "Obtenido del panel de Cloudflare, debe tener 32 caracteres",
+    "r2SecretKey": "R2 Secret Access Key",
+    "r2SecretKeyPlaceholder": "Secret Access Key",
+    "r2SecretKeyHelp": "Clave emparejada con Access Key ID",
+    "r2Bucket": "Nombre del bucket R2",
+    "r2BucketPlaceholder": "Por ejemplo: my-bucket",
+    "r2BucketHelp": "Nombre del bucket de almacenamiento R2",
+    "r2Token": "R2 HTTP API Token (Opcional)",
+    "r2TokenPlaceholder": "HTTP API Token (Opcional)",
+    "r2TokenHelp": "Token para acceso HTTP API, opcional",
+    "r2Domain": "Dominio de acceso público R2 (Opcional)",
+    "r2DomainPlaceholder": "https://cdn.example.com",
+    "r2DomainHelp": "Si has configurado un dominio personalizado, ingrésalo aquí"
+  },
+  "step2Logo": {
+    "title": "Configuración de logo e iconos",
+    "subtitle": "Opcional, se puede modificar después de la inicialización en la página de configuración",
+    "logoSection": {
+      "title": "Logo (para mostrar en las páginas internas del sitio)",
+      "lightMode": "Logo modo claro",
+      "darkMode": "Logo modo oscuro",
+      "lightPreview": "Vista previa del logo claro",
+      "darkPreview": "Vista previa del logo oscuro",
+      "preview": "Vista previa",
+      "upload": "Subir",
+      "lightPlaceholder": "https://example.com/logo-light.png",
+      "darkPlaceholder": "https://example.com/logo-dark.png"
+    },
+    "iconSection": {
+      "title": "Icono del sitio (Favicon) (para mostrar en la pestaña del navegador)",
+      "lightMode": "Icono modo claro",
+      "darkMode": "Icono modo oscuro",
+      "lightPreview": "Vista previa del icono claro",
+      "darkPreview": "Vista previa del icono oscuro",
+      "preview": "Vista previa",
+      "upload": "Subir",
+      "lightPlaceholder": "https://example.com/favicon-light.ico",
+      "darkPlaceholder": "https://example.com/favicon-dark.ico"
+    }
+  },
+  "step3": {
+    "title": "Crear cuenta de administrador",
+    "subtitle": "Esta será la cuenta que usarás para administrar el sitio",
+    "email": "Dirección de correo electrónico",
+    "emailPlaceholder": "admin{'@'}example.com",
+    "username": "Nombre de usuario",
+    "usernamePlaceholder": "admin (para iniciar sesión)",
+    "nickname": "Nombre",
+    "nicknamePlaceholder": "Por favor, introduce un nombre",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Al menos 6 caracteres",
+    "passwordConfirm": "Confirmar contraseña",
+    "passwordConfirmPlaceholder": "Vuelve a introducir la contraseña"
+  },
+  "step4": {
+    "title": "Confirmar información de configuración",
+    "subtitle": "Por favor, verifica que la siguiente información sea correcta",
+    "siteInfo": "Información SEO del sitio",
+    "adminInfo": "Cuenta de administrador",
+    "r2Config": "Configuración de almacenamiento R2",
+    "logoAndIcons": "Logo e iconos",
+    "defaultLanguage": "Idioma predeterminado",
+    "enabledLanguages": "Idiomas habilitados",
+    "r2Url": "R2 URL",
+    "r2Bucket": "R2 Bucket",
+    "r2SecretId": "R2 Access Key ID",
+    "r2Domain": "R2 Dominio",
+    "siteTitle": "Título del sitio",
+    "siteDescription": "Descripción del sitio",
+    "siteDomain": "Dominio del sitio",
+    "email": "Correo electrónico",
+    "username": "Nombre de usuario",
+    "nickname": "Nombre",
+    "password": "Contraseña",
+    "logoLight": "Logo modo claro",
+    "logoDark": "Logo modo oscuro",
+    "iconLight": "Icono modo claro",
+    "iconDark": "Icono modo oscuro",
+    "notSet": "No configurado"
+  },
+  "buttons": {
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "submit": "Iniciar configuración",
+    "submitting": "Configurando..."
+  },
+  "footer": {
+    "hint": "Después de completar la inicialización, podrás usar la cuenta de administrador para iniciar sesión en el sistema"
+  },
+  "errors": {
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+    "logoUploadFailed": "Error al subir el logo",
+    "iconUploadFailed": "Error al subir el icono",
+    "r2SecretIdInvalid": "R2 Access Key ID debe tener 32 caracteres",
+    "r2ConfigSaveFailed": "Error al guardar la configuración R2",
+    "initFailed": "Error en la inicialización",
+    "initFailedRetry": "Error en la inicialización. Por favor, inténtalo más tarde"
+  },
+  "languages": {
+    "zh": "Chino",
+    "en": "Inglés",
+    "ja": "Japonés",
+    "de": "Alemán",
+    "es": "Español"
+  }
+}

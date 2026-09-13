@@ -1,0 +1,37 @@
+{
+  "creatorApplications": {
+    "title": "Solicitudes de creador",
+    "filters": {
+      "all": "Todas",
+      "pending": "Pendientes",
+      "approved": "Aprobadas",
+      "rejected": "Rechazadas",
+      "search": "Buscar nombre / ID / mensaje..."
+    },
+    "table": {
+      "applicant": "Solicitante",
+      "penName": "Nombre artístico",
+      "key": "ID de creador",
+      "message": "Mensaje",
+      "status": "Estado",
+      "createdAt": "Fecha de solicitud",
+      "actions": "Acciones"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "approved": "Aprobada",
+      "rejected": "Rechazada"
+    },
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "rejectReason": "Motivo del rechazo",
+    "rejectReasonPlaceholder": "Opcional. Indicar al solicitante el motivo",
+    "noData": "No hay solicitudes",
+    "messages": {
+      "loadFailed": "Error al cargar la lista",
+      "approveSuccess": "Aprobada",
+      "rejectSuccess": "Rechazada",
+      "actionFailed": "Error en la acción"
+    }
+  }
+}

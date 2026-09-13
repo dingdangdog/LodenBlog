@@ -1,0 +1,21 @@
+{
+  "copyright": "Derechos de autor",
+  "rights": "Todos los derechos reservados",
+  "year": "2025",
+  "links": {
+    "about": "Acerca de nosotros",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "contact": "Contáctanos",
+    "moreLinks": "More Links"
+  },
+  "social": {
+    "follow": "Síguenos",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "github": "GitHub",
+    "email": "Correo electrónico"
+  },
+  "poweredBy": "Desarrollado con",
+  "builtWith": "Construido con"
+}

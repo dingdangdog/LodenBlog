@@ -1,0 +1,42 @@
+{
+  "visit": {
+    "filters": {
+      "recordType": "记录类型：",
+      "normalVisitor": "普通访客",
+      "adminVisitor": "后台访客"
+    },
+    "title": {
+      "normalVisitorRecords": "普通访客记录",
+      "adminVisitorRecords": "后台访客记录"
+    },
+    "status": {
+      "loading": "加载中...",
+      "noRecords": "暂无访客记录",
+      "loadMore": "加载更多...",
+      "noMoreData": "没有更多数据了"
+    },
+    "fields": {
+      "ip": "IP:",
+      "userId": "用户ID:",
+      "recordId": "记录ID",
+      "requestUri": "请求URI",
+      "ipAddress": "IP地址",
+      "userIdLabel": "用户ID",
+      "userAgent": "User Agent",
+      "createdAt": "创建时间"
+    },
+    "modal": {
+      "title": "访客记录详情",
+      "close": "关闭"
+    },
+    "date": {
+      "justNow": "刚刚",
+      "minutesAgo": "{minutes} 分钟前",
+      "hoursAgo": "{hours} 小时前",
+      "daysAgo": "{days} 天前"
+    },
+    "messages": {
+      "loadFailed": "加载访客记录失败"
+    }
+  }
+}

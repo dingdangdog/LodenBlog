@@ -1,0 +1,41 @@
+{
+  "users": {
+    "title": "Gestión de usuarios",
+    "table": {
+      "username": "Nombre de usuario",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "role": "Rol",
+      "creator": "Creador",
+      "status": "Estado",
+      "createdAt": "Fecha de creación",
+      "actions": "Acciones",
+      "noCreator": "Ninguno"
+    },
+    "role": {
+      "user": "Usuario",
+      "creator": "Creador",
+      "admin": "Administrador"
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo"
+    },
+    "actions": {
+      "grantCreator": "Otorgar permisos de creador",
+      "granting": "Otorgando...",
+      "revokeCreator": "Revocar permisos de creador",
+      "revoking": "Revocando...",
+      "alreadyCreator": "Ya es creador"
+    },
+    "messages": {
+      "loadFailed": "Error al cargar la lista de usuarios",
+      "grantConfirm": "¿Estás seguro de que deseas otorgar permisos de creador al usuario \"{username}\"?",
+      "grantSuccess": "Permisos de creador otorgados correctamente",
+      "grantFailed": "Error al otorgar permisos de creador",
+      "revokeConfirm": "¿Estás seguro de que deseas revocar los permisos de creador del usuario \"{username}\"?",
+      "revokeSuccess": "Permisos de creador revocados correctamente",
+      "revokeFailed": "Error al revocar permisos de creador"
+    }
+  }
+}

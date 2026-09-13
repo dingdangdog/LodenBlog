@@ -1,0 +1,36 @@
+{
+  "comment": {
+    "title": "コメント管理",
+    "filters": {
+      "all": "すべて",
+      "pending": "未承認",
+      "approved": "承認済み",
+      "search": "内容/著者で検索..."
+    },
+    "table": {
+      "content": "内容",
+      "author": "著者",
+      "article": "記事",
+      "status": "状態",
+      "createdAt": "日時",
+      "actions": "操作"
+    },
+    "status": {
+      "pending": "未承認",
+      "approved": "承認済み"
+    },
+    "approve": "承認",
+    "reject": "却下",
+    "delete": "削除",
+    "noData": "コメントはありません",
+    "messages": {
+      "loadFailed": "コメント一覧の読み込みに失敗しました",
+      "approveSuccess": "承認しました",
+      "rejectSuccess": "却下しました",
+      "updateFailed": "更新に失敗しました",
+      "deleteConfirm": "このコメントを削除してもよろしいですか？",
+      "deleteSuccess": "削除しました",
+      "deleteFailed": "削除に失敗しました"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "media": {
+    "title": "Gestión de medios",
+    "upload": "Subir imagen",
+    "uploading": "Subiendo...",
+    "scanArticles": "Escanear imágenes de artículos",
+    "scanning": "Escaneando...",
+    "dropZone": {
+      "text": "Arrastra imágenes aquí o haz clic en el botón de arriba para subir",
+      "hint": "Soporta formatos JPG, PNG, GIF, etc. Máximo 10MB. Se convertirá automáticamente al formato WebP"
+    },
+    "loading": "Cargando...",
+    "empty": "No hay archivos multimedia",
+    "selectTitle": "Seleccionar imagen",
+    "selectedCount": "Seleccionado",
+    "selected": "Seleccionado",
+    "notSelected": "No seleccionado",
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "confirm": "Confirmar",
+      "copyUrl": "Copiar URL",
+      "copyMarkdown": "Copiar Markdown"
+    },
+    "modal": {
+      "edit": "Editar medio",
+      "filename": "Nombre del archivo",
+      "alt": "Texto alternativo (Alt)",
+      "altPlaceholder": "Texto alternativo de la imagen",
+      "caption": "Descripción (Caption)",
+      "captionPlaceholder": "Descripción de la imagen"
+    },
+    "messages": {
+      "uploadImageOnly": "Por favor, sube solo archivos de imagen",
+      "fileTooLarge": "El tamaño del archivo no debe exceder 10MB",
+      "uploadSuccess": "Subida exitosa",
+      "uploadFailed": "Error al subir",
+      "saveSuccess": "Guardado correctamente",
+      "saveFailed": "Error al guardar",
+      "deleteSuccess": "Eliminado correctamente",
+      "deleteFailed": "Error al eliminar",
+      "loadFailed": "Error al cargar la lista de medios",
+      "deleteConfirm": "¿Estás seguro de que deseas eliminar \"{name}\"?",
+      "imageLoadError": "Error al cargar la imagen",
+      "copySuccess": "Copiado correctamente",
+      "copyFailed": "Error al copiar",
+      "scanSuccess": "Escaneo completado: Se encontraron {total} imágenes, {existing} ya existen, {added} agregadas, {failed} fallaron",
+      "scanFailed": "Error al escanear"
+    }
+  }
+}

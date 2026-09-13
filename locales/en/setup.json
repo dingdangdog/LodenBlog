@@ -1,0 +1,153 @@
+{
+  "title": "System Setup",
+  "subtitle": "Welcome! Let's configure your system",
+  "steps": {
+    "welcome": "Welcome",
+    "site": "SEO Info",
+    "r2": "R2 Storage",
+    "logo": "Logo & Icons",
+    "admin": "Admin",
+    "confirm": "Confirm"
+  },
+  "step1": {
+    "title": "Welcome to Loden",
+    "subtitle": "A powerful multilingual blog system. Let's get started!",
+    "selectLanguage": "Select Default Language",
+    "selectPrimaryLanguage": "Select Primary Language",
+    "selectEnabledLanguages": "Select Languages to Enable",
+    "enabledLanguagesHint": "Enabled languages will appear in the site language switcher. Disabled languages are still stored and can be re-enabled later in Language settings.",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "step2": {
+    "title": "Website SEO Information",
+    "subtitle": "Set up your website's SEO basics. This will affect search engine indexing",
+    "siteTitle": "Site Title",
+    "siteTitlePlaceholder": "e.g., My Blog",
+    "siteTitleHelp": "Displayed in browser tabs and search results",
+    "siteDescription": "Site Description",
+    "siteDescriptionPlaceholder": "Briefly describe your website content and features...",
+    "siteDescriptionHelp": "Shown in search result snippets, recommended 120-160 characters",
+    "siteKeyword": "Site Keywords",
+    "siteKeywordPlaceholder": "e.g., Tech, Blog, Sharing",
+    "siteKeywordHelp": "Comma-separated, helps search engines understand your content",
+    "siteDomain": "Site Domain",
+    "siteDomainPlaceholder": "e.g., www.example.com or example.com",
+    "siteDomainHelp": "Used for links in Terms, Privacy Policy, etc. Auto-filled with current host when possible."
+  },
+  "stepR2": {
+    "title": "Cloudflare R2 Storage Configuration",
+    "subtitle": "Configure R2 storage to support file uploads (Logo, icons, etc.)",
+    "hint": "💡 Tip: R2 configuration is required for uploading logos and icons. If you don't have R2 configuration yet, you can skip logo and icon settings for now and configure it later in system settings.",
+    "r2Url": "R2 Endpoint URL",
+    "r2UrlPlaceholder": "https://xxx.r2.cloudflarestorage.com",
+    "r2UrlHelp": "Cloudflare R2 Endpoint URL",
+    "r2SecretId": "R2 Access Key ID",
+    "r2SecretIdPlaceholder": "32-character Access Key ID",
+    "r2SecretIdHelp": "Obtained from Cloudflare Dashboard, must be 32 characters",
+    "r2SecretKey": "R2 Secret Access Key",
+    "r2SecretKeyPlaceholder": "Secret Access Key",
+    "r2SecretKeyHelp": "Key paired with Access Key ID",
+    "r2Bucket": "R2 Bucket Name",
+    "r2BucketPlaceholder": "e.g., my-bucket",
+    "r2BucketHelp": "Name of the R2 storage bucket",
+    "r2Token": "R2 HTTP API Token (Optional)",
+    "r2TokenPlaceholder": "HTTP API Token (Optional)",
+    "r2TokenHelp": "Token for HTTP API access, optional",
+    "r2Domain": "R2 Public Access Domain (Optional)",
+    "r2DomainPlaceholder": "https://cdn.example.com",
+    "r2DomainHelp": "If you have configured a custom domain, enter it here"
+  },
+  "step2Logo": {
+    "title": "Logo & Icon Settings",
+    "subtitle": "Optional, can be modified later through settings page",
+    "logoSection": {
+      "title": "Logo (for website pages)",
+      "lightMode": "Light Mode Logo",
+      "darkMode": "Dark Mode Logo",
+      "lightPreview": "Light Logo Preview",
+      "darkPreview": "Dark Logo Preview",
+      "preview": "Preview",
+      "upload": "Upload",
+      "lightPlaceholder": "https://example.com/logo-light.png",
+      "darkPlaceholder": "https://example.com/logo-dark.png"
+    },
+    "iconSection": {
+      "title": "Website Icon (Favicon) (for browser tab)",
+      "lightMode": "Light Mode Icon",
+      "darkMode": "Dark Mode Icon",
+      "lightPreview": "Light Icon Preview",
+      "darkPreview": "Dark Icon Preview",
+      "preview": "Preview",
+      "upload": "Upload",
+      "lightPlaceholder": "https://example.com/favicon-light.ico",
+      "darkPlaceholder": "https://example.com/favicon-dark.ico"
+    }
+  },
+  "step3": {
+    "title": "Create Admin Account",
+    "subtitle": "This will be your account for managing the website",
+    "email": "Email Address",
+    "emailPlaceholder": "admin{'@'}example.com",
+    "username": "Username",
+    "usernamePlaceholder": "admin（for login）",
+    "nickname": "Nickname",
+    "nicknamePlaceholder": "Enter nickname",
+    "password": "Password",
+    "passwordPlaceholder": "At least 6 characters",
+    "passwordConfirm": "Confirm Password",
+    "passwordConfirmPlaceholder": "Enter password again"
+  },
+  "step4": {
+    "title": "Confirm Configuration",
+    "subtitle": "Please verify the information below",
+    "siteInfo": "Website SEO Information",
+    "adminInfo": "Admin Account",
+    "r2Config": "R2 Storage Configuration",
+    "logoAndIcons": "Logo & Icons",
+    "defaultLanguage": "Default Language",
+    "enabledLanguages": "Enabled Languages",
+    "r2Url": "R2 URL",
+    "r2Bucket": "R2 Bucket",
+    "r2SecretId": "R2 Access Key ID",
+    "r2Domain": "R2 Domain",
+    "siteTitle": "Site Title",
+    "siteDescription": "Site Description",
+    "siteDomain": "Site Domain",
+    "email": "Email",
+    "username": "Username",
+    "nickname": "Nickname",
+    "password": "Password",
+    "logoLight": "Light Mode Logo",
+    "logoDark": "Dark Mode Logo",
+    "iconLight": "Light Mode Icon",
+    "iconDark": "Dark Mode Icon",
+    "notSet": "Not Set"
+  },
+  "buttons": {
+    "prev": "Previous",
+    "next": "Next",
+    "submit": "Start Setup",
+    "submitting": "Setting up..."
+  },
+  "footer": {
+    "hint": "After setup, you can log in with your admin account"
+  },
+  "errors": {
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "logoUploadFailed": "Logo upload failed",
+    "iconUploadFailed": "Icon upload failed",
+    "r2SecretIdInvalid": "R2 Access Key ID must be 32 characters",
+    "r2ConfigSaveFailed": "Failed to save R2 configuration",
+    "initFailed": "Setup failed",
+    "initFailedRetry": "Setup failed, please try again later"
+  },
+  "languages": {
+    "zh": "Chinese",
+    "en": "English",
+    "ja": "Japanese",
+    "de": "German",
+    "es": "Spanish"
+  }
+}

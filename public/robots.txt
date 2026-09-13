@@ -1,0 +1,89 @@
+# 通用爬虫规则
+User-Agent: *
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api
+Disallow: /api/
+Disallow: /setup
+Disallow: /setup/
+Disallow: /my
+Disallow: /my/
+
+
+# 允许主要搜索引擎爬虫
+User-Agent: Googlebot
+Allow: /
+
+User-Agent: Bingbot
+Allow: /
+
+User-Agent: Slurp
+Allow: /
+
+User-Agent: DuckDuckBot
+Allow: /
+
+User-Agent: Baiduspider
+Allow: /
+
+User-Agent: Yandex
+Allow: /
+
+# 允许现代AI工具爬虫（用于AI训练和内容索引）
+User-Agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api
+Disallow: /api/
+Disallow: /setup
+Disallow: /setup/
+Disallow: /my
+Disallow: /my/
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api
+Disallow: /api/
+Disallow: /setup
+Disallow: /setup/
+Disallow: /my
+Disallow: /my/
+
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api
+Disallow: /api/
+Disallow: /setup
+Disallow: /setup/
+Disallow: /my
+Disallow: /my/
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api
+Disallow: /api/
+Disallow: /setup
+Disallow: /setup/
+Disallow: /my
+Disallow: /my/
+
+User-Agent: Google-Extended
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api
+Disallow: /api/
+Disallow: /setup
+Disallow: /setup/
+Disallow: /my
+Disallow: /my/
+
+# Sitemap 位置（请改为你的站点绝对地址）
+# Sitemap: https://example.com/sitemap.xml

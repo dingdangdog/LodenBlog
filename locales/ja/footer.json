@@ -1,0 +1,22 @@
+{
+  "copyright": "著作権",
+  "rights": "無断転載を禁じます",
+  "year": "2025",
+  "links": {
+    "about": "私たちについて",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "contact": "お問い合わせ",
+    "moreLinks": "もっとリンク"
+  },
+  "social": {
+    "follow": "フォローする",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "github": "GitHub",
+    "email": "メール"
+  },
+  "poweredBy": "提供",
+  "builtWith": "構築"
+}
+

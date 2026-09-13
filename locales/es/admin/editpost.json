@@ -1,0 +1,148 @@
+{
+  "editpost": {
+    "languageSelector": {
+      "label": "Idioma actual:",
+      "placeholder": "Por favor, selecciona un idioma",
+      "willCreate": "Esta versión de idioma no existe, se creará una nueva versión"
+    },
+    "actions": {
+      "saveCurrentLanguage": "Guardar",
+      "generate": "Generar",
+      "upload": "Subir imagen",
+      "uploading": "Subiendo...",
+      "selectMedia": "Seleccionar imagen",
+      "selectImage": "Seleccionar imagen",
+      "clearCover": "Quitar portada",
+      "insertAdSlot": "Insertar espacio publicitario",
+      "add": "Añadir",
+      "addCategory": "Añadir categoría",
+      "addTag": "Añadir etiqueta",
+      "back": "Volver",
+      "publish": "Publicar",
+      "publishing": "Publicando...",
+      "published": "Publicado"
+    },
+    "tabs": {
+      "basic": "Información básica",
+      "content": "Edición del contenido",
+      "seo": "Configuración SEO"
+    },
+    "sections": {
+      "basic": "Información básica",
+      "categoryTag": "Categoría y etiquetas"
+    },
+    "fields": {
+      "title": "Título",
+      "slug": "Slug",
+      "cover": "Imagen de portada",
+      "excerpt": "Resumen",
+      "category": "Categoría",
+      "tags": "Etiquetas",
+      "articleId": "ID del artículo",
+      "seoTitle": "Título SEO",
+      "seoDescription": "Descripción SEO",
+      "seoKeyword": "Palabras clave SEO"
+    },
+    "placeholders": {
+      "title": "Por favor, introduce el título del artículo",
+      "slug": "Identificador URL del artículo",
+      "coverPreview": "Vista previa de la portada",
+      "coverEmpty": "Área de vista previa",
+      "coverUrl": "https://example.com/cover.jpg",
+      "excerpt": "Resumen del artículo. Si se deja vacío, se extraerá automáticamente del contenido",
+      "noCategory": "Por favor, selecciona o crea",
+      "noTag": "Por favor, selecciona o crea",
+      "seoTitle": "Si se deja vacío, se usará el título del artículo",
+      "seoDescription": "Si se deja vacío, se usará el resumen del artículo",
+      "seoKeyword": "Múltiples palabras clave separadas por comas, ej.: palabra1, palabra2, palabra3"
+    },
+    "hints": {
+      "title": "Máximo {max} unidades de caracteres",
+      "excerpt": "Máximo {max} unidades de caracteres",
+      "content": "Mínimo {min}, máximo {max} unidades de caracteres",
+      "seoTitle": "Longitud recomendada: {min}-{max} caracteres",
+      "seoDescription": "Longitud recomendada: {min}-{max} caracteres",
+      "seoKeyword": "Múltiples palabras clave separadas por comas"
+    },
+    "tooltips": {
+      "selectLanguageFirst": "Por favor, selecciona primero un idioma"
+    },
+    "messages": {
+      "slugInvalid": "El slug solo puede contener letras minúsculas, números y guiones",
+      "categoryCreateSuccess": "Categoría creada correctamente",
+      "categoryCreateFailed": "Error al crear la categoría",
+      "tagCreateSuccess": "Etiqueta creada correctamente",
+      "tagCreateFailed": "Error al crear la etiqueta",
+      "enterCategoryNameAndLanguage": "Por favor, introduce primero el nombre de la categoría y selecciona un idioma",
+      "enterTagNameAndLanguage": "Por favor, introduce primero el nombre de la etiqueta y selecciona un idioma",
+      "translateSlugSuccess": "Slug generado mediante traducción correctamente",
+      "translateSlugFailed": "Error en la traducción. Por favor, usa la generación local",
+      "pleaseEnterTitle": "Por favor, introduce el título primero",
+      "pleaseSelectLanguage": "Por favor, selecciona un idioma primero",
+      "generateSlugByTranslation": "Generar slug en inglés mediante traducción",
+      "selectLanguage": "Por favor, selecciona un idioma",
+      "pleaseFillRequiredFields": "Por favor, completa todos los campos obligatorios",
+      "titleExceedsLimit": "El título excede el límite: máximo {max} unidades de caracteres",
+      "excerptExceedsLimit": "El resumen excede el límite: máximo {max} unidades de caracteres",
+      "contentTooShort": "El contenido es demasiado corto: se requieren mínimo {min} unidades de caracteres",
+      "contentExceedsLimit": "El contenido excede el límite: máximo {max} unidades de caracteres",
+      "coverUploadSuccess": "Imagen de portada subida correctamente",
+      "coverUploadFailed": "Error al subir la imagen de portada",
+      "saveSuccess": "Guardado correctamente",
+      "saveFailed": "Error al guardar",
+      "saveArticleFailed": "Error al guardar el artículo",
+      "articlePublished": "Artículo publicado",
+      "articleSaved": "Artículo guardado",
+      "articleCreatedAndPublished": "Artículo creado y publicado",
+      "articleCreatedAndSaved": "Artículo creado y guardado"
+    },
+    "newCategoryDialog": {
+      "title": "Añadir categoría",
+      "fields": {
+        "name": "Nombre de la categoría",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "Por favor, introduce el nombre de la categoría",
+        "slug": "Identificador URL de la categoría (se generará automáticamente)"
+      },
+      "hints": {
+        "slug": "Solo puede contener letras minúsculas, números y guiones"
+      },
+      "buttons": {
+        "cancel": "Cancelar",
+        "create": "Crear",
+        "creating": "Creando..."
+      },
+      "tooltips": {
+        "enterName": "Por favor, introduce primero el nombre de la categoría",
+        "selectLanguage": "Por favor, selecciona primero un idioma",
+        "generateSlug": "Generar slug en inglés mediante traducción"
+      }
+    },
+    "newTagDialog": {
+      "title": "Añadir etiqueta",
+      "fields": {
+        "name": "Nombre de la etiqueta",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "Por favor, introduce el nombre de la etiqueta",
+        "slug": "Identificador URL de la etiqueta (se generará automáticamente)"
+      },
+      "hints": {
+        "slug": "Solo puede contener letras minúsculas, números y guiones"
+      },
+      "buttons": {
+        "cancel": "Cancelar",
+        "create": "Crear",
+        "creating": "Creando..."
+      },
+      "tooltips": {
+        "enterName": "Por favor, introduce primero el nombre de la etiqueta",
+        "selectLanguage": "Por favor, selecciona primero un idioma",
+        "generateSlug": "Generar slug en inglés mediante traducción"
+      }
+    }
+  }
+}

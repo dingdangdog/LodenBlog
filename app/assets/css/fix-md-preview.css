@@ -1,0 +1,120 @@
+/* 修复 md-editor-v3 预览区域的有序列表样式 */
+/* 全局样式 - 直接作用于所有 md-editor 预览容器 */
+
+.md-editor-preview ol,
+.md-editor-preview ul {
+  padding-left: 2.5rem !important;
+  margin: 1rem 0 !important;
+}
+
+.md-editor-preview ol {
+  list-style: decimal outside !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+}
+
+.md-editor-preview ol li {
+  display: list-item !important;
+  list-style: decimal outside !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  margin: 0.5rem 0 !important;
+  padding-left: 0.25rem !important;
+}
+
+.md-editor-preview ul {
+  list-style: disc outside !important;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+.md-editor-preview ul li {
+  display: list-item !important;
+  list-style: disc outside !important;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  margin: 0.5rem 0 !important;
+  padding-left: 0.25rem !important;
+}
+
+/* 嵌套列表 */
+.md-editor-preview ol ol {
+  list-style-type: lower-alpha !important;
+}
+
+.md-editor-preview ol ol ol {
+  list-style-type: lower-roman !important;
+}
+
+.md-editor-preview ul ul {
+  list-style-type: circle !important;
+}
+
+.md-editor-preview ul ul ul {
+  list-style-type: square !important;
+}
+
+/* 覆盖 Tailwind 可能的重置 */
+.md-editor-preview ol,
+.md-editor-preview ul {
+  list-style-image: none !important;
+}
+
+/* 确保所有可能的预览容器都应用样式 */
+[class*="md-preview"] ol,
+[class*="md-editor"] [class*="preview"] ol {
+  list-style: decimal outside !important;
+  list-style-type: decimal !important;
+  padding-left: 2.5rem !important;
+}
+
+[class*="md-preview"] ol li,
+[class*="md-editor"] [class*="preview"] ol li {
+  display: list-item !important;
+  list-style: decimal outside !important;
+}
+
+[class*="md-preview"] ul,
+[class*="md-editor"] [class*="preview"] ul {
+  list-style: disc outside !important;
+  list-style-type: disc !important;
+  padding-left: 2.5rem !important;
+}
+
+[class*="md-preview"] ul li,
+[class*="md-editor"] [class*="preview"] ul li {
+  display: list-item !important;
+  list-style: disc outside !important;
+}
+
+/* 最强覆盖 - 针对所有可能的 md-editor 容器 */
+[id*="md-editor"] ol,
+[id*="md-editor"] ul,
+[class*="md-editor"] ol,
+[class*="md-editor"] ul {
+  padding-left: 2.5rem !important;
+}
+
+[id*="md-editor"] ol,
+[class*="md-editor"] ol {
+  list-style: decimal outside !important;
+  list-style-type: decimal !important;
+}
+
+[id*="md-editor"] ol li,
+[class*="md-editor"] ol li {
+  display: list-item !important;
+  list-style: decimal outside !important;
+}
+
+[id*="md-editor"] ul,
+[class*="md-editor"] ul {
+  list-style: disc outside !important;
+  list-style-type: disc !important;
+}
+
+[id*="md-editor"] ul li,
+[class*="md-editor"] ul li {
+  display: list-item !important;
+  list-style: disc outside !important;
+}

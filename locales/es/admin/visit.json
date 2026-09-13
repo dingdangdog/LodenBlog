@@ -1,0 +1,43 @@
+{
+  "visit": {
+    "filters": {
+      "recordType": "Tipo de registro:",
+      "normalVisitor": "Visitante normal",
+      "adminVisitor": "Visitante de administración",
+      "refresh": "Actualizar"
+    },
+    "title": {
+      "normalVisitorRecords": "Registros de visitantes normales",
+      "adminVisitorRecords": "Registros de visitantes de administración"
+    },
+    "status": {
+      "loading": "Cargando...",
+      "noRecords": "No hay registros de visitantes",
+      "loadMore": "Cargando más...",
+      "noMoreData": "No hay más datos"
+    },
+    "fields": {
+      "ip": "IP:",
+      "userId": "ID de usuario:",
+      "recordId": "ID de registro",
+      "requestUri": "URI de solicitud",
+      "ipAddress": "Dirección IP",
+      "userIdLabel": "ID de usuario",
+      "userAgent": "User Agent",
+      "createdAt": "Fecha de creación"
+    },
+    "modal": {
+      "title": "Detalles del registro de visitante",
+      "close": "Cerrar"
+    },
+    "date": {
+      "justNow": "Ahora mismo",
+      "minutesAgo": "hace {minutes} minutos",
+      "hoursAgo": "hace {hours} horas",
+      "daysAgo": "hace {days} días"
+    },
+    "messages": {
+      "loadFailed": "Error al cargar los registros de visitantes"
+    }
+  }
+}

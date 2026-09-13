@@ -1,0 +1,156 @@
+{
+  "posts": {
+    "title": "我的文章",
+    "searchPlaceholder": "搜索标题或 slug，空格或顿号分词",
+    "filters": {
+      "allStatus": "全部状态",
+      "draft": "草稿",
+      "published": "已发布",
+      "allLanguages": "全部语言",
+      "allCategories": "全部分类",
+      "allTags": "全部标签",
+      "apply": "筛选",
+      "sortBy": "排序方式",
+      "sortOrder": "排序方向",
+      "sortOptions": {
+        "createdAt": "创建时间",
+        "viewCount": "阅读量",
+        "updatedAt": "更新时间"
+      },
+      "sortOrderOptions": {
+        "desc": "降序",
+        "asc": "升序"
+      }
+    },
+    "actions": {
+      "create": "新建",
+      "edit": "编辑",
+      "loading": "加载中...",
+      "noArticles": "暂无文章",
+      "createHint": "点击右上角「新建文章」开始创作",
+      "translate": "翻译到其他语言",
+      "view": "查看文章",
+      "delete": "删除文章",
+      "comments": "评论",
+      "visitAnalysis": "访问趋势",
+      "generateWithAI": "AI写文章",
+      "aiGenerationLogs": "生成记录",
+      "publish": "发布文章",
+      "pin": "置顶",
+      "unpin": "取消置顶"
+    },
+    "status": {
+      "published": "已发布",
+      "draft": "草稿",
+      "pinned": "置顶"
+    },
+    "deleteDialog": {
+      "title": "删除文章",
+      "warning": "警告",
+      "warningText": "删除操作不可恢复，将永久删除文章及其所有语言版本。",
+      "articleTitle": "文章标题：",
+      "cancel": "取消",
+      "deleting": "删除中...",
+      "confirm": "确认删除"
+    },
+    "translateDialog": {
+      "title": "翻译文章",
+      "important": "重要提示",
+      "hint1": "翻译将覆盖所有已存在的其他语言版本内容",
+      "hint2": "翻译过程可能需要几分钟时间，请耐心等待",
+      "hint3": "翻译任务在后台执行，不会阻塞页面操作",
+      "sourceLanguage": "源语言",
+      "selectSourceLanguage": "选择源语言",
+      "sourceLanguageHint": "选择要作为翻译源的语言版本",
+      "articleTitle": "文章标题：",
+      "targetLanguages": "目标语言",
+      "selectAll": "全选",
+      "deselectAll": "取消全选",
+      "targetLanguagesHint": "选择要翻译的目标语言，可多选",
+      "noTargetLanguages": "没有可用的目标语言",
+      "provider": "翻译渠道",
+      "useDefaultProvider": "使用系统默认",
+      "providerHint": "选择翻译渠道，留空则使用系统默认配置的翻译服务商",
+      "cancel": "取消",
+      "translating": "翻译中...",
+      "confirm": "确认翻译"
+    },
+    "date": {
+      "today": "今天",
+      "yesterday": "昨天",
+      "daysAgo": "{days} 天前"
+    },
+    "availableLanguages": "语言",
+    "visitAnalysis": {
+      "title": "文章访问趋势",
+      "timeRange": "时间范围",
+      "language": "语言",
+      "allLanguages": "全部语言",
+      "days7": "近7天",
+      "days30": "近30天",
+      "days100": "近100天",
+      "noData": "暂无数据",
+      "visitCount": "访问量"
+    },
+    "generateArticleDialog": {
+      "title": "AI写文章",
+      "articleTitle": "文章标题",
+      "articleTitlePlaceholder": "请输入文章标题",
+      "articleTitleHint": "输入文章的标题，AI将根据标题生成内容",
+      "language": "文章语言",
+      "selectLanguage": "选择语言",
+      "languageHint": "选择文章使用的语言",
+      "contentRequirement": "内容要求",
+      "contentRequirementPlaceholder": "请描述文章的内容要求，例如：文章主题、目标读者、风格要求、关键要点等",
+      "contentRequirementHint": "详细描述你希望AI生成的文章内容，描述越详细，生成的内容越符合预期",
+      "aiProvider": "AI服务商",
+      "useDefaultProvider": "使用系统默认",
+      "aiProviderHint": "选择AI服务商，留空则使用系统默认配置",
+      "generating": "生成中...",
+      "generate": "开始生成"
+    },
+    "messages": {
+      "translateStarted": "翻译任务已启动，正在后台执行",
+      "translateFailed": "启动翻译任务失败",
+      "selectTargetLanguages": "请至少选择一个目标语言",
+      "noLanguageVersion": "文章没有可用的语言版本",
+      "deleteSuccess": "文章删除成功",
+      "deleteFailed": "删除文章失败",
+      "publishSuccess": "文章发布成功",
+      "publishFailed": "发布文章失败",
+      "articleTitleRequired": "文章标题不能为空",
+      "languageRequired": "请选择文章语言",
+      "contentRequirementRequired": "内容要求不能为空",
+      "generateSuccess": "AI文章生成成功",
+      "generateFailed": "AI文章生成失败",
+      "pinSuccess": "置顶成功",
+      "pinFailed": "置顶失败",
+      "unpinSuccess": "已取消置顶",
+      "unpinFailed": "取消置顶失败"
+    },
+    "aiGenerationLogsModal": {
+      "title": "AI 生成记录",
+      "searchPlaceholder": "搜索标题或内容要求...",
+      "noLogs": "暂无生成记录",
+      "language": "语言",
+      "provider": "AI 服务商",
+      "createdAt": "提交时间",
+      "contentLength": "生成 {count} 字符",
+      "viewDetail": "查看详情",
+      "hideDetail": "收起详情",
+      "reuse": "复用参数",
+      "editArticle": "编辑文章",
+      "statusAll": "全部状态",
+      "statusSuccess": "成功",
+      "statusFailed": "失败",
+      "statusProcessing": "处理中"
+    },
+    "commentsModal": {
+      "title": "文章评论",
+      "noComments": "暂无评论",
+      "replyPlaceholder": "写下回复...",
+      "submitReply": "发送回复",
+      "addReply": "发表评论"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "translation": {
+    "title": "Service Provider Management",
+    "table": {
+      "name": "Name",
+      "provider": "Provider",
+      "protocol": "Interface protocol",
+      "apiKey": "API Key",
+      "apiSecret": "API Secret",
+      "endpoint": "Endpoint",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "actions": {
+      "add": "Add Config",
+      "copy": "Duplicate",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "test": "Test connectivity"
+    },
+    "modal": {
+      "add": "Add Translation Config",
+      "edit": "Edit Translation Config",
+      "name": "Name",
+      "namePlaceholder": "Enter config name, e.g.: DeepL Pro",
+      "provider": "Interface protocol",
+      "providerPlaceholder": "Select interface protocol",
+      "apiKey": "API Key",
+      "apiKeyPlaceholder": "Enter API Key",
+      "apiSecret": "API Secret",
+      "apiSecretPlaceholder": "Enter API Secret (if needed)",
+      "apiEndpoint": "API Endpoint",
+      "apiEndpointPlaceholder": "Optional, custom API endpoint",
+      "timeout": "Timeout (ms)",
+      "maxRetries": "Max Retries",
+      "priority": "Priority",
+      "priorityPlaceholder": "Higher number means higher priority",
+      "extraConfig": "Extra Config (JSON)",
+      "extraConfigPlaceholder": "e.g., key: value or JSON format",
+      "enabled": "Enabled"
+    },
+    "messages": {
+      "nameRequired": "Config name cannot be empty",
+      "providerRequired": "Interface protocol is required",
+      "createSuccess": "Created successfully",
+      "updateSuccess": "Updated successfully",
+      "saveSuccess": "Saved successfully",
+      "copySuccess": "Copied successfully",
+      "copyFailed": "Failed to copy translation config",
+      "saveFailed": "Failed to save translation config",
+      "loadFailed": "Failed to load translation configs",
+      "loadConfigFailed": "Failed to load translation config",
+      "testSuccess": "Connectivity test passed",
+      "testFailed": "Connectivity test failed",
+      "testUnsupported": "This protocol does not support connectivity test",
+      "deleteConfirm": "Are you sure you want to delete config \"{name}\"? This action cannot be undone.",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Failed to delete translation config"
+    },
+    "protocolOptions": {
+      "openai": "OpenAI",
+      "gemini": "Gemini",
+      "alibaba": "Alibaba Cloud",
+      "deepseek": "DeepSeek",
+      "deepl": "DeepL",
+      "volcano": "Volcano",
+      "google": "Google Translate",
+      "baidu": "Baidu",
+      "tencent": "Tencent",
+      "youdao": "Youdao"
+    }
+  }
+}

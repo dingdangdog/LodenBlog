@@ -1,0 +1,220 @@
+{
+  "profile": {
+    "emailCannotChange": "Email cannot be changed",
+    "avatarUrl": "Avatar URL",
+    "bio": "Bio",
+    "bioPlaceholder": "Tell us about yourself...",
+    "accountCreated": "Account Created",
+    "role": "Role",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "roleAdmin": "Administrator",
+    "roleCreator": "Creator",
+    "roleUser": "User"
+  },
+  "article": {
+    "title": "Article",
+    "list": "Article List",
+    "detail": "Article Detail",
+    "create": "Create Article",
+    "edit": "Edit Article",
+    "delete": "Delete Article",
+    "publish": "Publish",
+    "draft": "Draft",
+    "published": "Published",
+    "unpublished": "Unpublished",
+    "readMore": "Read More",
+    "related": "Related Articles",
+    "tags": "Tags",
+    "category": "Category",
+    "author": "Author",
+    "date": "Date",
+    "views": "Views",
+    "noArticles": "No articles available",
+    "notFound": "Article not found",
+    "backToHome": "Back to Home",
+    "viewsCount": "views",
+    "noArticlesInTag": "No articles in this tag",
+    "noArticlesInCategory": "No articles in this category",
+    "dualLanguageMode": "Bilingual Mode",
+    "exitDualLanguageMode": "Exit",
+    "selectLanguage": "Select Language",
+    "leftLanguage": "Left Language",
+    "rightLanguage": "Right Language",
+    "toc": "Table of Contents",
+    "openToc": "Open table of contents",
+    "closeToc": "Close table of contents",
+    "currentLanguageVersionUnavailable": "This article is not available in the current language",
+    "availableLanguageVersionsHint": "Choose an available language version",
+    "switchToLanguageVersion": "Read in {language}",
+    "languageNames": {
+      "zh": "Chinese",
+      "en": "English",
+      "ja": "Japanese",
+      "es": "Spanish",
+      "de": "German"
+    },
+    "bookmark": "Bookmark",
+    "bookmarked": "Bookmarked",
+    "bookmarkLoginHint": "Login to bookmark",
+    "unbookmark": "Unbookmark"
+  },
+  "category": {
+    "title": "Category",
+    "all": "All Categories",
+    "list": "Category List",
+    "sidebar": {
+      "title": "Categories",
+      "articles": "articles"
+    }
+  },
+  "tag": {
+    "title": "Tag",
+    "all": "All Tags",
+    "list": "Tag List",
+    "sidebar": {
+      "title": "Tags",
+      "articles": "articles"
+    }
+  },
+  "comment": {
+    "title": "Comments",
+    "add": "Add Comment",
+    "reply": "Reply",
+    "approve": "Approve",
+    "pending": "Pending",
+    "loginPrompt": "Please login to view and post comments",
+    "goToLogin": "Go to Login",
+    "placeholder": "Write your comment...",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "noComments": "No comments yet. Be the first to comment!",
+    "loadMore": "Load More",
+    "noMoreComments": "No more comments",
+    "submitFailed": "Failed to submit comment, please try again"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username",
+    "forgotPassword": "Forgot Password",
+    "rememberMe": "Remember Me",
+    "loginWithGithub": "Sign in with GitHub",
+    "loginWithGoogle": "Sign in with Google",
+    "registerWithGithub": "Sign up with GitHub",
+    "registerWithGoogle": "Sign up with Google",
+    "orLoginWithEmail": "Or sign in with email",
+    "haveAccount": "Already have an account?",
+    "initSuccess": "System initialized successfully, please login",
+    "loginFailedCheck": "Login failed, please check your email and password",
+    "loginFailedRetry": "Login failed, please try again later",
+    "oauthLoginFailed": "{provider} login failed",
+    "registerSuccessButLoginFailed": "Registration successful but login failed, please login manually",
+    "registerFailed": "Registration failed",
+    "registerFailedRetry": "Registration failed, please try again later",
+    "oauthRegisterFailed": "{provider} registration failed"
+  },
+  "password": {
+    "changePassword": "Change Password",
+    "setPassword": "Set Password",
+    "setPasswordHint": "You logged in via a third-party platform. Please set a password for future password-based login",
+    "oldPassword": "Old Password",
+    "oldPasswordPlaceholder": "Enter current password",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "confirmPassword": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Enter new password again",
+    "passwordHint": "Password must be at least 6 characters",
+    "passwordTooShort": "New password must be at least 6 characters",
+    "passwordMismatch": "New passwords do not match",
+    "passwordSameAsOld": "New password cannot be the same as old password"
+  },
+  "message": {
+    "loginSuccess": "Login successful",
+    "logoutSuccess": "Logout successful",
+    "registerSuccess": "Registration successful",
+    "loginFailed": "Login failed",
+    "logoutFailed": "Logout failed",
+    "registerFailed": "Registration failed",
+    "saveSuccess": "Save successful",
+    "saveFailed": "Save failed",
+    "deleteSuccess": "Delete successful",
+    "deleteFailed": "Delete failed"
+  },
+  "admin": {
+    "title": "Admin Center",
+    "backToSite": "Back to Site",
+    "openMenu": "Open Menu",
+    "closeMenu": "Close Menu",
+    "menu": {
+      "profile": "Profile",
+      "posts": "Posts",
+      "categories": "Categories",
+      "tags": "Tags",
+      "media": "Media",
+      "dashboard": "Dashboard",
+      "themes": "Themes",
+      "languages": "Languages",
+      "translation": "Translation",
+      "settings": "Settings"
+    }
+  },
+  "theme": {
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode",
+    "systemMode": "Follow System",
+    "switchToLight": "Switch to Light Theme",
+    "switchToDark": "Switch to Dark Theme",
+    "switchToSystem": "Switch to Follow System"
+  },
+  "loading": {
+    "loading": "Loading...",
+    "loadMore": "Load More...",
+    "loadingFailed": "Loading Failed"
+  },
+  "links": {
+    "title": "Friend Links",
+    "subtitle": "Exchange links, grow together",
+    "empty": "No links yet"
+  },
+  "my": {
+    "center": {
+      "title": "Personal Center",
+      "profile": "Profile",
+      "profileDescription": "Manage your profile, avatar and basic information",
+      "author": "Author Info",
+      "authorDescription": "Manage your author profile and public information",
+      "password": "Change Password",
+      "passwordDescription": "Change your login password",
+      "favorites": "My Favorites"
+    }
+  },
+  "applyCreator": {
+    "title": "Apply as Creator",
+    "description": "Fill in the form below to apply as a creator. After approval, you can publish articles.",
+    "alreadyCreator": "You are already a creator.",
+    "pendingTitle": "Your application is under review",
+    "pendingHint": "Please wait for admin review. You will get creator access once approved.",
+    "submittedAt": "Submitted at",
+    "rejectedTitle": "Your application was not approved",
+    "penName": "Pen name",
+    "penNamePlaceholder": "Display name as author",
+    "key": "Creator ID",
+    "keyPlaceholder": "Letters and underscores, e.g. my_name",
+    "keyHint": "Creator ID will be used in your profile URL. It cannot be changed after approval.",
+    "message": "Message",
+    "messagePlaceholder": "Optional. Introduce yourself or reason for applying",
+    "submit": "Submit",
+    "submitSuccess": "Submitted. Please wait for review.",
+    "submitFailed": "Submit failed",
+    "validation": {
+      "penNameRequired": "Pen name is required",
+      "keyRequired": "Creator ID is required",
+      "keyFormat": "Creator ID can only contain letters and underscores"
+    }
+  }
+}

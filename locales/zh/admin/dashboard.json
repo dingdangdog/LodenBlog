@@ -1,0 +1,69 @@
+{
+  "dashboard": {
+    "creator": {
+      "overviewTitle": "创作概览",
+      "overviewDesc": "您的文章与内容数据"
+    },
+    "overview": "数据概览",
+    "resources": "站点资源",
+    "enabledLanguages": "启用语言",
+    "availableThemes": "可用主题",
+    "themeCount": "主题数量",
+    "lastUpdated": "最近更新",
+    "noUpdate": "暂无",
+    "enter": "进入",
+    "siteOverview": "站点概况",
+    "visitBoard": "站点访问看板",
+    "lastNDays": "近{n}天",
+    "trendHumanVsBot": "访问趋势（真人 vs Bot）",
+    "byDay": "按自然日统计",
+    "visitorDist": "访客分布（近{n}天）",
+    "totalVisits": "总访问",
+    "humanIpBotRatio": "真人IP / Bot占比",
+    "humanVisits": "真人访问",
+    "botVisits": "Bot访问",
+    "humanIps": "真人IP",
+    "botVendorDist": "Bot厂商分布",
+    "noBotData": "暂无 Bot 数据",
+    "todaySummary": "今日摘要",
+    "rankingHuman": "真人榜",
+    "rankingBot": "Bot榜",
+    "rankingAll": "总榜",
+    "chartTotal": "总访问",
+    "chartHuman": "真人访问",
+    "chartBot": "Bot访问",
+    "quickLinks": "快捷入口",
+    "goTo": "前往 →",
+    "stats": {
+      "totalArticles": "文章总数",
+      "published": "已发布",
+      "drafts": "草稿箱",
+      "totalViews": "累计浏览",
+      "todayVisits": "本日访问",
+      "totalVisitCount": "总访问量",
+      "totalHumanVisitCount": "总人类访问量",
+      "totalBotVisitCount": "总Bot访问量"
+    },
+    "visitAnalysis": {
+      "title": "访问分析",
+      "todayRanking": "本日热门文章",
+      "articleRanking": "文章排行",
+      "rangeToday": "本日",
+      "rangeWeek": "本周",
+      "rangeAll": "全部",
+      "visitTrend": "访问趋势",
+      "days7": "近7天",
+      "days30": "近30天",
+      "days100": "近100天",
+      "noData": "暂无数据",
+      "visitCount": "访问量"
+    },
+    "links": {
+      "profile": "个人资料",
+      "posts": "文章创作",
+      "themes": "主题管理",
+      "media": "媒体管理",
+      "translationlogs": "翻译日志"
+    }
+  }
+}

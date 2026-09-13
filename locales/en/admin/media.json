@@ -1,0 +1,53 @@
+{
+  "media": {
+    "title": "Media Management",
+    "upload": "Upload Image",
+    "uploading": "Uploading...",
+    "scanArticles": "Scan Article Images",
+    "scanning": "Scanning...",
+    "dropZone": {
+      "text": "Drag and drop images here or click the button above",
+      "hint": "Supports JPG, PNG, GIF, max 10MB, will be converted to WebP"
+    },
+    "loading": "Loading...",
+    "empty": "No media files",
+    "selectTitle": "Select Image",
+    "selectedCount": "Selected",
+    "selected": "Selected",
+    "notSelected": "Not selected",
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "copyUrl": "Copy URL",
+      "copyMarkdown": "Copy Markdown"
+    },
+    "modal": {
+      "edit": "Edit Media",
+      "filename": "Filename",
+      "alt": "Alt Text",
+      "altPlaceholder": "Image alt text",
+      "caption": "Caption",
+      "captionPlaceholder": "Image caption"
+    },
+    "messages": {
+      "uploadImageOnly": "Please upload image files only",
+      "fileTooLarge": "File size must not exceed 10MB",
+      "uploadSuccess": "Uploaded successfully",
+      "uploadFailed": "Upload failed",
+      "saveSuccess": "Saved successfully",
+      "saveFailed": "Save failed",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Delete failed",
+      "loadFailed": "Failed to load media",
+      "deleteConfirm": "Are you sure you want to delete \"{name}\"?",
+      "imageLoadError": "Image load failed",
+      "copySuccess": "Copied successfully",
+      "copyFailed": "Copy failed",
+      "scanSuccess": "Scan completed: Found {total} images, {existing} already exist, {added} added, {failed} failed",
+      "scanFailed": "Scan failed"
+    }
+  }
+}

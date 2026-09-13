@@ -1,0 +1,49 @@
+{
+  "languages": {
+    "title": "Gestión de idiomas",
+    "add": "Añadir idioma",
+    "edit": "Editar idioma",
+    "table": {
+      "code": "Código de idioma",
+      "name": "Nombre",
+      "nativeName": "Nombre nativo",
+      "sortOrder": "Orden",
+      "status": "Estado",
+      "default": "Predeterminado",
+      "actions": "Acciones"
+    },
+    "status": {
+      "enabled": "Habilitado",
+      "disabled": "Deshabilitado"
+    },
+    "form": {
+      "code": "Código de idioma",
+      "codePlaceholder": "Por ejemplo: zh, en, ja",
+      "name": "Nombre",
+      "namePlaceholder": "Por ejemplo: Chino",
+      "nativeName": "Nombre nativo",
+      "nativeNamePlaceholder": "Por ejemplo: 中文",
+      "flag": "URL del icono de bandera",
+      "flagPlaceholder": "Opcional",
+      "sortOrder": "Orden",
+      "isActive": "Habilitar",
+      "isDefault": "Establecer como predeterminado"
+    },
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "enable": "Habilitar",
+      "disable": "Deshabilitar",
+      "enableSuccess": "Habilitado",
+      "disableSuccess": "Deshabilitado",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "saveSuccess": "Guardado correctamente",
+      "saveFailed": "Error al guardar el idioma",
+      "deleteConfirm": "¿Estás seguro de que deseas eliminar el idioma \"{name}\"?",
+      "deleteSuccess": "Eliminado correctamente",
+      "deleteFailed": "Error al eliminar el idioma",
+      "loadFailed": "Error al cargar la lista de idiomas"
+    }
+  }
+}

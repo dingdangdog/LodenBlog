@@ -1,0 +1,31 @@
+{
+  "profile": {
+    "title": "プロフィール",
+    "redirectMessage": "プロフィール管理機能が移動しました。以下のページに移動してください：",
+    "tabs": {
+      "user": "ユーザー情報",
+      "creator": "作成者情報"
+    },
+    "creator": {
+      "notSet": "未設定",
+      "role": "作成者",
+      "syncTitle": "ユーザー情報から同期",
+      "syncDescription": "ユーザーアバター、ニックネーム、アカウント名を作成者情報に同期",
+      "sync": "同期",
+      "key": "個人ID",
+      "keyPlaceholder": "英字とアンダースコアのみ",
+      "keyHint": "公開表示用の識別子、大文字小文字を区別しない一意の値",
+      "penName": "ペンネーム",
+      "bio": "自己紹介",
+      "bioPlaceholder": "作成者の自己紹介",
+      "createdAt": "作成日時",
+      "setup": "作成者情報を設定"
+    },
+    "messages": {
+      "avatarUpdated": "アバターを更新しました",
+      "nameRequired": "名前は必須です",
+      "userNotFound": "ユーザー情報が見つかりません",
+      "syncSuccess": "ユーザー情報をフォームに同期しました。保存ボタンをクリックして保存してください"
+    }
+  }
+}

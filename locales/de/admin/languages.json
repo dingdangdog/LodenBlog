@@ -1,0 +1,49 @@
+{
+  "languages": {
+    "title": "Sprachenverwaltung",
+    "add": "Sprache hinzufügen",
+    "edit": "Sprache bearbeiten",
+    "table": {
+      "code": "Sprachcode",
+      "name": "Name",
+      "nativeName": "Eigenname",
+      "sortOrder": "Sortierung",
+      "status": "Status",
+      "default": "Standard",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "enabled": "Aktiviert",
+      "disabled": "Deaktiviert"
+    },
+    "form": {
+      "code": "Sprachcode",
+      "codePlaceholder": "Zum Beispiel: zh, en, ja",
+      "name": "Name",
+      "namePlaceholder": "Zum Beispiel: Chinesisch",
+      "nativeName": "Eigenname",
+      "nativeNamePlaceholder": "Zum Beispiel: 中文",
+      "flag": "Flaggen-Symbol-URL",
+      "flagPlaceholder": "Optional",
+      "sortOrder": "Sortierung",
+      "isActive": "Aktivieren",
+      "isDefault": "Als Standard festlegen"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "enable": "Aktivieren",
+      "disable": "Deaktivieren",
+      "enableSuccess": "Aktiviert",
+      "disableSuccess": "Deaktiviert",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "saveSuccess": "Erfolgreich gespeichert",
+      "saveFailed": "Fehler beim Speichern der Sprache",
+      "deleteConfirm": "Bist du sicher, dass du die Sprache \"{name}\" löschen möchtest?",
+      "deleteSuccess": "Erfolgreich gelöscht",
+      "deleteFailed": "Fehler beim Löschen der Sprache",
+      "loadFailed": "Fehler beim Laden der Sprachenliste"
+    }
+  }
+}

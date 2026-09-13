@@ -1,0 +1,35 @@
+services:
+  app:
+    container_name: loden
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dingdangdog/loden:latest
+    ports:
+      - 7061:7061
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: "postgresql://postgres:123456@localhost:5432/loden?schema=public"
+      # 设为 false 时跳过容器启动时的自动 schema 同步
+      # 设为 true ，升级时将自动更新表结构
+      DATABASE_AUTO_MIGRATE: true
+      DATABASE_BOOTSTRAP_URL: "postgresql://postgres:123456@localhost:5432/loden?schema=public"
+      DATABASE_SCHEMA: "public"
+
+      PORT: 7061
+      NUXT_RESOURCE: /app/resources
+
+      # Auth 插件必须配置的
+      NUXT_AUTH_BASE_URL: "http://localhost:7061/api/auth"
+      NUXT_AUTH_SECRET: change-me # 插件加密密钥
+      NUXT_SALT: change-me # 密码加密
+
+      NUXT_PUBLIC_SITE_URL: http://localhost:7061
+
+      GITHUB_CLIENT_ID: 
+      GITHUB_CLIENT_SECRET: 
+      GOOGLE_CLIENT_ID: 
+      GOOGLE_CLIENT_SECRET: 
+    volumes:
+      - ./resources:/app/resources

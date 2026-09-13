@@ -1,0 +1,49 @@
+{
+  "languages": {
+    "title": "言語管理",
+    "add": "言語を追加",
+    "edit": "言語を編集",
+    "table": {
+      "code": "言語コード",
+      "name": "名前",
+      "nativeName": "ネイティブ名",
+      "sortOrder": "並び順",
+      "status": "ステータス",
+      "default": "デフォルト",
+      "actions": "操作"
+    },
+    "status": {
+      "enabled": "有効",
+      "disabled": "無効"
+    },
+    "form": {
+      "code": "言語コード",
+      "codePlaceholder": "例: zh, en, ja",
+      "name": "名前",
+      "namePlaceholder": "例: 中国語",
+      "nativeName": "ネイティブ名",
+      "nativeNamePlaceholder": "例: 中文",
+      "flag": "国旗アイコン URL",
+      "flagPlaceholder": "オプション",
+      "sortOrder": "並び順",
+      "isActive": "有効",
+      "isDefault": "デフォルトに設定"
+    },
+    "actions": {
+      "edit": "編集",
+      "delete": "削除",
+      "enable": "有効化",
+      "disable": "無効化",
+      "enableSuccess": "有効にしました",
+      "disableSuccess": "無効にしました",
+      "save": "保存",
+      "cancel": "キャンセル",
+      "saveSuccess": "保存に成功しました",
+      "saveFailed": "言語の保存に失敗しました",
+      "deleteConfirm": "言語 \"{name}\" を削除してもよろしいですか？",
+      "deleteSuccess": "削除に成功しました",
+      "deleteFailed": "言語の削除に失敗しました",
+      "loadFailed": "言語リストの読み込みに失敗しました"
+    }
+  }
+}

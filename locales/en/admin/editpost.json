@@ -1,0 +1,148 @@
+{
+  "editpost": {
+    "languageSelector": {
+      "label": "Current language:",
+      "placeholder": "Select language",
+      "willCreate": "This language version does not exist and will be created"
+    },
+    "actions": {
+      "saveCurrentLanguage": "Save",
+      "generate": "Generate",
+      "upload": "Upload image",
+      "uploading": "Uploading...",
+      "selectMedia": "Select Image",
+      "selectImage": "Select Image",
+      "clearCover": "Clear cover",
+      "insertAdSlot": "Insert ad slot",
+      "add": "Add",
+      "addCategory": "Add category",
+      "addTag": "Add tag",
+      "back": "Back",
+      "publish": "Publish",
+      "publishing": "Publishing...",
+      "published": "Published"
+    },
+    "tabs": {
+      "basic": "Basic Info",
+      "content": "Content",
+      "seo": "SEO Settings"
+    },
+    "sections": {
+      "basic": "Basic Info",
+      "categoryTag": "Categories & Tags"
+    },
+    "fields": {
+      "title": "Title",
+      "slug": "Slug",
+      "cover": "Cover",
+      "excerpt": "Excerpt",
+      "category": "Category",
+      "tags": "Tags",
+      "articleId": "Article ID",
+      "seoTitle": "SEO Title",
+      "seoDescription": "SEO Description",
+      "seoKeyword": "SEO Keywords"
+    },
+    "placeholders": {
+      "title": "Enter article title",
+      "slug": "Article URL slug",
+      "coverPreview": "Cover preview",
+      "coverEmpty": "Preview area",
+      "coverUrl": "https://example.com/cover.jpg",
+      "excerpt": "Article excerpt, leave empty to auto-generate",
+      "noCategory": "Please select or Create",
+      "noTag": "Please select or Create",
+      "seoTitle": "Leave empty to use article title",
+      "seoDescription": "Leave empty to use article excerpt",
+      "seoKeyword": "Multiple keywords separated by commas, e.g.: keyword1, keyword2, keyword3"
+    },
+    "hints": {
+      "title": "Up to {max} character units",
+      "excerpt": "Up to {max} character units",
+      "content": "Minimum {min} and maximum {max} character units",
+      "seoTitle": "Recommended length: {min}-{max} characters",
+      "seoDescription": "Recommended length: {min}-{max} characters",
+      "seoKeyword": "Multiple keywords separated by commas"
+    },
+    "tooltips": {
+      "selectLanguageFirst": "Please select a language first"
+    },
+    "messages": {
+      "slugInvalid": "Slug can only contain lowercase letters, numbers, and hyphens",
+      "categoryCreateSuccess": "Category created successfully",
+      "categoryCreateFailed": "Failed to create category",
+      "tagCreateSuccess": "Tag created successfully",
+      "tagCreateFailed": "Failed to create tag",
+      "enterCategoryNameAndLanguage": "Please enter category name and select language first",
+      "enterTagNameAndLanguage": "Please enter tag name and select language first",
+      "translateSlugSuccess": "Slug generated successfully through translation",
+      "translateSlugFailed": "Translation failed, please use local generation",
+      "pleaseEnterTitle": "Please enter title first",
+      "pleaseSelectLanguage": "Please select language first",
+      "generateSlugByTranslation": "Generate English slug through translation",
+      "selectLanguage": "Please select language",
+      "pleaseFillRequiredFields": "Please fill in all required fields",
+      "titleExceedsLimit": "Title exceeds limit: maximum {max} character units",
+      "excerptExceedsLimit": "Excerpt exceeds limit: maximum {max} character units",
+      "contentTooShort": "Content too short: minimum {min} character units required",
+      "contentExceedsLimit": "Content exceeds limit: maximum {max} character units",
+      "coverUploadSuccess": "Cover image uploaded successfully",
+      "coverUploadFailed": "Failed to upload cover image",
+      "saveSuccess": "Saved successfully",
+      "saveFailed": "Save failed",
+      "saveArticleFailed": "Failed to save article",
+      "articlePublished": "Article published",
+      "articleSaved": "Article saved",
+      "articleCreatedAndPublished": "Article created and published",
+      "articleCreatedAndSaved": "Article created and saved"
+    },
+    "newCategoryDialog": {
+      "title": "Add Category",
+      "fields": {
+        "name": "Category Name",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "Enter category name",
+        "slug": "Category URL identifier (auto-generated)"
+      },
+      "hints": {
+        "slug": "Only lowercase letters, numbers, and hyphens are allowed"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "create": "Create",
+        "creating": "Creating..."
+      },
+      "tooltips": {
+        "enterName": "Please enter category name first",
+        "selectLanguage": "Please select language first",
+        "generateSlug": "Generate English slug through translation"
+      }
+    },
+    "newTagDialog": {
+      "title": "Add Tag",
+      "fields": {
+        "name": "Tag Name",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "Enter tag name",
+        "slug": "Tag URL identifier (auto-generated)"
+      },
+      "hints": {
+        "slug": "Only lowercase letters, numbers, and hyphens are allowed"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "create": "Create",
+        "creating": "Creating..."
+      },
+      "tooltips": {
+        "enterName": "Please enter tag name first",
+        "selectLanguage": "Please select language first",
+        "generateSlug": "Generate English slug through translation"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "copyright": "版权所有",
+  "rights": "保留所有权利",
+  "year": "2025",
+  "links": {
+    "about": "关于我们",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "contact": "联系我们",
+    "moreLinks": "更多友链"
+  },
+  "social": {
+    "follow": "关注我们",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "github": "GitHub",
+    "email": "邮箱"
+  },
+  "poweredBy": "基于",
+  "builtWith": "构建"
+}
+

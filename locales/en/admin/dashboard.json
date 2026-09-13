@@ -1,0 +1,69 @@
+{
+  "dashboard": {
+    "creator": {
+      "overviewTitle": "Data Overview",
+      "overviewDesc": "Your articles and content stats"
+    },
+    "overview": "Data Overview",
+    "resources": "Site Resources",
+    "enabledLanguages": "Enabled Languages",
+    "availableThemes": "Available Themes",
+    "themeCount": "Themes",
+    "lastUpdated": "Last Updated",
+    "noUpdate": "None",
+    "enter": "Enter",
+    "siteOverview": "Site Overview",
+    "visitBoard": "Visit Dashboard",
+    "lastNDays": "Last {n} days",
+    "trendHumanVsBot": "Visit trend (human vs bot)",
+    "byDay": "By calendar day",
+    "visitorDist": "Visitor distribution (last {n} days)",
+    "totalVisits": "Total visits",
+    "humanIpBotRatio": "Human IPs / Bot share",
+    "humanVisits": "Human visits",
+    "botVisits": "Bot visits",
+    "humanIps": "Human IPs",
+    "botVendorDist": "Bot vendor distribution",
+    "noBotData": "No bot data",
+    "todaySummary": "Today summary",
+    "rankingHuman": "Human",
+    "rankingBot": "Bot",
+    "rankingAll": "All",
+    "chartTotal": "Total",
+    "chartHuman": "Human",
+    "chartBot": "Bot",
+    "quickLinks": "Quick Links",
+    "goTo": "Go →",
+    "stats": {
+      "totalArticles": "Total Articles",
+      "published": "Published",
+      "drafts": "Drafts",
+      "totalViews": "Total Views",
+      "todayVisits": "Today's Visits",
+      "totalVisitCount": "Total Visits",
+      "totalHumanVisitCount": "Total Human Visits",
+      "totalBotVisitCount": "Total Bot Visits"
+    },
+    "visitAnalysis": {
+      "title": "Visit Analysis",
+      "todayRanking": "Today's Popular Articles",
+      "articleRanking": "Article Ranking",
+      "rangeToday": "Today",
+      "rangeWeek": "This Week",
+      "rangeAll": "All Time",
+      "visitTrend": "Visit Trend",
+      "days7": "Last 7 Days",
+      "days30": "Last 30 Days",
+      "days100": "Last 100 Days",
+      "noData": "No Data",
+      "visitCount": "Visit Count"
+    },
+    "links": {
+      "profile": "Profile",
+      "posts": "Posts",
+      "themes": "Themes",
+      "media": "Media",
+      "translationlogs": "Translation Logs"
+    }
+  }
+}

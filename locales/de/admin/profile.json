@@ -1,0 +1,31 @@
+{
+  "profile": {
+    "title": "Profil",
+    "redirectMessage": "Die Profilverwaltungsfunktion wurde migriert. Bitte gehe zur folgenden Seite:",
+    "tabs": {
+      "user": "Benutzerinformationen",
+      "creator": "Autorinformationen"
+    },
+    "creator": {
+      "notSet": "Nicht festgelegt",
+      "role": "Ersteller",
+      "syncTitle": "Benutzerinformationen mit einem Klick übernehmen",
+      "syncDescription": "Synchronisiere Avatar, Name und Kontoname des Benutzers mit den Erstellerinformationen",
+      "sync": "Synchronisieren",
+      "key": "Persönliche ID",
+      "keyPlaceholder": "Nur englische Buchstaben und Unterstriche",
+      "keyHint": "Persönlicher Identifikator zur öffentlichen Anzeige, eindeutig ohne Unterscheidung von Groß- und Kleinschreibung",
+      "penName": "Pseudonym",
+      "bio": "Biografie",
+      "bioPlaceholder": "Ersteller-Biografie",
+      "createdAt": "Erstellt am",
+      "setup": "Ersteller-Informationen einrichten"
+    },
+    "messages": {
+      "avatarUpdated": "Avatar aktualisiert",
+      "nameRequired": "Der Name darf nicht leer sein",
+      "userNotFound": "Benutzerinformationen existieren nicht",
+      "syncSuccess": "Benutzerinformationen wurden mit dem Formular synchronisiert. Bitte klicke auf die Schaltfläche Speichern, um zu speichern"
+    }
+  }
+}

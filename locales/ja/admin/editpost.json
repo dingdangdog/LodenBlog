@@ -1,0 +1,148 @@
+{
+  "editpost": {
+    "languageSelector": {
+      "label": "現在の言語：",
+      "placeholder": "言語を選択してください",
+      "willCreate": "この言語バージョンは存在しません。新規作成します"
+    },
+    "actions": {
+      "saveCurrentLanguage": "保存",
+      "generate": "生成",
+      "upload": "画像をアップロード",
+      "uploading": "アップロード中...",
+      "selectMedia": "画像を選択",
+      "selectImage": "画像を選択",
+      "clearCover": "カバーを削除",
+      "insertAdSlot": "広告枠を挿入",
+      "add": "追加",
+      "addCategory": "カテゴリを追加",
+      "addTag": "タグを追加",
+      "back": "戻る",
+      "publish": "公開",
+      "publishing": "公開中...",
+      "published": "公開済み"
+    },
+    "tabs": {
+      "basic": "基本情報",
+      "content": "本文編集",
+      "seo": "SEO 設定"
+    },
+    "sections": {
+      "basic": "基本情報",
+      "categoryTag": "カテゴリとタグ"
+    },
+    "fields": {
+      "title": "タイトル",
+      "slug": "Slug",
+      "cover": "カバー画像",
+      "excerpt": "概要",
+      "category": "カテゴリ",
+      "tags": "タグ",
+      "articleId": "記事ID",
+      "seoTitle": "SEOタイトル",
+      "seoDescription": "SEO説明",
+      "seoKeyword": "SEOキーワード"
+    },
+    "placeholders": {
+      "title": "記事タイトルを入力してください",
+      "slug": "記事のURLスラッグ",
+      "coverPreview": "カバーのプレビュー",
+      "coverEmpty": "プレビューエリア",
+      "coverUrl": "https://example.com/cover.jpg",
+      "excerpt": "記事の概要。空欄の場合は本文から自動生成",
+      "noCategory": "選択してくださいまたは作成",
+      "noTag": "選択してくださいまたは作成",
+      "seoTitle": "空欄の場合は記事タイトルを使用",
+      "seoDescription": "空欄の場合は記事概要を使用",
+      "seoKeyword": "複数のキーワードをカンマで区切って入力、例：キーワード1, キーワード2, キーワード3"
+    },
+    "hints": {
+      "title": "最大 {max} 文字単位",
+      "excerpt": "最大 {max} 文字単位",
+      "content": "最小 {min}、最大 {max} 文字単位",
+      "seoTitle": "推奨長さ：{min}-{max} 文字",
+      "seoDescription": "推奨長さ：{min}-{max} 文字",
+      "seoKeyword": "複数のキーワードをカンマで区切る"
+    },
+    "tooltips": {
+      "selectLanguageFirst": "先に言語を選択してください"
+    },
+    "messages": {
+      "slugInvalid": "Slugは小文字、数字、ハイフンのみ使用可能です",
+      "categoryCreateSuccess": "カテゴリが正常に作成されました",
+      "categoryCreateFailed": "カテゴリの作成に失敗しました",
+      "tagCreateSuccess": "タグが正常に作成されました",
+      "tagCreateFailed": "タグの作成に失敗しました",
+      "enterCategoryNameAndLanguage": "先にカテゴリ名を入力し、言語を選択してください",
+      "enterTagNameAndLanguage": "先にタグ名を入力し、言語を選択してください",
+      "translateSlugSuccess": "翻訳を通じてslugが正常に生成されました",
+      "translateSlugFailed": "翻訳に失敗しました。ローカル生成を使用してください",
+      "pleaseEnterTitle": "先にタイトルを入力してください",
+      "pleaseSelectLanguage": "先に言語を選択してください",
+      "generateSlugByTranslation": "翻訳を通じて英語のslugを生成",
+      "selectLanguage": "言語を選択してください",
+      "pleaseFillRequiredFields": "必須項目をすべて入力してください",
+      "titleExceedsLimit": "タイトルが制限を超えています：最大 {max} 文字単位",
+      "excerptExceedsLimit": "概要が制限を超えています：最大 {max} 文字単位",
+      "contentTooShort": "本文が短すぎます：最小 {min} 文字単位が必要です",
+      "contentExceedsLimit": "本文が制限を超えています：最大 {max} 文字単位",
+      "coverUploadSuccess": "カバー画像のアップロードに成功しました",
+      "coverUploadFailed": "カバー画像のアップロードに失敗しました",
+      "saveSuccess": "保存に成功しました",
+      "saveFailed": "保存に失敗しました",
+      "saveArticleFailed": "記事の保存に失敗しました",
+      "articlePublished": "記事が公開されました",
+      "articleSaved": "記事が保存されました",
+      "articleCreatedAndPublished": "記事が作成され、公開されました",
+      "articleCreatedAndSaved": "記事が作成され、保存されました"
+    },
+    "newCategoryDialog": {
+      "title": "カテゴリを追加",
+      "fields": {
+        "name": "カテゴリ名",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "カテゴリ名を入力してください",
+        "slug": "カテゴリのURL識別子（自動生成）"
+      },
+      "hints": {
+        "slug": "小文字、数字、ハイフンのみ使用可能"
+      },
+      "buttons": {
+        "cancel": "キャンセル",
+        "create": "作成",
+        "creating": "作成中..."
+      },
+      "tooltips": {
+        "enterName": "先にカテゴリ名を入力してください",
+        "selectLanguage": "先に言語を選択してください",
+        "generateSlug": "翻訳を通じて英語のslugを生成"
+      }
+    },
+    "newTagDialog": {
+      "title": "タグを追加",
+      "fields": {
+        "name": "タグ名",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "タグ名を入力してください",
+        "slug": "タグのURL識別子（自動生成）"
+      },
+      "hints": {
+        "slug": "小文字、数字、ハイフンのみ使用可能"
+      },
+      "buttons": {
+        "cancel": "キャンセル",
+        "create": "作成",
+        "creating": "作成中..."
+      },
+      "tooltips": {
+        "enterName": "先にタグ名を入力してください",
+        "selectLanguage": "先に言語を選択してください",
+        "generateSlug": "翻訳を通じて英語のslugを生成"
+      }
+    }
+  }
+}

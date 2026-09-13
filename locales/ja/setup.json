@@ -1,0 +1,153 @@
+{
+  "title": "システム初期化",
+  "subtitle": "ようこそ！初期設定を完了しましょう",
+  "steps": {
+    "welcome": "ようこそ",
+    "site": "SEO 情報",
+    "r2": "R2 ストレージ",
+    "logo": "ロゴとアイコン",
+    "admin": "管理者",
+    "confirm": "確認"
+  },
+  "step1": {
+    "title": "Loden へようこそ",
+    "subtitle": "強力な多言語ブログシステム。さあ、始めましょう！",
+    "selectLanguage": "デフォルト言語を選択",
+    "selectPrimaryLanguage": "主言語を選択",
+    "selectEnabledLanguages": "有効にする言語を選択",
+    "enabledLanguagesHint": "有効にした言語はサイトの言語切替に表示されます。無効の言語もデータベースに保存され、後から言語管理で再有効化できます。",
+    "enabled": "有効",
+    "disabled": "無効"
+  },
+  "step2": {
+    "title": "ウェブサイト SEO 情報",
+    "subtitle": "ウェブサイトの SEO 基本情報を設定します。検索エンジンのインデックスに影響します",
+    "siteTitle": "サイトタイトル",
+    "siteTitlePlaceholder": "例：私のブログ",
+    "siteTitleHelp": "ブラウザのタブと検索結果に表示されます",
+    "siteDescription": "サイト説明",
+    "siteDescriptionPlaceholder": "ウェブサイトのコンテンツと特徴を簡潔に説明...",
+    "siteDescriptionHelp": "検索結果のスニペットに表示、120-160文字を推奨",
+    "siteKeyword": "サイトキーワード",
+    "siteKeywordPlaceholder": "例：技術, ブログ, 共有",
+    "siteKeywordHelp": "カンマ区切り、検索エンジンがコンテンツを理解するのに役立ちます",
+    "siteDomain": "サイトドメイン",
+    "siteDomainPlaceholder": "例：www.example.com または example.com",
+    "siteDomainHelp": "利用規約・プライバシーポリシー等のリンクに使用。可能な場合に現在のホストで自動入力されます"
+  },
+  "stepR2": {
+    "title": "Cloudflare R2 ストレージ設定",
+    "subtitle": "ファイルアップロード機能（ロゴ、アイコンなど）をサポートするために R2 ストレージを設定",
+    "hint": "💡 ヒント：R2 設定は、ロゴとアイコンのアップロードに必要です。まだ R2 設定がない場合は、ロゴとアイコンの設定をスキップして、後でシステム設定で設定できます。",
+    "r2Url": "R2 Endpoint URL",
+    "r2UrlPlaceholder": "https://xxx.r2.cloudflarestorage.com",
+    "r2UrlHelp": "Cloudflare R2 の Endpoint URL",
+    "r2SecretId": "R2 Access Key ID",
+    "r2SecretIdPlaceholder": "32文字の Access Key ID",
+    "r2SecretIdHelp": "Cloudflare Dashboard から取得、32文字である必要があります",
+    "r2SecretKey": "R2 Secret Access Key",
+    "r2SecretKeyPlaceholder": "Secret Access Key",
+    "r2SecretKeyHelp": "Access Key ID とペアのキー",
+    "r2Bucket": "R2 Bucket 名",
+    "r2BucketPlaceholder": "例：my-bucket",
+    "r2BucketHelp": "R2 ストレージバケットの名前",
+    "r2Token": "R2 HTTP API Token（オプション）",
+    "r2TokenPlaceholder": "HTTP API Token（オプション）",
+    "r2TokenHelp": "HTTP API アクセス用のトークン、オプション",
+    "r2Domain": "R2 パブリックアクセスドメイン（オプション）",
+    "r2DomainPlaceholder": "https://cdn.example.com",
+    "r2DomainHelp": "カスタムドメインを設定している場合は、ここに入力してください"
+  },
+  "step2Logo": {
+    "title": "ロゴとアイコン設定",
+    "subtitle": "オプション、初期化後に設定ページから変更可能",
+    "logoSection": {
+      "title": "ロゴ（ウェブサイト内のページ表示用）",
+      "lightMode": "ライトモード ロゴ",
+      "darkMode": "ダークモード ロゴ",
+      "lightPreview": "ライトロゴプレビュー",
+      "darkPreview": "ダークロゴプレビュー",
+      "preview": "プレビュー",
+      "upload": "アップロード",
+      "lightPlaceholder": "https://example.com/logo-light.png",
+      "darkPlaceholder": "https://example.com/logo-dark.png"
+    },
+    "iconSection": {
+      "title": "ウェブサイトアイコン (Favicon)（ブラウザタブ表示用）",
+      "lightMode": "ライトモード アイコン",
+      "darkMode": "ダークモード アイコン",
+      "lightPreview": "ライトアイコンフレビュー",
+      "darkPreview": "ダークアイコンフレビュー",
+      "preview": "プレビュー",
+      "upload": "アップロード",
+      "lightPlaceholder": "https://example.com/favicon-light.ico",
+      "darkPlaceholder": "https://example.com/favicon-dark.ico"
+    }
+  },
+  "step3": {
+    "title": "管理者アカウントを作成",
+    "subtitle": "これはウェブサイトを管理するためのアカウントです",
+    "email": "メールアドレス",
+    "emailPlaceholder": "admin{'@'}example.com",
+    "username": "ユーザー名",
+    "usernamePlaceholder": "admin（ログイン用）",
+    "nickname": "ニックネーム",
+    "nicknamePlaceholder": "ニックネームを入力",
+    "password": "パスワード",
+    "passwordPlaceholder": "6文字以上",
+    "passwordConfirm": "パスワード確認",
+    "passwordConfirmPlaceholder": "パスワードを再入力"
+  },
+  "step4": {
+    "title": "設定情報の確認",
+    "subtitle": "以下の情報が正しいか確認してください",
+    "siteInfo": "ウェブサイト SEO 情報",
+    "adminInfo": "管理者アカウント",
+    "r2Config": "R2 ストレージ設定",
+    "logoAndIcons": "ロゴとアイコン",
+    "defaultLanguage": "デフォルト言語",
+    "enabledLanguages": "有効な言語",
+    "r2Url": "R2 URL",
+    "r2Bucket": "R2 Bucket",
+    "r2SecretId": "R2 Access Key ID",
+    "r2Domain": "R2 ドメイン",
+    "siteTitle": "サイトタイトル",
+    "siteDescription": "サイト説明",
+    "siteDomain": "サイトドメイン",
+    "email": "メール",
+    "username": "ユーザー名",
+    "nickname": "ニックネーム",
+    "password": "パスワード",
+    "logoLight": "ライトモード ロゴ",
+    "logoDark": "ダークモード ロゴ",
+    "iconLight": "ライトモード アイコン",
+    "iconDark": "ダークモード アイコン",
+    "notSet": "未設定"
+  },
+  "buttons": {
+    "prev": "前へ",
+    "next": "次へ",
+    "submit": "初期化を開始",
+    "submitting": "初期化中..."
+  },
+  "footer": {
+    "hint": "初期化完了後、管理者アカウントでログインできます"
+  },
+  "errors": {
+    "passwordMismatch": "パスワードが一致しません",
+    "passwordTooShort": "パスワードは6文字以上である必要があります",
+    "logoUploadFailed": "ロゴのアップロードに失敗しました",
+    "iconUploadFailed": "アイコンのアップロードに失敗しました",
+    "r2SecretIdInvalid": "R2 Access Key ID は32文字である必要があります",
+    "r2ConfigSaveFailed": "R2 設定の保存に失敗しました",
+    "initFailed": "初期化に失敗しました",
+    "initFailedRetry": "初期化に失敗しました。後でもう一度お試しください"
+  },
+  "languages": {
+    "zh": "中国語",
+    "en": "英語",
+    "ja": "日本語",
+    "de": "ドイツ語",
+    "es": "スペイン語"
+  }
+}

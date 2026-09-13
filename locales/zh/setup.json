@@ -1,0 +1,153 @@
+{
+  "title": "系统初始化",
+  "subtitle": "欢迎使用本系统，请完成初始配置",
+  "steps": {
+    "welcome": "欢迎",
+    "site": "SEO 信息",
+    "r2": "R2 存储",
+    "logo": "Logo 和图标",
+    "admin": "管理员",
+    "confirm": "确认"
+  },
+  "step1": {
+    "title": "欢迎使用 Loden",
+    "subtitle": "一个强大的多语言博客系统，让我们开始配置吧！",
+    "selectLanguage": "选择默认语言",
+    "selectPrimaryLanguage": "选择主语言",
+    "selectEnabledLanguages": "选择要启用的语言",
+    "enabledLanguagesHint": "勾选的语言将出现在前台的切换选项中；未启用的语言仍会写入数据库，之后可在语种管理中重新启用。",
+    "enabled": "已启用",
+    "disabled": "未启用"
+  },
+  "step2": {
+    "title": "网站 SEO 信息",
+    "subtitle": "设置网站的 SEO 基础信息，这将影响搜索引擎的收录",
+    "siteTitle": "网站标题",
+    "siteTitlePlaceholder": "例如：我的博客",
+    "siteTitleHelp": "显示在浏览器标签和搜索结果中",
+    "siteDescription": "网站描述",
+    "siteDescriptionPlaceholder": "简要描述您的网站内容和特点...",
+    "siteDescriptionHelp": "显示在搜索结果的摘要中，建议 120-160 个字符",
+    "siteKeyword": "网站关键词",
+    "siteKeywordPlaceholder": "例如：技术, 博客, 分享",
+    "siteKeywordHelp": "用逗号分隔，帮助搜索引擎理解网站内容",
+    "siteDomain": "站点域名",
+    "siteDomainPlaceholder": "例如：www.example.com 或 example.com",
+    "siteDomainHelp": "用于用户协议、隐私政策等页面的链接展示，留空则使用模板默认值。当前页打开时会自动填入本页域名"
+  },
+  "stepR2": {
+    "title": "Cloudflare R2 存储配置",
+    "subtitle": "配置 R2 存储以支持文件上传功能（Logo、图标等）",
+    "hint": "💡 提示：R2 配置是必需的，用于上传 Logo 和图标。如果暂时没有 R2 配置，可以先跳过 Logo 和图标设置，稍后在系统设置中配置。",
+    "r2Url": "R2 Endpoint URL",
+    "r2UrlPlaceholder": "https://xxx.r2.cloudflarestorage.com",
+    "r2UrlHelp": "Cloudflare R2 的 Endpoint URL",
+    "r2SecretId": "R2 Access Key ID",
+    "r2SecretIdPlaceholder": "32 个字符的 Access Key ID",
+    "r2SecretIdHelp": "从 Cloudflare Dashboard 获取，必须是 32 个字符",
+    "r2SecretKey": "R2 Secret Access Key",
+    "r2SecretKeyPlaceholder": "Secret Access Key",
+    "r2SecretKeyHelp": "与 Access Key ID 配对的密钥",
+    "r2Bucket": "R2 Bucket 名称",
+    "r2BucketPlaceholder": "例如：my-bucket",
+    "r2BucketHelp": "R2 存储桶的名称",
+    "r2Token": "R2 HTTP API Token（可选）",
+    "r2TokenPlaceholder": "HTTP API Token（可选）",
+    "r2TokenHelp": "用于 HTTP API 访问的 Token，可选",
+    "r2Domain": "R2 公共访问域名（可选）",
+    "r2DomainPlaceholder": "https://cdn.example.com",
+    "r2DomainHelp": "如果配置了自定义域名，填写此域名"
+  },
+  "step2Logo": {
+    "title": "Logo 和图标设置",
+    "subtitle": "可选，可在初始化后通过设置页面修改",
+    "logoSection": {
+      "title": "Logo（用于网站内页显示）",
+      "lightMode": "亮色模式 Logo",
+      "darkMode": "暗色模式 Logo",
+      "lightPreview": "亮色Logo预览",
+      "darkPreview": "暗色Logo预览",
+      "preview": "预览",
+      "upload": "上传",
+      "lightPlaceholder": "https://example.com/logo-light.png",
+      "darkPlaceholder": "https://example.com/logo-dark.png"
+    },
+    "iconSection": {
+      "title": "网站图标 (Favicon)（用于浏览器页头显示）",
+      "lightMode": "亮色模式图标",
+      "darkMode": "暗色模式图标",
+      "lightPreview": "亮色图标预览",
+      "darkPreview": "暗色图标预览",
+      "preview": "预览",
+      "upload": "上传",
+      "lightPlaceholder": "https://example.com/favicon-light.ico",
+      "darkPlaceholder": "https://example.com/favicon-dark.ico"
+    }
+  },
+  "step3": {
+    "title": "创建管理员账号",
+    "subtitle": "这将是您用于管理网站的账号",
+    "email": "邮箱地址",
+    "emailPlaceholder": "admin{'@'}example.com",
+    "username": "用户名",
+    "usernamePlaceholder": "admin（用于登录）",
+    "nickname": "昵称",
+    "nicknamePlaceholder": "请输入昵称",
+    "password": "密码",
+    "passwordPlaceholder": "至少 6 个字符",
+    "passwordConfirm": "确认密码",
+    "passwordConfirmPlaceholder": "再次输入密码"
+  },
+  "step4": {
+    "title": "确认配置信息",
+    "subtitle": "请检查以下信息是否正确",
+    "siteInfo": "网站 SEO 信息",
+    "adminInfo": "管理员账号",
+    "r2Config": "R2 存储配置",
+    "logoAndIcons": "Logo 和图标",
+    "defaultLanguage": "默认语言",
+    "enabledLanguages": "启用语言",
+    "r2Url": "R2 URL",
+    "r2Bucket": "R2 Bucket",
+    "r2SecretId": "R2 Access Key ID",
+    "r2Domain": "R2 域名",
+    "siteTitle": "网站标题",
+    "siteDescription": "网站描述",
+    "siteDomain": "站点域名",
+    "email": "邮箱",
+    "username": "用户名",
+    "nickname": "昵称",
+    "password": "密码",
+    "logoLight": "亮色模式 Logo",
+    "logoDark": "暗色模式 Logo",
+    "iconLight": "亮色模式图标",
+    "iconDark": "暗色模式图标",
+    "notSet": "未设置"
+  },
+  "buttons": {
+    "prev": "上一步",
+    "next": "下一步",
+    "submit": "开始初始化",
+    "submitting": "初始化中..."
+  },
+  "footer": {
+    "hint": "完成初始化后，您可以使用管理员账号登录系统"
+  },
+  "errors": {
+    "passwordMismatch": "两次输入的密码不一致",
+    "passwordTooShort": "密码至少需要6个字符",
+    "logoUploadFailed": "Logo上传失败",
+    "iconUploadFailed": "图标上传失败",
+    "r2SecretIdInvalid": "R2 Access Key ID 必须是 32 个字符",
+    "r2ConfigSaveFailed": "R2 配置保存失败",
+    "initFailed": "初始化失败",
+    "initFailedRetry": "初始化失败，请稍后重试"
+  },
+  "languages": {
+    "zh": "中文",
+    "en": "英文",
+    "ja": "日文",
+    "de": "德文",
+    "es": "西班牙文"
+  }
+}

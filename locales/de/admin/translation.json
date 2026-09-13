@@ -1,0 +1,79 @@
+{
+  "translation": {
+    "title": "Dienstleistungsanbieterverwaltung",
+    "table": {
+      "name": "Name",
+      "provider": "Anbieter",
+      "protocol": "Schnittstellenprotokoll",
+      "apiKey": "API Key",
+      "apiSecret": "API Secret",
+      "endpoint": "Endpoint",
+      "status": "Status",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "enabled": "Aktiviert",
+      "disabled": "Deaktiviert"
+    },
+    "actions": {
+      "add": "Konfiguration hinzufügen",
+      "copy": "Kopieren",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "test": "Konnektivität testen"
+    },
+    "modal": {
+      "add": "Übersetzungskonfiguration hinzufügen",
+      "edit": "Übersetzungskonfiguration bearbeiten",
+      "name": "Name",
+      "namePlaceholder": "Konfigurationsname eingeben, z. B.: DeepL Pro",
+      "provider": "Schnittstellenprotokoll",
+      "providerPlaceholder": "Schnittstellenprotokoll auswählen",
+      "apiKey": "API Key",
+      "apiKeyPlaceholder": "API Key eingeben",
+      "apiSecret": "API Secret",
+      "apiSecretPlaceholder": "API Secret eingeben (falls erforderlich)",
+      "apiEndpoint": "API Endpoint",
+      "apiEndpointPlaceholder": "Optional, benutzerdefinierter API-Endpunkt",
+      "timeout": "Timeout (Millisekunden)",
+      "maxRetries": "Maximale Anzahl von Wiederholungsversuchen",
+      "priority": "Priorität",
+      "priorityPlaceholder": "Je höher die Zahl, desto höher die Priorität",
+      "extraConfig": "Zusätzliche Konfiguration (JSON)",
+      "extraConfigPlaceholder": "Zum Beispiel: key: value oder JSON-Format verwenden",
+      "enabled": "Aktivieren"
+    },
+    "messages": {
+      "nameRequired": "Der Konfigurationsname darf nicht leer sein",
+      "providerRequired": "Das Schnittstellenprotokoll darf nicht leer sein",
+      "createSuccess": "Erfolgreich erstellt",
+      "updateSuccess": "Erfolgreich aktualisiert",
+      "saveSuccess": "Erfolgreich gespeichert",
+      "copySuccess": "Erfolgreich kopiert",
+      "copyFailed": "Fehler beim Kopieren der Übersetzungskonfiguration",
+      "saveFailed": "Fehler beim Speichern der Übersetzungskonfiguration",
+      "loadFailed": "Fehler beim Laden der Übersetzungskonfigurationsliste",
+      "loadConfigFailed": "Fehler beim Laden der Übersetzungskonfiguration",
+      "testSuccess": "Konnektivitätstest bestanden",
+      "testFailed": "Konnektivitätstest fehlgeschlagen",
+      "testUnsupported": "Dieses Protokoll unterstützt keinen Konnektivitätstest",
+      "deleteConfirm": "Möchten Sie die Konfiguration \"{name}\" wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "deleteSuccess": "Erfolgreich gelöscht",
+      "deleteFailed": "Fehler beim Löschen der Übersetzungskonfiguration"
+    },
+    "protocolOptions": {
+      "openai": "OpenAI",
+      "gemini": "Gemini",
+      "alibaba": "Alibaba Cloud",
+      "deepseek": "DeepSeek",
+      "deepl": "DeepL",
+      "volcano": "Volcano",
+      "google": "Google Translate",
+      "baidu": "Baidu",
+      "tencent": "Tencent",
+      "youdao": "Youdao"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "profile": {
+    "emailCannotChange": "邮箱不可修改",
+    "avatarUrl": "头像链接",
+    "displayName": "昵称",
+    "bio": "个人简介",
+    "bioPlaceholder": "介绍一下自己...",
+    "accountCreated": "注册时间",
+    "role": "角色",
+    "status": "状态",
+    "active": "正常",
+    "inactive": "已禁用",
+    "roleAdmin": "管理员",
+    "roleCreator": "创作者",
+    "roleUser": "普通用户"
+  },
+  "article": {
+    "title": "文章",
+    "list": "文章列表",
+    "detail": "文章详情",
+    "create": "创建文章",
+    "edit": "编辑文章",
+    "delete": "删除文章",
+    "publish": "发布",
+    "draft": "草稿",
+    "published": "已发布",
+    "unpublished": "未发布",
+    "readMore": "阅读更多",
+    "related": "相关文章",
+    "tags": "标签",
+    "category": "分类",
+    "author": "作者",
+    "date": "日期",
+    "views": "浏览量",
+    "noArticles": "暂无文章",
+    "notFound": "文章不存在",
+    "backToHome": "返回首页",
+    "viewsCount": "次浏览",
+    "noArticlesInTag": "该标签下暂无文章",
+    "noArticlesInCategory": "该分类下暂无文章",
+    "dualLanguageMode": "双语模式",
+    "exitDualLanguageMode": "退出",
+    "selectLanguage": "选择语言",
+    "leftLanguage": "左侧语言",
+    "rightLanguage": "右侧语言",
+    "toc": "目录",
+    "openToc": "打开目录",
+    "closeToc": "关闭目录",
+    "currentLanguageVersionUnavailable": "当前语言暂无该文章版本",
+    "availableLanguageVersionsHint": "请选择其他可用语言版本",
+    "switchToLanguageVersion": "查看{language}版本",
+    "languageNames": {
+      "zh": "中文",
+      "en": "英文",
+      "ja": "日文",
+      "es": "西班牙文",
+      "de": "德文"
+    },
+    "bookmark": "收藏",
+    "bookmarked": "已收藏",
+    "bookmarkLoginHint": "登录后收藏",
+    "unbookmark": "取消收藏"
+  },
+  "category": {
+    "title": "分类",
+    "all": "全部分类",
+    "list": "分类列表",
+    "sidebar": {
+      "title": "分类",
+      "articles": "篇文章"
+    }
+  },
+  "tag": {
+    "title": "标签",
+    "all": "全部标签",
+    "list": "标签列表",
+    "sidebar": {
+      "title": "标签",
+      "articles": "篇文章"
+    }
+  },
+  "comment": {
+    "title": "评论",
+    "add": "添加评论",
+    "reply": "回复",
+    "approve": "审核通过",
+    "pending": "待审核",
+    "loginPrompt": "登录后查看和发表评论",
+    "goToLogin": "前往登录",
+    "placeholder": "写下你的评论...",
+    "submit": "发表",
+    "submitting": "提交中...",
+    "noComments": "暂无评论，快来发表第一条评论吧！",
+    "loadMore": "加载更多",
+    "noMoreComments": "没有更多评论了",
+    "submitFailed": "提交评论失败，请重试"
+  },
+  "auth": {
+    "login": "登录",
+    "logout": "登出",
+    "register": "注册",
+    "email": "邮箱",
+    "password": "密码",
+    "username": "账号",
+    "forgotPassword": "忘记密码",
+    "rememberMe": "记住我",
+    "loginWithGithub": "使用 GitHub 登录",
+    "loginWithGoogle": "使用 Google 登录",
+    "registerWithGithub": "使用 GitHub 注册",
+    "registerWithGoogle": "使用 Google 注册",
+    "orLoginWithEmail": "或使用邮箱登录",
+    "haveAccount": "已有账号？",
+    "initSuccess": "系统初始化成功，请登录",
+    "loginFailedCheck": "登录失败，请检查邮箱和密码",
+    "loginFailedRetry": "登录失败，请稍后重试",
+    "oauthLoginFailed": "{provider} 登录失败",
+    "registerSuccessButLoginFailed": "注册成功但登录失败，请手动登录",
+    "registerFailed": "注册失败",
+    "registerFailedRetry": "注册失败，请稍后重试",
+    "oauthRegisterFailed": "{provider} 注册失败"
+  },
+  "password": {
+    "changePassword": "修改密码",
+    "setPassword": "设置密码",
+    "setPasswordHint": "您是通过第三方平台登录的，请设置一个密码以便后续使用密码登录",
+    "oldPassword": "旧密码",
+    "oldPasswordPlaceholder": "请输入当前密码",
+    "newPassword": "新密码",
+    "newPasswordPlaceholder": "请输入新密码",
+    "confirmPassword": "确认新密码",
+    "confirmPasswordPlaceholder": "请再次输入新密码",
+    "passwordHint": "密码长度至少为6个字符",
+    "passwordTooShort": "新密码长度至少为6个字符",
+    "passwordMismatch": "两次输入的新密码不一致",
+    "passwordSameAsOld": "新密码不能与旧密码相同"
+  },
+  "message": {
+    "loginSuccess": "登录成功",
+    "logoutSuccess": "登出成功",
+    "registerSuccess": "注册成功",
+    "loginFailed": "登录失败",
+    "logoutFailed": "登出失败",
+    "registerFailed": "注册失败",
+    "saveSuccess": "保存成功",
+    "saveFailed": "保存失败",
+    "deleteSuccess": "删除成功",
+    "deleteFailed": "删除失败"
+  },
+  "admin": {
+    "title": "个人中心",
+    "backToSite": "返回主站",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "menu": {
+      "profile": "个人资料",
+      "posts": "文章",
+      "categories": "分类",
+      "tags": "标签",
+      "media": "媒体",
+      "dashboard": "看板",
+      "themes": "主题",
+      "languages": "语言",
+      "translation": "翻译",
+      "settings": "设置"
+    }
+  },
+  "theme": {
+    "lightMode": "浅色模式",
+    "darkMode": "深色模式",
+    "systemMode": "跟随系统",
+    "switchToLight": "切换到浅色主题",
+    "switchToDark": "切换到深色主题",
+    "switchToSystem": "切换到跟随系统"
+  },
+  "loading": {
+    "loading": "加载中...",
+    "loadMore": "加载更多...",
+    "loadingFailed": "加载失败"
+  },
+  "links": {
+    "title": "友链",
+    "subtitle": "交换链接、共同成长",
+    "empty": "暂无友链"
+  },
+  "my": {
+    "center": {
+      "title": "个人中心",
+      "profile": "个人信息",
+      "profileDescription": "管理您的个人资料、头像和基本信息",
+      "author": "创作者信息",
+      "authorDescription": "管理您的作者资料和公开信息",
+      "password": "修改密码",
+      "passwordDescription": "更改您的登录密码",
+      "favorites": "我的收藏"
+    }
+  },
+  "applyCreator": {
+    "title": "申请创作者",
+    "description": "填写以下信息申请成为创作者，审核通过后即可发布文章。",
+    "alreadyCreator": "您已是创作者。",
+    "pendingTitle": "您的申请正在审核中",
+    "pendingHint": "请耐心等待管理员审核，通过后将自动获得创作者权限。",
+    "submittedAt": "提交时间",
+    "rejectedTitle": "您的申请未通过",
+    "penName": "笔名",
+    "penNamePlaceholder": "用于展示的作者名称",
+    "key": "个人ID",
+    "keyPlaceholder": "英文字母和下划线，如 my_name",
+    "keyHint": "个人ID将用于您的创作者主页链接，审核通过后不可更改。",
+    "message": "申请理由",
+    "messagePlaceholder": "可选，简单介绍自己或说明申请原因",
+    "submit": "提交申请",
+    "submitSuccess": "提交成功，请等待审核",
+    "submitFailed": "提交失败",
+    "validation": {
+      "penNameRequired": "笔名不能为空",
+      "keyRequired": "个人ID不能为空",
+      "keyFormat": "个人ID只能包含英文字母和下划线"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "tags": {
+    "title": "Tag Management",
+    "add": "Add Tag",
+    "filters": {
+      "searchPlaceholder": "Search tag name or slug...",
+      "allLanguages": "All Languages",
+      "apply": "Apply",
+      "refresh": "Refresh"
+    },
+    "table": {
+      "name": "Name",
+      "slug": "Slug",
+      "language": "Language",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleteEntireTag": "Delete entire tag",
+      "save": "Save",
+      "cancel": "Cancel",
+      "translate": "Translate",
+      "loading": "Loading...",
+      "noTags": "No tags found",
+      "createHint": "Click the button above to create a tag"
+    },
+    "modal": {
+      "edit": "Edit Tag",
+      "add": "Add Tag",
+      "language": "Language",
+      "selectLanguage": "Please select language",
+      "name": "Name",
+      "namePlaceholder": "Tag name",
+      "slug": "Slug",
+      "slugWarning": "Changing the slug will automatically sync and update all articles using this tag",
+      "color": "Color"
+    },
+    "translateDialog": {
+      "title": "Translate Tag",
+      "important": "Important",
+      "hint1": "Translation will overwrite all existing content in other language versions",
+      "hint2": "Translation may take a few minutes, please be patient",
+      "sourceLanguage": "Source Language:",
+      "tagName": "Tag Name:",
+      "targetLanguages": "Target Languages",
+      "selectAll": "Select All",
+      "deselectAll": "Deselect All",
+      "targetLanguagesHint": "Select target languages to translate to (multiple selection allowed)",
+      "noTargetLanguages": "No available target languages",
+      "provider": "Translation Provider",
+      "useDefaultProvider": "Use System Default",
+      "providerHint": "Select a translation provider, leave empty to use system default configuration",
+      "cancel": "Cancel",
+      "translating": "Translating...",
+      "confirm": "Confirm Translate"
+    },
+    "messages": {
+      "saveSuccess": "Saved successfully",
+      "saveFailed": "Failed to save tag",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Failed to delete tag",
+      "loadFailed": "Failed to load tags",
+      "deleteConfirm": "Are you sure you want to delete tag \"{name}\"?",
+      "deleteEntireTagConfirm": "Are you sure you want to delete all language variants of tag \"{slug}\"? This cannot be undone.",
+      "selectTargetLanguages": "Please select at least one target language",
+      "translateSuccess": "Translation successful",
+      "translateFailed": "Translation failed",
+      "pleaseEnterTagName": "Please enter tag name first",
+      "pleaseSelectLanguage": "Please select language first",
+      "generateSlugByTranslation": "Generate English slug through translation",
+      "translationSuccess": "Slug generated successfully through translation",
+      "translationFailed": "Translation failed, please use local generation"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "categories": {
+    "title": "Category Management",
+    "add": "Add Category",
+    "filters": {
+      "searchPlaceholder": "Search category name or slug...",
+      "allLanguages": "All Languages",
+      "apply": "Apply",
+      "refresh": "Refresh"
+    },
+    "table": {
+      "name": "Name",
+      "slug": "Slug",
+      "language": "Language",
+      "parent": "Parent",
+      "sortOrder": "Sort",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "translate": "Translate",
+      "loading": "Loading...",
+      "noCategories": "No categories found",
+      "createHint": "Click the button above to create a category"
+    },
+    "modal": {
+      "edit": "Edit Category",
+      "add": "Add Category",
+      "language": "Language",
+      "selectLanguage": "Please select language",
+      "name": "Name",
+      "namePlaceholder": "Category name",
+      "slug": "Slug",
+      "slugWarning": "Changing the slug will automatically sync and update all articles using this category",
+      "description": "Description",
+      "descriptionPlaceholder": "Category description (optional)",
+      "parent": "Parent Category",
+      "noParent": "None (Top Level)",
+      "color": "Color",
+      "icon": "Icon",
+      "iconPlaceholder": "e.g., 📁",
+      "sortOrder": "Sort Order",
+      "enabled": "Enabled"
+    },
+    "translateDialog": {
+      "title": "Translate Category",
+      "important": "Important",
+      "hint1": "Translation will overwrite all existing content in other language versions",
+      "hint2": "Translation may take a few minutes, please be patient",
+      "sourceLanguage": "Source Language:",
+      "categoryName": "Category Name:",
+      "targetLanguages": "Target Languages",
+      "selectAll": "Select All",
+      "deselectAll": "Deselect All",
+      "targetLanguagesHint": "Select target languages to translate to (multiple selection allowed)",
+      "noTargetLanguages": "No available target languages",
+      "provider": "Translation Provider",
+      "useDefaultProvider": "Use System Default",
+      "providerHint": "Select a translation provider, leave empty to use system default configuration",
+      "cancel": "Cancel",
+      "translating": "Translating...",
+      "confirm": "Confirm Translate"
+    },
+    "messages": {
+      "saveSuccess": "Saved successfully",
+      "saveFailed": "Failed to save category",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Failed to delete category",
+      "loadFailed": "Failed to load categories",
+      "deleteConfirm": "Are you sure you want to delete category \"{name}\"?",
+      "selectTargetLanguages": "Please select at least one target language",
+      "translateSuccess": "Translation successful",
+      "translateFailed": "Translation failed",
+      "pleaseEnterCategoryName": "Please enter category name first",
+      "pleaseSelectLanguage": "Please select language first",
+      "generateSlugByTranslation": "Generate English slug through translation",
+      "translationSuccess": "Slug generated successfully through translation",
+      "translationFailed": "Translation failed, please use local generation"
+    }
+  }
+}

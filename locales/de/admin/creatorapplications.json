@@ -1,0 +1,37 @@
+{
+  "creatorApplications": {
+    "title": "Creator-Bewerbungen",
+    "filters": {
+      "all": "Alle",
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "rejected": "Abgelehnt",
+      "search": "Künstlername / ID / Nachricht suchen..."
+    },
+    "table": {
+      "applicant": "Bewerber",
+      "penName": "Künstlername",
+      "key": "Creator-ID",
+      "message": "Nachricht",
+      "status": "Status",
+      "createdAt": "Beworben am",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "rejected": "Abgelehnt"
+    },
+    "approve": "Genehmigen",
+    "reject": "Ablehnen",
+    "rejectReason": "Ablehnungsgrund",
+    "rejectReasonPlaceholder": "Optional. Begründung für den Bewerber",
+    "noData": "Keine Bewerbungen",
+    "messages": {
+      "loadFailed": "Liste konnte nicht geladen werden",
+      "approveSuccess": "Genehmigt",
+      "rejectSuccess": "Abgelehnt",
+      "actionFailed": "Aktion fehlgeschlagen"
+    }
+  }
+}

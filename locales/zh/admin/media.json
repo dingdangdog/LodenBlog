@@ -1,0 +1,53 @@
+{
+  "media": {
+    "title": "媒体管理",
+    "upload": "上传图片",
+    "uploading": "上传中...",
+    "scanArticles": "扫描文章图片",
+    "scanning": "扫描中...",
+    "dropZone": {
+      "text": "拖拽图片到此处或点击上方按钮上传",
+      "hint": "支持 JPG、PNG、GIF 等格式，最大 10MB，将自动转换为 WebP 格式"
+    },
+    "loading": "加载中...",
+    "empty": "暂无媒体文件",
+    "selectTitle": "选择图片",
+    "selectedCount": "已选择",
+    "selected": "已选择",
+    "notSelected": "未选择",
+    "actions": {
+      "edit": "编辑",
+      "delete": "删除",
+      "save": "保存",
+      "cancel": "取消",
+      "confirm": "确定",
+      "copyUrl": "复制URL",
+      "copyMarkdown": "复制Markdown"
+    },
+    "modal": {
+      "edit": "编辑媒体",
+      "filename": "文件名",
+      "alt": "替代文本 (Alt)",
+      "altPlaceholder": "图片的替代文本",
+      "caption": "说明 (Caption)",
+      "captionPlaceholder": "图片说明"
+    },
+    "messages": {
+      "uploadImageOnly": "请上传图片文件",
+      "fileTooLarge": "文件大小不得超过10MB",
+      "uploadSuccess": "上传成功",
+      "uploadFailed": "上传失败",
+      "saveSuccess": "保存成功",
+      "saveFailed": "保存失败",
+      "deleteSuccess": "删除成功",
+      "deleteFailed": "删除失败",
+      "loadFailed": "加载媒体列表失败",
+      "deleteConfirm": "确定要删除 \"{name}\" 吗？",
+      "imageLoadError": "图片加载失败",
+      "copySuccess": "复制成功",
+      "copyFailed": "复制失败",
+      "scanSuccess": "扫描完成：共找到 {total} 张图片，已存在 {existing} 张，新增 {added} 张，失败 {failed} 张",
+      "scanFailed": "扫描失败"
+    }
+  }
+}

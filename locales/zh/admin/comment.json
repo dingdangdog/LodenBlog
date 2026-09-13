@@ -1,0 +1,36 @@
+{
+  "comment": {
+    "title": "评论管理",
+    "filters": {
+      "all": "全部",
+      "pending": "待审核",
+      "approved": "已通过",
+      "search": "搜索内容/作者..."
+    },
+    "table": {
+      "content": "内容",
+      "author": "作者",
+      "article": "文章",
+      "status": "状态",
+      "createdAt": "时间",
+      "actions": "操作"
+    },
+    "status": {
+      "pending": "待审核",
+      "approved": "已通过"
+    },
+    "approve": "通过",
+    "reject": "驳回",
+    "delete": "删除",
+    "noData": "暂无评论",
+    "messages": {
+      "loadFailed": "加载评论列表失败",
+      "approveSuccess": "已通过",
+      "rejectSuccess": "已驳回",
+      "updateFailed": "操作失败",
+      "deleteConfirm": "确定要删除这条评论吗？",
+      "deleteSuccess": "删除成功",
+      "deleteFailed": "删除失败"
+    }
+  }
+}

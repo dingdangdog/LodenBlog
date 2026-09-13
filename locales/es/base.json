@@ -1,0 +1,220 @@
+{
+  "profile": {
+    "emailCannotChange": "El correo electrónico no se puede modificar",
+    "avatarUrl": "Enlace del avatar",
+    "displayName": "Nombre de usuario",
+    "bio": "Biografía",
+    "bioPlaceholder": "Cuéntanos sobre ti...",
+    "accountCreated": "Fecha de registro",
+    "role": "Rol",
+    "status": "Estado",
+    "active": "Activo",
+    "inactive": "Desactivado",
+    "roleAdmin": "Administrador",
+    "roleCreator": "Creador",
+    "roleUser": "Usuario"
+  },
+  "article": {
+    "title": "Artículo",
+    "list": "Lista de artículos",
+    "detail": "Detalles del artículo",
+    "create": "Crear artículo",
+    "edit": "Editar artículo",
+    "delete": "Eliminar artículo",
+    "publish": "Publicar",
+    "draft": "Borrador",
+    "published": "Publicado",
+    "unpublished": "No publicado",
+    "readMore": "Leer más",
+    "related": "Artículos relacionados",
+    "tags": "Etiquetas",
+    "category": "Categoría",
+    "author": "Autor",
+    "date": "Fecha",
+    "views": "Visualizaciones",
+    "noArticles": "No hay artículos",
+    "notFound": "El artículo no existe",
+    "backToHome": "Volver al inicio",
+    "viewsCount": "visualizaciones",
+    "noArticlesInTag": "No hay artículos con esta etiqueta",
+    "noArticlesInCategory": "No hay artículos en esta categoría",
+    "dualLanguageMode": "Modo Bilingüe",
+    "exitDualLanguageMode": "Salir",
+    "selectLanguage": "Seleccionar Idioma",
+    "leftLanguage": "Idioma Izquierdo",
+    "rightLanguage": "Idioma Derecho",
+    "toc": "Tabla de contenido",
+    "openToc": "Abrir tabla de contenido",
+    "closeToc": "Cerrar tabla de contenido",
+    "currentLanguageVersionUnavailable": "Este artículo no está disponible en el idioma actual",
+    "availableLanguageVersionsHint": "Selecciona una versión disponible",
+    "switchToLanguageVersion": "Leer en {language}",
+    "languageNames": {
+      "zh": "Chino",
+      "en": "Inglés",
+      "ja": "Japonés",
+      "es": "Español",
+      "de": "Alemán"
+    },
+    "bookmark": "Guardar",
+    "bookmarked": "Guardado",
+    "bookmarkLoginHint": "Inicia sesión para guardar",
+    "unbookmark": "Quitar de guardados"
+  },
+  "category": {
+    "title": "Categoría",
+    "all": "Todas las categorías",
+    "list": "Lista de categorías",
+    "sidebar": {
+      "title": "Categorías",
+      "articles": "artículos"
+    }
+  },
+  "tag": {
+    "title": "Etiqueta",
+    "all": "Todas las etiquetas",
+    "list": "Lista de etiquetas",
+    "sidebar": {
+      "title": "Etiquetas",
+      "articles": "artículos"
+    }
+  },
+  "comment": {
+    "title": "Comentario",
+    "add": "Añadir comentario",
+    "reply": "Responder",
+    "approve": "Aprobado",
+    "pending": "Pendiente de revisión",
+    "loginPrompt": "Inicia sesión para ver y publicar comentarios",
+    "goToLogin": "Ir a iniciar sesión",
+    "placeholder": "Escribe tu comentario...",
+    "submit": "Publicar",
+    "submitting": "Enviando...",
+    "noComments": "Aún no hay comentarios. ¡Sé el primero en comentar!",
+    "loadMore": "Cargar más",
+    "noMoreComments": "No hay más comentarios",
+    "submitFailed": "Error al enviar el comentario. Por favor, inténtalo de nuevo"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "register": "Registrarse",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "username": "Nombre de usuario",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "rememberMe": "Recordarme",
+    "loginWithGithub": "Iniciar sesión con GitHub",
+    "loginWithGoogle": "Iniciar sesión con Google",
+    "registerWithGithub": "Registrarse con GitHub",
+    "registerWithGoogle": "Registrarse con Google",
+    "orLoginWithEmail": "O inicia sesión con correo electrónico",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "initSuccess": "Inicialización del sistema completada. Por favor, inicia sesión",
+    "loginFailedCheck": "Error al iniciar sesión. Por favor, verifica tu correo electrónico y contraseña",
+    "loginFailedRetry": "Error al iniciar sesión. Por favor, inténtalo más tarde",
+    "oauthLoginFailed": "Error al iniciar sesión con {provider}",
+    "registerSuccessButLoginFailed": "Registro exitoso, pero falló el inicio de sesión. Por favor, inicia sesión manualmente",
+    "registerFailed": "Error en el registro",
+    "registerFailedRetry": "Error en el registro. Por favor, inténtalo más tarde",
+    "oauthRegisterFailed": "Error al registrarse con {provider}"
+  },
+  "password": {
+    "changePassword": "Cambiar contraseña",
+    "setPassword": "Establecer contraseña",
+    "setPasswordHint": "Has iniciado sesión mediante una plataforma de terceros. Por favor, establece una contraseña para poder iniciar sesión con contraseña en el futuro",
+    "oldPassword": "Contraseña actual",
+    "oldPasswordPlaceholder": "Introduce tu contraseña actual",
+    "newPassword": "Nueva contraseña",
+    "newPasswordPlaceholder": "Introduce tu nueva contraseña",
+    "confirmPassword": "Confirmar nueva contraseña",
+    "confirmPasswordPlaceholder": "Vuelve a introducir tu nueva contraseña",
+    "passwordHint": "La contraseña debe tener al menos 6 caracteres",
+    "passwordTooShort": "La nueva contraseña debe tener al menos 6 caracteres",
+    "passwordMismatch": "Las contraseñas no coinciden",
+    "passwordSameAsOld": "La nueva contraseña no puede ser igual a la contraseña actual"
+  },
+  "message": {
+    "loginSuccess": "Inicio de sesión exitoso",
+    "logoutSuccess": "Sesión cerrada correctamente",
+    "registerSuccess": "Registro exitoso",
+    "loginFailed": "Error al iniciar sesión",
+    "logoutFailed": "Error al cerrar sesión",
+    "registerFailed": "Error en el registro",
+    "saveSuccess": "Guardado exitosamente",
+    "saveFailed": "Error al guardar",
+    "deleteSuccess": "Eliminado exitosamente",
+    "deleteFailed": "Error al eliminar"
+  },
+  "admin": {
+    "title": "Centro personal",
+    "backToSite": "Volver al sitio",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "menu": {
+      "profile": "Perfil",
+      "posts": "Artículos",
+      "categories": "Categorías",
+      "tags": "Etiquetas",
+      "media": "Medios",
+      "dashboard": "Panel",
+      "themes": "Temas",
+      "languages": "Idiomas",
+      "translation": "Traducción",
+      "settings": "Configuración"
+    }
+  },
+  "theme": {
+    "lightMode": "Modo claro",
+    "darkMode": "Modo oscuro",
+    "systemMode": "Seguir sistema",
+    "switchToLight": "Cambiar a tema claro",
+    "switchToDark": "Cambiar a tema oscuro",
+    "switchToSystem": "Cambiar a seguir sistema"
+  },
+  "loading": {
+    "loading": "Cargando...",
+    "loadMore": "Cargar más...",
+    "loadingFailed": "Error al cargar"
+  },
+  "links": {
+    "title": "Enlaces",
+    "subtitle": "Intercambiar enlaces, crecer juntos",
+    "empty": "Aún no hay enlaces"
+  },
+  "my": {
+    "center": {
+      "title": "Centro personal",
+      "profile": "Información personal",
+      "profileDescription": "Gestiona tu perfil, avatar e información básica",
+      "author": "Información del autor",
+      "authorDescription": "Gestiona tu perfil de autor e información pública",
+      "password": "Cambiar contraseña",
+      "passwordDescription": "Cambia tu contraseña de inicio de sesión"
+    }
+  },
+  "applyCreator": {
+    "title": "Solicitar ser creador",
+    "description": "Rellena el formulario para solicitar ser creador. Tras la aprobación podrás publicar artículos.",
+    "alreadyCreator": "Ya eres creador.",
+    "pendingTitle": "Tu solicitud está en revisión",
+    "pendingHint": "Espera la revisión del administrador. Obtendrás permisos de creador al ser aprobado.",
+    "submittedAt": "Enviado el",
+    "rejectedTitle": "Tu solicitud no fue aprobada",
+    "penName": "Nombre artístico",
+    "penNamePlaceholder": "Nombre para mostrar como autor",
+    "key": "ID de creador",
+    "keyPlaceholder": "Letras y guiones bajos, ej. my_name",
+    "keyHint": "El ID de creador se usará en la URL de tu perfil. No se puede cambiar tras la aprobación.",
+    "message": "Mensaje",
+    "messagePlaceholder": "Opcional. Preséntate o indica el motivo de la solicitud",
+    "submit": "Enviar",
+    "submitSuccess": "Enviado. Espera la revisión.",
+    "submitFailed": "Error al enviar",
+    "validation": {
+      "penNameRequired": "El nombre artístico es obligatorio",
+      "keyRequired": "El ID de creador es obligatorio",
+      "keyFormat": "El ID de creador solo puede contener letras y guiones bajos"
+    }
+  }
+}

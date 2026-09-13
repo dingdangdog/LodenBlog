@@ -1,0 +1,79 @@
+{
+  "translation": {
+    "title": "サービスプロバイダー管理",
+    "table": {
+      "name": "名前",
+      "provider": "プロバイダー",
+      "protocol": "インターフェース規格",
+      "apiKey": "API Key",
+      "apiSecret": "API Secret",
+      "endpoint": "Endpoint",
+      "status": "ステータス",
+      "actions": "操作"
+    },
+    "status": {
+      "enabled": "有効",
+      "disabled": "無効"
+    },
+    "actions": {
+      "add": "追加",
+      "copy": "複製",
+      "edit": "編集",
+      "delete": "削除",
+      "save": "保存",
+      "cancel": "キャンセル",
+      "test": "接続テスト"
+    },
+    "modal": {
+      "add": "翻訳設定を追加",
+      "edit": "翻訳設定を編集",
+      "name": "名前",
+      "namePlaceholder": "設定名を入力（例：DeepL Pro）",
+      "provider": "インターフェース規格",
+      "providerPlaceholder": "インターフェース規格を選択してください",
+      "apiKey": "API Key",
+      "apiKeyPlaceholder": "API Keyを入力",
+      "apiSecret": "API Secret",
+      "apiSecretPlaceholder": "API Secretを入力（必要な場合）",
+      "apiEndpoint": "API Endpoint",
+      "apiEndpointPlaceholder": "オプション、カスタムAPIエンドポイント",
+      "timeout": "タイムアウト（ミリ秒）",
+      "maxRetries": "最大リトライ回数",
+      "priority": "優先度",
+      "priorityPlaceholder": "数字が大きいほど優先度が高い",
+      "extraConfig": "追加設定（JSON）",
+      "extraConfigPlaceholder": "例: key: value または JSON 形式",
+      "enabled": "有効"
+    },
+    "messages": {
+      "nameRequired": "設定名を入力してください",
+      "providerRequired": "インターフェース規格を選択してください",
+      "createSuccess": "作成しました",
+      "updateSuccess": "更新しました",
+      "saveSuccess": "保存しました",
+      "copySuccess": "複製しました",
+      "copyFailed": "翻訳設定の複製に失敗しました",
+      "saveFailed": "翻訳設定の保存に失敗しました",
+      "loadFailed": "翻訳設定リストの読み込みに失敗しました",
+      "loadConfigFailed": "翻訳設定の読み込みに失敗しました",
+      "testSuccess": "接続テストに成功しました",
+      "testFailed": "接続テストに失敗しました",
+      "testUnsupported": "この規格では接続テストに対応していません",
+      "deleteConfirm": "設定「{name}」を削除してもよろしいですか？この操作は元に戻せません。",
+      "deleteSuccess": "削除しました",
+      "deleteFailed": "翻訳設定の削除に失敗しました"
+    },
+    "protocolOptions": {
+      "openai": "OpenAI",
+      "gemini": "Gemini",
+      "alibaba": "アリババクラウド",
+      "deepseek": "DeepSeek",
+      "deepl": "DeepL",
+      "volcano": "火山",
+      "google": "Google翻訳",
+      "baidu": "百度",
+      "tencent": "騰訊",
+      "youdao": "有道"
+    }
+  }
+}

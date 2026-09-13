@@ -1,0 +1,31 @@
+{
+  "links": {
+    "title": "友链管理",
+    "add": "新增友链",
+    "edit": "编辑",
+    "parse": "自动解析",
+    "noData": "暂无友链",
+    "filters": {
+      "all": "全部",
+      "active": "启用",
+      "inactive": "禁用",
+      "search": "搜索名称/链接/简介..."
+    },
+    "status": {
+      "active": "启用",
+      "inactive": "禁用"
+    },
+    "messages": {
+      "loadFailed": "加载失败",
+      "updateSuccess": "更新成功",
+      "createSuccess": "创建成功",
+      "saveFailed": "保存失败",
+      "deleteConfirm": "确定要删除该友链吗？",
+      "deleteSuccess": "删除成功",
+      "deleteFailed": "删除失败",
+      "parseSuccess": "解析成功，已自动填入",
+      "parseFailed": "解析失败",
+      "parseNoUrl": "请先填写目标链接"
+    }
+  }
+}

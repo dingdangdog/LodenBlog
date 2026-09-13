@@ -1,0 +1,31 @@
+{
+  "title": "Admin Panel",
+  "backToSite": "Back to Site",
+  "openMenu": "Open Menu",
+  "closeMenu": "Close Menu",
+  "menuGroup": {
+    "overview": "Overview",
+    "content": "Content",
+    "translation": "Translation",
+    "system": "System"
+  },
+  "menu": {
+    "profile": "Profile",
+    "posts": "Posts",
+    "translationlogs": "Translation Logs",
+    "categories": "Categories",
+    "tags": "Tags",
+    "media": "Media",
+    "comment": "Comments",
+    "links": "Friend Links",
+    "creatorDashboard": "Creator Dashboard",
+    "dashboard": "Dashboard",
+    "themes": "Themes",
+    "languages": "Languages",
+    "translation": "Translation Providers",
+    "users": "User Management",
+    "visit": "Visit Logs",
+    "creatorApplications": "Creator Applications",
+    "settings": "Settings"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "tags": {
+    "title": "Gestión de etiquetas",
+    "add": "Añadir etiqueta",
+    "filters": {
+      "searchPlaceholder": "Buscar nombre de etiqueta o slug...",
+      "allLanguages": "Todos los idiomas",
+      "apply": "Aplicar",
+      "refresh": "Actualizar"
+    },
+    "table": {
+      "name": "Nombre",
+      "slug": "Slug",
+      "language": "Idioma",
+      "actions": "Acciones"
+    },
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "deleteEntireTag": "Eliminar etiqueta completa",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "translate": "Traducir",
+      "loading": "Cargando...",
+      "noTags": "No hay etiquetas",
+      "createHint": "Haz clic en el botón de arriba para crear una etiqueta"
+    },
+    "modal": {
+      "edit": "Editar etiqueta",
+      "add": "Añadir etiqueta",
+      "language": "Idioma",
+      "selectLanguage": "Por favor, selecciona un idioma",
+      "name": "Nombre",
+      "namePlaceholder": "Nombre de la etiqueta",
+      "slug": "Slug",
+      "slugWarning": "Modificar el slug actualizará automáticamente todos los artículos que usan esta etiqueta",
+      "color": "Color"
+    },
+    "translateDialog": {
+      "title": "Traducir etiqueta",
+      "important": "Aviso importante",
+      "hint1": "La traducción sobrescribirá todo el contenido existente en otras versiones de idioma",
+      "hint2": "El proceso de traducción puede tardar varios minutos. Por favor, ten paciencia",
+      "sourceLanguage": "Idioma de origen:",
+      "tagName": "Nombre de la etiqueta:",
+      "targetLanguages": "Idiomas de destino",
+      "selectAll": "Seleccionar todo",
+      "deselectAll": "Deseleccionar todo",
+      "targetLanguagesHint": "Selecciona los idiomas de destino para traducir, se pueden seleccionar múltiples",
+      "noTargetLanguages": "No hay idiomas de destino disponibles",
+      "provider": "Canal de traducción",
+      "useDefaultProvider": "Usar configuración predeterminada del sistema",
+      "providerHint": "Selecciona el canal de traducción. Si se deja vacío, se usará el proveedor de traducción configurado por defecto en el sistema",
+      "cancel": "Cancelar",
+      "translating": "Traduciendo...",
+      "confirm": "Confirmar traducción"
+    },
+    "messages": {
+      "saveSuccess": "Guardado correctamente",
+      "saveFailed": "Error al guardar la etiqueta",
+      "deleteSuccess": "Eliminado correctamente",
+      "deleteFailed": "Error al eliminar la etiqueta",
+      "loadFailed": "Error al cargar la lista de etiquetas",
+      "deleteConfirm": "¿Estás seguro de que deseas eliminar la etiqueta \"{name}\"?",
+      "deleteEntireTagConfirm": "¿Estás seguro de que deseas eliminar todas las variantes de idioma de la etiqueta \"{slug}\"? Esta acción no se puede deshacer.",
+      "selectTargetLanguages": "Por favor, selecciona al menos un idioma de destino",
+      "translateSuccess": "Traducción exitosa",
+      "translateFailed": "Error en la traducción",
+      "pleaseEnterTagName": "Por favor, ingresa el nombre de la etiqueta primero",
+      "pleaseSelectLanguage": "Por favor, selecciona un idioma primero",
+      "generateSlugByTranslation": "Generar slug en inglés mediante traducción",
+      "translationSuccess": "Slug generado exitosamente mediante traducción",
+      "translationFailed": "Error en la traducción, por favor usa la generación local"
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "settings": {
+    "title": "Systemeinstellungen",
+    "tabs": {
+      "site": "Website-Informationen",
+      "brand": "LOGO",
+      "language": "Spracheinstellungen",
+      "translation": "Übersetzungskonfiguration",
+      "ai": "KI-Konfiguration",
+      "themes": "Themen",
+      "languages": "Sprachen",
+      "custom": "Benutzerdefinierter Code",
+      "system": "Systemkonfiguration",
+      "import": "Datenimport",
+      "info": "Info-Seiten",
+      "links": "Freundeslinks"
+    },
+    "site": {
+      "basicInfo": "Grundlegende Website-Informationen",
+      "title": "Website-Titel",
+      "titlePlaceholder": "Bitte gib den Website-Titel ein",
+      "description": "Website-Beschreibung",
+      "descriptionPlaceholder": "Bitte gib die Website-Beschreibung ein",
+      "keyword": "Schlüsselwörter",
+      "keywordPlaceholder": "Mehrere Schlüsselwörter durch Kommas getrennt",
+      "keywordHint": "Bitte trenne mehrere Schlüsselwörter mit englischen Kommas",
+      "domain": "Website-Domain",
+      "domainPlaceholder": "z. B. www.example.com oder example.com"
+    },
+    "brand": {
+      "logoTitle": "Logo-Einstellungen",
+      "logoLight": "Logo-URL für Hellmodus",
+      "logoDark": "Logo-URL für Dunkelmodus",
+      "logoPreview": "Vorschau",
+      "logoLightPlaceholder": "https://example.com/logo-light.png",
+      "logoDarkPlaceholder": "https://example.com/logo-dark.png",
+      "uploadImage": "Bild hochladen",
+      "iconTitle": "Website-Symbol (Favicon) Einstellungen",
+      "iconLight": "Symbol-URL für Hellmodus",
+      "iconDark": "Symbol-URL für Dunkelmodus",
+      "iconLightPlaceholder": "https://example.com/favicon-light.ico",
+      "iconDarkPlaceholder": "https://example.com/favicon-dark.ico"
+    },
+    "language": {
+      "defaultLang": "Standardsprache",
+      "selectPlaceholder": "Bitte auswählen",
+      "i18nEnabled": "Mehrsprachigkeitsfunktion aktivieren",
+      "primaryLanguage": "Hauptsprache",
+      "targetLanguage": "Zielsprache",
+      "selectPrimaryFirst": "Bitte wähle zuerst die Hauptsprache"
+    },
+    "translation": {
+      "sectionSettings": "Übersetzungs- und Spracheinstellungen",
+      "autoTranslateEnabled": "Automatische Übersetzung aktivieren",
+      "autoTranslateHint": "Nach Aktivierung verwendet das System automatisch den konfigurierten Übersetzungsanbieter für Artikelübersetzungen",
+      "primaryProvider": "Intelligente Übersetzung",
+      "primaryProviderHint": "Intelligenter Übersetzungsanbieter für Artikelübersetzungen, bietet qualitativ hochwertigere Übersetzungen",
+      "fallbackProvider": "Maschinelle Übersetzung",
+      "fallbackProviderHint": "Maschineller Übersetzungsanbieter für allgemeine Übersetzungen (z. B. Slug-Generierung), schnell und kostengünstig",
+      "noProvider": "Keine verfügbaren Übersetzungsanbieter. Bitte konfiguriere zuerst auf der",
+      "translationManagement": "Übersetzungsverwaltung",
+      "noProviderHint": "-Seite einen Übersetzungsanbieter",
+      "noProviderSamePage": "Keine Übersetzungsanbieter verfügbar. Bitte unten im Abschnitt „Übersetzungskonfiguration“ einen hinzufügen und aktivieren.",
+      "noAiProvider": "Keine KI-Übersetzungsanbieter verfügbar. Bitte im Tab „KI-Konfiguration“ einen hinzufügen und aktivieren.",
+      "noMachineProvider": "Keine maschinellen Übersetzungsanbieter verfügbar. Bitte unten einen hinzufügen und aktivieren."
+    },
+    "custom": {
+      "headTitle": "Benutzerdefinierter Head-Code",
+      "headPlaceholder": "<!-- Benutzerdefinierte Meta-Tags, Skripte usw. -->",
+      "headHint": "Dieser Code wird in das <head>-Tag eingefügt",
+      "cssTitle": "Benutzerdefiniertes CSS",
+      "cssPlaceholder": "/* Benutzerdefinierte Styles */",
+      "cssHint": "Dieses CSS wird in die Seite eingefügt",
+      "jsTitle": "Benutzerdefiniertes JavaScript",
+      "jsPlaceholder": "// Benutzerdefiniertes Skript",
+      "jsHint": "Dieses JavaScript wird am Ende der Seite ausgeführt"
+    },
+    "actions": {
+      "reset": "Zurücksetzen",
+      "save": "Einstellungen speichern",
+      "saving": "Wird gespeichert...",
+      "uploading": "Wird hochgeladen...",
+      "resetSuccess": "Auf gespeicherte Werte zurückgesetzt",
+      "saveSuccess": "Einstellungen erfolgreich gespeichert",
+      "saveFailed": "Fehler beim Speichern",
+      "loadFailed": "Fehler beim Laden der Einstellungen",
+      "logoUploadSuccess": {
+        "light": "Helles Logo erfolgreich hochgeladen",
+        "dark": "Dunkles Logo erfolgreich hochgeladen"
+      },
+      "logoUploadFailed": "Fehler beim Hochladen des Logos",
+      "iconUploadSuccess": {
+        "light": "Helles Symbol erfolgreich hochgeladen",
+        "dark": "Dunkles Symbol erfolgreich hochgeladen"
+      },
+      "iconUploadFailed": "Fehler beim Hochladen des Symbols",
+      "fillRequired": "Bitte fülle alle Pflichtfelder aus"
+    },
+    "info": {
+      "title": "Info-Seiten",
+      "hint": "Verwalte Nutzungsbedingungen, Datenschutzrichtlinie und Über uns in mehreren Sprachen.",
+      "siteDomain": "Website-Domain",
+      "siteDomainHint": "Hier kannst du die Domain für die Link-Ersetzung in Info-Seiten-Vorlagen bearbeiten. Entspricht der Domain unter Website-Informationen.",
+      "saveDomain": "Domain speichern",
+      "loadFailed": "Info-Seiten konnten nicht geladen werden",
+      "saveSuccess": "Erfolgreich gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen",
+      "slugLabel": "Seite",
+      "languageLabel": "Sprache",
+      "titleLabel": "Titel",
+      "contentLabel": "Inhalt",
+      "contentPlaceholder": "Klicken oder Bearbeiten zum Schreiben",
+      "edit": "Bearbeiten",
+      "editContent": "Inhalt bearbeiten",
+      "preview": "In neuem Tab anzeigen",
+      "save": "Speichern",
+      "updatedAt": "Aktualisiert"
+    },
+    "system": {
+      "hint": "Die Systemkonfiguration wird zur Verwaltung von Konfigurationen für zugrunde liegende Dienste verwendet, wie z. B. Cloudflare R2 usw.",
+      "googleAdsIdHint": "Nur den numerischen Teil der Publisher-ID eingeben, z. B. 1234567890123456",
+      "googleAdsSlotHint": "Slot-ID nur für Anzeigen im Artikel (für .article-ads-Platzhalter)",
+      "encrypted": "Verschlüsseltes Feld",
+      "encryptedHint": "Angezeigt als *** bedeutet, dass es konfiguriert, aber verschlüsselt ist. Wenn du es ändern möchtest, gib den vollständigen Wert erneut ein",
+      "noConfigs": "Keine Konfigurationselemente",
+      "placeholder": "Bitte gib {key} ein",
+      "categories": {
+        "r2": "Cloudflare R2 Speicherkonfiguration",
+        "google": "Google-Dienste-Konfiguration",
+        "oauth": "OAuth-Anmeldekonfiguration",
+        "other": "Andere Konfigurationen"
+      },
+      "switchOn": "An",
+      "switchOff": "Aus",
+      "table": {
+        "key": "Konfigurationsschlüssel",
+        "description": "Beschreibung",
+        "value": "Konfigurationswert",
+        "actions": "Aktionen",
+        "edit": "Bearbeiten",
+        "save": "Speichern",
+        "cancel": "Abbrechen"
+      }
+    }
+  }
+}

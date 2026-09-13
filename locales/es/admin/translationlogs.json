@@ -1,0 +1,69 @@
+{
+  "translationlogs": {
+    "title": "Registro de traducciones",
+    "filters": {
+      "allTypes": "Todos los tipos",
+      "allStatus": "Todos los estados",
+      "allSourceLanguages": "Todos los idiomas de origen",
+      "allTargetLanguages": "Todos los idiomas de destino",
+      "apply": "Filtrar",
+      "refresh": "Actualizar"
+    },
+    "taskTypes": {
+      "TASK": "Tarea de traducción",
+      "FAILURE_LOG": "Registro de fallos"
+    },
+    "status": {
+      "PENDING": "Pendiente",
+      "PROCESSING": "Procesando",
+      "COMPLETED": "Completado",
+      "FAILED": "Fallido",
+      "PENDING_RETRY": "Pendiente de reintento",
+      "RESOLVED": "Resuelto",
+      "IGNORED": "Ignorado"
+    },
+    "fields": {
+      "articleId": "ID del artículo:",
+      "translationDirection": "Dirección de traducción:",
+      "errorMessage": "Mensaje de error:",
+      "created": "Creado:",
+      "started": "Iniciado:",
+      "completed": "Completado:",
+      "retryCount": "Número de reintentos:"
+    },
+    "actions": {
+      "loading": "Cargando...",
+      "noLogs": "No hay registros de traducción",
+      "retry": "Reejecutar",
+      "retryTitle": "Reejecutar",
+      "retryAllFailed": "Reintentar todo",
+      "copyArticleId": "Copiar ID del artículo",
+      "delete": "Eliminar",
+      "deleteTitle": "Eliminar registro"
+    },
+    "pagination": {
+      "total": "Total {total} registros, página {page} / {totalPages}",
+      "previous": "Anterior",
+      "next": "Siguiente"
+    },
+    "date": {
+      "justNow": "Ahora mismo",
+      "minutesAgo": "hace {minutes} minutos",
+      "hoursAgo": "hace {hours} horas",
+      "daysAgo": "hace {days} días"
+    },
+    "messages": {
+      "retrySuccess": "La tarea se ha vuelto a añadir a la cola y está esperando ejecución",
+      "retryFailed": "Error al reejecutar la tarea",
+      "retryAllFailedConfirm": "¿Está seguro de que desea reejecutar todas las tareas fallidas? La tarea más antigua se ejecutará inmediatamente y las demás se añadirán a la cola para su ejecución.",
+      "retryAllFailedSuccess": "Todas las tareas fallidas han sido reejecutadas, la tarea más antigua se ha ejecutado inmediatamente",
+      "retryAllFailedFailed": "Error al reejecutar todas las tareas fallidas",
+      "loadFailed": "Error al cargar el registro de traducciones",
+      "copySuccess": "El ID del artículo se ha copiado al portapapeles",
+      "copyFailed": "Error al copiar. Por favor, copia manualmente",
+      "deleteConfirm": "¿Está seguro de que desea eliminar el registro de traducción para el ID de artículo {articleId}? Esta acción no se puede deshacer.",
+      "deleteSuccess": "Eliminado con éxito",
+      "deleteFailed": "Error al eliminar"
+    }
+  }
+}

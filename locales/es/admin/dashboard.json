@@ -1,0 +1,71 @@
+{
+  "dashboard": {
+    "creator": {
+      "overviewTitle": "Resumen de datos",
+      "overviewDesc": "Tus artículos y estadísticas de contenido"
+    },
+    "overview": "Resumen de datos",
+    "resources": "Recursos del sitio",
+    "enabledLanguages": "Idiomas habilitados",
+    "availableThemes": "Temas disponibles",
+    "themeCount": "Temas",
+    "lastUpdated": "Última actualización",
+    "noUpdate": "Ninguna",
+    "enter": "Entrar",
+    "siteOverview": "Resumen del sitio",
+    "siteOverviewDesc": "Contenido y configuración básica",
+    "visitBoard": "Panel de visitas",
+    "visitBoardDesc": "Enfoque: visitas humanas, visitas bot, origen de bots",
+    "lastNDays": "Últimos {n} días",
+    "trendHumanVsBot": "Tendencia de visitas (humano vs. bot)",
+    "byDay": "Por día natural",
+    "visitorDist": "Distribución de visitantes (últimos {n} días)",
+    "totalVisits": "Visitas totales",
+    "humanIpBotRatio": "IPs humanas / proporción bot",
+    "humanVisits": "Visitas humanas",
+    "botVisits": "Visitas bot",
+    "humanIps": "IPs humanas",
+    "botVendorDist": "Distribución de proveedores bot",
+    "noBotData": "Sin datos de bot",
+    "todaySummary": "Resumen de hoy",
+    "rankingHuman": "Humano",
+    "rankingBot": "Bot",
+    "rankingAll": "Total",
+    "chartTotal": "Total",
+    "chartHuman": "Humano",
+    "chartBot": "Bot",
+    "quickLinks": "Enlaces rápidos",
+    "goTo": "Ir a →",
+    "stats": {
+      "totalArticles": "Total de artículos",
+      "published": "Publicados",
+      "drafts": "Borradores",
+      "totalViews": "Visualizaciones acumuladas",
+      "todayVisits": "Visitas de hoy",
+      "totalVisitCount": "Total de visitas",
+      "totalHumanVisitCount": "Total visitas humanas",
+      "totalBotVisitCount": "Total visitas bot"
+    },
+    "visitAnalysis": {
+      "title": "Análisis de visitas",
+      "todayRanking": "Artículos populares de hoy",
+      "articleRanking": "Ranking de artículos",
+      "rangeToday": "Hoy",
+      "rangeWeek": "Esta semana",
+      "rangeAll": "Todo",
+      "visitTrend": "Tendencia de visitas",
+      "days7": "Últimos 7 días",
+      "days30": "Últimos 30 días",
+      "days100": "Últimos 100 días",
+      "noData": "Sin datos",
+      "visitCount": "Número de visitas"
+    },
+    "links": {
+      "profile": "Perfil",
+      "posts": "Creación de artículos",
+      "themes": "Gestión de temas",
+      "media": "Gestión de medios",
+      "translationlogs": "Registro de traducciones"
+    }
+  }
+}

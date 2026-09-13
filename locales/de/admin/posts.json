@@ -1,0 +1,157 @@
+{
+  "posts": {
+    "title": "Meine Artikel",
+    "searchPlaceholder": "Titel oder Slug suchen, Leerzeichen oder Komma",
+    "filters": {
+      "allStatus": "Alle Status",
+      "draft": "Entwurf",
+      "published": "Veröffentlicht",
+      "allLanguages": "Alle Sprachen",
+      "allCategories": "Alle Kategorien",
+      "allTags": "Alle Tags",
+      "apply": "Filter",
+      "refresh": "Aktualisieren",
+      "sortBy": "Sortieren nach",
+      "sortOrder": "Reihenfolge",
+      "sortOptions": {
+        "createdAt": "Erstellungszeit",
+        "viewCount": "Aufrufe",
+        "updatedAt": "Aktualisierungszeit"
+      },
+      "sortOrderOptions": {
+        "desc": "Absteigend",
+        "asc": "Aufsteigend"
+      }
+    },
+    "actions": {
+      "create": "Neu",
+      "edit": "Bearbeiten",
+      "loading": "Wird geladen...",
+      "noArticles": "Keine Artikel",
+      "createHint": "Klicke auf «Neuer Artikel» in der oberen rechten Ecke, um mit dem Erstellen zu beginnen",
+      "translate": "In andere Sprachen übersetzen",
+      "view": "Artikel anzeigen",
+      "delete": "Artikel löschen",
+      "comments": "Kommentare",
+      "visitAnalysis": "Besuchstrend",
+      "generateWithAI": "KI-Artikel schreiben",
+      "aiGenerationLogs": "Generierungsprotokoll",
+      "publish": "Artikel veröffentlichen",
+      "pin": "Anheften",
+      "unpin": "Anheften aufheben"
+    },
+    "status": {
+      "published": "Veröffentlicht",
+      "draft": "Entwurf",
+      "pinned": "Angeheftet"
+    },
+    "deleteDialog": {
+      "title": "Artikel löschen",
+      "warning": "Warnung",
+      "warningText": "Der Löschvorgang kann nicht rückgängig gemacht werden und löscht den Artikel und alle seine Sprachversionen dauerhaft.",
+      "articleTitle": "Artikel-Titel:",
+      "cancel": "Abbrechen",
+      "deleting": "Wird gelöscht...",
+      "confirm": "Löschen bestätigen"
+    },
+    "translateDialog": {
+      "title": "Artikel übersetzen",
+      "important": "Wichtiger Hinweis",
+      "hint1": "Die Übersetzung überschreibt alle vorhandenen Inhalte in anderen Sprachversionen",
+      "hint2": "Der Übersetzungsprozess kann einige Minuten dauern. Bitte habe Geduld",
+      "hint3": "Die Übersetzungsaufgabe wird im Hintergrund ausgeführt und blockiert die Seitenoperationen nicht",
+      "sourceLanguage": "Quellsprache",
+      "selectSourceLanguage": "Quellsprache auswählen",
+      "sourceLanguageHint": "Wähle die Sprachversion, die als Übersetzungsquelle verwendet werden soll",
+      "articleTitle": "Artikel-Titel:",
+      "targetLanguages": "Zielsprachen",
+      "selectAll": "Alle auswählen",
+      "deselectAll": "Alle abwählen",
+      "targetLanguagesHint": "Wähle die Zielsprachen für die Übersetzung aus, mehrere Auswahl möglich",
+      "noTargetLanguages": "Keine verfügbaren Zielsprachen",
+      "provider": "Übersetzungskanal",
+      "useDefaultProvider": "Systemstandard verwenden",
+      "providerHint": "Wähle den Übersetzungskanal. Wenn leer gelassen, wird der standardmäßig konfigurierte Übersetzungsanbieter des Systems verwendet",
+      "cancel": "Abbrechen",
+      "translating": "Wird übersetzt...",
+      "confirm": "Übersetzung bestätigen"
+    },
+    "date": {
+      "today": "Heute",
+      "yesterday": "Gestern",
+      "daysAgo": "vor {days} Tagen"
+    },
+    "availableLanguages": "Sprachen",
+    "visitAnalysis": {
+      "title": "Artikel-Besuchstrend",
+      "timeRange": "Zeitraum",
+      "language": "Sprache",
+      "allLanguages": "Alle Sprachen",
+      "days7": "Letzte 7 Tage",
+      "days30": "Letzte 30 Tage",
+      "days100": "Letzte 100 Tage",
+      "noData": "Keine Daten",
+      "visitCount": "Besuchsanzahl"
+    },
+    "generateArticleDialog": {
+      "title": "KI-Artikel schreiben",
+      "articleTitle": "Artikel-Titel",
+      "articleTitlePlaceholder": "Artikel-Titel eingeben",
+      "articleTitleHint": "Gib den Titel des Artikels ein, die KI generiert Inhalte basierend darauf",
+      "language": "Artikelsprache",
+      "selectLanguage": "Sprache auswählen",
+      "languageHint": "Wähle die Sprache für den Artikel",
+      "contentRequirement": "Inhaltsanforderung",
+      "contentRequirementPlaceholder": "Beschreibe die Inhaltsanforderungen, z. B.: Thema, Zielgruppe, Stil, Kernpunkte usw.",
+      "contentRequirementHint": "Beschreibe detailliert, was die KI generieren soll. Je detaillierter, desto besser das Ergebnis",
+      "aiProvider": "KI-Anbieter",
+      "useDefaultProvider": "Systemstandard verwenden",
+      "aiProviderHint": "Wähle einen KI-Anbieter, leer lassen für Systemstandardkonfiguration",
+      "generating": "Generiere...",
+      "generate": "Generieren"
+    },
+    "messages": {
+      "translateStarted": "Übersetzungsaufgabe wurde gestartet und wird im Hintergrund ausgeführt",
+      "translateFailed": "Fehler beim Starten der Übersetzungsaufgabe",
+      "selectTargetLanguages": "Bitte wähle mindestens eine Zielsprache",
+      "noLanguageVersion": "Artikel hat keine verfügbaren Sprachversionen",
+      "deleteSuccess": "Artikel erfolgreich gelöscht",
+      "deleteFailed": "Fehler beim Löschen des Artikels",
+      "publishSuccess": "Artikel erfolgreich veröffentlicht",
+      "publishFailed": "Fehler beim Veröffentlichen des Artikels",
+      "articleTitleRequired": "Artikel-Titel ist erforderlich",
+      "languageRequired": "Bitte wähle eine Artikelsprache",
+      "contentRequirementRequired": "Inhaltsanforderung ist erforderlich",
+      "generateSuccess": "KI-Artikel erfolgreich generiert",
+      "generateFailed": "Fehler beim Generieren des KI-Artikels",
+      "pinSuccess": "Erfolgreich angeheftet",
+      "pinFailed": "Anheften fehlgeschlagen",
+      "unpinSuccess": "Anheften aufgehoben",
+      "unpinFailed": "Anheften aufheben fehlgeschlagen"
+    },
+    "aiGenerationLogsModal": {
+      "title": "KI-Generierungsprotokoll",
+      "searchPlaceholder": "Titel oder Anforderungen suchen...",
+      "noLogs": "Noch keine Generierungsprotokolle",
+      "language": "Sprache",
+      "provider": "KI-Anbieter",
+      "createdAt": "Eingereicht am",
+      "contentLength": "{count} Zeichen generiert",
+      "viewDetail": "Details anzeigen",
+      "hideDetail": "Details ausblenden",
+      "reuse": "Parameter wiederverwenden",
+      "editArticle": "Artikel bearbeiten",
+      "statusAll": "Alle Status",
+      "statusSuccess": "Erfolg",
+      "statusFailed": "Fehlgeschlagen",
+      "statusProcessing": "In Bearbeitung"
+    },
+    "commentsModal": {
+      "title": "Artikelkommentare",
+      "noComments": "Noch keine Kommentare",
+      "replyPlaceholder": "Antwort schreiben...",
+      "submitReply": "Antwort senden",
+      "addReply": "Kommentar hinzufügen"
+    }
+  }
+}

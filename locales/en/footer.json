@@ -1,0 +1,22 @@
+{
+  "copyright": "Copyright",
+  "rights": "All rights reserved",
+  "year": "2025",
+  "links": {
+    "about": "About Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact Us",
+    "moreLinks": "More Links"
+  },
+  "social": {
+    "follow": "Follow Us",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "github": "GitHub",
+    "email": "Email"
+  },
+  "poweredBy": "Powered by",
+  "builtWith": "Built with"
+}
+

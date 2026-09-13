@@ -1,0 +1,157 @@
+{
+  "posts": {
+    "title": "My Articles",
+    "searchPlaceholder": "Search title or slug, space or comma separated",
+    "filters": {
+      "allStatus": "All Status",
+      "draft": "Draft",
+      "published": "Published",
+      "allLanguages": "All Languages",
+      "allCategories": "All Categories",
+      "allTags": "All Tags",
+      "apply": "Filter",
+      "refresh": "Refresh",
+      "sortBy": "Sort By",
+      "sortOrder": "Sort Order",
+      "sortOptions": {
+        "createdAt": "Created Time",
+        "viewCount": "View Count",
+        "updatedAt": "Updated Time"
+      },
+      "sortOrderOptions": {
+        "desc": "Descending",
+        "asc": "Ascending"
+      }
+    },
+    "actions": {
+      "create": "New",
+      "edit": "Edit",
+      "loading": "Loading...",
+      "noArticles": "No articles",
+      "createHint": "Click 'New Article' in the top right to start",
+      "translate": "Translate to other languages",
+      "view": "View Article",
+      "delete": "Delete Article",
+      "comments": "Comments",
+      "visitAnalysis": "Visit Trend",
+      "generateWithAI": "AI Write Article",
+      "aiGenerationLogs": "Generation Logs",
+      "publish": "Publish Article",
+      "pin": "Pin to top",
+      "unpin": "Unpin"
+    },
+    "status": {
+      "published": "Published",
+      "draft": "Draft",
+      "pinned": "Pinned"
+    },
+    "deleteDialog": {
+      "title": "Delete Article",
+      "warning": "Warning",
+      "warningText": "This action cannot be undone. It will permanently delete the article and all its language versions.",
+      "articleTitle": "Article Title:",
+      "cancel": "Cancel",
+      "deleting": "Deleting...",
+      "confirm": "Confirm Delete"
+    },
+    "translateDialog": {
+      "title": "Translate Article",
+      "important": "Important",
+      "hint1": "Translation will overwrite all existing content in other language versions",
+      "hint2": "Translation may take a few minutes, please be patient",
+      "hint3": "Translation runs in the background and won't block page operations",
+      "sourceLanguage": "Source Language",
+      "selectSourceLanguage": "Select Source Language",
+      "sourceLanguageHint": "Select the language version to use as the translation source",
+      "articleTitle": "Article Title:",
+      "targetLanguages": "Target Languages",
+      "selectAll": "Select All",
+      "deselectAll": "Deselect All",
+      "targetLanguagesHint": "Select target languages to translate to (multiple selection allowed)",
+      "noTargetLanguages": "No available target languages",
+      "provider": "Translation Provider",
+      "useDefaultProvider": "Use System Default",
+      "providerHint": "Select a translation provider, leave empty to use system default configuration",
+      "cancel": "Cancel",
+      "translating": "Translating...",
+      "confirm": "Confirm Translate"
+    },
+    "date": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "daysAgo": "{days} days ago"
+    },
+    "availableLanguages": "Languages",
+    "visitAnalysis": {
+      "title": "Article Visit Trend",
+      "timeRange": "Time Range",
+      "language": "Language",
+      "allLanguages": "All Languages",
+      "days7": "Last 7 Days",
+      "days30": "Last 30 Days",
+      "days100": "Last 100 Days",
+      "noData": "No Data",
+      "visitCount": "Visit Count"
+    },
+    "generateArticleDialog": {
+      "title": "AI Write Article",
+      "articleTitle": "Article Title",
+      "articleTitlePlaceholder": "Enter article title",
+      "articleTitleHint": "Enter the title of the article, AI will generate content based on it",
+      "language": "Article Language",
+      "selectLanguage": "Select Language",
+      "languageHint": "Select the language for the article",
+      "contentRequirement": "Content Requirement",
+      "contentRequirementPlaceholder": "Describe the content requirements, such as: topic, target audience, style, key points, etc.",
+      "contentRequirementHint": "Describe in detail what you want the AI to generate, the more detailed, the better the result",
+      "aiProvider": "AI Provider",
+      "useDefaultProvider": "Use System Default",
+      "aiProviderHint": "Select AI provider, leave empty to use system default configuration",
+      "generating": "Generating...",
+      "generate": "Generate"
+    },
+    "messages": {
+      "translateStarted": "Translation task started, running in background",
+      "translateFailed": "Failed to start translation task",
+      "selectTargetLanguages": "Please select at least one target language",
+      "noLanguageVersion": "Article has no available language versions",
+      "deleteSuccess": "Article deleted successfully",
+      "deleteFailed": "Failed to delete article",
+      "publishSuccess": "Article published successfully",
+      "publishFailed": "Failed to publish article",
+      "articleTitleRequired": "Article title is required",
+      "languageRequired": "Please select article language",
+      "contentRequirementRequired": "Content requirement is required",
+      "generateSuccess": "AI article generated successfully",
+      "generateFailed": "Failed to generate AI article",
+      "pinSuccess": "Pinned successfully",
+      "pinFailed": "Failed to pin",
+      "unpinSuccess": "Unpinned successfully",
+      "unpinFailed": "Failed to unpin"
+    },
+    "aiGenerationLogsModal": {
+      "title": "AI Generation Logs",
+      "searchPlaceholder": "Search title or requirements...",
+      "noLogs": "No generation logs yet",
+      "language": "Language",
+      "provider": "AI Provider",
+      "createdAt": "Submitted at",
+      "contentLength": "{count} characters generated",
+      "viewDetail": "View details",
+      "hideDetail": "Hide details",
+      "reuse": "Reuse parameters",
+      "editArticle": "Edit article",
+      "statusAll": "All statuses",
+      "statusSuccess": "Success",
+      "statusFailed": "Failed",
+      "statusProcessing": "Processing"
+    },
+    "commentsModal": {
+      "title": "Article Comments",
+      "noComments": "No comments yet",
+      "replyPlaceholder": "Write a reply...",
+      "submitReply": "Send Reply",
+      "addReply": "Add Comment"
+    }
+  }
+}

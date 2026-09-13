@@ -1,0 +1,89 @@
+{
+  "categories": {
+    "title": "Gestión de categorías",
+    "add": "Añadir categoría",
+    "filters": {
+      "searchPlaceholder": "Buscar nombre de categoría o slug...",
+      "allLanguages": "Todos los idiomas",
+      "apply": "Aplicar",
+      "refresh": "Actualizar"
+    },
+    "table": {
+      "name": "Nombre",
+      "slug": "Slug",
+      "language": "Idioma",
+      "parent": "Categoría padre",
+      "sortOrder": "Orden",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "status": {
+      "enabled": "Habilitado",
+      "disabled": "Deshabilitado"
+    },
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "translate": "Traducir",
+      "loading": "Cargando...",
+      "noCategories": "No hay categorías",
+      "createHint": "Haz clic en el botón de arriba para crear una categoría"
+    },
+    "modal": {
+      "edit": "Editar categoría",
+      "add": "Añadir categoría",
+      "language": "Idioma",
+      "selectLanguage": "Por favor, selecciona un idioma",
+      "name": "Nombre",
+      "namePlaceholder": "Nombre de la categoría",
+      "slug": "Slug",
+      "slugWarning": "Modificar el slug actualizará automáticamente todos los artículos que usan esta categoría",
+      "description": "Descripción",
+      "descriptionPlaceholder": "Descripción de la categoría (opcional)",
+      "parent": "Categoría padre",
+      "noParent": "Ninguna (categoría de nivel superior)",
+      "color": "Color",
+      "icon": "Icono",
+      "iconPlaceholder": "Por ejemplo: 📁",
+      "sortOrder": "Orden",
+      "enabled": "Habilitar"
+    },
+    "translateDialog": {
+      "title": "Traducir categoría",
+      "important": "Aviso importante",
+      "hint1": "La traducción sobrescribirá todo el contenido existente en otras versiones de idioma",
+      "hint2": "El proceso de traducción puede tardar varios minutos. Por favor, ten paciencia",
+      "sourceLanguage": "Idioma de origen:",
+      "categoryName": "Nombre de la categoría:",
+      "targetLanguages": "Idiomas de destino",
+      "selectAll": "Seleccionar todo",
+      "deselectAll": "Deseleccionar todo",
+      "targetLanguagesHint": "Selecciona los idiomas de destino para traducir, se pueden seleccionar múltiples",
+      "noTargetLanguages": "No hay idiomas de destino disponibles",
+      "provider": "Canal de traducción",
+      "useDefaultProvider": "Usar configuración predeterminada del sistema",
+      "providerHint": "Selecciona el canal de traducción. Si se deja vacío, se usará el proveedor de traducción configurado por defecto en el sistema",
+      "cancel": "Cancelar",
+      "translating": "Traduciendo...",
+      "confirm": "Confirmar traducción"
+    },
+    "messages": {
+      "saveSuccess": "Guardado correctamente",
+      "saveFailed": "Error al guardar la categoría",
+      "deleteSuccess": "Eliminado correctamente",
+      "deleteFailed": "Error al eliminar la categoría",
+      "loadFailed": "Error al cargar la lista de categorías",
+      "deleteConfirm": "¿Estás seguro de que deseas eliminar la categoría \"{name}\"?",
+      "selectTargetLanguages": "Por favor, selecciona al menos un idioma de destino",
+      "translateSuccess": "Traducción exitosa",
+      "translateFailed": "Error en la traducción",
+      "pleaseEnterCategoryName": "Por favor, ingresa el nombre de la categoría primero",
+      "pleaseSelectLanguage": "Por favor, selecciona un idioma primero",
+      "generateSlugByTranslation": "Generar slug en inglés mediante traducción",
+      "translationSuccess": "Slug generado exitosamente mediante traducción",
+      "translationFailed": "Error en la traducción, por favor usa la generación local"
+    }
+  }
+}

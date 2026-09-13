@@ -1,0 +1,31 @@
+{
+  "profile": {
+    "title": "Profile",
+    "redirectMessage": "Profile management has been moved. Please go to:",
+    "tabs": {
+      "user": "User Info",
+      "creator": "Creator Info"
+    },
+    "creator": {
+      "notSet": "Not Set",
+      "role": "Creator",
+      "syncTitle": "Sync from User Info",
+      "syncDescription": "Sync user avatar, nickname and username to creator info",
+      "sync": "Sync",
+      "key": "Public ID",
+      "keyPlaceholder": "Only English letters and underscores",
+      "keyHint": "Public identifier for display, case-insensitive unique",
+      "penName": "Pen Name",
+      "bio": "Bio",
+      "bioPlaceholder": "Creator bio",
+      "createdAt": "Created At",
+      "setup": "Setup Creator Info"
+    },
+    "messages": {
+      "avatarUpdated": "Avatar updated",
+      "nameRequired": "Name cannot be empty",
+      "userNotFound": "User info not found",
+      "syncSuccess": "User info synced to form, please click save to save"
+    }
+  }
+}

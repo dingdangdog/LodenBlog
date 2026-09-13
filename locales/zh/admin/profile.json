@@ -1,0 +1,31 @@
+{
+  "profile": {
+    "title": "个人资料",
+    "redirectMessage": "个人资料管理功能已迁移，请前往以下页面：",
+    "tabs": {
+      "user": "用户信息",
+      "creator": "创作者信息"
+    },
+    "creator": {
+      "notSet": "未设置",
+      "role": "创作者",
+      "syncTitle": "一键沿用用户信息",
+      "syncDescription": "将用户头像、昵称和账户名同步到创作者信息",
+      "sync": "同步",
+      "key": "个人ID",
+      "keyPlaceholder": "只能包含英文字母和下划线",
+      "keyHint": "用于公开显示的个人标识，不区分大小写唯一",
+      "penName": "笔名",
+      "bio": "个人简介",
+      "bioPlaceholder": "创作者个人简介",
+      "createdAt": "创建时间",
+      "setup": "设置创作者信息"
+    },
+    "messages": {
+      "avatarUpdated": "头像已更新",
+      "nameRequired": "名称不能为空",
+      "userNotFound": "用户信息不存在",
+      "syncSuccess": "用户信息已同步到表单，请点击保存按钮保存"
+    }
+  }
+}

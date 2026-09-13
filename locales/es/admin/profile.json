@@ -1,0 +1,31 @@
+{
+  "profile": {
+    "title": "Perfil",
+    "redirectMessage": "La función de gestión de perfil se ha migrado. Por favor, ve a la siguiente página:",
+    "tabs": {
+      "user": "Información de usuario",
+      "creator": "Información del autor"
+    },
+    "creator": {
+      "notSet": "No configurado",
+      "role": "Creador",
+      "syncTitle": "Aplicar información de usuario con un clic",
+      "syncDescription": "Sincronizar el avatar, nombre y nombre de cuenta del usuario con la información del creador",
+      "sync": "Sincronizar",
+      "key": "ID personal",
+      "keyPlaceholder": "Solo letras inglesas y guiones bajos",
+      "keyHint": "Identificador personal para mostrar públicamente, único sin distinguir mayúsculas y minúsculas",
+      "penName": "Nombre de pluma",
+      "bio": "Biografía",
+      "bioPlaceholder": "Biografía del creador",
+      "createdAt": "Fecha de creación",
+      "setup": "Configurar información del creador"
+    },
+    "messages": {
+      "avatarUpdated": "Avatar actualizado",
+      "nameRequired": "El nombre no puede estar vacío",
+      "userNotFound": "La información del usuario no existe",
+      "syncSuccess": "La información del usuario se ha sincronizado con el formulario. Por favor, haz clic en el botón guardar para guardar"
+    }
+  }
+}

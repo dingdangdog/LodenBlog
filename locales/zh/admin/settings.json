@@ -1,0 +1,146 @@
+{
+  "settings": {
+    "title": "系统设置",
+    "tabs": {
+      "site": "站点信息",
+      "brand": "LOGO",
+      "language": "语言设置",
+      "translation": "翻译配置",
+      "ai": "AI 配置",
+      "themes": "主题管理",
+      "languages": "语言管理",
+      "custom": "自定义代码",
+      "system": "系统配置",
+      "import": "数据导入",
+      "info": "信息管理",
+      "links": "友链管理"
+    },
+    "site": {
+      "basicInfo": "站点基本信息",
+      "title": "站点标题",
+      "titlePlaceholder": "请输入站点标题",
+      "description": "站点描述",
+      "descriptionPlaceholder": "请输入站点描述",
+      "keyword": "关键词",
+      "keywordPlaceholder": "多个关键词用逗号分隔",
+      "keywordHint": "多个关键词请用英文逗号分隔",
+      "domain": "站点域名",
+      "domainPlaceholder": "例如：www.example.com 或 example.com"
+    },
+    "brand": {
+      "logoTitle": "Logo 设置",
+      "logoLight": "亮色模式 Logo URL",
+      "logoDark": "暗色模式 Logo URL",
+      "logoPreview": "预览",
+      "logoLightPlaceholder": "https://example.com/logo-light.png",
+      "logoDarkPlaceholder": "https://example.com/logo-dark.png",
+      "uploadImage": "上传图片",
+      "iconTitle": "网站图标 (Favicon) 设置",
+      "iconLight": "亮色模式图标 URL",
+      "iconDark": "暗色模式图标 URL",
+      "iconLightPlaceholder": "https://example.com/favicon-light.ico",
+      "iconDarkPlaceholder": "https://example.com/favicon-dark.ico"
+    },
+    "language": {
+      "defaultLang": "默认语言",
+      "selectPlaceholder": "请选择",
+      "i18nEnabled": "启用多语言功能",
+      "primaryLanguage": "主要语言",
+      "targetLanguage": "目标语言",
+      "selectPrimaryFirst": "请先选择主要语言"
+    },
+    "translation": {
+      "sectionSettings": "翻译与语言设置",
+      "autoTranslateEnabled": "启用自动翻译",
+      "autoTranslateHint": "启用后，系统将自动使用配置的翻译服务商进行文章翻译",
+      "primaryProvider": "AI翻译",
+      "primaryProviderHint": "用于文章翻译的智能翻译服务商，提供更高质量的翻译效果",
+      "fallbackProvider": "机器翻译",
+      "fallbackProviderHint": "用于普通翻译（如生成slug）的机器翻译服务商，速度快、成本低",
+      "noProvider": "没有可用的翻译服务商，请先在",
+      "translationManagement": "翻译管理",
+      "noProviderHint": "页面配置翻译服务商",
+      "noProviderSamePage": "没有可用的翻译服务商，请在本页下方的「翻译配置管理」中添加并启用。",
+      "noAiProvider": "没有可用的 AI 翻译服务商，请到「AI 配置」中添加并启用。",
+      "noMachineProvider": "没有可用的机器翻译服务商，请在本页下方添加并启用。"
+    },
+    "custom": {
+      "headTitle": "自定义 Head 代码",
+      "headPlaceholder": "<!-- 自定义 meta 标签、脚本等 -->",
+      "headHint": "此代码将插入到 <head> 标签中",
+      "cssTitle": "自定义 CSS",
+      "cssPlaceholder": "/* 自定义样式 */",
+      "cssHint": "此 CSS 将插入到页面中",
+      "jsTitle": "自定义 JavaScript",
+      "jsPlaceholder": "// 自定义脚本",
+      "jsHint": "此 JavaScript 将在页面底部执行"
+    },
+    "actions": {
+      "reset": "重置",
+      "save": "保存设置",
+      "saving": "保存中...",
+      "uploading": "上传中...",
+      "resetSuccess": "已重置为保存的值",
+      "saveSuccess": "设置保存成功",
+      "saveFailed": "保存失败",
+      "loadFailed": "加载设置失败",
+      "logoUploadSuccess": {
+        "light": "亮色Logo上传成功",
+        "dark": "暗色Logo上传成功"
+      },
+      "logoUploadFailed": "Logo上传失败",
+      "iconUploadSuccess": {
+        "light": "亮色图标上传成功",
+        "dark": "暗色图标上传成功"
+      },
+      "iconUploadFailed": "图标上传失败",
+      "fillRequired": "请完整填写必填项"
+    },
+    "info": {
+      "title": "信息页管理",
+      "hint": "管理站点展示的用户协议、隐私政策、关于等页面的多语言内容。",
+      "siteDomain": "站点域名",
+      "siteDomainHint": "此处可维护站点域名，用于信息页模板中的链接替换。与「站点信息」中的域名为同一项。",
+      "saveDomain": "保存域名",
+      "loadFailed": "加载信息页失败",
+      "saveSuccess": "保存成功",
+      "saveFailed": "保存失败",
+      "slugLabel": "页面",
+      "languageLabel": "语言",
+      "titleLabel": "标题",
+      "contentLabel": "正文",
+      "contentPlaceholder": "点击或点击编辑按钮编写正文",
+      "edit": "编辑",
+      "editContent": "编辑正文",
+      "preview": "在新标签页中预览",
+      "save": "保存",
+      "updatedAt": "更新时间"
+    },
+    "system": {
+      "hint": "系统配置用于管理底层服务配置，如 Cloudflare R2 等。",
+      "googleAdsIdHint": "仅填 Publisher ID 数字部分，例如 1234567890123456",
+      "googleAdsSlotHint": "文内广告专用 Slot ID（对应 .article-ads 占位）",
+      "encrypted": "加密字段",
+      "encryptedHint": "显示为 *** 表示已配置但已加密，如需修改请重新输入完整值",
+      "noConfigs": "暂无配置项",
+      "placeholder": "请输入 {key}",
+      "categories": {
+        "r2": "Cloudflare R2 存储配置",
+        "google": "Google 服务配置",
+        "oauth": "OAuth 登录配置",
+        "other": "其他配置"
+      },
+      "switchOn": "开",
+      "switchOff": "关",
+      "table": {
+        "key": "配置键",
+        "description": "说明",
+        "value": "配置值",
+        "actions": "操作",
+        "edit": "编辑",
+        "save": "保存",
+        "cancel": "取消"
+      }
+    }
+  }
+}

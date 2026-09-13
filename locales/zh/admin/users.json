@@ -1,0 +1,41 @@
+{
+  "users": {
+    "title": "用户管理",
+    "table": {
+      "username": "用户名",
+      "name": "昵称",
+      "email": "邮箱",
+      "role": "角色",
+      "creator": "创作者",
+      "status": "状态",
+      "createdAt": "创建时间",
+      "actions": "操作",
+      "noCreator": "无"
+    },
+    "role": {
+      "user": "用户",
+      "creator": "创作者",
+      "admin": "管理员"
+    },
+    "status": {
+      "active": "激活",
+      "inactive": "停用"
+    },
+    "actions": {
+      "grantCreator": "授予创作者权限",
+      "granting": "授予中...",
+      "revokeCreator": "撤销创作者权限",
+      "revoking": "撤销中...",
+      "alreadyCreator": "已是创作者"
+    },
+    "messages": {
+      "loadFailed": "加载用户列表失败",
+      "grantConfirm": "确定要授予用户 \"{username}\" 创作者权限吗？",
+      "grantSuccess": "授予创作者权限成功",
+      "grantFailed": "授予创作者权限失败",
+      "revokeConfirm": "确定要撤销用户 \"{username}\" 的创作者权限吗？",
+      "revokeSuccess": "撤销创作者权限成功",
+      "revokeFailed": "撤销创作者权限失败"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "visit": {
+    "filters": {
+      "recordType": "記録タイプ：",
+      "normalVisitor": "一般訪問者",
+      "adminVisitor": "管理訪問者",
+      "refresh": "更新"
+    },
+    "title": {
+      "normalVisitorRecords": "一般訪問者記録",
+      "adminVisitorRecords": "管理訪問者記録"
+    },
+    "status": {
+      "loading": "読み込み中...",
+      "noRecords": "訪問者記録がありません",
+      "loadMore": "さらに読み込む...",
+      "noMoreData": "これ以上データがありません"
+    },
+    "fields": {
+      "ip": "IP:",
+      "userId": "ユーザーID:",
+      "recordId": "記録ID",
+      "requestUri": "リクエストURI",
+      "ipAddress": "IPアドレス",
+      "userIdLabel": "ユーザーID",
+      "userAgent": "User Agent",
+      "createdAt": "作成日時"
+    },
+    "modal": {
+      "title": "訪問者記録の詳細",
+      "close": "閉じる"
+    },
+    "date": {
+      "justNow": "たった今",
+      "minutesAgo": "{minutes} 分前",
+      "hoursAgo": "{hours} 時間前",
+      "daysAgo": "{days} 日前"
+    },
+    "messages": {
+      "loadFailed": "訪問者記録の読み込みに失敗しました"
+    }
+  }
+}

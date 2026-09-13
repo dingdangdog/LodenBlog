@@ -1,0 +1,89 @@
+{
+  "categories": {
+    "title": "Kategorieverwaltung",
+    "add": "Kategorie hinzufügen",
+    "filters": {
+      "searchPlaceholder": "Kategoriename oder Slug suchen...",
+      "allLanguages": "Alle Sprachen",
+      "apply": "Anwenden",
+      "refresh": "Aktualisieren"
+    },
+    "table": {
+      "name": "Name",
+      "slug": "Slug",
+      "language": "Sprache",
+      "parent": "Übergeordnete Kategorie",
+      "sortOrder": "Sortierung",
+      "status": "Status",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "enabled": "Aktiviert",
+      "disabled": "Deaktiviert"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "translate": "Übersetzen",
+      "loading": "Wird geladen...",
+      "noCategories": "Keine Kategorien",
+      "createHint": "Klicke auf die Schaltfläche oben, um eine Kategorie zu erstellen"
+    },
+    "modal": {
+      "edit": "Kategorie bearbeiten",
+      "add": "Kategorie hinzufügen",
+      "language": "Sprache",
+      "selectLanguage": "Bitte wähle eine Sprache",
+      "name": "Name",
+      "namePlaceholder": "Kategoriename",
+      "slug": "Slug",
+      "slugWarning": "Das Ändern des Slugs aktualisiert automatisch alle Artikel, die diese Kategorie verwenden",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "Kategoriebeschreibung (optional)",
+      "parent": "Übergeordnete Kategorie",
+      "noParent": "Keine (Top-Level-Kategorie)",
+      "color": "Farbe",
+      "icon": "Symbol",
+      "iconPlaceholder": "Zum Beispiel: 📁",
+      "sortOrder": "Sortierung",
+      "enabled": "Aktivieren"
+    },
+    "translateDialog": {
+      "title": "Kategorie übersetzen",
+      "important": "Wichtiger Hinweis",
+      "hint1": "Die Übersetzung überschreibt alle vorhandenen Inhalte in anderen Sprachversionen",
+      "hint2": "Der Übersetzungsprozess kann einige Minuten dauern. Bitte habe Geduld",
+      "sourceLanguage": "Quellsprache:",
+      "categoryName": "Kategoriename:",
+      "targetLanguages": "Zielsprachen",
+      "selectAll": "Alle auswählen",
+      "deselectAll": "Alle abwählen",
+      "targetLanguagesHint": "Wähle die Zielsprachen für die Übersetzung aus, mehrere Auswahl möglich",
+      "noTargetLanguages": "Keine verfügbaren Zielsprachen",
+      "provider": "Übersetzungskanal",
+      "useDefaultProvider": "Systemstandard verwenden",
+      "providerHint": "Wähle den Übersetzungskanal. Wenn leer gelassen, wird der standardmäßig konfigurierte Übersetzungsanbieter des Systems verwendet",
+      "cancel": "Abbrechen",
+      "translating": "Wird übersetzt...",
+      "confirm": "Übersetzung bestätigen"
+    },
+    "messages": {
+      "saveSuccess": "Erfolgreich gespeichert",
+      "saveFailed": "Fehler beim Speichern der Kategorie",
+      "deleteSuccess": "Erfolgreich gelöscht",
+      "deleteFailed": "Fehler beim Löschen der Kategorie",
+      "loadFailed": "Fehler beim Laden der Kategorieliste",
+      "deleteConfirm": "Bist du sicher, dass du die Kategorie \"{name}\" löschen möchtest?",
+      "selectTargetLanguages": "Bitte wähle mindestens eine Zielsprache",
+      "translateSuccess": "Übersetzung erfolgreich",
+      "translateFailed": "Übersetzung fehlgeschlagen",
+      "pleaseEnterCategoryName": "Bitte gib zuerst den Kategorienamen ein",
+      "pleaseSelectLanguage": "Bitte wähle zuerst eine Sprache",
+      "generateSlugByTranslation": "Slug auf Englisch durch Übersetzung generieren",
+      "translationSuccess": "Slug erfolgreich durch Übersetzung generiert",
+      "translationFailed": "Übersetzung fehlgeschlagen, bitte verwende die lokale Generierung"
+    }
+  }
+}

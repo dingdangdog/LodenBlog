@@ -1,0 +1,53 @@
+{
+  "media": {
+    "title": "Medienverwaltung",
+    "upload": "Bild hochladen",
+    "uploading": "Wird hochgeladen...",
+    "scanArticles": "Artikelbilder scannen",
+    "scanning": "Wird gescannt...",
+    "dropZone": {
+      "text": "Ziehe Bilder hierher oder klicke auf die Schaltfläche oben zum Hochladen",
+      "hint": "Unterstützt Formate wie JPG, PNG, GIF usw. Maximal 10MB. Wird automatisch in das WebP-Format konvertiert"
+    },
+    "loading": "Wird geladen...",
+    "empty": "Keine Mediendateien",
+    "selectTitle": "Bild auswählen",
+    "selectedCount": "Ausgewählt",
+    "selected": "Ausgewählt",
+    "notSelected": "Nicht ausgewählt",
+    "actions": {
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "confirm": "Bestätigen",
+      "copyUrl": "URL kopieren",
+      "copyMarkdown": "Markdown kopieren"
+    },
+    "modal": {
+      "edit": "Medium bearbeiten",
+      "filename": "Dateiname",
+      "alt": "Alternativer Text (Alt)",
+      "altPlaceholder": "Alternativer Text des Bildes",
+      "caption": "Beschreibung (Caption)",
+      "captionPlaceholder": "Bildbeschreibung"
+    },
+    "messages": {
+      "uploadImageOnly": "Bitte lade nur Bilddateien hoch",
+      "fileTooLarge": "Die Dateigröße darf 10MB nicht überschreiten",
+      "uploadSuccess": "Erfolgreich hochgeladen",
+      "uploadFailed": "Fehler beim Hochladen",
+      "saveSuccess": "Erfolgreich gespeichert",
+      "saveFailed": "Fehler beim Speichern",
+      "deleteSuccess": "Erfolgreich gelöscht",
+      "deleteFailed": "Fehler beim Löschen",
+      "loadFailed": "Fehler beim Laden der Medienliste",
+      "deleteConfirm": "Bist du sicher, dass du \"{name}\" löschen möchtest?",
+      "imageLoadError": "Fehler beim Laden des Bildes",
+      "copySuccess": "Erfolgreich kopiert",
+      "copyFailed": "Fehler beim Kopieren",
+      "scanSuccess": "Scan abgeschlossen: {total} Bilder gefunden, {existing} bereits vorhanden, {added} hinzugefügt, {failed} fehlgeschlagen",
+      "scanFailed": "Scan fehlgeschlagen"
+    }
+  }
+}

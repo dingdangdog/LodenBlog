@@ -1,0 +1,31 @@
+{
+  "links": {
+    "title": "Freundeslinks",
+    "add": "Link hinzufügen",
+    "edit": "Bearbeiten",
+    "parse": "Automatisch ausfüllen",
+    "noData": "Noch keine Links",
+    "filters": {
+      "all": "Alle",
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "search": "Name/URL/Beschreibung suchen..."
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "messages": {
+      "loadFailed": "Laden fehlgeschlagen",
+      "updateSuccess": "Aktualisierung erfolgreich",
+      "createSuccess": "Erstellung erfolgreich",
+      "saveFailed": "Speichern fehlgeschlagen",
+      "deleteConfirm": "Diesen Link wirklich löschen?",
+      "deleteSuccess": "Löschen erfolgreich",
+      "deleteFailed": "Löschen fehlgeschlagen",
+      "parseSuccess": "Erfolgreich analysiert und Felder ausgefüllt",
+      "parseFailed": "Analyse fehlgeschlagen",
+      "parseNoUrl": "Bitte zuerst die Ziel-URL eingeben"
+    }
+  }
+}

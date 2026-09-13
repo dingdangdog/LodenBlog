@@ -1,0 +1,157 @@
+{
+  "posts": {
+    "title": "Mis artículos",
+    "searchPlaceholder": "Buscar título o slug, separar con espacio o coma",
+    "filters": {
+      "allStatus": "Todos los estados",
+      "draft": "Borrador",
+      "published": "Publicado",
+      "allLanguages": "Todos los idiomas",
+      "allCategories": "Todas las categorías",
+      "allTags": "Todas las etiquetas",
+      "apply": "Filtrar",
+      "refresh": "Actualizar",
+      "sortBy": "Ordenar por",
+      "sortOrder": "Orden",
+      "sortOptions": {
+        "createdAt": "Fecha de creación",
+        "viewCount": "Vistas",
+        "updatedAt": "Fecha de actualización"
+      },
+      "sortOrderOptions": {
+        "desc": "Descendente",
+        "asc": "Ascendente"
+      }
+    },
+    "actions": {
+      "create": "Nuevo",
+      "edit": "Editar",
+      "loading": "Cargando...",
+      "noArticles": "No hay artículos",
+      "createHint": "Haz clic en «Nuevo artículo» en la esquina superior derecha para comenzar a crear",
+      "translate": "Traducir a otros idiomas",
+      "view": "Ver artículo",
+      "delete": "Eliminar artículo",
+      "comments": "Comentarios",
+      "visitAnalysis": "Tendencia de visitas",
+      "generateWithAI": "Escribir artículo con IA",
+      "aiGenerationLogs": "Historial de generación",
+      "publish": "Publicar artículo",
+      "pin": "Fijar",
+      "unpin": "Desfijar"
+    },
+    "status": {
+      "published": "Publicado",
+      "draft": "Borrador",
+      "pinned": "Fijado"
+    },
+    "deleteDialog": {
+      "title": "Eliminar artículo",
+      "warning": "Advertencia",
+      "warningText": "La operación de eliminación no se puede deshacer y eliminará permanentemente el artículo y todas sus versiones de idioma.",
+      "articleTitle": "Título del artículo:",
+      "cancel": "Cancelar",
+      "deleting": "Eliminando...",
+      "confirm": "Confirmar eliminación"
+    },
+    "translateDialog": {
+      "title": "Traducir artículo",
+      "important": "Aviso importante",
+      "hint1": "La traducción sobrescribirá todo el contenido existente en otras versiones de idioma",
+      "hint2": "El proceso de traducción puede tardar varios minutos. Por favor, ten paciencia",
+      "hint3": "La tarea de traducción se ejecuta en segundo plano y no bloqueará las operaciones de la página",
+      "sourceLanguage": "Idioma de origen",
+      "selectSourceLanguage": "Seleccionar idioma de origen",
+      "sourceLanguageHint": "Selecciona la versión de idioma que se utilizará como fuente de traducción",
+      "articleTitle": "Título del artículo:",
+      "targetLanguages": "Idiomas de destino",
+      "selectAll": "Seleccionar todo",
+      "deselectAll": "Deseleccionar todo",
+      "targetLanguagesHint": "Selecciona los idiomas de destino para traducir, se pueden seleccionar múltiples",
+      "noTargetLanguages": "No hay idiomas de destino disponibles",
+      "provider": "Canal de traducción",
+      "useDefaultProvider": "Usar configuración predeterminada del sistema",
+      "providerHint": "Selecciona el canal de traducción. Si se deja vacío, se usará el proveedor de traducción configurado por defecto en el sistema",
+      "cancel": "Cancelar",
+      "translating": "Traduciendo...",
+      "confirm": "Confirmar traducción"
+    },
+    "date": {
+      "today": "Hoy",
+      "yesterday": "Ayer",
+      "daysAgo": "hace {days} días"
+    },
+    "availableLanguages": "Idiomas",
+    "visitAnalysis": {
+      "title": "Tendencia de visitas del artículo",
+      "timeRange": "Rango de tiempo",
+      "language": "Idioma",
+      "allLanguages": "Todos los idiomas",
+      "days7": "Últimos 7 días",
+      "days30": "Últimos 30 días",
+      "days100": "Últimos 100 días",
+      "noData": "Sin datos",
+      "visitCount": "Número de visitas"
+    },
+    "generateArticleDialog": {
+      "title": "Escribir artículo con IA",
+      "articleTitle": "Título del artículo",
+      "articleTitlePlaceholder": "Ingrese el título del artículo",
+      "articleTitleHint": "Ingrese el título del artículo, la IA generará contenido basado en él",
+      "language": "Idioma del artículo",
+      "selectLanguage": "Seleccionar idioma",
+      "languageHint": "Seleccione el idioma del artículo",
+      "contentRequirement": "Requisitos de contenido",
+      "contentRequirementPlaceholder": "Describa los requisitos de contenido, como: tema, audiencia objetivo, estilo, puntos clave, etc.",
+      "contentRequirementHint": "Describa en detalle lo que desea que genere la IA, cuanto más detallado, mejor será el resultado",
+      "aiProvider": "Proveedor de IA",
+      "useDefaultProvider": "Usar predeterminado del sistema",
+      "aiProviderHint": "Seleccione un proveedor de IA, deje vacío para usar la configuración predeterminada del sistema",
+      "generating": "Generando...",
+      "generate": "Generar"
+    },
+    "messages": {
+      "translateStarted": "La tarea de traducción se ha iniciado y se está ejecutando en segundo plano",
+      "translateFailed": "Error al iniciar la tarea de traducción",
+      "selectTargetLanguages": "Por favor, selecciona al menos un idioma de destino",
+      "noLanguageVersion": "El artículo no tiene versiones de idioma disponibles",
+      "deleteSuccess": "Artículo eliminado correctamente",
+      "deleteFailed": "Error al eliminar el artículo",
+      "publishSuccess": "Artículo publicado correctamente",
+      "publishFailed": "Error al publicar el artículo",
+      "articleTitleRequired": "El título del artículo es obligatorio",
+      "languageRequired": "Por favor, selecciona el idioma del artículo",
+      "contentRequirementRequired": "Los requisitos de contenido son obligatorios",
+      "generateSuccess": "Artículo con IA generado correctamente",
+      "generateFailed": "Error al generar el artículo con IA",
+      "pinSuccess": "Fijado correctamente",
+      "pinFailed": "Error al fijar",
+      "unpinSuccess": "Desfijado correctamente",
+      "unpinFailed": "Error al desfijar"
+    },
+    "aiGenerationLogsModal": {
+      "title": "Historial de generación con IA",
+      "searchPlaceholder": "Buscar título o requisitos...",
+      "noLogs": "Aún no hay registros de generación",
+      "language": "Idioma",
+      "provider": "Proveedor de IA",
+      "createdAt": "Enviado el",
+      "contentLength": "{count} caracteres generados",
+      "viewDetail": "Ver detalles",
+      "hideDetail": "Ocultar detalles",
+      "reuse": "Reutilizar parámetros",
+      "editArticle": "Editar artículo",
+      "statusAll": "Todos los estados",
+      "statusSuccess": "Éxito",
+      "statusFailed": "Fallido",
+      "statusProcessing": "Procesando"
+    },
+    "commentsModal": {
+      "title": "Comentarios del artículo",
+      "noComments": "Aún no hay comentarios",
+      "replyPlaceholder": "Escribe una respuesta...",
+      "submitReply": "Enviar respuesta",
+      "addReply": "Añadir comentario"
+    }
+  }
+}

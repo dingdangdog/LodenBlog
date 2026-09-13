@@ -1,0 +1,49 @@
+{
+  "languages": {
+    "title": "语言管理",
+    "add": "新增语言",
+    "edit": "编辑语言",
+    "table": {
+      "code": "语言代码",
+      "name": "名称",
+      "nativeName": "原生名称",
+      "sortOrder": "排序",
+      "status": "状态",
+      "default": "默认",
+      "actions": "操作"
+    },
+    "status": {
+      "enabled": "启用",
+      "disabled": "禁用"
+    },
+    "form": {
+      "code": "语言代码",
+      "codePlaceholder": "如: zh, en, ja",
+      "name": "名称",
+      "namePlaceholder": "如: 中文",
+      "nativeName": "原生名称",
+      "nativeNamePlaceholder": "如: 中文",
+      "flag": "旗帜图标 URL",
+      "flagPlaceholder": "可选",
+      "sortOrder": "排序",
+      "isActive": "启用",
+      "isDefault": "设为默认"
+    },
+    "actions": {
+      "edit": "编辑",
+      "delete": "删除",
+      "enable": "启用",
+      "disable": "禁用",
+      "enableSuccess": "已启用",
+      "disableSuccess": "已禁用",
+      "save": "保存",
+      "cancel": "取消",
+      "saveSuccess": "保存成功",
+      "saveFailed": "保存语言失败",
+      "deleteConfirm": "确定要删除语言 \"{name}\" 吗？",
+      "deleteSuccess": "删除成功",
+      "deleteFailed": "删除语言失败",
+      "loadFailed": "加载语言列表失败"
+    }
+  }
+}

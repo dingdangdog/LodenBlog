@@ -1,0 +1,37 @@
+{
+  "creatorApplications": {
+    "title": "クリエイター申請",
+    "filters": {
+      "all": "すべて",
+      "pending": "審査中",
+      "approved": "承認済み",
+      "rejected": "却下",
+      "search": "ペンネーム/ID/理由で検索..."
+    },
+    "table": {
+      "applicant": "申請者",
+      "penName": "ペンネーム",
+      "key": "クリエイターID",
+      "message": "申請理由",
+      "status": "状態",
+      "createdAt": "申請日時",
+      "actions": "操作"
+    },
+    "status": {
+      "pending": "審査中",
+      "approved": "承認済み",
+      "rejected": "却下"
+    },
+    "approve": "承認",
+    "reject": "却下",
+    "rejectReason": "却下理由",
+    "rejectReasonPlaceholder": "任意。申請者に却下理由を伝える",
+    "noData": "申請はありません",
+    "messages": {
+      "loadFailed": "リストの読み込みに失敗しました",
+      "approveSuccess": "承認しました",
+      "rejectSuccess": "却下しました",
+      "actionFailed": "操作に失敗しました"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+/* 全局滚动条样式 - 适配明暗模式 */
+
+/* Webkit 浏览器（Chrome, Safari, Edge） */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(75, 85, 99, 0.5);
+}
+
+/* Firefox 滚动条样式 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(75, 85, 99, 0.3) transparent;
+}
+
+/* 修复 Markdown 编辑器代码块头部 z-index 问题 */
+.md-editor-code-head {
+  z-index: 49 !important;
+}

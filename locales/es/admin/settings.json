@@ -1,0 +1,146 @@
+{
+  "settings": {
+    "title": "Configuración del sistema",
+    "tabs": {
+      "site": "Información del sitio",
+      "brand": "LOGO",
+      "language": "Configuración de idiomas",
+      "translation": "Configuración de traducción",
+      "ai": "Configuración de IA",
+      "themes": "Temas",
+      "languages": "Idiomas",
+      "custom": "Código personalizado",
+      "system": "Configuración del sistema",
+      "import": "Importar datos",
+      "info": "Páginas de información",
+      "links": "Enlaces"
+    },
+    "site": {
+      "basicInfo": "Información básica del sitio",
+      "title": "Título del sitio",
+      "titlePlaceholder": "Por favor, introduce el título del sitio",
+      "description": "Descripción del sitio",
+      "descriptionPlaceholder": "Por favor, introduce la descripción del sitio",
+      "keyword": "Palabras clave",
+      "keywordPlaceholder": "Múltiples palabras clave separadas por comas",
+      "keywordHint": "Por favor, separa múltiples palabras clave con comas en inglés",
+      "domain": "Dominio del sitio",
+      "domainPlaceholder": "Por ejemplo: www.ejemplo.com o ejemplo.com"
+    },
+    "brand": {
+      "logoTitle": "Configuración del logo",
+      "logoLight": "URL del logo modo claro",
+      "logoDark": "URL del logo modo oscuro",
+      "logoPreview": "Vista previa",
+      "logoLightPlaceholder": "https://example.com/logo-light.png",
+      "logoDarkPlaceholder": "https://example.com/logo-dark.png",
+      "uploadImage": "Subir imagen",
+      "iconTitle": "Configuración del icono del sitio (Favicon)",
+      "iconLight": "URL del icono modo claro",
+      "iconDark": "URL del icono modo oscuro",
+      "iconLightPlaceholder": "https://example.com/favicon-light.ico",
+      "iconDarkPlaceholder": "https://example.com/favicon-dark.ico"
+    },
+    "language": {
+      "defaultLang": "Idioma predeterminado",
+      "selectPlaceholder": "Por favor, selecciona",
+      "i18nEnabled": "Habilitar función multilingüe",
+      "primaryLanguage": "Idioma principal",
+      "targetLanguage": "Idioma de destino",
+      "selectPrimaryFirst": "Por favor, selecciona primero el idioma principal"
+    },
+    "translation": {
+      "sectionSettings": "Configuración de traducción e idioma",
+      "autoTranslateEnabled": "Habilitar traducción automática",
+      "autoTranslateHint": "Una vez habilitado, el sistema utilizará automáticamente el proveedor de traducción configurado para traducir artículos",
+      "primaryProvider": "Traducción inteligente",
+      "primaryProviderHint": "Proveedor de traducción inteligente para traducción de artículos, proporciona traducciones de mayor calidad",
+      "fallbackProvider": "Traducción automática",
+      "fallbackProviderHint": "Proveedor de traducción automática para traducciones generales (como generación de slug), rápido y de bajo costo",
+      "noProvider": "No hay proveedores de traducción disponibles. Por favor, configura primero en",
+      "translationManagement": "Gestión de traducción",
+      "noProviderHint": "la página de gestión de traducción",
+      "noProviderSamePage": "No hay proveedores de traducción disponibles. Añade y activa uno en la sección de configuración de traducción más abajo.",
+      "noAiProvider": "No hay proveedores de traducción con IA. Añade y activa uno en la pestaña de Configuración de IA.",
+      "noMachineProvider": "No hay proveedores de traducción automática. Añade y activa uno en la sección de abajo."
+    },
+    "custom": {
+      "headTitle": "Código personalizado en Head",
+      "headPlaceholder": "<!-- Meta etiquetas personalizadas, scripts, etc. -->",
+      "headHint": "Este código se insertará en la etiqueta <head>",
+      "cssTitle": "CSS personalizado",
+      "cssPlaceholder": "/* Estilos personalizados */",
+      "cssHint": "Este CSS se insertará en la página",
+      "jsTitle": "JavaScript personalizado",
+      "jsPlaceholder": "// Script personalizado",
+      "jsHint": "Este JavaScript se ejecutará en la parte inferior de la página"
+    },
+    "actions": {
+      "reset": "Restablecer",
+      "save": "Guardar configuración",
+      "saving": "Guardando...",
+      "uploading": "Subiendo...",
+      "resetSuccess": "Restablecido a los valores guardados",
+      "saveSuccess": "Configuración guardada correctamente",
+      "saveFailed": "Error al guardar",
+      "loadFailed": "Error al cargar la configuración",
+      "logoUploadSuccess": {
+        "light": "Logo claro subido correctamente",
+        "dark": "Logo oscuro subido correctamente"
+      },
+      "logoUploadFailed": "Error al subir el logo",
+      "iconUploadSuccess": {
+        "light": "Icono claro subido correctamente",
+        "dark": "Icono oscuro subido correctamente"
+      },
+      "iconUploadFailed": "Error al subir el icono",
+      "fillRequired": "Por favor, completa todos los campos obligatorios"
+    },
+    "info": {
+      "title": "Páginas de información",
+      "hint": "Gestiona los términos de servicio, política de privacidad y acerca de en varios idiomas.",
+      "siteDomain": "Dominio del sitio",
+      "siteDomainHint": "Aquí puedes editar el dominio para reemplazar enlaces en plantillas de páginas de información. Es el mismo que en Información del sitio.",
+      "saveDomain": "Guardar dominio",
+      "loadFailed": "Error al cargar las páginas de información",
+      "saveSuccess": "Guardado correctamente",
+      "saveFailed": "Error al guardar",
+      "slugLabel": "Página",
+      "languageLabel": "Idioma",
+      "titleLabel": "Título",
+      "contentLabel": "Contenido",
+      "contentPlaceholder": "Haz clic o usa Editar para escribir",
+      "edit": "Editar",
+      "editContent": "Editar contenido",
+      "preview": "Vista previa en nueva pestaña",
+      "save": "Guardar",
+      "updatedAt": "Actualizado"
+    },
+    "system": {
+      "hint": "La configuración del sistema se utiliza para gestionar configuraciones de servicios subyacentes, como Cloudflare R2 etc.",
+      "googleAdsIdHint": "Introducir solo la parte numérica del Publisher ID, ej. 1234567890123456",
+      "googleAdsSlotHint": "Slot ID solo para anuncios en artículo (marcador .article-ads)",
+      "encrypted": "Campo encriptado",
+      "encryptedHint": "Mostrado como *** indica que está configurado pero encriptado. Si necesitas modificarlo, introduce el valor completo nuevamente",
+      "noConfigs": "No hay elementos de configuración",
+      "placeholder": "Por favor, introduce {key}",
+      "categories": {
+        "r2": "Configuración de almacenamiento Cloudflare R2",
+        "google": "Configuración de servicios de Google",
+        "oauth": "Configuración de inicio de sesión OAuth",
+        "other": "Otras configuraciones"
+      },
+      "switchOn": "On",
+      "switchOff": "Off",
+      "table": {
+        "key": "Clave de configuración",
+        "description": "Descripción",
+        "value": "Valor de configuración",
+        "actions": "Acciones",
+        "edit": "Editar",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    }
+  }
+}

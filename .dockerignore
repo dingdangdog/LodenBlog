@@ -1,0 +1,68 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Build outputs
+.output
+.nuxt
+.nitro
+.cache
+dist
+.data
+vanblog
+
+# Development files
+.env
+.env.*
+env
+!.env.example
+test-password.js
+
+# IDE
+.vscode
+.idea
+.fleet
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+docs
+design
+changelog
+README.md
+*.md
+
+# Tests
+coverage
+.nyc_output
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Secrets and local databases
+*.pem
+*.key
+*.sqlite
+*.db
+*.dump
+*.sql.gz
+
+# Misc
+logs
+*.log
+.cache
+
+*.tar

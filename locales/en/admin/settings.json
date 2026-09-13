@@ -1,0 +1,146 @@
+{
+  "settings": {
+    "title": "System Settings",
+    "tabs": {
+      "site": "Site Info",
+      "brand": "LOGO",
+      "language": "Language",
+      "translation": "Translation",
+      "ai": "AI Config",
+      "themes": "Themes",
+      "languages": "Languages",
+      "custom": "Custom Code",
+      "system": "System Config",
+      "import": "Data Import",
+      "info": "Info Pages",
+      "links": "Friend Links"
+    },
+    "site": {
+      "basicInfo": "Site Basic Info",
+      "title": "Site Title",
+      "titlePlaceholder": "Enter site title",
+      "description": "Site Description",
+      "descriptionPlaceholder": "Enter site description",
+      "keyword": "Keywords",
+      "keywordPlaceholder": "Separate multiple keywords with commas",
+      "keywordHint": "Separate multiple keywords with commas",
+      "domain": "Site Domain",
+      "domainPlaceholder": "e.g., www.example.com or example.com"
+    },
+    "brand": {
+      "logoTitle": "Logo Settings",
+      "logoLight": "Light Mode Logo URL",
+      "logoDark": "Dark Mode Logo URL",
+      "logoPreview": "Preview",
+      "logoLightPlaceholder": "https://example.com/logo-light.png",
+      "logoDarkPlaceholder": "https://example.com/logo-dark.png",
+      "uploadImage": "Upload Image",
+      "iconTitle": "Favicon Settings",
+      "iconLight": "Light Mode Icon URL",
+      "iconDark": "Dark Mode Icon URL",
+      "iconLightPlaceholder": "https://example.com/favicon-light.ico",
+      "iconDarkPlaceholder": "https://example.com/favicon-dark.ico"
+    },
+    "language": {
+      "defaultLang": "Default Language",
+      "selectPlaceholder": "Please select",
+      "i18nEnabled": "Enable Multi-language",
+      "primaryLanguage": "Primary Language",
+      "targetLanguage": "Target Languages",
+      "selectPrimaryFirst": "Please select primary language first"
+    },
+    "translation": {
+      "sectionSettings": "Translation & Language Settings",
+      "autoTranslateEnabled": "Enable Auto Translation",
+      "autoTranslateHint": "When enabled, the system will automatically use configured translation providers to translate articles",
+      "primaryProvider": "Smart Translation",
+      "primaryProviderHint": "Smart translation provider for article translation, providing higher quality translation results",
+      "fallbackProvider": "Machine Translation",
+      "fallbackProviderHint": "Machine translation provider for general translation (e.g., slug generation), fast and cost-effective",
+      "noProvider": "No translation providers available. Please configure in",
+      "translationManagement": "Translation Management",
+      "noProviderHint": "page first",
+      "noProviderSamePage": "No translation providers available. Please add and enable one in the Translation Config section below.",
+      "noAiProvider": "No AI translation providers available. Please add and enable one in the AI Config tab.",
+      "noMachineProvider": "No machine translation providers available. Please add and enable one in the section below."
+    },
+    "custom": {
+      "headTitle": "Custom Head Code",
+      "headPlaceholder": "<!-- Custom meta tags, scripts, etc. -->",
+      "headHint": "This code will be inserted into the <head> tag",
+      "cssTitle": "Custom CSS",
+      "cssPlaceholder": "/* Custom styles */",
+      "cssHint": "This CSS will be inserted into the page",
+      "jsTitle": "Custom JavaScript",
+      "jsPlaceholder": "// Custom scripts",
+      "jsHint": "This JavaScript will be executed at the bottom of the page"
+    },
+    "actions": {
+      "reset": "Reset",
+      "save": "Save Settings",
+      "saving": "Saving...",
+      "uploading": "Uploading...",
+      "resetSuccess": "Reset to saved values",
+      "saveSuccess": "Settings saved successfully",
+      "saveFailed": "Save failed",
+      "loadFailed": "Failed to load settings",
+      "logoUploadSuccess": {
+        "light": "Light logo uploaded successfully",
+        "dark": "Dark logo uploaded successfully"
+      },
+      "logoUploadFailed": "Logo upload failed",
+      "iconUploadSuccess": {
+        "light": "Light icon uploaded successfully",
+        "dark": "Dark icon uploaded successfully"
+      },
+      "iconUploadFailed": "Icon upload failed",
+      "fillRequired": "Please fill in all required fields"
+    },
+    "info": {
+      "title": "Info Pages",
+      "hint": "Manage user-facing pages such as Terms of Service, Privacy Policy, and About in multiple languages.",
+      "siteDomain": "Site Domain",
+      "siteDomainHint": "Edit site domain here for link replacement in info page templates. Same as domain in Site Info tab.",
+      "saveDomain": "Save Domain",
+      "loadFailed": "Failed to load info pages",
+      "saveSuccess": "Saved successfully",
+      "saveFailed": "Save failed",
+      "slugLabel": "Page",
+      "languageLabel": "Language",
+      "titleLabel": "Title",
+      "contentLabel": "Content",
+      "contentPlaceholder": "Click or use Edit to write content",
+      "edit": "Edit",
+      "editContent": "Edit content",
+      "preview": "Preview in new tab",
+      "save": "Save",
+      "updatedAt": "Updated"
+    },
+    "system": {
+      "hint": "System configuration is used to manage underlying service configurations such as Cloudflare R2 etc.",
+      "googleAdsIdHint": "Enter only the numeric part of Publisher ID, e.g. 1234567890123456",
+      "googleAdsSlotHint": "Slot ID for in-article ads only (used by .article-ads placeholder)",
+      "encrypted": "Encrypted",
+      "encryptedHint": "Displayed as *** means it has been configured but encrypted. To modify, please re-enter the complete value",
+      "noConfigs": "No configuration items",
+      "placeholder": "Please enter {key}",
+      "categories": {
+        "r2": "Cloudflare R2 Storage Configuration",
+        "google": "Google Services Configuration",
+        "oauth": "OAuth Login Configuration",
+        "other": "Other Configuration"
+      },
+      "switchOn": "On",
+      "switchOff": "Off",
+      "table": {
+        "key": "Key",
+        "description": "Description",
+        "value": "Value",
+        "actions": "Actions",
+        "edit": "Edit",
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    }
+  }
+}

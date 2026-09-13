@@ -1,0 +1,537 @@
+// Prisma Schema for PostgreSQL matching database-schema.md
+
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Models
+model User {
+  id            String   @id @default(cuid()) @db.VarChar(36)
+  email         String   @unique @db.VarChar(255)
+  username      String   @unique @db.VarChar(50) // 登录用的用户名，唯一
+  name          String?  @db.VarChar(100) // 显示用的昵称，可改，不唯一
+  password      String?  @db.VarChar(255)
+  avatar        String?  @db.VarChar(500)
+  bio           String?  @db.Text
+  role          Int      @default(1)
+  isActive      Boolean  @default(true)
+  emailVerified Boolean  @default(false)
+  googleId      String?  @db.VarChar(100)
+  githubId      String?  @db.VarChar(100)
+  twitterId     String?  @db.VarChar(100)
+  facebookId    String?  @db.VarChar(100)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([googleId])
+  @@index([githubId])
+  @@index([twitterId])
+  @@index([facebookId])
+  @@map("users")
+}
+
+model Language {
+  id         String   @id @default(cuid()) @db.VarChar(36)
+  code       String   @unique @db.VarChar(10) // 语言代码（如 "zh", "en", "ja"），必须与 nuxt.config.ts 一致
+  name       String   @db.VarChar(50)
+  nativeName String   @db.VarChar(50)
+  flag       String?  @db.VarChar(500)
+  isActive   Boolean  @default(true)
+  isDefault  Boolean  @default(false)
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([code]) // 为 code 添加索引以提高查询效率
+  @@map("languages")
+}
+
+// 文章基础信息表 - 存储跨语言共享的基础信息
+model ArticleBase {
+  id String @id @default(cuid()) @db.VarChar(36)
+
+  // 基础信息（跨语言共享）
+  featuredImage String?   @db.VarChar(500) // 封面图
+  status        String    @default("DRAFT") @db.VarChar(20) // 状态：DRAFT/PUBLISHED/ARCHIVED
+  isPublished   Boolean   @default(false) // 是否发布
+  publishedAt   DateTime? // 发布时间
+  viewCount     Int       @default(0) // 浏览次数（所有语言版本累计）
+  pinOrder      Int       @default(0) // 置顶排序，越大越靠前
+
+  // 关联信息
+  authorId     String  @db.VarChar(36) // 作者ID
+  categorySlug String? @db.VarChar(100) // 分类slug（可选，不存储语言信息）
+  tags         String? @db.Text // 标签slugs，JSON数组格式，如 ["tag1", "tag2"]
+
+  // 时间戳
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([authorId])
+  @@index([categorySlug])
+  @@index([status, publishedAt])
+  @@index([isPublished, publishedAt])
+  @@index([pinOrder])
+  @@map("article_bases")
+}
+
+// 文章内容表 - 存储不同语言的具体内容
+model ArticleContent {
+  id String @id @default(cuid()) @db.VarChar(36)
+
+  // 关联到基础信息表
+  articleBaseId String @db.VarChar(36) // 关联到 ArticleBase
+  languageCode  String @db.VarChar(10) // 语言代码（如 "zh", "en", "ja"），直接使用代码而非ID
+
+  // 多语言内容
+  slug           String  @db.VarChar(200) // URL友好标识符
+  title          String  @db.VarChar(200) // 标题
+  content        String  @db.Text // 正文内容
+  excerpt        String? @db.Text // 摘要
+  seoTitle       String? @db.VarChar(200) // SEO标题
+  seoDescription String? @db.VarChar(500) // SEO描述
+  seoKeyword     String? @db.VarChar(500) // SEO关键词
+
+  // 时间戳
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([articleBaseId, languageCode]) // 每个基础文章在每个语言下只能有一个内容版本
+  @@unique([slug, languageCode]) // slug 在同一语言下唯一
+  @@index([articleBaseId])
+  @@index([languageCode])
+  @@index([languageCode, slug])
+  @@map("article_contents")
+}
+
+model Category {
+  id          String   @id @default(cuid()) @db.VarChar(36)
+  slug        String   @db.VarChar(100)
+  name        String   @db.VarChar(100)
+  description String?  @db.Text
+  color       String?  @db.VarChar(20)
+  icon        String?  @db.VarChar(100)
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // 使用 languageCode 替代 languageId
+  languageCode String  @db.VarChar(10) // 语言代码（如 "zh", "en", "ja"）
+  parentId     String? @db.VarChar(36)
+
+  @@unique([slug, languageCode]) // 改为使用 languageCode
+  @@index([languageCode, isActive])
+  @@index([parentId])
+  @@map("categories")
+}
+
+model Tag {
+  id        String   @id @default(cuid()) @db.VarChar(36)
+  slug      String   @db.VarChar(100)
+  name      String   @db.VarChar(100)
+  color     String?  @db.VarChar(20)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 使用 languageCode 替代 languageId
+  languageCode String @db.VarChar(10) // 语言代码（如 "zh", "en", "ja"）
+
+  @@unique([slug, languageCode]) // 改为使用 languageCode
+  @@index([languageCode])
+  @@map("tags")
+}
+
+// 评论表 - 用于记录文章评论区交流内容
+// 评论基于文章（ArticleBase），不区分语言，所有语言的评论都同时展示
+// 评论不需要进行翻译，保持原样即可
+model Comment {
+  id          String   @id @default(cuid()) @db.VarChar(36)
+  content     String   @db.Text // 评论内容
+  authorName  String?  @db.VarChar(100) // 评论者名称（未登录用户使用）
+  authorEmail String?  @db.VarChar(255) // 评论者邮箱（未登录用户使用，登录用户不需要）
+  authorUrl   String?  @db.VarChar(500) // 评论者网站（可选）
+  isApproved  Boolean  @default(false) // 是否已审核通过
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // 关联信息
+  articleBaseId String  @db.VarChar(36) // 所属文章（关联 ArticleBase.id）
+  userId        String? @db.VarChar(36) // 评论者ID（关联 User.id，登录用户使用，可选）
+  parentId      String? @db.VarChar(36) // 上级评论ID（关联 Comment.id）
+  // parentId 说明：
+  // - null 或 "0" 表示根评论（直接评论文章）
+  // - 其他值表示回复某条评论（值为被回复评论的 id）
+
+  @@index([articleBaseId]) // 按文章查询评论
+  @@index([articleBaseId, parentId]) // 按文章和父评论查询（用于构建评论树）
+  @@index([userId]) // 按用户查询评论
+  @@index([parentId]) // 按父评论查询子评论
+  @@index([isApproved, createdAt]) // 按审核状态和时间排序
+  @@map("comments")
+}
+
+model Media {
+  id           String   @id @default(cuid()) @db.VarChar(36)
+  userId       String   @db.VarChar(36)
+  filename     String   @db.VarChar(255)
+  originalName String   @db.VarChar(255)
+  mimeType     String   @db.VarChar(100)
+  size         Int
+  path         String   @db.VarChar(500)
+  url          String   @db.VarChar(500)
+  alt          String?  @db.VarChar(255)
+  caption      String?  @db.VarChar(500)
+  metadata     String?  @db.Text
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // FK - 手动关联，不使用 Prisma 关系
+  uploaderId String @db.VarChar(36)
+
+  @@index([uploaderId])
+  @@map("media")
+}
+
+model Setting {
+  id          String   @id @default(cuid()) @db.VarChar(36)
+  title       String   @db.VarChar(200)
+  description String   @db.VarChar(500)
+  keyword     String   @db.VarChar(500)
+  logo        String   @db.VarChar(500)
+  logoLight   String?  @db.VarChar(500)
+  logoDark    String?  @db.VarChar(500)
+  icon        String   @db.VarChar(500)
+  iconLight   String?  @db.VarChar(500)
+  iconDark    String?  @db.VarChar(500)
+  defaultLang String   @db.VarChar(10)
+  visitCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // 站点域名（用于信息页等模板替换，如 https://example.com）
+  domain String? @db.VarChar(500)
+
+  // 使用 languageCode 替代 languageId
+  languageCode String? @db.VarChar(10) // 语言代码（如 "zh", "en", "ja"）
+
+  // 多语言功能配置
+  i18nEnabled     Boolean @default(false)
+  primaryLanguage String? @db.VarChar(10)
+  targetLanguages String? @db.Text
+
+  // 自动翻译配置
+  autoTranslateEnabled        Boolean @default(false) // 是否启用自动翻译
+  primaryTranslationProvider  String? @db.VarChar(36) // AI 翻译服务商ID（约定关联 AiConfig.id）
+  fallbackTranslationProvider String? @db.VarChar(36) // 机器翻译服务商ID（约定关联 TranslationConfig.id）
+
+  // HTML/CSS/JS 注入
+  customHead String? @db.Text
+  customCSS  String? @db.Text
+  customJS   String? @db.Text
+
+  @@index([languageCode])
+  @@map("settings")
+}
+
+model Creator {
+  id        String   @id @default(cuid()) @db.VarChar(36)
+  userId    String   @unique @db.VarChar(36)
+  key       String   @unique @db.VarChar(50) // 个人公开名，不区分大小写唯一
+  penName   String   @db.VarChar(100)
+  avatar    String?  @db.VarChar(500)
+  bio       String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([key])
+  @@map("creators")
+}
+
+// 创作者申请表 - 普通用户申请成为创作者，由管理员审核
+// 约定：userId 关联 User.id，status 取值 PENDING/APPROVED/REJECTED，reviewedBy 关联 User.id
+model CreatorApplication {
+  id           String    @id @default(cuid()) @db.VarChar(36)
+  userId       String    @db.VarChar(36) // 申请人（约定关联 User.id）
+  penName      String    @db.VarChar(100) // 申请的笔名
+  key          String    @db.VarChar(50) // 申请的个人公开名（key）
+  message      String?   @db.Text // 申请理由/备注
+  status       String    @default("PENDING") @db.VarChar(20) // PENDING/APPROVED/REJECTED
+  reviewedAt   DateTime? // 审核时间
+  reviewedBy   String?   @db.VarChar(36) // 审核人（约定关联 User.id）
+  rejectReason String?   @db.Text // 驳回原因
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([status, createdAt])
+  @@map("creator_applications")
+}
+
+model TranslationConfig {
+  id          String   @id @default(cuid()) @db.VarChar(36)
+  name        String   @db.VarChar(100) // 显示名称，如 "DeepL Pro"
+  provider    String   @db.VarChar(50) // 服务商标识，如 "deepl", "volcano", "google"
+  apiKey      String?  @db.VarChar(500) // API 密钥
+  apiSecret   String?  @db.VarChar(500) // API 密钥（如果需要）
+  apiEndpoint String?  @db.VarChar(500) // API 端点（可选，某些服务商需要自定义端点）
+  timeout     Int      @default(30000) // 超时时间（毫秒），默认30秒
+  maxRetries  Int      @default(3) // 最大重试次数
+  priority    Int      @default(0) // 优先级（数字越大优先级越高）
+  extraConfig String?  @db.Text // 额外配置（JSON格式），用于存储服务商特定的配置
+  isActive    Boolean  @default(true) // 是否启用
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([provider, isActive])
+  @@index([isActive, priority])
+  @@map("translation_configs")
+}
+
+// AI 服务商配置表 - 专用于写文章、主题生成等 AI 调用；翻译功能也可选用
+model AiConfig {
+  id          String   @id @default(cuid()) @db.VarChar(36)
+  name        String   @db.VarChar(100) // 显示名称，如 "OpenAI GPT-4"
+  provider    String   @db.VarChar(50) // 服务商标识，如 "openai", "gemini", "deepseek"
+  apiKey      String?  @db.VarChar(500) // API 密钥
+  apiSecret   String?  @db.VarChar(500) // API 密钥（如果需要）
+  apiEndpoint String?  @db.VarChar(500) // API 端点（可选，自定义 OpenAI 兼容端点）
+  timeout     Int      @default(30000) // 超时时间（毫秒），默认30秒
+  maxRetries  Int      @default(3) // 最大重试次数
+  priority    Int      @default(0) // 优先级（数字越大优先级越高）
+  extraConfig String?  @db.Text // 额外配置（JSON格式），如 model、temperature、maxTokens
+  isActive    Boolean  @default(true) // 是否启用
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([provider, isActive])
+  @@index([isActive, priority])
+  @@map("ai_configs")
+}
+
+model ArticleLike {
+  id            String   @id @default(cuid()) @db.VarChar(36)
+  articleBaseId String   @db.VarChar(36) // 改为关联 ArticleBase
+  userId        String?  @db.VarChar(36)
+  ipAddress     String?  @db.VarChar(45)
+  createdAt     DateTime @default(now())
+
+  @@unique([articleBaseId, userId])
+  @@unique([articleBaseId, ipAddress])
+  @@index([articleBaseId])
+  @@map("article_likes")
+}
+
+// 文章收藏表 - 用户收藏文章（需登录）
+model ArticleBookmark {
+  id            String   @id @default(cuid()) @db.VarChar(36)
+  userId        String   @db.VarChar(36)
+  articleBaseId String   @db.VarChar(36)
+  createdAt     DateTime @default(now())
+
+  @@unique([userId, articleBaseId])
+  @@index([userId])
+  @@index([articleBaseId])
+  @@map("article_bookmarks")
+}
+
+model Theme {
+  id          String   @id @default(cuid()) @db.VarChar(36)
+  name        String   @unique @db.VarChar(50)
+  displayName String   @db.VarChar(100)
+  mode        String   @db.VarChar(20) // 'light' or 'dark'
+  colors      String   @db.Text // JSON 格式存储色彩配置
+  isActive    Boolean  @default(true)
+  isDefault   Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([mode, isActive])
+  @@map("themes")
+}
+
+// 翻译任务/日志表 - 记录翻译任务和翻译失败日志，便于任务队列管理和重新执行
+model TranslationLog {
+  id                 String    @id @default(cuid()) @db.VarChar(36)
+  articleBaseId      String    @db.VarChar(36) // 关联到 ArticleBase
+  userId             String    @db.VarChar(36) // 用户ID（关联到 ArticleBase.authorId），便于按用户查看和管理
+  sourceContentId    String    @db.VarChar(36) // 源内容ID（关联 ArticleContent.id），便于获取原始内容
+  sourceLanguageCode String    @db.VarChar(10) // 源语言代码
+  targetLanguageCode String    @db.VarChar(10) // 目标语言代码（每个任务对应一个目标语言）
+  providerId         String?   @db.VarChar(36) // 使用的服务商ID（约定关联 AiConfig.id 或 TranslationConfig.id）
+  taskType           String    @default("TASK") @db.VarChar(20) // 任务类型：TASK（翻译任务）/FAILURE_LOG（失败日志）
+  status             String    @default("PENDING") @db.VarChar(20) // 状态：PENDING（待处理）/PROCESSING（处理中）/COMPLETED（已完成）/FAILED（失败）/PENDING_RETRY（待重试，仅失败日志）/RESOLVED（已解决，仅失败日志）/IGNORED（已忽略，仅失败日志）
+  errorMessage       String?   @db.Text // 错误信息（任务失败或失败日志时使用）
+  errorDetails       String?   @db.Text // 详细错误信息（JSON格式），可能包含堆栈、API响应等
+  retryCount         Int       @default(0) // 重试次数
+  resolvedAt         DateTime? // 解决时间
+  startedAt          DateTime? // 任务开始处理时间
+  completedAt        DateTime? // 任务完成时间
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([articleBaseId])
+  @@index([userId])
+  @@index([userId, status])
+  @@index([sourceContentId])
+  @@index([status])
+  @@index([status, createdAt])
+  @@index([taskType, status])
+  @@index([taskType, status, createdAt])
+  @@index([providerId])
+  @@map("translation_logs")
+}
+
+// 登录日志表 - 记录用户登录信息
+model LoginLog {
+  id           String   @id @default(cuid()) @db.VarChar(36)
+  userId       String?  @db.VarChar(36) // 用户ID（关联到 User.id），登录失败时可能为空
+  ipAddress    String?  @db.VarChar(45) // IP地址（支持IPv4和IPv6）
+  location     String?  @db.Text // 地理位置信息（JSON格式，包含国家、省份、城市等）
+  userAgent    String?  @db.VarChar(500) // 用户代理（浏览器信息）
+  loginMethod  String   @db.VarChar(20) // 登录方式：credentials/github/google/twitter/facebook
+  status       String   @default("SUCCESS") @db.VarChar(20) // 登录状态：SUCCESS/FAILED
+  errorMessage String?  @db.Text // 错误信息（登录失败时记录）
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+  @@index([userId, createdAt])
+  @@index([ipAddress])
+  @@index([loginMethod])
+  @@index([status])
+  @@index([status, createdAt])
+  @@index([createdAt])
+  @@map("login_logs")
+}
+
+// 访客日志表 - 记录前端访客访问信息
+model VisitLog {
+  id        String   @id @default(cuid()) @db.VarChar(36)
+  userId    String?  @db.VarChar(36) // 用户ID（关联到 User.id），未登录访客为 null
+  uri       String   @db.VarChar(500) // 访问的URI路径
+  ipAddress String?  @db.VarChar(45) // IP地址（支持IPv4和IPv6）
+  userAgent String?  @db.VarChar(500) // 用户代理（浏览器信息）
+  createdAt DateTime @default(now()) // 访问时间
+
+  @@index([userId])
+  @@index([userId, createdAt])
+  @@index([ipAddress])
+  @@index([createdAt])
+  @@index([uri])
+  @@map("visit_logs")
+}
+
+// 后台访问日志表 - 记录后台管理访问信息
+model AdminVisitLog {
+  id        String   @id @default(cuid()) @db.VarChar(36)
+  userId    String?  @db.VarChar(36) // 用户ID（关联到 User.id），未登录访客为 null
+  uri       String   @db.VarChar(500) // 访问的URI路径
+  ipAddress String?  @db.VarChar(45) // IP地址（支持IPv4和IPv6）
+  userAgent String?  @db.VarChar(500) // 用户代理（浏览器信息）
+  createdAt DateTime @default(now()) // 访问时间
+
+  @@index([userId])
+  @@index([userId, createdAt])
+  @@index([ipAddress])
+  @@index([createdAt])
+  @@index([uri])
+  @@map("admin_visit_logs")
+}
+
+// 友链表 - 用于站点的友链展示（页脚、友链页）
+model FriendLink {
+  id          String   @id @default(cuid()) @db.VarChar(36)
+  icon        String?  @db.VarChar(500) // 图标链接
+  url         String   @db.VarChar(500) // 目标链接
+  name        String   @db.VarChar(100) // 名称
+  description String?  @db.VarChar(500) // 简介
+  isActive    Boolean  @default(true) // 状态：是否展示
+  sortOrder   Int      @default(0) // 排序，数字越小越靠前
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isActive, sortOrder])
+  @@map("friend_links")
+}
+
+// 系统配置字典表 - 用于存储系统级配置（key-value 形式）
+// 支持存储各种配置，如 R2、Google 广告、Google 分析、OAuth 等
+model SystemConfig {
+  id          String   @id @default(cuid()) @db.VarChar(36)
+  key         String   @unique @db.VarChar(100) // 配置键（约定式，代码中定义枚举）
+  value       String?  @db.Text // 配置值（可为空，表示未配置）
+  description String?  @db.VarChar(500) // 配置说明
+  category    String?  @db.VarChar(50) // 配置分类（如 "r2", "google", "oauth" 等）
+  isEncrypted Boolean  @default(false) // 是否加密存储（敏感信息如密钥等）
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([key])
+  @@index([category])
+  @@map("system_configs")
+}
+
+// 信息页基础表 - 存储跨语言共享的固定 slug（如 terms, privacy, about）
+model InfoBase {
+  id        String   @id @default(cuid()) @db.VarChar(36)
+  slug      String   @unique @db.VarChar(50) // URL 标识，如 terms / privacy / about
+  sortOrder Int      @default(0)
+  hidden    Boolean  @default(false) // 隐藏则不展示在页脚等公开列表
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([slug])
+  @@map("info_bases")
+}
+
+// AI 生成文章记录表 - 记录每次 AI 写文章的提交参数与执行结果，便于查阅与复用
+model ArticleAiGenerationLog {
+  id                 String    @id @default(cuid()) @db.VarChar(36)
+  userId             String    @db.VarChar(36) // 提交用户（约定关联 User.id）
+  title              String    @db.VarChar(200) // 用户提交的文章标题
+  languageCode       String    @db.VarChar(10) // 用户提交的语言代码
+  contentRequirement String    @db.Text // 用户提交的内容要求
+  providerId         String?   @db.VarChar(36) // 指定的 AI 服务商 ID（约定关联 AiConfig.id）
+  providerName       String?   @db.VarChar(100) // 实际使用的服务商名称快照
+  status             String    @default("PROCESSING") @db.VarChar(20) // PROCESSING/SUCCESS/FAILED
+  articleBaseId      String?   @db.VarChar(36) // 成功时关联的文章 ID（约定关联 ArticleBase.id）
+  articleContentId   String?   @db.VarChar(36) // 成功时关联的内容 ID（约定关联 ArticleContent.id）
+  generatedSlug      String?   @db.VarChar(200) // 成功时生成的 slug
+  contentLength      Int? // 成功时生成正文字符数
+  errorMessage       String?   @db.Text // 失败时的错误信息
+  completedAt        DateTime? // 完成时间（成功或失败）
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([userId, createdAt])
+  @@index([status])
+  @@index([status, createdAt])
+  @@index([articleBaseId])
+  @@map("article_ai_generation_logs")
+}
+
+// 信息页内容表 - 按语言存储标题与正文
+model InfoContent {
+  id           String   @id @default(cuid()) @db.VarChar(36)
+  infoBaseId   String   @db.VarChar(36)
+  languageCode String   @db.VarChar(10)
+  title        String   @db.VarChar(200)
+  content      String   @db.Text
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([infoBaseId, languageCode])
+  @@index([infoBaseId])
+  @@index([languageCode])
+  @@index([languageCode, infoBaseId])
+  @@map("info_contents")
+}

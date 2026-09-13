@@ -1,0 +1,41 @@
+{
+  "users": {
+    "title": "Benutzerverwaltung",
+    "table": {
+      "username": "Benutzername",
+      "name": "Name",
+      "email": "E-Mail-Adresse",
+      "role": "Rolle",
+      "creator": "Ersteller",
+      "status": "Status",
+      "createdAt": "Erstellungsdatum",
+      "actions": "Aktionen",
+      "noCreator": "Keiner"
+    },
+    "role": {
+      "user": "Benutzer",
+      "creator": "Ersteller",
+      "admin": "Administrator"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "actions": {
+      "grantCreator": "Ersteller-Berechtigung erteilen",
+      "granting": "Wird erteilt...",
+      "revokeCreator": "Ersteller-Berechtigung widerrufen",
+      "revoking": "Wird widerrufen...",
+      "alreadyCreator": "Ist bereits Ersteller"
+    },
+    "messages": {
+      "loadFailed": "Fehler beim Laden der Benutzerliste",
+      "grantConfirm": "Bist du sicher, dass du dem Benutzer \"{username}\" die Ersteller-Berechtigung erteilen möchtest?",
+      "grantSuccess": "Ersteller-Berechtigung erfolgreich erteilt",
+      "grantFailed": "Fehler beim Erteilen der Ersteller-Berechtigung",
+      "revokeConfirm": "Bist du sicher, dass du die Ersteller-Berechtigung des Benutzers \"{username}\" widerrufen möchtest?",
+      "revokeSuccess": "Ersteller-Berechtigung erfolgreich widerrufen",
+      "revokeFailed": "Fehler beim Widerrufen der Ersteller-Berechtigung"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "creatorApplications": {
+    "title": "Creator Applications",
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "search": "Search pen name / ID / message..."
+    },
+    "table": {
+      "applicant": "Applicant",
+      "penName": "Pen name",
+      "key": "Creator ID",
+      "message": "Message",
+      "status": "Status",
+      "createdAt": "Applied at",
+      "actions": "Actions"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "approve": "Approve",
+    "reject": "Reject",
+    "rejectReason": "Reject reason",
+    "rejectReasonPlaceholder": "Optional. Tell applicant why it was rejected",
+    "noData": "No applications",
+    "messages": {
+      "loadFailed": "Failed to load list",
+      "approveSuccess": "Approved",
+      "rejectSuccess": "Rejected",
+      "actionFailed": "Action failed"
+    }
+  }
+}

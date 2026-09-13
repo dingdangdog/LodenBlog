@@ -1,0 +1,79 @@
+{
+  "translation": {
+    "title": "Gestión de proveedores de servicios",
+    "table": {
+      "name": "Nombre",
+      "provider": "Proveedor",
+      "protocol": "Protocolo de interfaz",
+      "apiKey": "API Key",
+      "apiSecret": "API Secret",
+      "endpoint": "Endpoint",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "status": {
+      "enabled": "Habilitado",
+      "disabled": "Deshabilitado"
+    },
+    "actions": {
+      "add": "Añadir configuración",
+      "copy": "Copiar",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "test": "Probar conectividad"
+    },
+    "modal": {
+      "add": "Añadir configuración de traducción",
+      "edit": "Editar configuración de traducción",
+      "name": "Nombre",
+      "namePlaceholder": "Introduce el nombre, por ejemplo: DeepL Pro",
+      "provider": "Protocolo de interfaz",
+      "providerPlaceholder": "Selecciona el protocolo de interfaz",
+      "apiKey": "API Key",
+      "apiKeyPlaceholder": "Introduce la API Key",
+      "apiSecret": "API Secret",
+      "apiSecretPlaceholder": "Introduce el API Secret (si es necesario)",
+      "apiEndpoint": "API Endpoint",
+      "apiEndpointPlaceholder": "Opcional, endpoint de API personalizado",
+      "timeout": "Tiempo de espera (milisegundos)",
+      "maxRetries": "Número máximo de reintentos",
+      "priority": "Prioridad",
+      "priorityPlaceholder": "Cuanto mayor sea el número, mayor será la prioridad",
+      "extraConfig": "Configuración adicional (JSON)",
+      "extraConfigPlaceholder": "Por ejemplo: key: value o usar formato JSON",
+      "enabled": "Habilitar"
+    },
+    "messages": {
+      "nameRequired": "El nombre de la configuración no puede estar vacío",
+      "providerRequired": "El protocolo de interfaz no puede estar vacío",
+      "createSuccess": "Creado correctamente",
+      "updateSuccess": "Actualizado correctamente",
+      "saveSuccess": "Guardado correctamente",
+      "copySuccess": "Copiado correctamente",
+      "copyFailed": "Error al copiar la configuración de traducción",
+      "saveFailed": "Error al guardar la configuración de traducción",
+      "loadFailed": "Error al cargar la lista de configuraciones de traducción",
+      "loadConfigFailed": "Error al cargar la configuración de traducción",
+      "testSuccess": "Prueba de conectividad correcta",
+      "testFailed": "Prueba de conectividad fallida",
+      "testUnsupported": "Este protocolo no admite prueba de conectividad",
+      "deleteConfirm": "¿Está seguro de que desea eliminar la configuración \"{name}\"? Esta acción no se puede deshacer.",
+      "deleteSuccess": "Eliminado correctamente",
+      "deleteFailed": "Error al eliminar la configuración de traducción"
+    },
+    "protocolOptions": {
+      "openai": "OpenAI",
+      "gemini": "Gemini",
+      "alibaba": "Alibaba Cloud",
+      "deepseek": "DeepSeek",
+      "deepl": "DeepL",
+      "volcano": "Volcano",
+      "google": "Google Translate",
+      "baidu": "Baidu",
+      "tencent": "Tencent",
+      "youdao": "Youdao"
+    }
+  }
+}

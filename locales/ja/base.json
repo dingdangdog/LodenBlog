@@ -1,0 +1,219 @@
+{
+  "profile": {
+    "emailCannotChange": "メールアドレスは変更できません",
+    "avatarUrl": "アバターURL",
+    "bio": "自己紹介",
+    "bioPlaceholder": "自己紹介を入力...",
+    "accountCreated": "登録日時",
+    "role": "役割",
+    "status": "ステータス",
+    "active": "有効",
+    "inactive": "無効",
+    "roleAdmin": "管理者",
+    "roleCreator": "クリエイター",
+    "roleUser": "ユーザー"
+  },
+  "article": {
+    "title": "記事",
+    "list": "記事一覧",
+    "detail": "記事詳細",
+    "create": "記事を作成",
+    "edit": "記事を編集",
+    "delete": "記事を削除",
+    "publish": "公開",
+    "draft": "下書き",
+    "published": "公開済み",
+    "unpublished": "未公開",
+    "readMore": "続きを読む",
+    "related": "関連記事",
+    "tags": "タグ",
+    "category": "カテゴリ",
+    "author": "著者",
+    "date": "日付",
+    "views": "閲覧数",
+    "noArticles": "記事がありません",
+    "notFound": "記事が見つかりません",
+    "backToHome": "ホームに戻る",
+    "viewsCount": "回閲覧",
+    "noArticlesInTag": "このタグには記事がありません",
+    "noArticlesInCategory": "このカテゴリには記事がありません",
+    "dualLanguageMode": "二言語模式",
+    "exitDualLanguageMode": "終了",
+    "selectLanguage": "言語を選択",
+    "leftLanguage": "左側の言語",
+    "rightLanguage": "右側の言語",
+    "toc": "目次",
+    "openToc": "目次を開く",
+    "closeToc": "目次を閉じる",
+    "currentLanguageVersionUnavailable": "現在の言語ではこの記事を利用できません",
+    "availableLanguageVersionsHint": "利用可能な言語版を選択してください",
+    "switchToLanguageVersion": "{language}版を読む",
+    "languageNames": {
+      "zh": "中国語",
+      "en": "英語",
+      "ja": "日本語",
+      "es": "スペイン語",
+      "de": "ドイツ語"
+    },
+    "bookmark": "ブックマーク",
+    "bookmarked": "ブックマーク済み",
+    "bookmarkLoginHint": "ログインしてブックマーク",
+    "unbookmark": "ブックマーク解除"
+  },
+  "category": {
+    "title": "カテゴリ",
+    "all": "すべてのカテゴリ",
+    "list": "カテゴリ一覧",
+    "sidebar": {
+      "title": "カテゴリ",
+      "articles": "件の記事"
+    }
+  },
+  "tag": {
+    "title": "タグ",
+    "all": "すべてのタグ",
+    "list": "タグ一覧",
+    "sidebar": {
+      "title": "タグ",
+      "articles": "件の記事"
+    }
+  },
+  "comment": {
+    "title": "コメント",
+    "add": "コメントを追加",
+    "reply": "返信",
+    "approve": "承認",
+    "pending": "承認待ち",
+    "loginPrompt": "ログインしてコメントを閲覧・投稿してください",
+    "goToLogin": "ログインへ",
+    "placeholder": "コメントを入力...",
+    "submit": "送信",
+    "submitting": "送信中...",
+    "noComments": "まだコメントがありません。最初のコメントを投稿しましょう！",
+    "loadMore": "さらに読み込む",
+    "noMoreComments": "これ以上コメントはありません",
+    "submitFailed": "コメントの送信に失敗しました。もう一度お試しください"
+  },
+  "auth": {
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "register": "登録",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "username": "ユーザー名",
+    "forgotPassword": "パスワードを忘れた",
+    "rememberMe": "ログイン状態を保持",
+    "loginWithGithub": "GitHubでログイン",
+    "loginWithGoogle": "Googleでログイン",
+    "registerWithGithub": "GitHubで登録",
+    "registerWithGoogle": "Googleで登録",
+    "orLoginWithEmail": "またはメールアドレスでログイン",
+    "haveAccount": "すでにアカウントをお持ちですか？",
+    "initSuccess": "システムの初期化が完了しました。ログインしてください",
+    "loginFailedCheck": "ログインに失敗しました。メールアドレスとパスワードを確認してください",
+    "loginFailedRetry": "ログインに失敗しました。後でもう一度お試しください",
+    "oauthLoginFailed": "{provider}ログインに失敗しました",
+    "registerSuccessButLoginFailed": "登録は成功しましたが、ログインに失敗しました。手動でログインしてください",
+    "registerFailed": "登録に失敗しました",
+    "registerFailedRetry": "登録に失敗しました。後でもう一度お試しください",
+    "oauthRegisterFailed": "{provider}登録に失敗しました"
+  },
+  "password": {
+    "changePassword": "パスワード変更",
+    "setPassword": "パスワード設定",
+    "setPasswordHint": "サードパーティプラットフォームでログインしました。今後のパスワードログインのためにパスワードを設定してください",
+    "oldPassword": "現在のパスワード",
+    "oldPasswordPlaceholder": "現在のパスワードを入力",
+    "newPassword": "新しいパスワード",
+    "newPasswordPlaceholder": "新しいパスワードを入力",
+    "confirmPassword": "新しいパスワード（確認）",
+    "confirmPasswordPlaceholder": "新しいパスワードを再入力",
+    "passwordHint": "パスワードは6文字以上である必要があります",
+    "passwordTooShort": "新しいパスワードは6文字以上である必要があります",
+    "passwordMismatch": "新しいパスワードが一致しません",
+    "passwordSameAsOld": "新しいパスワードは現在のパスワードと同じにできません"
+  },
+  "message": {
+    "loginSuccess": "ログイン成功",
+    "logoutSuccess": "ログアウト成功",
+    "registerSuccess": "登録成功",
+    "loginFailed": "ログイン失敗",
+    "logoutFailed": "ログアウト失敗",
+    "registerFailed": "登録失敗",
+    "saveSuccess": "保存成功",
+    "saveFailed": "保存失敗",
+    "deleteSuccess": "削除成功",
+    "deleteFailed": "削除失敗"
+  },
+  "admin": {
+    "title": "管理センター",
+    "backToSite": "サイトに戻る",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる",
+    "menu": {
+      "profile": "プロフィール",
+      "posts": "記事",
+      "categories": "カテゴリ",
+      "tags": "タグ",
+      "media": "メディア",
+      "dashboard": "ダッシュボード",
+      "themes": "テーマ",
+      "languages": "言語",
+      "translation": "翻訳",
+      "settings": "設定"
+    }
+  },
+  "theme": {
+    "lightMode": "ライトモード",
+    "darkMode": "ダークモード",
+    "systemMode": "システムに従う",
+    "switchToLight": "ライトテーマに切り替え",
+    "switchToDark": "ダークテーマに切り替え",
+    "switchToSystem": "システムに従うに切り替え"
+  },
+  "loading": {
+    "loading": "読み込み中...",
+    "loadMore": "さらに読み込む...",
+    "loadingFailed": "読み込み失敗"
+  },
+  "links": {
+    "title": "リンク",
+    "subtitle": "リンクを交換し、共に成長",
+    "empty": "リンクはまだありません"
+  },
+  "my": {
+    "center": {
+      "title": "個人センター",
+      "profile": "プロフィール",
+      "profileDescription": "プロフィール、アバター、基本情報を管理",
+      "author": "作成者情報",
+      "authorDescription": "作成者プロフィールと公開情報を管理",
+      "password": "パスワード変更",
+      "passwordDescription": "ログインパスワードを変更"
+    }
+  },
+  "applyCreator": {
+    "title": "クリエイター申請",
+    "description": "以下の情報を入力してクリエイターに申請します。承認後、記事を公開できます。",
+    "alreadyCreator": "既にクリエイターです。",
+    "pendingTitle": "申請は審査中です",
+    "pendingHint": "管理者の審査をお待ちください。承認後、クリエイター権限が付与されます。",
+    "submittedAt": "申請日時",
+    "rejectedTitle": "申請は承認されませんでした",
+    "penName": "ペンネーム",
+    "penNamePlaceholder": "著者表示名",
+    "key": "クリエイターID",
+    "keyPlaceholder": "英字とアンダースコア、例：my_name",
+    "keyHint": "クリエイターIDはプロフィールURLに使用されます。承認後は変更できません。",
+    "message": "申請理由",
+    "messagePlaceholder": "任意。自己紹介や申請理由",
+    "submit": "申請する",
+    "submitSuccess": "送信しました。審査をお待ちください。",
+    "submitFailed": "送信に失敗しました",
+    "validation": {
+      "penNameRequired": "ペンネームを入力してください",
+      "keyRequired": "クリエイターIDを入力してください",
+      "keyFormat": "クリエイターIDは英字とアンダースコアのみ使用できます"
+    }
+  }
+}

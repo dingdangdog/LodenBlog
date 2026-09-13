@@ -1,0 +1,41 @@
+{
+  "users": {
+    "title": "ユーザー管理",
+    "table": {
+      "username": "ユーザー名",
+      "name": "ニックネーム",
+      "email": "メールアドレス",
+      "role": "役割",
+      "creator": "クリエイター",
+      "status": "ステータス",
+      "createdAt": "作成日時",
+      "actions": "操作",
+      "noCreator": "なし"
+    },
+    "role": {
+      "user": "ユーザー",
+      "creator": "クリエイター",
+      "admin": "管理者"
+    },
+    "status": {
+      "active": "アクティブ",
+      "inactive": "非アクティブ"
+    },
+    "actions": {
+      "grantCreator": "クリエイター権限を付与",
+      "granting": "付与中...",
+      "revokeCreator": "クリエイター権限を取消",
+      "revoking": "取消中...",
+      "alreadyCreator": "既にクリエイター"
+    },
+    "messages": {
+      "loadFailed": "ユーザーリストの読み込みに失敗しました",
+      "grantConfirm": "ユーザー「{username}」にクリエイター権限を付与してもよろしいですか？",
+      "grantSuccess": "クリエイター権限の付与に成功しました",
+      "grantFailed": "クリエイター権限の付与に失敗しました",
+      "revokeConfirm": "ユーザー「{username}」のクリエイター権限を取消してもよろしいですか？",
+      "revokeSuccess": "クリエイター権限の取消に成功しました",
+      "revokeFailed": "クリエイター権限の取消に失敗しました"
+    }
+  }
+}

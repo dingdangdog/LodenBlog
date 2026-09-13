@@ -1,0 +1,69 @@
+{
+  "translationlogs": {
+    "title": "Translation Logs",
+    "filters": {
+      "allTypes": "All Types",
+      "allStatus": "All Status",
+      "allSourceLanguages": "All Source Languages",
+      "allTargetLanguages": "All Target Languages",
+      "apply": "Apply Filters",
+      "refresh": "Refresh"
+    },
+    "taskTypes": {
+      "TASK": "Translation Task",
+      "FAILURE_LOG": "Failure Log"
+    },
+    "status": {
+      "PENDING": "Pending",
+      "PROCESSING": "Processing",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "PENDING_RETRY": "Pending Retry",
+      "RESOLVED": "Resolved",
+      "IGNORED": "Ignored"
+    },
+    "fields": {
+      "articleId": "Article ID:",
+      "translationDirection": "Translation Direction:",
+      "errorMessage": "Error Message:",
+      "created": "Created:",
+      "started": "Started:",
+      "completed": "Completed:",
+      "retryCount": "Retry Count:"
+    },
+    "actions": {
+      "loading": "Loading...",
+      "noLogs": "No translation logs",
+      "retry": "Retry",
+      "retryTitle": "Retry",
+      "retryAllFailed": "Retry All",
+      "copyArticleId": "Copy Article ID",
+      "delete": "Delete",
+      "deleteTitle": "Delete log"
+    },
+    "pagination": {
+      "total": "Total {total} items, Page {page} / {totalPages}",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "date": {
+      "justNow": "Just now",
+      "minutesAgo": "{minutes} minutes ago",
+      "hoursAgo": "{hours} hours ago",
+      "daysAgo": "{days} days ago"
+    },
+    "messages": {
+      "retrySuccess": "Task has been re-queued and is waiting for execution",
+      "retryFailed": "Failed to retry task",
+      "retryAllFailedConfirm": "Are you sure you want to retry all failed tasks? The earliest task will be executed immediately, and other tasks will be queued for execution.",
+      "retryAllFailedSuccess": "All failed tasks have been retried, the earliest task has been executed immediately",
+      "retryAllFailedFailed": "Failed to retry all failed tasks",
+      "loadFailed": "Failed to load translation logs",
+      "copySuccess": "Article ID copied to clipboard",
+      "copyFailed": "Copy failed, please copy manually",
+      "deleteConfirm": "Are you sure you want to delete the translation log for article ID {articleId}? This action cannot be undone.",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Failed to delete"
+    }
+  }
+}

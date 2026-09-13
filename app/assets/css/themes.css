@@ -1,0 +1,108 @@
+/* 
+ * 基础主题 CSS 变量定义
+ * 这些是默认值，实际主题颜色从数据库动态加载并通过 JavaScript 设置
+ * 这里只保留基础定义，确保在主题加载前有可用的默认值
+ */
+
+:root {
+  /* 基础颜色变量 - 亮色模式默认值（白蓝配色） */
+  --color-background: 255 255 255;
+  --color-foreground: 15 23 42;
+  --color-surface: 255 255 255;
+  --color-surface-muted: 248 250 252;
+  --color-border: 226 232 240;
+  --color-muted: 100 116 139;
+
+  /* 主色调 - 蓝色 */
+  --color-primary-50: 239 246 255;
+  --color-primary-100: 219 234 254;
+  --color-primary-200: 191 219 254;
+  --color-primary-300: 147 197 253;
+  --color-primary-400: 96 165 250;
+  --color-primary-500: 59 130 246;
+  --color-primary-600: 37 99 235;
+  --color-primary-700: 29 78 216;
+  --color-primary-800: 30 64 175;
+  --color-primary-900: 30 58 138;
+  --color-primary-950: 23 37 84;
+
+  /* 辅助色 - 石板灰 */
+  --color-secondary-50: 248 250 252;
+  --color-secondary-100: 241 245 249;
+  --color-secondary-200: 226 232 240;
+  --color-secondary-300: 203 213 225;
+  --color-secondary-400: 148 163 184;
+  --color-secondary-500: 100 116 139;
+  --color-secondary-600: 71 85 105;
+  --color-secondary-700: 51 65 85;
+  --color-secondary-800: 30 41 59;
+  --color-secondary-900: 15 23 42;
+  --color-secondary-950: 2 6 23;
+
+  /* 强调色 - 靛蓝 */
+  --color-accent-50: 238 242 255;
+  --color-accent-100: 224 231 255;
+  --color-accent-200: 199 210 254;
+  --color-accent-300: 165 180 252;
+  --color-accent-400: 129 140 248;
+  --color-accent-500: 99 102 241;
+  --color-accent-600: 79 70 229;
+  --color-accent-700: 67 56 202;
+  --color-accent-800: 55 48 163;
+  --color-accent-900: 49 46 129;
+  --color-accent-950: 30 27 75;
+}
+
+body {
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+.dark {
+  /* 基础颜色变量 - 暗色模式默认值（自然黑） */
+  --color-background: 10 10 10;
+  --color-foreground: 250 250 250;
+  --color-surface: 20 20 20;
+  --color-surface-muted: 15 15 15;
+  --color-border: 38 38 38;
+  --color-muted: 163 163 163;
+
+  /* 主色调 - 自然黑/中性灰 */
+  --color-primary-50: 10 10 10;
+  --color-primary-100: 20 20 20;
+  --color-primary-200: 28 28 28;
+  --color-primary-300: 38 38 38;
+  --color-primary-400: 64 64 64;
+  --color-primary-500: 82 82 82;
+  --color-primary-600: 115 115 115;
+  --color-primary-700: 163 163 163;
+  --color-primary-800: 212 212 212;
+  --color-primary-900: 229 229 229;
+  --color-primary-950: 250 250 250;
+
+  /* 辅助色 - 自然黑/中性灰 */
+  --color-secondary-50: 10 10 10;
+  --color-secondary-100: 20 20 20;
+  --color-secondary-200: 28 28 28;
+  --color-secondary-300: 38 38 38;
+  --color-secondary-400: 64 64 64;
+  --color-secondary-500: 82 82 82;
+  --color-secondary-600: 115 115 115;
+  --color-secondary-700: 163 163 163;
+  --color-secondary-800: 212 212 212;
+  --color-secondary-900: 229 229 229;
+  --color-secondary-950: 250 250 250;
+
+  /* 强调色 - 仅用于提醒/高亮（柔和紫） */
+  --color-accent-50: 26 22 37;
+  --color-accent-100: 46 38 64;
+  --color-accent-200: 61 50 96;
+  --color-accent-300: 91 75 138;
+  --color-accent-400: 124 106 179;
+  --color-accent-500: 139 92 246;
+  --color-accent-600: 167 139 250;
+  --color-accent-700: 196 181 253;
+  --color-accent-800: 221 214 254;
+  --color-accent-900: 237 233 254;
+  --color-accent-950: 245 243 255;
+}

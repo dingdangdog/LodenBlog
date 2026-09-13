@@ -1,0 +1,49 @@
+{
+  "languages": {
+    "title": "Language Management",
+    "add": "Add Language",
+    "edit": "Edit Language",
+    "table": {
+      "code": "Code",
+      "name": "Name",
+      "nativeName": "Native Name",
+      "sortOrder": "Sort",
+      "status": "Status",
+      "default": "Default",
+      "actions": "Actions"
+    },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "form": {
+      "code": "Language Code",
+      "codePlaceholder": "e.g., zh, en, ja",
+      "name": "Name",
+      "namePlaceholder": "e.g., Chinese",
+      "nativeName": "Native Name",
+      "nativeNamePlaceholder": "e.g., 中文",
+      "flag": "Flag Icon URL",
+      "flagPlaceholder": "Optional",
+      "sortOrder": "Sort Order",
+      "isActive": "Enabled",
+      "isDefault": "Set as Default"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "enable": "Enable",
+      "disable": "Disable",
+      "enableSuccess": "Enabled",
+      "disableSuccess": "Disabled",
+      "save": "Save",
+      "cancel": "Cancel",
+      "saveSuccess": "Saved successfully",
+      "saveFailed": "Failed to save language",
+      "deleteConfirm": "Are you sure you want to delete language \"{name}\"?",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Failed to delete language",
+      "loadFailed": "Failed to load languages"
+    }
+  }
+}

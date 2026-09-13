@@ -1,0 +1,76 @@
+{
+  "tags": {
+    "title": "Tag-Verwaltung",
+    "add": "Tag hinzufügen",
+    "filters": {
+      "searchPlaceholder": "Tag-Name oder Slug suchen...",
+      "allLanguages": "Alle Sprachen",
+      "apply": "Anwenden",
+      "refresh": "Aktualisieren"
+    },
+    "table": {
+      "name": "Name",
+      "slug": "Slug",
+      "language": "Sprache",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "deleteEntireTag": "Gesamten Tag löschen",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "translate": "Übersetzen",
+      "loading": "Wird geladen...",
+      "noTags": "Keine Tags",
+      "createHint": "Klicke auf die Schaltfläche oben, um einen Tag zu erstellen"
+    },
+    "modal": {
+      "edit": "Tag bearbeiten",
+      "add": "Tag hinzufügen",
+      "language": "Sprache",
+      "selectLanguage": "Bitte wähle eine Sprache",
+      "name": "Name",
+      "namePlaceholder": "Tag-Name",
+      "slug": "Slug",
+      "slugWarning": "Das Ändern des Slugs aktualisiert automatisch alle Artikel, die diesen Tag verwenden",
+      "color": "Farbe"
+    },
+    "translateDialog": {
+      "title": "Tag übersetzen",
+      "important": "Wichtiger Hinweis",
+      "hint1": "Die Übersetzung überschreibt alle vorhandenen Inhalte in anderen Sprachversionen",
+      "hint2": "Der Übersetzungsprozess kann einige Minuten dauern. Bitte habe Geduld",
+      "sourceLanguage": "Quellsprache:",
+      "tagName": "Tag-Name:",
+      "targetLanguages": "Zielsprachen",
+      "selectAll": "Alle auswählen",
+      "deselectAll": "Alle abwählen",
+      "targetLanguagesHint": "Wähle die Zielsprachen für die Übersetzung aus, mehrere Auswahl möglich",
+      "noTargetLanguages": "Keine verfügbaren Zielsprachen",
+      "provider": "Übersetzungskanal",
+      "useDefaultProvider": "Systemstandard verwenden",
+      "providerHint": "Wähle den Übersetzungskanal. Wenn leer gelassen, wird der standardmäßig konfigurierte Übersetzungsanbieter des Systems verwendet",
+      "cancel": "Abbrechen",
+      "translating": "Wird übersetzt...",
+      "confirm": "Übersetzung bestätigen"
+    },
+    "messages": {
+      "saveSuccess": "Erfolgreich gespeichert",
+      "saveFailed": "Fehler beim Speichern des Tags",
+      "deleteSuccess": "Erfolgreich gelöscht",
+      "deleteFailed": "Fehler beim Löschen des Tags",
+      "loadFailed": "Fehler beim Laden der Tag-Liste",
+      "deleteConfirm": "Bist du sicher, dass du den Tag \"{name}\" löschen möchtest?",
+      "deleteEntireTagConfirm": "Bist du sicher, dass du alle Sprachvarianten des Tags \"{slug}\" löschen möchtest? Dies kann nicht rückgängig gemacht werden.",
+      "selectTargetLanguages": "Bitte wähle mindestens eine Zielsprache",
+      "translateSuccess": "Übersetzung erfolgreich",
+      "translateFailed": "Übersetzung fehlgeschlagen",
+      "pleaseEnterTagName": "Bitte gib zuerst den Tag-Namen ein",
+      "pleaseSelectLanguage": "Bitte wähle zuerst eine Sprache",
+      "generateSlugByTranslation": "Slug auf Englisch durch Übersetzung generieren",
+      "translationSuccess": "Slug erfolgreich durch Übersetzung generiert",
+      "translationFailed": "Übersetzung fehlgeschlagen, bitte verwende die lokale Generierung"
+    }
+  }
+}

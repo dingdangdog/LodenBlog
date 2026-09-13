@@ -1,0 +1,69 @@
+{
+  "translationlogs": {
+    "title": "Übersetzungsprotokoll",
+    "filters": {
+      "allTypes": "Alle Typen",
+      "allStatus": "Alle Status",
+      "allSourceLanguages": "Alle Quellsprachen",
+      "allTargetLanguages": "Alle Zielsprachen",
+      "apply": "Filtern",
+      "refresh": "Aktualisieren"
+    },
+    "taskTypes": {
+      "TASK": "Übersetzungsaufgabe",
+      "FAILURE_LOG": "Fehlerprotokoll"
+    },
+    "status": {
+      "PENDING": "Ausstehend",
+      "PROCESSING": "Wird verarbeitet",
+      "COMPLETED": "Abgeschlossen",
+      "FAILED": "Fehlgeschlagen",
+      "PENDING_RETRY": "Ausstehend für Wiederholung",
+      "RESOLVED": "Gelöst",
+      "IGNORED": "Ignoriert"
+    },
+    "fields": {
+      "articleId": "Artikel-ID:",
+      "translationDirection": "Übersetzungsrichtung:",
+      "errorMessage": "Fehlermeldung:",
+      "created": "Erstellt:",
+      "started": "Gestartet:",
+      "completed": "Abgeschlossen:",
+      "retryCount": "Anzahl der Wiederholungsversuche:"
+    },
+    "actions": {
+      "loading": "Wird geladen...",
+      "noLogs": "Keine Übersetzungsprotokolle",
+      "retry": "Erneut ausführen",
+      "retryTitle": "Erneut ausführen",
+      "retryAllFailed": "Alle Versuche wiederholen",
+      "copyArticleId": "Artikel-ID kopieren",
+      "delete": "Löschen",
+      "deleteTitle": "Protokoll löschen"
+    },
+    "pagination": {
+      "total": "Gesamt {total} Einträge, Seite {page} / {totalPages}",
+      "previous": "Zurück",
+      "next": "Weiter"
+    },
+    "date": {
+      "justNow": "Gerade eben",
+      "minutesAgo": "vor {minutes} Minuten",
+      "hoursAgo": "vor {hours} Stunden",
+      "daysAgo": "vor {days} Tagen"
+    },
+    "messages": {
+      "retrySuccess": "Aufgabe wurde erneut zur Warteschlange hinzugefügt und wartet auf Ausführung",
+      "retryFailed": "Fehler beim erneuten Ausführen der Aufgabe",
+      "retryAllFailedConfirm": "Möchten Sie wirklich alle fehlgeschlagenen Aufgaben erneut ausführen? Die früheste Aufgabe wird sofort ausgeführt, andere Aufgaben werden zur Ausführung in die Warteschlange eingereiht.",
+      "retryAllFailedSuccess": "Alle fehlgeschlagenen Aufgaben wurden erneut ausgeführt, die früheste Aufgabe wurde sofort ausgeführt",
+      "retryAllFailedFailed": "Fehler beim erneuten Ausführen aller fehlgeschlagenen Aufgaben",
+      "loadFailed": "Fehler beim Laden des Übersetzungsprotokolls",
+      "copySuccess": "Artikel-ID wurde in die Zwischenablage kopiert",
+      "copyFailed": "Fehler beim Kopieren. Bitte manuell kopieren",
+      "deleteConfirm": "Möchten Sie das Übersetzungsprotokoll für Artikel-ID {articleId} wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "deleteSuccess": "Erfolgreich gelöscht",
+      "deleteFailed": "Löschen fehlgeschlagen"
+    }
+  }
+}

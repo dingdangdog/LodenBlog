@@ -1,0 +1,36 @@
+{
+  "comment": {
+    "title": "Kommentarverwaltung",
+    "filters": {
+      "all": "Alle",
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "search": "Inhalt/Autor suchen..."
+    },
+    "table": {
+      "content": "Inhalt",
+      "author": "Autor",
+      "article": "Artikel",
+      "status": "Status",
+      "createdAt": "Zeit",
+      "actions": "Aktionen"
+    },
+    "status": {
+      "pending": "Ausstehend",
+      "approved": "Genehmigt"
+    },
+    "approve": "Genehmigen",
+    "reject": "Ablehnen",
+    "delete": "Löschen",
+    "noData": "Keine Kommentare",
+    "messages": {
+      "loadFailed": "Kommentare konnten nicht geladen werden",
+      "approveSuccess": "Genehmigt",
+      "rejectSuccess": "Abgelehnt",
+      "updateFailed": "Aktualisierung fehlgeschlagen",
+      "deleteConfirm": "Möchten Sie diesen Kommentar wirklich löschen?",
+      "deleteSuccess": "Erfolgreich gelöscht",
+      "deleteFailed": "Löschen fehlgeschlagen"
+    }
+  }
+}

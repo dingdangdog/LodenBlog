@@ -1,0 +1,36 @@
+{
+  "comment": {
+    "title": "Gestión de comentarios",
+    "filters": {
+      "all": "Todos",
+      "pending": "Pendientes",
+      "approved": "Aprobados",
+      "search": "Buscar contenido/autor..."
+    },
+    "table": {
+      "content": "Contenido",
+      "author": "Autor",
+      "article": "Artículo",
+      "status": "Estado",
+      "createdAt": "Fecha",
+      "actions": "Acciones"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "approved": "Aprobado"
+    },
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "delete": "Eliminar",
+    "noData": "No hay comentarios",
+    "messages": {
+      "loadFailed": "Error al cargar los comentarios",
+      "approveSuccess": "Aprobado",
+      "rejectSuccess": "Rechazado",
+      "updateFailed": "Error al actualizar",
+      "deleteConfirm": "¿Está seguro de que desea eliminar este comentario?",
+      "deleteSuccess": "Eliminado correctamente",
+      "deleteFailed": "Error al eliminar"
+    }
+  }
+}

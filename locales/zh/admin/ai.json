@@ -1,0 +1,72 @@
+{
+  "ai": {
+    "title": "AI 服务商管理",
+    "table": {
+      "name": "名称",
+      "provider": "服务商",
+      "protocol": "接口协议",
+      "apiKey": "API Key",
+      "apiSecret": "API Secret",
+      "endpoint": "Endpoint",
+      "status": "状态",
+      "actions": "操作"
+    },
+    "status": {
+      "enabled": "启用",
+      "disabled": "禁用"
+    },
+    "actions": {
+      "add": "新增配置",
+      "copy": "复制",
+      "edit": "编辑",
+      "delete": "删除配置",
+      "save": "保存",
+      "cancel": "取消",
+      "test": "测试连通性"
+    },
+    "modal": {
+      "add": "新增 AI 配置",
+      "edit": "编辑 AI 配置",
+      "name": "名称",
+      "namePlaceholder": "输入配置名称，如：OpenAI GPT-4",
+      "provider": "接口协议",
+      "providerPlaceholder": "请选择接口协议",
+      "apiKey": "API Key",
+      "apiKeyPlaceholder": "输入 API Key",
+      "apiSecret": "API Secret",
+      "apiSecretPlaceholder": "输入 API Secret（如需要）",
+      "apiEndpoint": "API Endpoint",
+      "apiEndpointPlaceholder": "可选，自定义 API 端点",
+      "timeout": "超时时间（毫秒）",
+      "maxRetries": "最大重试次数",
+      "priority": "优先级",
+      "priorityPlaceholder": "数字越大优先级越高",
+      "extraConfig": "额外配置（JSON）",
+      "extraConfigPlaceholder": "例如: key: value 或使用 JSON 格式",
+      "enabled": "启用"
+    },
+    "messages": {
+      "nameRequired": "配置名称不能为空",
+      "providerRequired": "接口协议不能为空",
+      "createSuccess": "创建成功",
+      "updateSuccess": "更新成功",
+      "saveSuccess": "保存成功",
+      "copySuccess": "复制成功",
+      "copyFailed": "复制 AI 配置失败",
+      "saveFailed": "保存 AI 配置失败",
+      "loadFailed": "加载 AI 配置列表失败",
+      "loadConfigFailed": "加载 AI 配置失败",
+      "testSuccess": "连通性测试通过",
+      "testFailed": "连通性测试失败",
+      "deleteConfirm": "确定要删除配置「{name}」吗？此操作不可恢复。",
+      "deleteSuccess": "删除成功",
+      "deleteFailed": "删除 AI 配置失败"
+    },
+    "protocolOptions": {
+      "openai": "OpenAI",
+      "gemini": "Gemini",
+      "alibaba": "阿里云",
+      "deepseek": "DeepSeek"
+    }
+  }
+}

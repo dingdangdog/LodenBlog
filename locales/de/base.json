@@ -1,0 +1,220 @@
+{
+  "profile": {
+    "emailCannotChange": "E-Mail-Adresse kann nicht geändert werden",
+    "avatarUrl": "Avatar-Link",
+    "displayName": "Anzeigename",
+    "bio": "Biografie",
+    "bioPlaceholder": "Stelle dich vor...",
+    "accountCreated": "Registrierungsdatum",
+    "role": "Rolle",
+    "status": "Status",
+    "active": "Aktiv",
+    "inactive": "Deaktiviert",
+    "roleAdmin": "Administrator",
+    "roleCreator": "Ersteller",
+    "roleUser": "Benutzer"
+  },
+  "article": {
+    "title": "Artikel",
+    "list": "Artikelliste",
+    "detail": "Artikeldetails",
+    "create": "Artikel erstellen",
+    "edit": "Artikel bearbeiten",
+    "delete": "Artikel löschen",
+    "publish": "Veröffentlichen",
+    "draft": "Entwurf",
+    "published": "Veröffentlicht",
+    "unpublished": "Nicht veröffentlicht",
+    "readMore": "Weiterlesen",
+    "related": "Verwandte Artikel",
+    "tags": "Tags",
+    "category": "Kategorie",
+    "author": "Autor",
+    "date": "Datum",
+    "views": "Aufrufe",
+    "noArticles": "Keine Artikel",
+    "notFound": "Artikel existiert nicht",
+    "backToHome": "Zur Startseite",
+    "viewsCount": "Aufrufe",
+    "noArticlesInTag": "Keine Artikel mit diesem Tag",
+    "noArticlesInCategory": "Keine Artikel in dieser Kategorie",
+    "dualLanguageMode": "Zweisprachiges Modus",
+    "exitDualLanguageMode": "Beenden",
+    "selectLanguage": "Sprache auswählen",
+    "leftLanguage": "Linke Sprache",
+    "rightLanguage": "Rechte Sprache",
+    "toc": "Inhaltsverzeichnis",
+    "openToc": "Inhaltsverzeichnis öffnen",
+    "closeToc": "Inhaltsverzeichnis schließen",
+    "currentLanguageVersionUnavailable": "Dieser Artikel ist in der aktuellen Sprache nicht verfügbar",
+    "availableLanguageVersionsHint": "Wähle eine verfügbare Sprachversion",
+    "switchToLanguageVersion": "In {language} lesen",
+    "languageNames": {
+      "zh": "Chinesisch",
+      "en": "Englisch",
+      "ja": "Japanisch",
+      "es": "Spanisch",
+      "de": "Deutsch"
+    },
+    "bookmark": "Merken",
+    "bookmarked": "Gemerkt",
+    "bookmarkLoginHint": "Zum Merken bitte anmelden",
+    "unbookmark": "Aus Merkliste entfernen"
+  },
+  "category": {
+    "title": "Kategorie",
+    "all": "Alle Kategorien",
+    "list": "Kategorieliste",
+    "sidebar": {
+      "title": "Kategorien",
+      "articles": "Artikel"
+    }
+  },
+  "tag": {
+    "title": "Tag",
+    "all": "Alle Tags",
+    "list": "Tagliste",
+    "sidebar": {
+      "title": "Tags",
+      "articles": "Artikel"
+    }
+  },
+  "comment": {
+    "title": "Kommentar",
+    "add": "Kommentar hinzufügen",
+    "reply": "Antworten",
+    "approve": "Genehmigt",
+    "pending": "Ausstehende Überprüfung",
+    "loginPrompt": "Melde dich an, um Kommentare anzuzeigen und zu veröffentlichen",
+    "goToLogin": "Zur Anmeldung",
+    "placeholder": "Schreibe deinen Kommentar...",
+    "submit": "Veröffentlichen",
+    "submitting": "Wird gesendet...",
+    "noComments": "Noch keine Kommentare. Sei der Erste, der kommentiert!",
+    "loadMore": "Mehr laden",
+    "noMoreComments": "Keine weiteren Kommentare",
+    "submitFailed": "Fehler beim Senden des Kommentars. Bitte versuche es erneut"
+  },
+  "auth": {
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "register": "Registrieren",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "username": "Benutzername",
+    "forgotPassword": "Passwort vergessen?",
+    "rememberMe": "Angemeldet bleiben",
+    "loginWithGithub": "Mit GitHub anmelden",
+    "loginWithGoogle": "Mit Google anmelden",
+    "registerWithGithub": "Mit GitHub registrieren",
+    "registerWithGoogle": "Mit Google registrieren",
+    "orLoginWithEmail": "Oder mit E-Mail-Adresse anmelden",
+    "haveAccount": "Bereits ein Konto?",
+    "initSuccess": "Systeminitialisierung erfolgreich. Bitte melde dich an",
+    "loginFailedCheck": "Anmeldung fehlgeschlagen. Bitte überprüfe deine E-Mail-Adresse und dein Passwort",
+    "loginFailedRetry": "Anmeldung fehlgeschlagen. Bitte versuche es später erneut",
+    "oauthLoginFailed": "Anmeldung mit {provider} fehlgeschlagen",
+    "registerSuccessButLoginFailed": "Registrierung erfolgreich, aber Anmeldung fehlgeschlagen. Bitte melde dich manuell an",
+    "registerFailed": "Registrierung fehlgeschlagen",
+    "registerFailedRetry": "Registrierung fehlgeschlagen. Bitte versuche es später erneut",
+    "oauthRegisterFailed": "Registrierung mit {provider} fehlgeschlagen"
+  },
+  "password": {
+    "changePassword": "Passwort ändern",
+    "setPassword": "Passwort festlegen",
+    "setPasswordHint": "Du hast dich über eine Drittanbieter-Plattform angemeldet. Bitte lege ein Passwort fest, um dich in Zukunft mit Passwort anzumelden",
+    "oldPassword": "Aktuelles Passwort",
+    "oldPasswordPlaceholder": "Gib dein aktuelles Passwort ein",
+    "newPassword": "Neues Passwort",
+    "newPasswordPlaceholder": "Gib dein neues Passwort ein",
+    "confirmPassword": "Neues Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Gib dein neues Passwort erneut ein",
+    "passwordHint": "Das Passwort muss mindestens 6 Zeichen lang sein",
+    "passwordTooShort": "Das neue Passwort muss mindestens 6 Zeichen lang sein",
+    "passwordMismatch": "Die Passwörter stimmen nicht überein",
+    "passwordSameAsOld": "Das neue Passwort darf nicht mit dem aktuellen Passwort identisch sein"
+  },
+  "message": {
+    "loginSuccess": "Anmeldung erfolgreich",
+    "logoutSuccess": "Abmeldung erfolgreich",
+    "registerSuccess": "Registrierung erfolgreich",
+    "loginFailed": "Anmeldung fehlgeschlagen",
+    "logoutFailed": "Abmeldung fehlgeschlagen",
+    "registerFailed": "Registrierung fehlgeschlagen",
+    "saveSuccess": "Erfolgreich gespeichert",
+    "saveFailed": "Fehler beim Speichern",
+    "deleteSuccess": "Erfolgreich gelöscht",
+    "deleteFailed": "Fehler beim Löschen"
+  },
+  "admin": {
+    "title": "Persönliches Zentrum",
+    "backToSite": "Zurück zur Website",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "menu": {
+      "profile": "Profil",
+      "posts": "Artikel",
+      "categories": "Kategorien",
+      "tags": "Tags",
+      "media": "Medien",
+      "dashboard": "Dashboard",
+      "themes": "Themen",
+      "languages": "Sprachen",
+      "translation": "Übersetzung",
+      "settings": "Einstellungen"
+    }
+  },
+  "theme": {
+    "lightMode": "Hellmodus",
+    "darkMode": "Dunkelmodus",
+    "systemMode": "System folgen",
+    "switchToLight": "Zu hellem Thema wechseln",
+    "switchToDark": "Zu dunklem Thema wechseln",
+    "switchToSystem": "Zu System folgen wechseln"
+  },
+  "loading": {
+    "loading": "Wird geladen...",
+    "loadMore": "Mehr laden...",
+    "loadingFailed": "Fehler beim Laden"
+  },
+  "links": {
+    "title": "Freundeslinks",
+    "subtitle": "Links austauschen, gemeinsam wachsen",
+    "empty": "Noch keine Links"
+  },
+  "my": {
+    "center": {
+      "title": "Persönliches Zentrum",
+      "profile": "Persönliche Informationen",
+      "profileDescription": "Verwalte dein Profil, Avatar und grundlegende Informationen",
+      "author": "Autorinformationen",
+      "authorDescription": "Verwalte dein Autorenprofil und öffentliche Informationen",
+      "password": "Passwort ändern",
+      "passwordDescription": "Ändere dein Anmelde-Passwort"
+    }
+  },
+  "applyCreator": {
+    "title": "Als Creator bewerben",
+    "description": "Fülle das Formular aus, um dich als Creator zu bewerben. Nach Genehmigung kannst du Artikel veröffentlichen.",
+    "alreadyCreator": "Du bist bereits Creator.",
+    "pendingTitle": "Deine Bewerbung wird geprüft",
+    "pendingHint": "Bitte warte auf die Admin-Prüfung. Nach Genehmigung erhältst du Creator-Rechte.",
+    "submittedAt": "Eingereicht am",
+    "rejectedTitle": "Deine Bewerbung wurde nicht genehmigt",
+    "penName": "Künstlername",
+    "penNamePlaceholder": "Anzeigename als Autor",
+    "key": "Creator-ID",
+    "keyPlaceholder": "Buchstaben und Unterstriche, z.B. my_name",
+    "keyHint": "Die Creator-ID wird in deiner Profil-URL verwendet. Sie kann nach Genehmigung nicht geändert werden.",
+    "message": "Nachricht",
+    "messagePlaceholder": "Optional. Stell dich vor oder nenne den Bewerbungsgrund",
+    "submit": "Absenden",
+    "submitSuccess": "Gesendet. Bitte warte auf die Prüfung.",
+    "submitFailed": "Absenden fehlgeschlagen",
+    "validation": {
+      "penNameRequired": "Künstlername ist erforderlich",
+      "keyRequired": "Creator-ID ist erforderlich",
+      "keyFormat": "Creator-ID darf nur Buchstaben und Unterstriche enthalten"
+    }
+  }
+}

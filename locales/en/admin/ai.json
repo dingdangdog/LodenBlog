@@ -1,0 +1,72 @@
+{
+  "ai": {
+    "title": "AI Provider Management",
+    "table": {
+      "name": "Name",
+      "provider": "Provider",
+      "protocol": "Interface protocol",
+      "apiKey": "API Key",
+      "apiSecret": "API Secret",
+      "endpoint": "Endpoint",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "actions": {
+      "add": "Add Config",
+      "copy": "Duplicate",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel",
+      "test": "Test connectivity"
+    },
+    "modal": {
+      "add": "Add AI Config",
+      "edit": "Edit AI Config",
+      "name": "Name",
+      "namePlaceholder": "Enter config name, e.g.: OpenAI GPT-4",
+      "provider": "Interface protocol",
+      "providerPlaceholder": "Select interface protocol",
+      "apiKey": "API Key",
+      "apiKeyPlaceholder": "Enter API Key",
+      "apiSecret": "API Secret",
+      "apiSecretPlaceholder": "Enter API Secret (if needed)",
+      "apiEndpoint": "API Endpoint",
+      "apiEndpointPlaceholder": "Optional, custom API endpoint",
+      "timeout": "Timeout (ms)",
+      "maxRetries": "Max Retries",
+      "priority": "Priority",
+      "priorityPlaceholder": "Higher number means higher priority",
+      "extraConfig": "Extra Config (JSON)",
+      "extraConfigPlaceholder": "e.g., key: value or JSON format",
+      "enabled": "Enabled"
+    },
+    "messages": {
+      "nameRequired": "Config name cannot be empty",
+      "providerRequired": "Interface protocol is required",
+      "createSuccess": "Created successfully",
+      "updateSuccess": "Updated successfully",
+      "saveSuccess": "Saved successfully",
+      "copySuccess": "Copied successfully",
+      "copyFailed": "Failed to copy AI config",
+      "saveFailed": "Failed to save AI config",
+      "loadFailed": "Failed to load AI configs",
+      "loadConfigFailed": "Failed to load AI config",
+      "testSuccess": "Connectivity test passed",
+      "testFailed": "Connectivity test failed",
+      "deleteConfirm": "Are you sure you want to delete config \"{name}\"? This action cannot be undone.",
+      "deleteSuccess": "Deleted successfully",
+      "deleteFailed": "Failed to delete AI config"
+    },
+    "protocolOptions": {
+      "openai": "OpenAI",
+      "gemini": "Gemini",
+      "alibaba": "Alibaba Cloud",
+      "deepseek": "DeepSeek"
+    }
+  }
+}

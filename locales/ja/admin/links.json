@@ -1,0 +1,31 @@
+{
+  "links": {
+    "title": "フレンドリンク管理",
+    "add": "リンクを追加",
+    "edit": "編集",
+    "parse": "自動解析",
+    "noData": "リンクはまだありません",
+    "filters": {
+      "all": "すべて",
+      "active": "有効",
+      "inactive": "無効",
+      "search": "名前 / URL / 説明で検索..."
+    },
+    "status": {
+      "active": "有効",
+      "inactive": "無効"
+    },
+    "messages": {
+      "loadFailed": "読み込みに失敗しました",
+      "updateSuccess": "更新に成功しました",
+      "createSuccess": "作成に成功しました",
+      "saveFailed": "保存に失敗しました",
+      "deleteConfirm": "このリンクを削除しますか？",
+      "deleteSuccess": "削除に成功しました",
+      "deleteFailed": "削除に失敗しました",
+      "parseSuccess": "解析に成功し、自動入力しました",
+      "parseFailed": "解析に失敗しました",
+      "parseNoUrl": "まず対象URLを入力してください"
+    }
+  }
+}

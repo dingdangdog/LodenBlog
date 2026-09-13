@@ -1,0 +1,148 @@
+{
+  "editpost": {
+    "languageSelector": {
+      "label": "当前语言：",
+      "placeholder": "请选择语言",
+      "willCreate": "该语言版本不存在，将创建新版本"
+    },
+    "actions": {
+      "saveCurrentLanguage": "保存",
+      "generate": "生成",
+      "upload": "上传图片",
+      "uploading": "上传中...",
+      "selectMedia": "选择图片",
+      "selectImage": "选择图片",
+      "clearCover": "清空封面",
+      "insertAdSlot": "插入广告位",
+      "add": "新增",
+      "addCategory": "新增分类",
+      "addTag": "新增标签",
+      "back": "返回",
+      "publish": "发布",
+      "publishing": "发布中...",
+      "published": "已发布"
+    },
+    "tabs": {
+      "basic": "基本信息",
+      "content": "正文编辑",
+      "seo": "SEO 设置"
+    },
+    "sections": {
+      "basic": "基本信息",
+      "categoryTag": "分类和标签"
+    },
+    "fields": {
+      "title": "标题",
+      "slug": "Slug",
+      "cover": "封面图",
+      "excerpt": "摘要",
+      "category": "分类",
+      "tags": "标签",
+      "articleId": "文章ID",
+      "seoTitle": "SEO 标题",
+      "seoDescription": "SEO 描述",
+      "seoKeyword": "SEO 关键词"
+    },
+    "placeholders": {
+      "title": "请输入文章标题",
+      "slug": "文章 URL 标识",
+      "coverPreview": "封面预览",
+      "coverEmpty": "预览区域",
+      "coverUrl": "https://example.com/cover.jpg",
+      "excerpt": "文章摘要，留空将自动从正文截取",
+      "noCategory": "请选择或创建",
+      "noTag": "请选择或创建",
+      "seoTitle": "留空将使用文章标题",
+      "seoDescription": "留空将使用文章摘要",
+      "seoKeyword": "多个关键词用逗号分隔，例如：关键词1, 关键词2, 关键词3"
+    },
+    "hints": {
+      "title": "最多 {max} 个字符单位",
+      "excerpt": "最多 {max} 个字符单位",
+      "content": "最少 {min} 个字符单位，最多 {max} 个字符单位",
+      "seoTitle": "建议长度：{min}-{max} 个字符",
+      "seoDescription": "建议长度：{min}-{max} 个字符",
+      "seoKeyword": "多个关键词用逗号分隔"
+    },
+    "tooltips": {
+      "selectLanguageFirst": "请先选择语言"
+    },
+    "messages": {
+      "slugInvalid": "slug 只能包含小写字母、数字和连字符",
+      "categoryCreateSuccess": "分类创建成功",
+      "categoryCreateFailed": "创建分类失败",
+      "tagCreateSuccess": "标签创建成功",
+      "tagCreateFailed": "创建标签失败",
+      "enterCategoryNameAndLanguage": "请先输入分类名称并选择语言",
+      "enterTagNameAndLanguage": "请先输入标签名称并选择语言",
+      "translateSlugSuccess": "翻译生成 slug 成功",
+      "translateSlugFailed": "翻译失败，请使用本地生成",
+      "pleaseEnterTitle": "请先输入标题",
+      "pleaseSelectLanguage": "请先选择语言",
+      "generateSlugByTranslation": "通过翻译生成英文 slug",
+      "selectLanguage": "请选择语言",
+      "pleaseFillRequiredFields": "请完整填写必填项",
+      "titleExceedsLimit": "标题超出限制：最多 {max} 个字符单位",
+      "excerptExceedsLimit": "摘要超出限制：最多 {max} 个字符单位",
+      "contentTooShort": "正文内容不足：最少需要 {min} 个字符单位",
+      "contentExceedsLimit": "正文超出限制：最多 {max} 个字符单位",
+      "coverUploadSuccess": "封面图上传成功",
+      "coverUploadFailed": "封面图上传失败",
+      "saveSuccess": "保存成功",
+      "saveFailed": "保存失败",
+      "saveArticleFailed": "保存文章失败",
+      "articlePublished": "文章已发布",
+      "articleSaved": "文章已保存",
+      "articleCreatedAndPublished": "文章已创建并发布",
+      "articleCreatedAndSaved": "文章已创建并保存"
+    },
+    "newCategoryDialog": {
+      "title": "新增分类",
+      "fields": {
+        "name": "分类名称",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "请输入分类名称",
+        "slug": "分类 URL 标识（自动生成）"
+      },
+      "hints": {
+        "slug": "只能包含小写字母、数字和连字符"
+      },
+      "buttons": {
+        "cancel": "取消",
+        "create": "创建",
+        "creating": "创建中..."
+      },
+      "tooltips": {
+        "enterName": "请先输入分类名称",
+        "selectLanguage": "请先选择语言",
+        "generateSlug": "通过翻译生成英文 slug"
+      }
+    },
+    "newTagDialog": {
+      "title": "新增标签",
+      "fields": {
+        "name": "标签名称",
+        "slug": "Slug"
+      },
+      "placeholders": {
+        "name": "请输入标签名称",
+        "slug": "标签 URL 标识（自动生成）"
+      },
+      "hints": {
+        "slug": "只能包含小写字母、数字和连字符"
+      },
+      "buttons": {
+        "cancel": "取消",
+        "create": "创建",
+        "creating": "创建中..."
+      },
+      "tooltips": {
+        "enterName": "请先输入标签名称",
+        "selectLanguage": "请先选择语言",
+        "generateSlug": "通过翻译生成英文 slug"
+      }
+    }
+  }
+}

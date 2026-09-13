@@ -1,0 +1,71 @@
+{
+  "dashboard": {
+    "creator": {
+      "overviewTitle": "データ概要",
+      "overviewDesc": "記事とコンテンツの統計"
+    },
+    "overview": "データ概要",
+    "resources": "サイトリソース",
+    "enabledLanguages": "有効な言語",
+    "availableThemes": "利用可能なテーマ",
+    "themeCount": "テーマ数",
+    "lastUpdated": "最終更新",
+    "noUpdate": "なし",
+    "enter": "開く",
+    "siteOverview": "サイト概要",
+    "siteOverviewDesc": "コンテンツと基本設定",
+    "visitBoard": "訪問ダッシュボード",
+    "visitBoardDesc": "人間の訪問・Bot訪問・Bot提供元",
+    "lastNDays": "過去{n}日",
+    "trendHumanVsBot": "訪問トレンド（人間 vs Bot）",
+    "byDay": "日別",
+    "visitorDist": "訪問者分布（過去{n}日）",
+    "totalVisits": "総訪問数",
+    "humanIpBotRatio": "人間IP / Bot割合",
+    "humanVisits": "人間の訪問",
+    "botVisits": "Bot訪問",
+    "humanIps": "人間IP",
+    "botVendorDist": "Botベンダー分布",
+    "noBotData": "Botデータなし",
+    "todaySummary": "本日の概要",
+    "rankingHuman": "人間",
+    "rankingBot": "Bot",
+    "rankingAll": "全体",
+    "chartTotal": "総数",
+    "chartHuman": "人間",
+    "chartBot": "Bot",
+    "quickLinks": "クイックリンク",
+    "goTo": "移動 →",
+    "stats": {
+      "totalArticles": "記事総数",
+      "published": "公開済み",
+      "drafts": "下書き",
+      "totalViews": "累計閲覧数",
+      "todayVisits": "本日の訪問",
+      "totalVisitCount": "総訪問数",
+      "totalHumanVisitCount": "総人間訪問数",
+      "totalBotVisitCount": "総Bot訪問数"
+    },
+    "visitAnalysis": {
+      "title": "訪問分析",
+      "todayRanking": "本日の人気記事",
+      "articleRanking": "記事ランキング",
+      "rangeToday": "本日",
+      "rangeWeek": "今週",
+      "rangeAll": "全期間",
+      "visitTrend": "訪問トレンド",
+      "days7": "過去7日",
+      "days30": "過去30日",
+      "days100": "過去100日",
+      "noData": "データなし",
+      "visitCount": "訪問数"
+    },
+    "links": {
+      "profile": "プロフィール",
+      "posts": "記事作成",
+      "themes": "テーマ管理",
+      "media": "メディア管理",
+      "translationlogs": "翻訳ログ"
+    }
+  }
+}

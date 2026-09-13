@@ -1,0 +1,31 @@
+{
+  "links": {
+    "title": "Friend Links",
+    "add": "Add Link",
+    "edit": "Edit",
+    "parse": "Auto parse",
+    "noData": "No links yet",
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "inactive": "Inactive",
+      "search": "Search name/url/description..."
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "messages": {
+      "loadFailed": "Load failed",
+      "updateSuccess": "Updated",
+      "createSuccess": "Created",
+      "saveFailed": "Save failed",
+      "deleteConfirm": "Delete this link?",
+      "deleteSuccess": "Deleted",
+      "deleteFailed": "Delete failed",
+      "parseSuccess": "Parsed successfully, fields filled",
+      "parseFailed": "Parse failed",
+      "parseNoUrl": "Please enter the link URL first"
+    }
+  }
+}

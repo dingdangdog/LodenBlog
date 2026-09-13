@@ -1,0 +1,88 @@
+{
+  "categories": {
+    "title": "カテゴリー管理",
+    "add": "カテゴリーを追加",
+    "filters": {
+      "searchPlaceholder": "カテゴリー名または slug を検索...",
+      "allLanguages": "すべての言語",
+      "apply": "適用",
+      "refresh": "更新"
+    },
+    "table": {
+      "name": "名前",
+      "slug": "Slug",
+      "language": "言語",
+      "parent": "親カテゴリー",
+      "sortOrder": "並び順",
+      "status": "ステータス",
+      "actions": "操作"
+    },
+    "status": {
+      "enabled": "有効",
+      "disabled": "無効"
+    },
+    "actions": {
+      "edit": "編集",
+      "delete": "削除",
+      "save": "保存",
+      "cancel": "キャンセル",
+      "translate": "翻訳",
+      "loading": "読み込み中...",
+      "noCategories": "カテゴリーが見つかりません",
+      "createHint": "上部のボタンをクリックしてカテゴリーを作成してください"
+    },
+    "modal": {
+      "edit": "カテゴリーを編集",
+      "add": "カテゴリーを追加",
+      "language": "言語",
+      "selectLanguage": "言語を選択してください",
+      "name": "名前",
+      "namePlaceholder": "カテゴリー名",
+      "slug": "Slug",
+      "description": "説明",
+      "descriptionPlaceholder": "カテゴリー説明（オプション）",
+      "parent": "親カテゴリー",
+      "noParent": "なし（トップレベル）",
+      "color": "色",
+      "icon": "アイコン",
+      "iconPlaceholder": "例: 📁",
+      "sortOrder": "並び順",
+      "enabled": "有効"
+    },
+    "translateDialog": {
+      "title": "カテゴリーを翻訳",
+      "important": "重要",
+      "hint1": "翻訳は既存の他の言語バージョンの内容をすべて上書きします",
+      "hint2": "翻訳には数分かかる場合があります。しばらくお待ちください",
+      "sourceLanguage": "ソース言語：",
+      "categoryName": "カテゴリー名：",
+      "targetLanguages": "対象言語",
+      "selectAll": "すべて選択",
+      "deselectAll": "すべて解除",
+      "targetLanguagesHint": "翻訳先の対象言語を選択してください（複数選択可）",
+      "noTargetLanguages": "利用可能な対象言語がありません",
+      "provider": "翻訳プロバイダー",
+      "useDefaultProvider": "システムデフォルトを使用",
+      "providerHint": "翻訳プロバイダーを選択してください。システムデフォルトの設定を使用します",
+      "cancel": "キャンセル",
+      "translating": "翻訳中...",
+      "confirm": "翻訳を確認"
+    },
+    "messages": {
+      "saveSuccess": "保存に成功しました",
+      "saveFailed": "カテゴリーの保存に失敗しました",
+      "deleteSuccess": "削除に成功しました",
+      "deleteFailed": "カテゴリーの削除に失敗しました",
+      "loadFailed": "カテゴリーリストの読み込みに失敗しました",
+      "deleteConfirm": "カテゴリー \"{name}\" を削除してもよろしいですか？",
+      "selectTargetLanguages": "少なくとも1つの対象言語を選択してください",
+      "translateSuccess": "翻訳に成功しました",
+      "translateFailed": "翻訳に失敗しました",
+      "pleaseEnterCategoryName": "先にカテゴリー名を入力してください",
+      "pleaseSelectLanguage": "先に言語を選択してください",
+      "generateSlugByTranslation": "翻訳を通じて英語のslugを生成",
+      "translationSuccess": "翻訳を通じてslugが正常に生成されました",
+      "translationFailed": "翻訳に失敗しました。ローカル生成を使用してください"
+    }
+  }
+}

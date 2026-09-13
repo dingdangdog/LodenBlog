@@ -1,0 +1,43 @@
+{
+  "visit": {
+    "filters": {
+      "recordType": "Record Type:",
+      "normalVisitor": "Normal Visitor",
+      "adminVisitor": "Admin Visitor",
+      "refresh": "Refresh"
+    },
+    "title": {
+      "normalVisitorRecords": "Normal Visitor Records",
+      "adminVisitorRecords": "Admin Visitor Records"
+    },
+    "status": {
+      "loading": "Loading...",
+      "noRecords": "No visitor records",
+      "loadMore": "Loading more...",
+      "noMoreData": "No more data"
+    },
+    "fields": {
+      "ip": "IP:",
+      "userId": "User ID:",
+      "recordId": "Record ID",
+      "requestUri": "Request URI",
+      "ipAddress": "IP Address",
+      "userIdLabel": "User ID",
+      "userAgent": "User Agent",
+      "createdAt": "Created At"
+    },
+    "modal": {
+      "title": "Visitor Record Details",
+      "close": "Close"
+    },
+    "date": {
+      "justNow": "Just now",
+      "minutesAgo": "{minutes} minutes ago",
+      "hoursAgo": "{hours} hours ago",
+      "daysAgo": "{days} days ago"
+    },
+    "messages": {
+      "loadFailed": "Failed to load visitor records"
+    }
+  }
+}
