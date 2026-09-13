@@ -1,6 +1,25 @@
-# Loden
+<div align="center" style="display:flex;align-items:center;justify-content:center;">
+<img src="/public/logo.webp" width="80px" alt="cashbook" />
+<h1 style="margin-left:1rem;">LodenBlog</h1>
+</div>
 
-开源的多语言个人博客。用一套系统同时管理中文、英文、日文、德语、西班牙语等内容，内置 AI 写作、多服务商翻译、主题与 SEO，适合个人站点与小型创作团队。
+<p align="center">
+  <img alt="release" src="https://img.shields.io/github/v/release/dingdangdog/lodenblog" />
+  <img alt="stars" src="https://img.shields.io/github/stars/dingdangdog/lodenblog" />
+  <img alt="dorks" src="https://img.shields.io/github/forks/dingdangdog/lodenblog" />
+</p>
+<p align="center">
+  <img alt="issues-open" src="https://img.shields.io/github/issues/dingdangdog/lodenblog?color=important" />
+  <img alt="issues-close" src="https://img.shields.io/github/issues-closed/dingdangdog/lodenblog?color=green" />
+  <img alt="license" src="https://img.shields.io/badge/license-MIT-yellow.svg" />
+  <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/dingdangdog/lodenblog.svg" />
+</p>
+
+LodenBlog 是一个开源的多语言个人博客。用一套系统同时管理中文、英文、日文、德语、西班牙语等内容，内置 AI 写作、多服务商翻译、主题与 SEO，适合个人站点与小型创作团队。
+
+## 案例
+- [LodenHu](https://www.lodenhu.com)
+- [月上老狗](https://www.oldmoon.top)
 
 ## 功能
 
@@ -20,24 +39,6 @@
 - 同一篇文章的多语言版本互相关联，读者可在语言间切换而不是看到孤立副本。
 - 翻译与 AI 在后台配置密钥即可使用，未配置时其余功能仍可独立运行。
 - 使用 Docker 镜像即可部署，默认端口 `7061`，也可用 Nginx 等反代到 443。
-
-## 优势
-
-相对从零搭博客或拼装多个插件：
-
-| 对比点   | Loden                                                  |
-| -------- | ------------------------------------------------------ |
-| 多语言   | 内容、URL、sitemap 从一开始按语言设计，不是事后补丁    |
-| 翻译     | 机器翻译与大模型可同时配置，按任务选择服务商           |
-| 上线成本 | 一份 Compose、一次初始化向导，第三方控制台都有快捷入口 |
-| 扩展     | 自定义代码、主题、信息页、友链、广告与统计都在后台完成 |
-| 许可     | MIT，可自托管、二次开发                                |
-
-技术栈：Nuxt 4、Vue 3、Prisma、PostgreSQL、Tailwind CSS、sidebase/nuxt-auth。
-
-## 案例
-- [LodenHu](https://www.lodenhu.com)
-- [月上老狗](https://www.oldmoon.top)
 
 ## 部署流程
 
