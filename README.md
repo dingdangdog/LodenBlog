@@ -2,13 +2,10 @@
 
 开源的多语言个人博客。用一套系统同时管理中文、英文、日文、德语、西班牙语等内容，内置 AI 写作、多服务商翻译、主题与 SEO，适合个人站点与小型创作团队。
 
-公开镜像：[dingdangdog/loden](https://hub.docker.com/r/dingdangdog/loden)  
-源码：[github.com/dingdangdog/LodenBlog](https://github.com/dingdangdog/LodenBlog)
-
 ## 功能
 
 - **多语言内容**：文章、分类、标签、信息页均可按语言维护；前台按语言前缀访问，并支持浏览器语言检测。
-- **AI 写作与翻译**：后台可用大模型写文章；文章可一键翻译到多种语言，并支持人工校对。
+- **AI 写作与翻译**：后台可用大模型写文章；文章可一键翻译到多种语言。
 - **多服务商接入**：大模型支持 OpenAI 兼容接口、Gemini、DeepSeek、阿里云等；机器翻译支持 DeepL、Google、百度、腾讯、有道、火山等。
 - **完整创作后台**：文章、分类、标签、媒体、评论审核、用户与创作者申请、访问统计、翻译日志。
 - **主题与品牌**：明暗模式、多套主题色，以及 Logo / Favicon、自定义 CSS / JS / Head。
@@ -28,15 +25,19 @@
 
 相对从零搭博客或拼装多个插件：
 
-| 对比点 | Loden |
-| --- | --- |
-| 多语言 | 内容、URL、sitemap 从一开始按语言设计，不是事后补丁 |
-| 翻译 | 机器翻译与大模型可同时配置，按任务选择服务商 |
+| 对比点   | Loden                                                  |
+| -------- | ------------------------------------------------------ |
+| 多语言   | 内容、URL、sitemap 从一开始按语言设计，不是事后补丁    |
+| 翻译     | 机器翻译与大模型可同时配置，按任务选择服务商           |
 | 上线成本 | 一份 Compose、一次初始化向导，第三方控制台都有快捷入口 |
-| 扩展 | 自定义代码、主题、信息页、友链、广告与统计都在后台完成 |
-| 许可 | MIT，可自托管、二次开发 |
+| 扩展     | 自定义代码、主题、信息页、友链、广告与统计都在后台完成 |
+| 许可     | MIT，可自托管、二次开发                                |
 
 技术栈：Nuxt 4、Vue 3、Prisma、PostgreSQL、Tailwind CSS、sidebase/nuxt-auth。
+
+## 案例
+- [LodenHu](https://www.lodenhu.com)
+- [月上老狗](https://www.oldmoon.top)
 
 ## 部署流程
 
@@ -53,13 +54,13 @@
 
 4. **准备第三方账号（按需）**
 
-   | 用途 | 是否必需 | 快捷入口 |
-   | --- | --- | --- |
-   | 图片上传 | 必需 | [Cloudflare R2](https://dash.cloudflare.com/?to=/:account/r2/overview) |
-   | GitHub 登录 | 可选 | [创建 GitHub OAuth App](https://github.com/settings/applications/new) |
-   | Google 登录 | 可选 | [Google Auth 客户端](https://console.cloud.google.com/auth/clients) |
-   | AI / 翻译 | 可选 | 见 [DEPLOY.md](DEPLOY.md#8-ai-与机器翻译可选) |
-   | 统计 / 广告 | 可选 | [Google Analytics](https://analytics.google.com/) · [AdSense](https://www.google.com/adsense/) |
+   | 用途        | 是否必需 | 快捷入口                                                                                       |
+   | ----------- | -------- | ---------------------------------------------------------------------------------------------- |
+   | 图片上传    | 必需     | [Cloudflare R2](https://dash.cloudflare.com/?to=/:account/r2/overview)                         |
+   | GitHub 登录 | 可选     | [创建 GitHub OAuth App](https://github.com/settings/applications/new)                          |
+   | Google 登录 | 可选     | [Google Auth 客户端](https://console.cloud.google.com/auth/clients)                            |
+   | AI / 翻译   | 可选     | 见 [DEPLOY.md](DEPLOY.md#8-ai-与机器翻译可选)                                                  |
+   | 统计 / 广告 | 可选     | [Google Analytics](https://analytics.google.com/) · [AdSense](https://www.google.com/adsense/) |
 
 5. **填写环境变量并启动**
 

@@ -8,17 +8,17 @@
 
 ## 部署总览
 
-| 步骤 | 内容 | 必需 | 快捷入口 |
-| --- | --- | --- | --- |
-| 1 | 服务器 | 必需 | — |
-| 2 | Docker | 必需 | [安装 Docker](https://docs.docker.com/engine/install/) |
-| 3 | 域名 | 建议 | [Cloudflare Dashboard](https://dash.cloudflare.com/) |
-| 4 | PostgreSQL | 必需 | [PostgreSQL 下载](https://www.postgresql.org/download/) · [官方镜像](https://hub.docker.com/_/postgres) |
-| 5 | GitHub 登录 | 可选 | [创建 OAuth App](https://github.com/settings/applications/new) |
-| 6 | Google 登录 | 可选 | [OAuth 客户端](https://console.cloud.google.com/auth/clients) |
-| 7 | Cloudflare R2 | 必需（图片上传） | [R2 概览](https://dash.cloudflare.com/?to=/:account/r2/overview) |
-| 8 | AI / 机器翻译 | 可选 | 见 [第 8 节](#8-ai-与机器翻译可选) |
-| 9 | Analytics / AdSense | 可选 | [Analytics](https://analytics.google.com/) · [AdSense](https://www.google.com/adsense/) |
+| 步骤 | 内容                | 必需             | 快捷入口                                                                                                |
+| ---- | ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------- |
+| 1    | 服务器              | 必需             | —                                                                                                       |
+| 2    | Docker              | 必需             | [安装 Docker](https://docs.docker.com/engine/install/)                                                  |
+| 3    | 域名                | 建议             | [Cloudflare Dashboard](https://dash.cloudflare.com/)                                                    |
+| 4    | PostgreSQL          | 必需             | 推荐Docker安装，因为简单 [官方Docker镜像](https://hub.docker.com/_/postgres) |
+| 5    | GitHub 登录         | 可选             | [创建 OAuth App](https://github.com/settings/applications/new)                                          |
+| 6    | Google 登录         | 可选             | [OAuth 客户端](https://console.cloud.google.com/auth/clients)                                           |
+| 7    | Cloudflare R2       | 必需（图片上传） | [R2 概览](https://dash.cloudflare.com/?to=/:account/r2/overview)                                        |
+| 8    | AI / 机器翻译       | 可选             | 见 [第 8 节](#8-ai-与机器翻译可选)                                                                      |
+| 9    | Analytics / AdSense | 可选             | [Analytics](https://analytics.google.com/) · [AdSense](https://www.google.com/adsense/)                 |
 
 完成后：复制 `.env.example` 为 `.env` → `docker compose up -d` → 打开站点完成初始化。容器启动时会自动把 `prisma/migrations` 应用到数据库。
 
@@ -86,11 +86,11 @@ DATABASE_URL=postgresql://用户:密码@主机:端口/数据库名?schema=public
 
 可选环境变量：
 
-| 变量 | 说明 |
-| --- | --- |
-| `DATABASE_AUTO_MIGRATE` | 设为 `false` 时跳过自动同步 |
+| 变量                     | 说明                                                                           |
+| ------------------------ | ------------------------------------------------------------------------------ |
+| `DATABASE_AUTO_MIGRATE`  | 设为 `false` 时跳过自动同步                                                    |
 | `DATABASE_BOOTSTRAP_URL` | 用于 `CREATE DATABASE` 的管理连接；缺省把 `DATABASE_URL` 的库名改为 `postgres` |
-| `DATABASE_SCHEMA` | URL 未带 `schema` 参数时使用，默认 `public` |
+| `DATABASE_SCHEMA`        | URL 未带 `schema` 参数时使用，默认 `public`                                    |
 
 ---
 
@@ -108,10 +108,10 @@ DATABASE_URL=postgresql://用户:密码@主机:端口/数据库名?schema=public
 
 以生产站点 `https://你的域名` 为例：
 
-| 字段 | 值 |
-| --- | --- |
-| Application name | 任意，如 `Loden` |
-| Homepage URL | `https://你的域名` |
+| 字段                       | 值                                          |
+| -------------------------- | ------------------------------------------- |
+| Application name           | 任意，如 `Loden`                            |
+| Homepage URL               | `https://你的域名`                          |
 | Authorization callback URL | `https://你的域名/api/auth/callback/github` |
 
 本地开发把上面两处换成 `http://localhost:7061` 与 `http://localhost:7061/api/auth/callback/github`。
@@ -150,18 +150,18 @@ GITHUB_CLIENT_SECRET=
 3. 打开 [OAuth 客户端](https://console.cloud.google.com/auth/clients)，创建 **Web 应用**。
 4. 填写来源与回调（把域名换成你的站点）：
 
-   | 字段 | 值 |
-   | --- | --- |
-   | 应用类型 | Web application |
-   | 已授权的 JavaScript 来源 | `https://你的域名` |
-   | 已授权的重定向 URI | `https://你的域名/api/auth/callback/google` |
+   | 字段                     | 值                                          |
+   | ------------------------ | ------------------------------------------- |
+   | 应用类型                 | Web application                             |
+   | 已授权的 JavaScript 来源 | `https://你的域名`                          |
+   | 已授权的重定向 URI       | `https://你的域名/api/auth/callback/google` |
 
    本地开发：
 
-   | 字段 | 值 |
-   | --- | --- |
-   | 已授权的 JavaScript 来源 | `http://localhost:7061` |
-   | 已授权的重定向 URI | `http://localhost:7061/api/auth/callback/google` |
+   | 字段                     | 值                                               |
+   | ------------------------ | ------------------------------------------------ |
+   | 已授权的 JavaScript 来源 | `http://localhost:7061`                          |
+   | 已授权的重定向 URI       | `http://localhost:7061/api/auth/callback/google` |
 
    同一客户端可以同时加生产和本地两条来源 / 回调。
 5. 创建后复制客户端 ID、客户端密钥，写入 `.env`：
@@ -192,14 +192,14 @@ Logo、图标、文章配图等都走 R2。可在首次初始化向导里填写�
 
 ### 需要准备的值
 
-| 配置项 | 说明 |
-| --- | --- |
-| R2 Endpoint URL | 形如 `https://<ACCOUNT_ID>.r2.cloudflarestorage.com` |
-| Access Key ID | 必须是 **32 个字符** |
-| Secret Access Key | 与 Access Key 成对 |
-| Bucket 名称 | 你创建的存储桶名 |
-| HTTP API Token | 可选 |
-| 公共访问域名 | 建议绑定自定义域名，如 `https://cdn.你的域名` |
+| 配置项            | 说明                                                 |
+| ----------------- | ---------------------------------------------------- |
+| R2 Endpoint URL   | 形如 `https://<ACCOUNT_ID>.r2.cloudflarestorage.com` |
+| Access Key ID     | 必须是 **32 个字符**                                 |
+| Secret Access Key | 与 Access Key 成对                                   |
+| Bucket 名称       | 你创建的存储桶名                                     |
+| HTTP API Token    | 可选                                                 |
+| 公共访问域名      | 建议绑定自定义域名，如 `https://cdn.你的域名`        |
 
 在 R2 中创建 Bucket，生成 **S3 兼容** 的 Access Key，并开启公共访问或绑定自定义域名。自定义域名建议用已托管在 Cloudflare 的域名。
 
@@ -215,24 +215,24 @@ Logo、图标、文章配图等都走 R2。可在首次初始化向导里填写�
 
 ### 大模型（AI 写文章、长文翻译、主题生成等）
 
-| 服务商 | 快捷入口 |
-| --- | --- |
-| OpenAI | [API Keys](https://platform.openai.com/api-keys) |
-| Google Gemini | [Google AI Studio 密钥](https://aistudio.google.com/apikey) |
-| DeepSeek | [API Keys](https://platform.deepseek.com/api_keys) |
-| 阿里云（通义 / DashScope） | [DashScope 控制台](https://dashscope.console.aliyun.com/) |
-| 其他 OpenAI 兼容接口 | 使用对应厂商的兼容 Endpoint 与 API Key |
+| 服务商                     | 快捷入口                                                    |
+| -------------------------- | ----------------------------------------------------------- |
+| OpenAI                     | [API Keys](https://platform.openai.com/api-keys)            |
+| Google Gemini              | [Google AI Studio 密钥](https://aistudio.google.com/apikey) |
+| DeepSeek                   | [API Keys](https://platform.deepseek.com/api_keys)          |
+| 阿里云（通义 / DashScope） | [DashScope 控制台](https://dashscope.console.aliyun.com/)   |
+| 其他 OpenAI 兼容接口       | 使用对应厂商的兼容 Endpoint 与 API Key                      |
 
 ### 机器翻译（短句、slug、分类名等）
 
-| 服务商 | 快捷入口 |
-| --- | --- |
-| DeepL | [DeepL API](https://www.deepl.com/pro-api) |
+| 服务商                   | 快捷入口                                                                                                                                                   |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DeepL                    | [DeepL API](https://www.deepl.com/pro-api)                                                                                                                 |
 | Google Cloud Translation | [启用 Translation API](https://console.cloud.google.com/apis/library/translate.googleapis.com) · [凭据](https://console.cloud.google.com/apis/credentials) |
-| 百度翻译 | [百度翻译开放平台](https://fanyi-api.baidu.com/manage/developer) |
-| 腾讯翻译 | [腾讯云机器翻译](https://console.cloud.tencent.com/tmt) · [API 密钥](https://console.cloud.tencent.com/cam/capi) |
-| 有道智云 | [有道智云控制台](https://ai.youdao.com/console/) |
-| 火山引擎 | [火山引擎机器翻译](https://console.volcengine.com/machine-translation) |
+| 百度翻译                 | [百度翻译开放平台](https://fanyi-api.baidu.com/manage/developer)                                                                                           |
+| 腾讯翻译                 | [腾讯云机器翻译](https://console.cloud.tencent.com/tmt) · [API 密钥](https://console.cloud.tencent.com/cam/capi)                                           |
+| 有道智云                 | [有道智云控制台](https://ai.youdao.com/console/)                                                                                                           |
+| 火山引擎                 | [火山引擎机器翻译](https://console.volcengine.com/machine-translation)                                                                                     |
 
 后台协议选项包括：OpenAI、Gemini、阿里云、DeepSeek、DeepL、火山、Google 翻译、百度、腾讯、有道。未单独适配的厂商，只要提供 OpenAI 兼容接口，也可按 OpenAI 协议填写。
 
@@ -242,10 +242,10 @@ Logo、图标、文章配图等都走 R2。可在首次初始化向导里填写�
 
 在管理后台 **设置 → 系统配置** 中填写，不走 `.env`。
 
-| 用途 | 快捷入口 |
-| --- | --- |
+| 用途             | 快捷入口                                          |
+| ---------------- | ------------------------------------------------- |
 | Google Analytics | [Google Analytics](https://analytics.google.com/) |
-| Google AdSense | [AdSense](https://www.google.com/adsense/) |
+| Google AdSense   | [AdSense](https://www.google.com/adsense/)        |
 
 在系统配置中打开对应开关，并填入 Analytics ID、AdSense Publisher ID、文内广告 Slot ID。
 
@@ -261,27 +261,27 @@ cp .env.example .env
 
 ### 必需
 
-| 变量 | 说明 |
-| --- | --- |
-| `DATABASE_URL` | PostgreSQL 连接串 |
-| `NUXT_AUTH_SECRET` | Auth 密钥，使用长随机字符串 |
-| `NUXT_SALT` | 密码盐，上线后不要更换，否则已有密码会失效 |
+| 变量                 | 说明                                               |
+| -------------------- | -------------------------------------------------- |
+| `DATABASE_URL`       | PostgreSQL 连接串                                  |
 | `NUXT_AUTH_BASE_URL` | Auth 根地址，生产示例：`https://你的域名/api/auth` |
+| `NUXT_AUTH_SECRET`   | Auth 密钥，使用长随机字符串                        |
+| `NUXT_SALT`          | 密码盐，上线后不要更换，否则已有密码会失效         |
 
 ### 建议
 
-| 变量 | 说明 |
-| --- | --- |
+| 变量                   | 说明                              |
+| ---------------------- | --------------------------------- |
 | `NUXT_PUBLIC_SITE_URL` | 站点根 URL，如 `https://你的域名` |
-| `PORT` | 默认 `7061`，Compose 已映射 |
+| `PORT`                 | 默认 `7061`，Compose 已映射       |
 
 ### 可选（OAuth）
 
-| 变量 | 说明 |
-| --- | --- |
+| 变量                                        | 说明        |
+| ------------------------------------------- | ----------- |
 | `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | GitHub 登录 |
 | `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | Google 登录 |
-| `NUXT_TOKEN_SECRET` | 可留空 |
+| `NUXT_TOKEN_SECRET`                         | 可留空      |
 
 不要把真实密钥提交到 Git。不要读取或分享已填写的 `.env`。
 
