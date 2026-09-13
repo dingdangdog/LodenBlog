@@ -1,0 +1,14 @@
+# 这是一份用于 PostgreSQL 的 Docker Compose 配置示例，如需使用改名（删除“-pgsql”）
+services:
+  db:
+    container_name: pgsql
+    image: postgres:17.7-alpine
+    restart: always
+    shm_size: 128mb
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      TZ: Asia/Shanghai
+      POSTGRES_PASSWORD: change-me
+    ports:
+      - 5432:5432
