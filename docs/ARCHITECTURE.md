@@ -178,7 +178,7 @@ middleware/role.ts
 ## 目录结构
 
 ```
-i18nblog/
+lodenblog/
 ├── server/                    # 后端代码
 │   ├── middleware/           # 后端中间件（自动执行）
 │   │   ├── auth.ts          # 认证中间件

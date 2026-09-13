@@ -50,7 +50,7 @@ LodenBlog 是一个开源的多语言个人博客。用一套系统同时管理�
 2. **准备 PostgreSQL**  
    自建或云数据库均可，记下 `DATABASE_URL`。容器启动后会自动应用 `prisma/migrations`（不要提交手写 migration）。若要改由外部迁移，设 `DATABASE_AUTO_MIGRATE=false`。
 
-3. **准备域名（建议）**  
+3. **准备域名和R2存储桶**  
    解析到服务器。建议托管到 [Cloudflare](https://dash.cloudflare.com/)，方便给 R2 绑自定义域名。
 
 4. **准备第三方账号（按需）**
@@ -64,14 +64,7 @@ LodenBlog 是一个开源的多语言个人博客。用一套系统同时管理�
    | 统计 / 广告 | 可选     | [Google Analytics](https://analytics.google.com/) · [AdSense](https://www.google.com/adsense/) |
 
 5. **填写环境变量并启动**
-
-   ```bash
-   git clone https://github.com/dingdangdog/LodenBlog.git
-   cd LodenBlog
-   cp .env.example .env
-   ```
-
-   至少设置 `DATABASE_URL`、`NUXT_AUTH_SECRET`、`NUXT_SALT`、`NUXT_AUTH_BASE_URL`（形如 `https://你的域名/api/auth`）。然后：
+   可以在 docker-compose.yml 文件中修改环境变量，至少设置 `DATABASE_URL`、`NUXT_AUTH_SECRET`、`NUXT_SALT`、`NUXT_AUTH_BASE_URL`（形如 `https://你的域名/api/auth`）。然后：然后运行命令：
 
    ```bash
    docker compose up -d
