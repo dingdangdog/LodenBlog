@@ -7,6 +7,11 @@
     "back": "コラム一覧へ",
     "published": "公開",
     "draft": "下書き",
+    "coverEmpty": "カバーなし",
+    "sections": {
+      "content": "内容",
+      "seo": "検索情報"
+    },
     "fields": {
       "language": "言語",
       "slug": "Slug",
@@ -24,7 +29,8 @@
       "unpublish": "下書きに戻す",
       "generate": "コードを生成",
       "revoke": "無効化",
-      "copy": "コピー"
+      "copy": "コピー",
+      "createHint": "右上から新しいコラムを作成"
     },
     "codes": {
       "title": "購読コード",
@@ -38,6 +44,22 @@
       "days30": "30 日",
       "days90": "90 日",
       "days365": "365 日"
+    },
+    "articles": {
+      "title": "記事",
+      "searchPlaceholder": "自分の記事を検索",
+      "recent": "最近の記事",
+      "current": "このコラムの記事",
+      "empty": "コラムの記事はまだありません",
+      "noMatch": "追加できる記事がありません",
+      "add": "追加",
+      "remove": "外す",
+      "inOtherColumn": "現在「{title}」に所属",
+      "confirmPaid": "追加すると単体の有料解除ではなくなります。未使用の記事コードは無効になります。",
+      "confirmMove": "この記事は「{title}」を離れ、このコラムの購読で読めるようになります。",
+      "confirmRemove": "「{title}」は無料になります。コラム購読では読めなくなります。",
+      "added": "コラムに追加しました",
+      "removed": "コラムから外しました"
     },
     "subscriptions": {
       "title": "購読記録",

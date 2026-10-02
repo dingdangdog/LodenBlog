@@ -7,6 +7,11 @@
     "back": "Volver a columnas",
     "published": "Publicada",
     "draft": "Borrador",
+    "coverEmpty": "Sin portada",
+    "sections": {
+      "content": "Contenido",
+      "seo": "Búsqueda"
+    },
     "fields": {
       "language": "Idioma",
       "slug": "Slug",
@@ -24,7 +29,8 @@
       "unpublish": "Pasar a borrador",
       "generate": "Generar códigos",
       "revoke": "Anular",
-      "copy": "Copiar"
+      "copy": "Copiar",
+      "createHint": "Crea una columna con el botón de arriba"
     },
     "codes": {
       "title": "Códigos de suscripción",
@@ -38,6 +44,22 @@
       "days30": "30 días",
       "days90": "90 días",
       "days365": "365 días"
+    },
+    "articles": {
+      "title": "Artículos",
+      "searchPlaceholder": "Buscar mis artículos",
+      "recent": "Artículos recientes",
+      "current": "Artículos de la columna",
+      "empty": "Aún no hay artículos en la columna",
+      "noMatch": "No hay artículos para añadir",
+      "add": "Añadir",
+      "remove": "Quitar",
+      "inOtherColumn": "Ahora en «{title}»",
+      "confirmPaid": "Dejará de desbloquearse como artículo de pago. Los códigos de artículo sin usar dejarán de valer.",
+      "confirmMove": "El artículo saldrá de «{title}» y se leerá con esta columna.",
+      "confirmRemove": "«{title}» pasará a ser gratis. Los suscriptores ya no lo leerán con esta suscripción.",
+      "added": "Añadido a la columna",
+      "removed": "Quitado de la columna"
     },
     "subscriptions": {
       "title": "Suscripciones",

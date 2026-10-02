@@ -55,19 +55,26 @@
         </div>
       </div>
 
-      <div v-if="columns.length" class="space-y-3">
-        <h2 class="text-xl md:text-2xl font-semibold text-foreground ml-2">
+      <div v-if="columns.length">
+        <h2 class="text-xl md:text-2xl font-semibold text-foreground ml-2 mb-3 md:mb-6">
           {{ $t("column.authorColumns") }}
         </h2>
-        <div class="grid gap-3 sm:grid-cols-2">
+        <div class="grid gap-4 sm:grid-cols-2">
           <NuxtLink
             v-for="column in columns"
             :key="column.id"
             :to="localePath(`/column/${column.slug}`)"
-            class="rounded-xl border border-border bg-surface p-4"
+            class="group flex overflow-hidden rounded-xl border border-border bg-surface transition-shadow hover:shadow-lg"
           >
-            <p class="font-medium text-foreground">{{ column.title }}</p>
-            <p v-if="column.description" class="mt-1 line-clamp-2 text-sm text-muted">{{ column.description }}</p>
+            <div v-if="column.featuredImage" class="hidden w-32 shrink-0 sm:block">
+              <img :src="column.featuredImage" :alt="column.title" class="h-full w-full object-cover" />
+            </div>
+            <div class="min-w-0 flex-1 p-4">
+              <p class="font-semibold text-foreground group-hover:text-primary-600 transition-colors">
+                {{ column.title }}
+              </p>
+              <p v-if="column.description" class="mt-1 line-clamp-2 text-sm text-muted">{{ column.description }}</p>
+            </div>
           </NuxtLink>
         </div>
       </div>

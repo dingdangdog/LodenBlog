@@ -7,6 +7,11 @@
     "back": "Back to columns",
     "published": "Published",
     "draft": "Draft",
+    "coverEmpty": "No cover",
+    "sections": {
+      "content": "Content",
+      "seo": "Search"
+    },
     "fields": {
       "language": "Language",
       "slug": "Slug",
@@ -24,7 +29,8 @@
       "unpublish": "Unpublish",
       "generate": "Generate codes",
       "revoke": "Revoke",
-      "copy": "Copy"
+      "copy": "Copy",
+      "createHint": "Create a column with the button above"
     },
     "codes": {
       "title": "Subscription codes",
@@ -38,6 +44,22 @@
       "days30": "30 days",
       "days90": "90 days",
       "days365": "365 days"
+    },
+    "articles": {
+      "title": "Articles",
+      "searchPlaceholder": "Search my articles",
+      "recent": "Recent articles",
+      "current": "In this column",
+      "empty": "No articles in this column yet",
+      "noMatch": "No articles to add",
+      "add": "Add",
+      "remove": "Remove",
+      "inOtherColumn": "Currently in \"{title}\"",
+      "confirmPaid": "This paid article will no longer be unlocked individually. Unused article codes will stop working.",
+      "confirmMove": "This article will leave \"{title}\" and be read through this column.",
+      "confirmRemove": "\"{title}\" will become free. Column subscribers will no longer read it with this subscription.",
+      "added": "Added to the column",
+      "removed": "Removed from the column"
     },
     "subscriptions": {
       "title": "Subscriptions",

@@ -192,7 +192,9 @@
       "password": "Passwort ändern",
       "passwordDescription": "Ändere dein Anmelde-Passwort",
       "subscriptions": "Meine Abos",
-      "unlocks": "Meine Freischaltungen"
+      "subscriptionsDescription": "Kolumnenabos und Einlösungen",
+      "unlocks": "Meine Freischaltungen",
+      "unlocksDescription": "Dauerhaft freigeschaltete Artikel"
     }
   },
   "column": {

@@ -7,6 +7,11 @@
     "back": "Zurück zu Kolumnen",
     "published": "Veröffentlicht",
     "draft": "Entwurf",
+    "coverEmpty": "Kein Cover",
+    "sections": {
+      "content": "Inhalt",
+      "seo": "Suche"
+    },
     "fields": {
       "language": "Sprache",
       "slug": "Slug",
@@ -24,7 +29,8 @@
       "unpublish": "Zurück zum Entwurf",
       "generate": "Codes erzeugen",
       "revoke": "Widerrufen",
-      "copy": "Kopieren"
+      "copy": "Kopieren",
+      "createHint": "Oben rechts eine Kolumne anlegen"
     },
     "codes": {
       "title": "Abo-Codes",
@@ -38,6 +44,22 @@
       "days30": "30 Tage",
       "days90": "90 Tage",
       "days365": "365 Tage"
+    },
+    "articles": {
+      "title": "Artikel",
+      "searchPlaceholder": "Eigene Artikel suchen",
+      "recent": "Neueste Artikel",
+      "current": "Artikel in dieser Kolumne",
+      "empty": "Noch keine Kolumnenartikel",
+      "noMatch": "Keine Artikel zum Hinzufügen",
+      "add": "Hinzufügen",
+      "remove": "Entfernen",
+      "inOtherColumn": "Derzeit in „{title}“",
+      "confirmPaid": "Der Artikel ist danach nicht mehr einzeln freizuschalten. Ungenutzte Artikelcodes werden ungültig.",
+      "confirmMove": "Der Artikel verlässt „{title}“ und wird über diese Kolumne gelesen.",
+      "confirmRemove": "„{title}“ wird kostenlos. Abonnenten können ihn nicht mehr über diese Kolumne lesen.",
+      "added": "Zur Kolumne hinzugefügt",
+      "removed": "Aus der Kolumne entfernt"
     },
     "subscriptions": {
       "title": "Abos",

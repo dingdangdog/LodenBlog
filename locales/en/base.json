@@ -192,7 +192,9 @@
       "passwordDescription": "Change your login password",
       "favorites": "My Favorites",
       "subscriptions": "My subscriptions",
-      "unlocks": "My unlocks"
+      "subscriptionsDescription": "Column subscriptions and redemptions",
+      "unlocks": "My unlocks",
+      "unlocksDescription": "Articles you have permanently unlocked"
     }
   },
   "column": {

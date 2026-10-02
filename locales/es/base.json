@@ -192,7 +192,9 @@
       "password": "Cambiar contraseña",
       "passwordDescription": "Cambia tu contraseña de inicio de sesión",
       "subscriptions": "Mis suscripciones",
-      "unlocks": "Mis desbloqueos"
+      "subscriptionsDescription": "Suscripciones y canjes de columnas",
+      "unlocks": "Mis desbloqueos",
+      "unlocksDescription": "Artículos desbloqueados de forma permanente"
     }
   },
   "column": {

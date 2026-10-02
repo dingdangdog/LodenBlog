@@ -1,49 +1,91 @@
 <template>
-  <div class="space-y-4">
-    <h1 class="text-xl font-semibold text-foreground">{{ $t("admin.columns.records.title") }}</h1>
-    <p class="text-sm text-muted">{{ $t("admin.columns.records.readonly") }}</p>
-    <div class="flex flex-wrap gap-2">
-      <button v-for="item in tabs" :key="item.id" type="button" class="rounded-lg px-3 py-1.5 text-sm" :class="tab === item.id ? 'bg-primary-600 text-white' : 'border border-border'" @click="tab = item.id">
-        {{ item.label }}
-      </button>
+  <div class="overflow-hidden rounded-2xl border border-border bg-surface">
+    <div class="border-b border-border px-4 py-3 sm:px-5">
+      <h1 class="text-base font-semibold text-foreground sm:text-lg">{{ $t("admin.columns.records.title") }}</h1>
+      <p class="mt-1 text-sm text-muted">{{ $t("admin.columns.records.readonly") }}</p>
     </div>
 
-    <ul v-if="tab === 'columns'" class="space-y-2">
-      <li v-for="item in columns" :key="item.id" class="rounded-lg border border-border p-3 text-sm">
-        <p class="font-medium">{{ item.title || item.id }}</p>
-        <p class="text-muted">{{ item.author?.name || item.author?.username }} · {{ item.isPublished ? $t("admin.columns.published") : $t("admin.columns.draft") }}</p>
+    <div class="overflow-x-auto border-b border-border">
+      <nav class="flex h-11 min-w-0">
+        <button
+          v-for="item in tabs"
+          :key="item.id"
+          type="button"
+          class="box-border flex h-11 shrink-0 items-center border-b-2 px-3 text-sm font-medium whitespace-nowrap transition-colors sm:px-5"
+          :class="tab === item.id
+            ? 'border-primary-500 text-primary-600'
+            : 'border-transparent text-muted hover:border-border hover:text-foreground'"
+          @click="tab = item.id"
+        >
+          {{ item.label }}
+        </button>
+      </nav>
+    </div>
+
+    <div v-if="tab === 'subscriptions'" class="border-b border-border px-4 py-3 sm:w-56">
+      <AppSelect v-model="status" :options="statusOptions" :allow-clear="false" @change="loadSubscriptions" />
+    </div>
+
+    <div v-if="pending" class="p-8 text-center text-sm text-muted">
+      <ArrowPathIcon class="mx-auto mb-2 h-6 w-6 animate-spin" />
+      <p>{{ $t("common.loading") }}</p>
+    </div>
+    <p v-else-if="empty" class="p-8 text-center text-sm text-muted">{{ $t("common.noData") }}</p>
+
+    <ul v-else-if="tab === 'columns'" class="divide-y divide-border">
+      <li v-for="item in columns" :key="item.id" class="flex flex-wrap items-center justify-between gap-2 px-4 py-3 text-sm sm:px-5">
+        <div class="min-w-0">
+          <p class="font-medium text-foreground">{{ item.title || item.id }}</p>
+          <p class="mt-0.5 text-xs text-muted">{{ item.author?.name || item.author?.username }}<span v-if="item.slug"> · /column/{{ item.slug }}</span></p>
+        </div>
+        <span
+          class="rounded px-2 py-0.5 text-xs font-medium"
+          :class="item.isPublished
+            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+            : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'"
+        >
+          {{ item.isPublished ? $t("admin.columns.published") : $t("admin.columns.draft") }}
+        </span>
       </li>
     </ul>
 
-    <div v-else-if="tab === 'subscriptions'" class="space-y-3">
-      <div class="w-full sm:w-48">
-        <AppSelect
-          v-model="status"
-          :options="statusOptions"
-          :allow-clear="false"
-          @change="loadSubscriptions"
-        />
-      </div>
-      <article v-for="item in subscriptions" :key="item.id" class="rounded-lg border border-border p-3 text-sm">
-        <p class="font-medium">{{ item.columnTitle }} · {{ item.user?.name || item.user?.username }}</p>
-        <p class="text-muted">{{ item.active ? $t("column.active") : $t("column.expired") }} · {{ formatDate(item.startsAt) }} - {{ formatDate(item.expiresAt) }}</p>
-        <ul class="mt-2 space-y-1 text-xs text-muted">
-          <li v-for="log in item.logs" :key="log.id">{{ $t("column.durationDays", { count: log.durationDays }) }} · {{ formatDate(log.appliedFrom) }} - {{ formatDate(log.appliedTo) }}</li>
+    <div v-else-if="tab === 'subscriptions'" class="divide-y divide-border">
+      <article v-for="item in subscriptions" :key="item.id" class="px-4 py-3 text-sm sm:px-5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <p class="font-medium text-foreground">{{ item.columnTitle }} · {{ item.user?.name || item.user?.username }}</p>
+          <span
+            class="rounded px-2 py-0.5 text-xs font-medium"
+            :class="item.active
+              ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+              : 'bg-surface-muted text-muted'"
+          >
+            {{ item.active ? $t("column.active") : $t("column.expired") }}
+          </span>
+        </div>
+        <p class="mt-1 text-xs text-muted">{{ formatDate(item.startsAt) }} – {{ formatDate(item.expiresAt) }}</p>
+        <ul v-if="item.logs?.length" class="mt-2 space-y-1 text-xs text-muted">
+          <li v-for="log in item.logs" :key="log.id">
+            {{ $t("column.durationDays", { count: log.durationDays }) }} · {{ formatDate(log.appliedFrom) }} – {{ formatDate(log.appliedTo) }}
+          </li>
         </ul>
       </article>
     </div>
 
-    <ul v-else class="space-y-2">
-      <li v-for="item in codes" :key="item.id" class="rounded-lg border border-border p-3 font-mono text-sm">
-        {{ item.code }}
-        <span class="ml-2 font-sans text-xs text-muted">{{ item.status }}<span v-if="item.durationDays"> · {{ item.durationDays }}</span></span>
+    <ul v-else class="divide-y divide-border">
+      <li v-for="item in codes" :key="item.id" class="flex flex-wrap items-center justify-between gap-2 px-4 py-3 sm:px-5">
+        <p class="break-all font-mono text-sm text-foreground">{{ item.code }}</p>
+        <p class="text-xs text-muted">
+          {{ statusLabel(item.status) }}
+          <span v-if="item.durationDays"> · {{ $t("column.durationDays", { count: item.durationDays }) }}</span>
+        </p>
       </li>
     </ul>
-    <p v-if="empty" class="text-sm text-muted">{{ $t("common.noData") }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ArrowPathIcon } from "@heroicons/vue/24/outline";
+
 definePageMeta({
   layout: "admin",
   requiresAuth: true,
@@ -53,6 +95,7 @@ definePageMeta({
 const { t, locale } = useI18n();
 const tab = ref("columns");
 const status = ref("all");
+const pending = ref(true);
 const statusOptions = computed(() => [
   { value: "all", label: t("admin.columns.subscriptions.all") },
   { value: "active", label: t("column.active") },
@@ -77,28 +120,52 @@ function formatDate(value: string) {
   return value ? new Date(value).toLocaleString() : "";
 }
 
+function statusLabel(value: string) {
+  if (value === "USED") return t("admin.columns.codes.used");
+  if (value === "REVOKED") return t("admin.columns.codes.revoked");
+  return t("admin.columns.codes.unused");
+}
+
 async function loadSubscriptions() {
-  const response = await $fetch<{ c: number; d?: { subscriptions: any[] } }>("/api/admin/column-subscriptions", {
-    query: { status: status.value },
-  });
-  subscriptions.value = response?.c === 200 ? response.d?.subscriptions || [] : [];
+  pending.value = true;
+  try {
+    const response = await $fetch<{ c: number; d?: { subscriptions: any[] } }>("/api/admin/column-subscriptions", {
+      query: { status: status.value },
+    });
+    subscriptions.value = response?.c === 200 ? response.d?.subscriptions || [] : [];
+  } finally {
+    pending.value = false;
+  }
 }
 
 async function loadCodes(kind: string) {
-  const response = await $fetch<{ c: number; d?: { codes: any[] } }>("/api/admin/redeem-codes", { query: { kind } });
-  codes.value = response?.c === 200 ? response.d?.codes || [] : [];
+  pending.value = true;
+  try {
+    const response = await $fetch<{ c: number; d?: { codes: any[] } }>("/api/admin/redeem-codes", { query: { kind } });
+    codes.value = response?.c === 200 ? response.d?.codes || [] : [];
+  } finally {
+    pending.value = false;
+  }
 }
 
 watch(tab, async (value) => {
+  if (value === "columns") {
+    pending.value = false;
+    return;
+  }
   if (value === "subscriptions") await loadSubscriptions();
   if (value === "columnCodes") await loadCodes("column");
   if (value === "articleCodes") await loadCodes("article");
 });
 
 onMounted(async () => {
-  const response = await $fetch<{ c: number; d?: { columns: any[] } }>("/api/admin/columns", {
-    query: { languageCode: locale.value },
-  });
-  columns.value = response?.c === 200 ? response.d?.columns || [] : [];
+  try {
+    const response = await $fetch<{ c: number; d?: { columns: any[] } }>("/api/admin/columns", {
+      query: { languageCode: locale.value },
+    });
+    columns.value = response?.c === 200 ? response.d?.columns || [] : [];
+  } finally {
+    pending.value = false;
+  }
 });
 </script>

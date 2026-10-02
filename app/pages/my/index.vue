@@ -137,15 +137,6 @@
       </div>
     </div>
 
-      <div class="mb-6 flex flex-col gap-2 sm:flex-row">
-        <NuxtLink :to="localePath('/my/subscriptions')" class="rounded-lg border border-border px-4 py-2 text-sm">
-          {{ $t("my.center.subscriptions") }}
-        </NuxtLink>
-        <NuxtLink :to="localePath('/my/unlocks')" class="rounded-lg border border-border px-4 py-2 text-sm">
-          {{ $t("my.center.unlocks") }}
-        </NuxtLink>
-      </div>
-
       <!-- 创作者信息卡片 -->
       <div
         v-if="user?.role >= ROLE_LEVEL.CREATOR"
@@ -247,7 +238,36 @@
 
       <!-- 功能菜单 -->
       <div class="bg-surface text-foreground rounded-lg shadow-md overflow-hidden border border-border">
-        <!-- 修改密码 -->
+        <NuxtLink
+          :to="localePath('/my/subscriptions')"
+          class="flex items-center justify-between px-4 py-4 hover:bg-surface-muted transition-colors border-b border-border"
+        >
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+              <RectangleStackIcon class="w-5 h-5 text-primary-600 dark:text-primary-400" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-medium text-foreground">{{ $t("my.center.subscriptions") }}</span>
+              <span class="text-sm text-muted">{{ $t("my.center.subscriptionsDescription") }}</span>
+            </div>
+          </div>
+          <ChevronRightIcon class="w-5 h-5 text-muted flex-shrink-0" />
+        </NuxtLink>
+        <NuxtLink
+          :to="localePath('/my/unlocks')"
+          class="flex items-center justify-between px-4 py-4 hover:bg-surface-muted transition-colors border-b border-border"
+        >
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+              <LockOpenIcon class="w-5 h-5 text-amber-700 dark:text-amber-300" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-medium text-foreground">{{ $t("my.center.unlocks") }}</span>
+              <span class="text-sm text-muted">{{ $t("my.center.unlocksDescription") }}</span>
+            </div>
+          </div>
+          <ChevronRightIcon class="w-5 h-5 text-muted flex-shrink-0" />
+        </NuxtLink>
         <NuxtLink
           :to="localePath('/my/password')"
           class="flex items-center justify-between px-4 py-4 hover:bg-surface-muted transition-colors border-b border-border last:border-b-0"
@@ -317,6 +337,8 @@ import {
   KeyIcon,
   PencilIcon,
   ChevronRightIcon,
+  RectangleStackIcon,
+  LockOpenIcon,
 } from "@heroicons/vue/24/outline";
 import { BookmarkIcon as BookmarkSolidIcon } from "@heroicons/vue/24/solid";
 

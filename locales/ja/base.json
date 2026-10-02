@@ -191,7 +191,9 @@
       "password": "パスワード変更",
       "passwordDescription": "ログインパスワードを変更",
       "subscriptions": "購読",
-      "unlocks": "解除した記事"
+      "subscriptionsDescription": "コラムの購読と引き換え履歴",
+      "unlocks": "解除した記事",
+      "unlocksDescription": "買い切りで解除した記事"
     }
   },
   "column": {

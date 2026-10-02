@@ -7,6 +7,11 @@
     "back": "返回专栏",
     "published": "已发布",
     "draft": "草稿",
+    "coverEmpty": "暂无封面",
+    "sections": {
+      "content": "内容",
+      "seo": "搜索信息"
+    },
     "fields": {
       "language": "语言",
       "slug": "Slug",
@@ -24,7 +29,8 @@
       "unpublish": "转为草稿",
       "generate": "生成兑换码",
       "revoke": "作废",
-      "copy": "复制"
+      "copy": "复制",
+      "createHint": "从右上角新建一个专栏"
     },
     "codes": {
       "title": "订阅兑换码",
@@ -38,6 +44,22 @@
       "days30": "30 天",
       "days90": "90 天",
       "days365": "365 天"
+    },
+    "articles": {
+      "title": "文章",
+      "searchPlaceholder": "搜索我的文章",
+      "recent": "最近的文章",
+      "current": "专栏中的文章",
+      "empty": "还没有专栏文章",
+      "noMatch": "没有可加入的文章",
+      "add": "加入",
+      "remove": "移出",
+      "inOtherColumn": "当前在「{title}」",
+      "confirmPaid": "加入后不再按单篇付费解锁，未使用的文章兑换码会失效。",
+      "confirmMove": "这篇文章会离开「{title}」，改由这个专栏的订阅阅读。",
+      "confirmRemove": "「{title}」移出后变为免费，专栏订阅者不能再凭订阅阅读它。",
+      "added": "已加入专栏",
+      "removed": "已移出专栏"
     },
     "subscriptions": {
       "title": "订阅记录",
