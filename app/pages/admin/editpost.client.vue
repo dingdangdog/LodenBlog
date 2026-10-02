@@ -233,6 +233,8 @@
                 :options="accessTypeOptions"
                 :placeholder="$t('admin.editpost.access.type')"
                 :allow-clear="false"
+                :disabled="savingOnly || saving"
+                @change="persistAccessChange"
               />
             </div>
             <div v-if="form.accessType === 'COLUMN'">
@@ -245,11 +247,13 @@
                   :options="columnOptions"
                   :placeholder="$t('admin.editpost.access.noColumn')"
                   :searchable="true"
+                  :disabled="savingOnly || saving"
+                  @change="persistAccessChange"
                 />
               </div>
             </div>
             <AdminRedeemCodeManager
-              v-if="form.accessType === 'PAID' && form.id"
+              v-if="form.accessType === 'PAID' && persistedAccessType === 'PAID' && form.id && !savingOnly"
               :title="$t('admin.editpost.access.codes')"
               :list-url="`/api/creator/articles/${form.id}/redeem-codes`"
               :create-url="`/api/creator/articles/${form.id}/redeem-codes`"
@@ -722,7 +726,27 @@ const emptyForm = (): any => ({
 
 const form = reactive(emptyForm());
 const ownColumns = ref<Array<{ id: string; title: string; slug: string }>>([]);
+const persistedAccessType = ref("FREE");
+const persistedColumnId = ref("");
 const isEditMode = computed(() => !!form.id);
+
+function rememberPersistedAccess() {
+  persistedAccessType.value = form.accessType || "FREE";
+  persistedColumnId.value = form.columnId || "";
+}
+
+function accessMatchesPersisted() {
+  const columnId = form.accessType === "COLUMN" ? form.columnId || "" : "";
+  const savedColumnId = persistedAccessType.value === "COLUMN" ? persistedColumnId.value || "" : "";
+  return (form.accessType || "FREE") === persistedAccessType.value && columnId === savedColumnId;
+}
+
+async function persistAccessChange() {
+  if (savingOnly.value || saving.value || loading.value) return;
+  if (accessMatchesPersisted()) return;
+  if (form.accessType === "COLUMN" && !form.columnId) return;
+  await handleSaveOnly();
+}
 
 function accessPayload() {
   return {
@@ -1069,6 +1093,7 @@ const loadArticle = async (id: string, languageCode?: string) => {
       form.isPublished = article.isPublished;
       form.accessType = article.accessType || "FREE";
       form.columnId = article.columnId || "";
+      rememberPersistedAccess();
       originalIsPublished.value = article.isPublished;
       originalStatus.value = article.status || "DRAFT"; // 保存原始状态
 
@@ -1467,6 +1492,7 @@ const handleSaveOnly = async () => {
         originalIsPublished.value = false;
         originalStatus.value = "DRAFT";
       }
+      rememberPersistedAccess();
     } else {
       setMessage(response?.m || t("admin.editpost.messages.saveFailed"));
     }
@@ -1607,6 +1633,7 @@ const handleSubmit = async (
           form.contentId = response.d.article.contentId;
         }
       }
+      rememberPersistedAccess();
 
       // 更新原始发布状态
       if (publish) {
