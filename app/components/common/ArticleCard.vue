@@ -16,6 +16,12 @@
           :to="articlePath">
           {{ article.title }}
         </NuxtLink>
+        <span
+          v-if="article.accessType && article.accessType !== 'FREE'"
+          class="ml-2 inline-flex rounded-full bg-surface-muted px-2 py-0.5 align-middle text-xs font-medium text-muted"
+        >
+          {{ article.accessType === "PAID" ? $t("column.paid") : $t("column.column") }}
+        </span>
       </div>
       <p v-if="article.excerpt" class="text-sm md:text-base text-muted mb-2 line-clamp-2">
         {{ article.excerpt }}
@@ -99,6 +105,7 @@ interface Article {
   viewCount?: number;
   categorySlug?: string | null;
   tagSlugs?: string[];
+  accessType?: string;
   author?: ArticleAuthor | null;
 }
 

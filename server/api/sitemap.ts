@@ -150,6 +150,80 @@ export default defineSitemapEventHandler(async (e) => {
       }
     );
 
+    const publishedColumns = await prisma.column.findMany({
+      where: { isPublished: true },
+      select: { id: true, updatedAt: true },
+    });
+    const columnIds = publishedColumns.map((item: { id: string }) => item.id);
+    const columnContents =
+      columnIds.length > 0
+        ? await prisma.columnContent.findMany({
+            where: { columnId: { in: columnIds } },
+            select: {
+              slug: true,
+              languageCode: true,
+              updatedAt: true,
+              columnId: true,
+            },
+          })
+        : [];
+    const columnMap = new Map<string, typeof columnContents>();
+    columnContents.forEach(
+      (item: {
+        slug: string;
+        languageCode: string;
+        updatedAt: Date;
+        columnId: string;
+      }) => {
+        const list = columnMap.get(item.columnId) || [];
+        list.push(item);
+        columnMap.set(item.columnId, list);
+      }
+    );
+    columnContents.forEach(
+      (content: {
+        slug: string;
+        languageCode: string;
+        updatedAt: Date;
+        columnId: string;
+      }) => {
+        const base = publishedColumns.find(
+          (item: { id: string }) => item.id === content.columnId
+        );
+        const same = columnMap.get(content.columnId) || [];
+        const alternatives = locales
+          .map((lang: string) => {
+            const alt = same.find(
+              (item: { languageCode: string }) => item.languageCode === lang
+            );
+            return alt
+              ? {
+                  hreflang: lang,
+                  href:
+                    lang === defaultLocale
+                      ? `/column/${alt.slug}`
+                      : `/${lang}/column/${alt.slug}`,
+                }
+              : null;
+          })
+          .filter(
+            (
+              item: { hreflang: string; href: string } | null
+            ): item is { hreflang: string; href: string } => item !== null
+          );
+        routes.push({
+          loc:
+            content.languageCode === defaultLocale
+              ? `/column/${content.slug}`
+              : `/${content.languageCode}/column/${content.slug}`,
+          lastmod: (base?.updatedAt || content.updatedAt).toISOString(),
+          changefreq: "weekly",
+          priority: 0.6,
+          alternatives,
+        });
+      }
+    );
+
     // 7. 添加创作者路由
     creators.forEach((creator: { key: string; updatedAt: Date }) => {
       const alternatives = locales.map((lang: string) => ({

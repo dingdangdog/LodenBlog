@@ -2,6 +2,8 @@ import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator, ROLE_LEVEL } from "~~/server/utils/permission";
 import { createError } from "h3";
+import { normalizeArticleAccess } from "~~/server/utils/column-domain";
+import { splitFreeContent } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -45,6 +47,8 @@ export default defineEventHandler(async (event) => {
       seoKeyword,
       status,
       isPublished,
+      accessType,
+      columnId,
       contentId, // 如果提供了 contentId，更新指定的 ArticleContent
     } = body;
 
@@ -118,6 +122,23 @@ export default defineEventHandler(async (event) => {
       }
     }
 
+    let accessUpdate: { accessType: string; columnId: string | null } | null =
+      null;
+    if (accessType !== undefined || columnId !== undefined) {
+      if (articleBase.authorId !== user.id) {
+        return error("只有作者可以修改文章的访问类型");
+      }
+      try {
+        accessUpdate = await normalizeArticleAccess(
+          articleBase.authorId,
+          accessType !== undefined ? accessType : articleBase.accessType,
+          columnId !== undefined ? columnId : articleBase.columnId
+        );
+      } catch (err) {
+        return error(err instanceof Error ? err.message : "访问类型无效");
+      }
+    }
+
     // 使用事务更新
     const result = await prisma.$transaction(async (tx) => {
       // 更新 ArticleBase
@@ -129,6 +150,10 @@ export default defineEventHandler(async (event) => {
       }
       if (categorySlug !== undefined) {
         baseUpdateData.categorySlug = categorySlug || null;
+      }
+      if (accessUpdate) {
+        baseUpdateData.accessType = accessUpdate.accessType;
+        baseUpdateData.columnId = accessUpdate.columnId;
       }
       if (status !== undefined) baseUpdateData.status = status;
       if (isPublished !== undefined) {
@@ -203,7 +228,10 @@ export default defineEventHandler(async (event) => {
         // 如果 slug 已通过 updateMany 更新，这里不再单独更新
         // 只更新其他字段
         if (title !== undefined) contentUpdateData.title = title;
-        if (content !== undefined) contentUpdateData.content = content;
+        if (content !== undefined) {
+          contentUpdateData.content = content;
+          contentUpdateData.freeContent = splitFreeContent(String(content));
+        }
         if (excerpt !== undefined) contentUpdateData.excerpt = excerpt;
         if (seoTitle !== undefined) contentUpdateData.seoTitle = seoTitle;
         if (seoDescription !== undefined)
@@ -254,6 +282,7 @@ export default defineEventHandler(async (event) => {
             slug,
             title,
             content,
+            freeContent: splitFreeContent(String(content)),
             excerpt: excerpt || null,
             seoTitle: seoTitle || null,
             seoDescription: seoDescription || null,
@@ -282,6 +311,8 @@ export default defineEventHandler(async (event) => {
         categorySlug: updatedBase.categorySlug,
         tagSlugs: tagSlugsArray,
         authorId: updatedBase.authorId,
+        accessType: updatedBase.accessType,
+        columnId: updatedBase.columnId,
         seoTitle: updatedContent.seoTitle,
         seoDescription: updatedContent.seoDescription,
         seoKeyword: updatedContent.seoKeyword,

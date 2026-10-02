@@ -29,11 +29,13 @@ export type AggregateArticleBase = {
 export type ArticleBaseAvgAggregateOutputType = {
   viewCount: number | null
   pinOrder: number | null
+  priceAmount: number | null
 }
 
 export type ArticleBaseSumAggregateOutputType = {
   viewCount: number | null
   pinOrder: number | null
+  priceAmount: number | null
 }
 
 export type ArticleBaseMinAggregateOutputType = {
@@ -47,6 +49,10 @@ export type ArticleBaseMinAggregateOutputType = {
   authorId: string | null
   categorySlug: string | null
   tags: string | null
+  accessType: string | null
+  columnId: string | null
+  priceAmount: number | null
+  currency: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -62,6 +68,10 @@ export type ArticleBaseMaxAggregateOutputType = {
   authorId: string | null
   categorySlug: string | null
   tags: string | null
+  accessType: string | null
+  columnId: string | null
+  priceAmount: number | null
+  currency: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -77,6 +87,10 @@ export type ArticleBaseCountAggregateOutputType = {
   authorId: number
   categorySlug: number
   tags: number
+  accessType: number
+  columnId: number
+  priceAmount: number
+  currency: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -86,11 +100,13 @@ export type ArticleBaseCountAggregateOutputType = {
 export type ArticleBaseAvgAggregateInputType = {
   viewCount?: true
   pinOrder?: true
+  priceAmount?: true
 }
 
 export type ArticleBaseSumAggregateInputType = {
   viewCount?: true
   pinOrder?: true
+  priceAmount?: true
 }
 
 export type ArticleBaseMinAggregateInputType = {
@@ -104,6 +120,10 @@ export type ArticleBaseMinAggregateInputType = {
   authorId?: true
   categorySlug?: true
   tags?: true
+  accessType?: true
+  columnId?: true
+  priceAmount?: true
+  currency?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -119,6 +139,10 @@ export type ArticleBaseMaxAggregateInputType = {
   authorId?: true
   categorySlug?: true
   tags?: true
+  accessType?: true
+  columnId?: true
+  priceAmount?: true
+  currency?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -134,6 +158,10 @@ export type ArticleBaseCountAggregateInputType = {
   authorId?: true
   categorySlug?: true
   tags?: true
+  accessType?: true
+  columnId?: true
+  priceAmount?: true
+  currency?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -236,6 +264,10 @@ export type ArticleBaseGroupByOutputType = {
   authorId: string
   categorySlug: string | null
   tags: string | null
+  accessType: string
+  columnId: string | null
+  priceAmount: number | null
+  currency: string | null
   createdAt: Date
   updatedAt: Date
   _count: ArticleBaseCountAggregateOutputType | null
@@ -274,6 +306,10 @@ export type ArticleBaseWhereInput = {
   authorId?: Prisma.StringFilter<"ArticleBase"> | string
   categorySlug?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
   tags?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
+  accessType?: Prisma.StringFilter<"ArticleBase"> | string
+  columnId?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
+  priceAmount?: Prisma.IntNullableFilter<"ArticleBase"> | number | null
+  currency?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
   createdAt?: Prisma.DateTimeFilter<"ArticleBase"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ArticleBase"> | Date | string
 }
@@ -289,6 +325,10 @@ export type ArticleBaseOrderByWithRelationInput = {
   authorId?: Prisma.SortOrder
   categorySlug?: Prisma.SortOrderInput | Prisma.SortOrder
   tags?: Prisma.SortOrderInput | Prisma.SortOrder
+  accessType?: Prisma.SortOrder
+  columnId?: Prisma.SortOrderInput | Prisma.SortOrder
+  priceAmount?: Prisma.SortOrderInput | Prisma.SortOrder
+  currency?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -307,6 +347,10 @@ export type ArticleBaseWhereUniqueInput = Prisma.AtLeast<{
   authorId?: Prisma.StringFilter<"ArticleBase"> | string
   categorySlug?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
   tags?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
+  accessType?: Prisma.StringFilter<"ArticleBase"> | string
+  columnId?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
+  priceAmount?: Prisma.IntNullableFilter<"ArticleBase"> | number | null
+  currency?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
   createdAt?: Prisma.DateTimeFilter<"ArticleBase"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ArticleBase"> | Date | string
 }, "id">
@@ -322,6 +366,10 @@ export type ArticleBaseOrderByWithAggregationInput = {
   authorId?: Prisma.SortOrder
   categorySlug?: Prisma.SortOrderInput | Prisma.SortOrder
   tags?: Prisma.SortOrderInput | Prisma.SortOrder
+  accessType?: Prisma.SortOrder
+  columnId?: Prisma.SortOrderInput | Prisma.SortOrder
+  priceAmount?: Prisma.SortOrderInput | Prisma.SortOrder
+  currency?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ArticleBaseCountOrderByAggregateInput
@@ -345,6 +393,10 @@ export type ArticleBaseScalarWhereWithAggregatesInput = {
   authorId?: Prisma.StringWithAggregatesFilter<"ArticleBase"> | string
   categorySlug?: Prisma.StringNullableWithAggregatesFilter<"ArticleBase"> | string | null
   tags?: Prisma.StringNullableWithAggregatesFilter<"ArticleBase"> | string | null
+  accessType?: Prisma.StringWithAggregatesFilter<"ArticleBase"> | string
+  columnId?: Prisma.StringNullableWithAggregatesFilter<"ArticleBase"> | string | null
+  priceAmount?: Prisma.IntNullableWithAggregatesFilter<"ArticleBase"> | number | null
+  currency?: Prisma.StringNullableWithAggregatesFilter<"ArticleBase"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ArticleBase"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ArticleBase"> | Date | string
 }
@@ -360,6 +412,10 @@ export type ArticleBaseCreateInput = {
   authorId: string
   categorySlug?: string | null
   tags?: string | null
+  accessType?: string
+  columnId?: string | null
+  priceAmount?: number | null
+  currency?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -375,6 +431,10 @@ export type ArticleBaseUncheckedCreateInput = {
   authorId: string
   categorySlug?: string | null
   tags?: string | null
+  accessType?: string
+  columnId?: string | null
+  priceAmount?: number | null
+  currency?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -390,6 +450,10 @@ export type ArticleBaseUpdateInput = {
   authorId?: Prisma.StringFieldUpdateOperationsInput | string
   categorySlug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessType?: Prisma.StringFieldUpdateOperationsInput | string
+  columnId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceAmount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  currency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -405,6 +469,10 @@ export type ArticleBaseUncheckedUpdateInput = {
   authorId?: Prisma.StringFieldUpdateOperationsInput | string
   categorySlug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessType?: Prisma.StringFieldUpdateOperationsInput | string
+  columnId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceAmount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  currency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -420,6 +488,10 @@ export type ArticleBaseCreateManyInput = {
   authorId: string
   categorySlug?: string | null
   tags?: string | null
+  accessType?: string
+  columnId?: string | null
+  priceAmount?: number | null
+  currency?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -435,6 +507,10 @@ export type ArticleBaseUpdateManyMutationInput = {
   authorId?: Prisma.StringFieldUpdateOperationsInput | string
   categorySlug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessType?: Prisma.StringFieldUpdateOperationsInput | string
+  columnId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceAmount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  currency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -450,6 +526,10 @@ export type ArticleBaseUncheckedUpdateManyInput = {
   authorId?: Prisma.StringFieldUpdateOperationsInput | string
   categorySlug?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessType?: Prisma.StringFieldUpdateOperationsInput | string
+  columnId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  priceAmount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  currency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -465,6 +545,10 @@ export type ArticleBaseCountOrderByAggregateInput = {
   authorId?: Prisma.SortOrder
   categorySlug?: Prisma.SortOrder
   tags?: Prisma.SortOrder
+  accessType?: Prisma.SortOrder
+  columnId?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -472,6 +556,7 @@ export type ArticleBaseCountOrderByAggregateInput = {
 export type ArticleBaseAvgOrderByAggregateInput = {
   viewCount?: Prisma.SortOrder
   pinOrder?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
 }
 
 export type ArticleBaseMaxOrderByAggregateInput = {
@@ -485,6 +570,10 @@ export type ArticleBaseMaxOrderByAggregateInput = {
   authorId?: Prisma.SortOrder
   categorySlug?: Prisma.SortOrder
   tags?: Prisma.SortOrder
+  accessType?: Prisma.SortOrder
+  columnId?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -500,6 +589,10 @@ export type ArticleBaseMinOrderByAggregateInput = {
   authorId?: Prisma.SortOrder
   categorySlug?: Prisma.SortOrder
   tags?: Prisma.SortOrder
+  accessType?: Prisma.SortOrder
+  columnId?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -507,10 +600,19 @@ export type ArticleBaseMinOrderByAggregateInput = {
 export type ArticleBaseSumOrderByAggregateInput = {
   viewCount?: Prisma.SortOrder
   pinOrder?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
 }
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 
@@ -526,6 +628,10 @@ export type ArticleBaseSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   authorId?: boolean
   categorySlug?: boolean
   tags?: boolean
+  accessType?: boolean
+  columnId?: boolean
+  priceAmount?: boolean
+  currency?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["articleBase"]>
@@ -541,6 +647,10 @@ export type ArticleBaseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   authorId?: boolean
   categorySlug?: boolean
   tags?: boolean
+  accessType?: boolean
+  columnId?: boolean
+  priceAmount?: boolean
+  currency?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["articleBase"]>
@@ -556,6 +666,10 @@ export type ArticleBaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   authorId?: boolean
   categorySlug?: boolean
   tags?: boolean
+  accessType?: boolean
+  columnId?: boolean
+  priceAmount?: boolean
+  currency?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["articleBase"]>
@@ -571,11 +685,15 @@ export type ArticleBaseSelectScalar = {
   authorId?: boolean
   categorySlug?: boolean
   tags?: boolean
+  accessType?: boolean
+  columnId?: boolean
+  priceAmount?: boolean
+  currency?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ArticleBaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "featuredImage" | "status" | "isPublished" | "publishedAt" | "viewCount" | "pinOrder" | "authorId" | "categorySlug" | "tags" | "createdAt" | "updatedAt", ExtArgs["result"]["articleBase"]>
+export type ArticleBaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "featuredImage" | "status" | "isPublished" | "publishedAt" | "viewCount" | "pinOrder" | "authorId" | "categorySlug" | "tags" | "accessType" | "columnId" | "priceAmount" | "currency" | "createdAt" | "updatedAt", ExtArgs["result"]["articleBase"]>
 
 export type $ArticleBasePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ArticleBase"
@@ -591,6 +709,10 @@ export type $ArticleBasePayload<ExtArgs extends runtime.Types.Extensions.Interna
     authorId: string
     categorySlug: string | null
     tags: string | null
+    accessType: string
+    columnId: string | null
+    priceAmount: number | null
+    currency: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["articleBase"]>
@@ -1026,6 +1148,10 @@ export interface ArticleBaseFieldRefs {
   readonly authorId: Prisma.FieldRef<"ArticleBase", 'String'>
   readonly categorySlug: Prisma.FieldRef<"ArticleBase", 'String'>
   readonly tags: Prisma.FieldRef<"ArticleBase", 'String'>
+  readonly accessType: Prisma.FieldRef<"ArticleBase", 'String'>
+  readonly columnId: Prisma.FieldRef<"ArticleBase", 'String'>
+  readonly priceAmount: Prisma.FieldRef<"ArticleBase", 'Int'>
+  readonly currency: Prisma.FieldRef<"ArticleBase", 'String'>
   readonly createdAt: Prisma.FieldRef<"ArticleBase", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"ArticleBase", 'DateTime'>
 }

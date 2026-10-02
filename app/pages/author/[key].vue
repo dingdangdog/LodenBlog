@@ -55,6 +55,23 @@
         </div>
       </div>
 
+      <div v-if="columns.length" class="space-y-3">
+        <h2 class="text-xl md:text-2xl font-semibold text-foreground ml-2">
+          {{ $t("column.authorColumns") }}
+        </h2>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <NuxtLink
+            v-for="column in columns"
+            :key="column.id"
+            :to="localePath(`/column/${column.slug}`)"
+            class="rounded-xl border border-border bg-surface p-4"
+          >
+            <p class="font-medium text-foreground">{{ column.title }}</p>
+            <p v-if="column.description" class="mt-1 line-clamp-2 text-sm text-muted">{{ column.description }}</p>
+          </NuxtLink>
+        </div>
+      </div>
+
       <!-- 文章列表 -->
       <div>
         <h2
@@ -157,6 +174,7 @@ const {
 
 const creator = computed(() => creatorData.value?.d?.creator || null);
 const articles = computed(() => creatorData.value?.d?.articles || []);
+const columns = computed(() => creatorData.value?.d?.columns || []);
 const stats = computed(
   () => creatorData.value?.d?.stats || { totalArticles: 0, totalViews: 0 }
 );

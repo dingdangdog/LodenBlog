@@ -220,6 +220,46 @@
             </div>
           </section>
 
+          <section class="space-y-4">
+            <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+              {{ $t("admin.editpost.access.title") }}
+            </h2>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              {{ $t("admin.editpost.access.type") }}
+            </label>
+            <select v-model="form.accessType" class="w-full sm:w-64 rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 text-sm">
+              <option value="FREE">{{ $t("admin.editpost.access.free") }}</option>
+              <option value="COLUMN">{{ $t("admin.editpost.access.column") }}</option>
+              <option value="PAID">{{ $t("admin.editpost.access.paid") }}</option>
+            </select>
+            <div v-if="form.accessType === 'COLUMN'">
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+                {{ $t("admin.editpost.access.selectColumn") }}
+              </label>
+              <select v-model="form.columnId" class="w-full sm:w-64 rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 text-sm">
+                <option value="">{{ $t("admin.editpost.access.noColumn") }}</option>
+                <option v-for="column in ownColumns" :key="column.id" :value="column.id">
+                  {{ column.title || column.slug }}
+                </option>
+              </select>
+            </div>
+            <div v-if="form.accessType !== 'FREE'" class="space-y-2">
+              <button type="button" class="rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm" @click="insertFreeMarker">
+                {{ $t("admin.editpost.access.insertMarker") }}
+              </button>
+              <p class="text-xs text-gray-500 dark:text-gray-400">{{ $t("admin.editpost.access.markerHint") }}</p>
+              <p class="text-sm font-medium">{{ $t("admin.editpost.access.preview") }}</p>
+              <p v-if="freePreview === null" class="text-sm text-gray-500">{{ $t("admin.editpost.access.noPreview") }}</p>
+              <pre v-else class="whitespace-pre-wrap rounded-lg bg-gray-50 dark:bg-gray-900 p-3 text-xs">{{ freePreview }}</pre>
+            </div>
+            <AdminRedeemCodeManager
+              v-if="form.accessType === 'PAID' && form.id"
+              :title="$t('admin.editpost.access.codes')"
+              :list-url="`/api/creator/articles/${form.id}/redeem-codes`"
+              :create-url="`/api/creator/articles/${form.id}/redeem-codes`"
+            />
+          </section>
+
           <!-- 分类和标签 -->
           <section class="space-y-4">
             <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -545,8 +585,9 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch, onMounted } from "vue";
 import MarkdownEditor from "~/components/editor/MarkdownEditor.client.vue";
+import { splitFreeContent, FREE_CONTENT_MARKER } from "~~/utils/column-access";
 import MediaSelect from "~/components/common/MediaSelect.vue";
-const { t } = useI18n();
+const { t, locale } = useI18n();
 import {
   ArrowLeftIcon,
   ArrowPathIcon,
@@ -589,6 +630,8 @@ interface ArticleItem {
   seoTitle?: string | null;
   seoDescription?: string | null;
   seoKeyword?: string | null;
+  accessType?: string;
+  columnId?: string | null;
 }
 
 const route = useRoute();
@@ -678,10 +721,25 @@ const emptyForm = (): any => ({
   seoDescription: "",
   seoKeyword: "",
   isPublished: false,
+  accessType: "FREE",
+  columnId: "",
 });
 
 const form = reactive(emptyForm());
+const ownColumns = ref<Array<{ id: string; title: string; slug: string }>>([]);
+const freePreview = computed(() => splitFreeContent(form.content || ""));
 const isEditMode = computed(() => !!form.id);
+
+function insertFreeMarker() {
+  markdownEditorRef.value?.insertContent?.(`\n${FREE_CONTENT_MARKER}\n`);
+}
+
+function accessPayload() {
+  return {
+    accessType: form.accessType || "FREE",
+    columnId: form.accessType === "COLUMN" ? form.columnId || null : null,
+  };
+}
 
 const formMessage = reactive({
   text: "",
@@ -1006,6 +1064,8 @@ const loadArticle = async (id: string, languageCode?: string) => {
       form.seoDescription = article.seoDescription || "";
       form.seoKeyword = article.seoKeyword || "";
       form.isPublished = article.isPublished;
+      form.accessType = article.accessType || "FREE";
+      form.columnId = article.columnId || "";
       originalIsPublished.value = article.isPublished;
       originalStatus.value = article.status || "DRAFT"; // 保存原始状态
 
@@ -1373,6 +1433,7 @@ const handleSaveOnly = async () => {
       status: finalStatus,
       isPublished: finalIsPublished,
       languageCode: form.languageCode,
+      ...accessPayload(),
     };
 
     // 如果是编辑模式，传递 contentId
@@ -1505,6 +1566,7 @@ const handleSubmit = async (
       status: finalStatus,
       isPublished: finalIsPublished,
       languageCode: form.languageCode,
+      ...accessPayload(),
     };
 
     // 如果是编辑模式，传递 contentId
@@ -1567,6 +1629,10 @@ const handleSubmit = async (
 };
 
 onMounted(async () => {
+  const columnResponse: any = await $fetch("/api/creator/columns", {
+    query: { languageCode: locale.value },
+  }).catch(() => null);
+  ownColumns.value = columnResponse?.c === 200 ? columnResponse.d?.columns || [] : [];
   await loadLanguages();
   // 加载字典数据（store会自动处理缓存）
   await dictionaryStore.loadDictionaries();

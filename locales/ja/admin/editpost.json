@@ -143,6 +143,20 @@
         "selectLanguage": "先に言語を選択してください",
         "generateSlug": "翻訳を通じて英語のslugを生成"
       }
+    },
+    "access": {
+      "title": "閲覧権限",
+      "type": "アクセス種別",
+      "free": "無料公開",
+      "column": "コラム購読",
+      "paid": "単篇有料",
+      "selectColumn": "コラムを選択",
+      "noColumn": "コラムがまだありません",
+      "insertMarker": "無料境界を挿入",
+      "markerHint": "最初の <!--free--> だけが有効です。その前の文章は公開されます。",
+      "preview": "無料部分",
+      "noPreview": "無料部分がありません。未許可の読者にはタイトル、要約、有料壁だけが表示されます。",
+      "codes": "解除コード"
     }
   }
 }

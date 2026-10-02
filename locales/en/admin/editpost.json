@@ -143,6 +143,20 @@
         "selectLanguage": "Please select language first",
         "generateSlug": "Generate English slug through translation"
       }
+    },
+    "access": {
+      "title": "Access",
+      "type": "Access type",
+      "free": "Public",
+      "column": "Column subscription",
+      "paid": "Paid article",
+      "selectColumn": "Choose a column",
+      "noColumn": "No columns yet",
+      "insertMarker": "Insert free-preview marker",
+      "markerHint": "Only the first <!--free--> counts. Text before it stays public.",
+      "preview": "Free preview",
+      "noPreview": "No free preview yet. Unauthorized readers only see the title, excerpt, and paywall.",
+      "codes": "Unlock codes"
     }
   }
 }

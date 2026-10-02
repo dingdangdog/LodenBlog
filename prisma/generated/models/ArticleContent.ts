@@ -31,6 +31,7 @@ export type ArticleContentMinAggregateOutputType = {
   slug: string | null
   title: string | null
   content: string | null
+  freeContent: string | null
   excerpt: string | null
   seoTitle: string | null
   seoDescription: string | null
@@ -46,6 +47,7 @@ export type ArticleContentMaxAggregateOutputType = {
   slug: string | null
   title: string | null
   content: string | null
+  freeContent: string | null
   excerpt: string | null
   seoTitle: string | null
   seoDescription: string | null
@@ -61,6 +63,7 @@ export type ArticleContentCountAggregateOutputType = {
   slug: number
   title: number
   content: number
+  freeContent: number
   excerpt: number
   seoTitle: number
   seoDescription: number
@@ -78,6 +81,7 @@ export type ArticleContentMinAggregateInputType = {
   slug?: true
   title?: true
   content?: true
+  freeContent?: true
   excerpt?: true
   seoTitle?: true
   seoDescription?: true
@@ -93,6 +97,7 @@ export type ArticleContentMaxAggregateInputType = {
   slug?: true
   title?: true
   content?: true
+  freeContent?: true
   excerpt?: true
   seoTitle?: true
   seoDescription?: true
@@ -108,6 +113,7 @@ export type ArticleContentCountAggregateInputType = {
   slug?: true
   title?: true
   content?: true
+  freeContent?: true
   excerpt?: true
   seoTitle?: true
   seoDescription?: true
@@ -196,6 +202,7 @@ export type ArticleContentGroupByOutputType = {
   slug: string
   title: string
   content: string
+  freeContent: string | null
   excerpt: string | null
   seoTitle: string | null
   seoDescription: string | null
@@ -232,6 +239,7 @@ export type ArticleContentWhereInput = {
   slug?: Prisma.StringFilter<"ArticleContent"> | string
   title?: Prisma.StringFilter<"ArticleContent"> | string
   content?: Prisma.StringFilter<"ArticleContent"> | string
+  freeContent?: Prisma.StringNullableFilter<"ArticleContent"> | string | null
   excerpt?: Prisma.StringNullableFilter<"ArticleContent"> | string | null
   seoTitle?: Prisma.StringNullableFilter<"ArticleContent"> | string | null
   seoDescription?: Prisma.StringNullableFilter<"ArticleContent"> | string | null
@@ -247,6 +255,7 @@ export type ArticleContentOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  freeContent?: Prisma.SortOrderInput | Prisma.SortOrder
   excerpt?: Prisma.SortOrderInput | Prisma.SortOrder
   seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
   seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -267,6 +276,7 @@ export type ArticleContentWhereUniqueInput = Prisma.AtLeast<{
   slug?: Prisma.StringFilter<"ArticleContent"> | string
   title?: Prisma.StringFilter<"ArticleContent"> | string
   content?: Prisma.StringFilter<"ArticleContent"> | string
+  freeContent?: Prisma.StringNullableFilter<"ArticleContent"> | string | null
   excerpt?: Prisma.StringNullableFilter<"ArticleContent"> | string | null
   seoTitle?: Prisma.StringNullableFilter<"ArticleContent"> | string | null
   seoDescription?: Prisma.StringNullableFilter<"ArticleContent"> | string | null
@@ -282,6 +292,7 @@ export type ArticleContentOrderByWithAggregationInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  freeContent?: Prisma.SortOrderInput | Prisma.SortOrder
   excerpt?: Prisma.SortOrderInput | Prisma.SortOrder
   seoTitle?: Prisma.SortOrderInput | Prisma.SortOrder
   seoDescription?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -303,6 +314,7 @@ export type ArticleContentScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"ArticleContent"> | string
   title?: Prisma.StringWithAggregatesFilter<"ArticleContent"> | string
   content?: Prisma.StringWithAggregatesFilter<"ArticleContent"> | string
+  freeContent?: Prisma.StringNullableWithAggregatesFilter<"ArticleContent"> | string | null
   excerpt?: Prisma.StringNullableWithAggregatesFilter<"ArticleContent"> | string | null
   seoTitle?: Prisma.StringNullableWithAggregatesFilter<"ArticleContent"> | string | null
   seoDescription?: Prisma.StringNullableWithAggregatesFilter<"ArticleContent"> | string | null
@@ -318,6 +330,7 @@ export type ArticleContentCreateInput = {
   slug: string
   title: string
   content: string
+  freeContent?: string | null
   excerpt?: string | null
   seoTitle?: string | null
   seoDescription?: string | null
@@ -333,6 +346,7 @@ export type ArticleContentUncheckedCreateInput = {
   slug: string
   title: string
   content: string
+  freeContent?: string | null
   excerpt?: string | null
   seoTitle?: string | null
   seoDescription?: string | null
@@ -348,6 +362,7 @@ export type ArticleContentUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  freeContent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   excerpt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -363,6 +378,7 @@ export type ArticleContentUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  freeContent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   excerpt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -378,6 +394,7 @@ export type ArticleContentCreateManyInput = {
   slug: string
   title: string
   content: string
+  freeContent?: string | null
   excerpt?: string | null
   seoTitle?: string | null
   seoDescription?: string | null
@@ -393,6 +410,7 @@ export type ArticleContentUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  freeContent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   excerpt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -408,6 +426,7 @@ export type ArticleContentUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  freeContent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   excerpt?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   seoDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -433,6 +452,7 @@ export type ArticleContentCountOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  freeContent?: Prisma.SortOrder
   excerpt?: Prisma.SortOrder
   seoTitle?: Prisma.SortOrder
   seoDescription?: Prisma.SortOrder
@@ -448,6 +468,7 @@ export type ArticleContentMaxOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  freeContent?: Prisma.SortOrder
   excerpt?: Prisma.SortOrder
   seoTitle?: Prisma.SortOrder
   seoDescription?: Prisma.SortOrder
@@ -463,6 +484,7 @@ export type ArticleContentMinOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  freeContent?: Prisma.SortOrder
   excerpt?: Prisma.SortOrder
   seoTitle?: Prisma.SortOrder
   seoDescription?: Prisma.SortOrder
@@ -480,6 +502,7 @@ export type ArticleContentSelect<ExtArgs extends runtime.Types.Extensions.Intern
   slug?: boolean
   title?: boolean
   content?: boolean
+  freeContent?: boolean
   excerpt?: boolean
   seoTitle?: boolean
   seoDescription?: boolean
@@ -495,6 +518,7 @@ export type ArticleContentSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   slug?: boolean
   title?: boolean
   content?: boolean
+  freeContent?: boolean
   excerpt?: boolean
   seoTitle?: boolean
   seoDescription?: boolean
@@ -510,6 +534,7 @@ export type ArticleContentSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   slug?: boolean
   title?: boolean
   content?: boolean
+  freeContent?: boolean
   excerpt?: boolean
   seoTitle?: boolean
   seoDescription?: boolean
@@ -525,6 +550,7 @@ export type ArticleContentSelectScalar = {
   slug?: boolean
   title?: boolean
   content?: boolean
+  freeContent?: boolean
   excerpt?: boolean
   seoTitle?: boolean
   seoDescription?: boolean
@@ -533,7 +559,7 @@ export type ArticleContentSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ArticleContentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "articleBaseId" | "languageCode" | "slug" | "title" | "content" | "excerpt" | "seoTitle" | "seoDescription" | "seoKeyword" | "createdAt" | "updatedAt", ExtArgs["result"]["articleContent"]>
+export type ArticleContentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "articleBaseId" | "languageCode" | "slug" | "title" | "content" | "freeContent" | "excerpt" | "seoTitle" | "seoDescription" | "seoKeyword" | "createdAt" | "updatedAt", ExtArgs["result"]["articleContent"]>
 
 export type $ArticleContentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ArticleContent"
@@ -545,6 +571,7 @@ export type $ArticleContentPayload<ExtArgs extends runtime.Types.Extensions.Inte
     slug: string
     title: string
     content: string
+    freeContent: string | null
     excerpt: string | null
     seoTitle: string | null
     seoDescription: string | null
@@ -980,6 +1007,7 @@ export interface ArticleContentFieldRefs {
   readonly slug: Prisma.FieldRef<"ArticleContent", 'String'>
   readonly title: Prisma.FieldRef<"ArticleContent", 'String'>
   readonly content: Prisma.FieldRef<"ArticleContent", 'String'>
+  readonly freeContent: Prisma.FieldRef<"ArticleContent", 'String'>
   readonly excerpt: Prisma.FieldRef<"ArticleContent", 'String'>
   readonly seoTitle: Prisma.FieldRef<"ArticleContent", 'String'>
   readonly seoDescription: Prisma.FieldRef<"ArticleContent", 'String'>

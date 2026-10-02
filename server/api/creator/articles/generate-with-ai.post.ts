@@ -1,4 +1,5 @@
 import { success, error } from "~~/server/utils/result";
+import { splitFreeContent } from "~~/utils/column-access";
 import prisma from "~~/lib/prisma";
 import { requireCreator } from "~~/server/utils/permission";
 import { callAIWithPrompt } from "~~/server/utils/ai-call";
@@ -180,6 +181,7 @@ export default defineEventHandler(async (event) => {
           slug: baseSlug,
           title: trimmedTitle,
           content: generatedContent,
+          freeContent: splitFreeContent(generatedContent),
           excerpt: excerpt || null,
           seoTitle: null,
           seoDescription: null,

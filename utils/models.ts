@@ -31,6 +31,11 @@ export interface Article {
   seoTitle?: string;
   seoDescription?: string;
   seoKeyword?: string;
+  accessType?: string;
+  locked?: boolean;
+  lockReason?: string | null;
+  subscriptionExpiresAt?: string | null;
+  column?: { id: string; slug: string; title: string } | null;
   author?: {
     id: string;
     name: string;

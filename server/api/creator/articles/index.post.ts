@@ -1,6 +1,8 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator } from "~~/server/utils/permission";
+import { normalizeArticleAccess } from "~~/server/utils/column-domain";
+import { splitFreeContent } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -22,6 +24,8 @@ export default defineEventHandler(async (event) => {
       seoKeyword,
       status = "DRAFT",
       isPublished = false,
+      accessType,
+      columnId,
     } = body;
 
     // slug 统一转为小写
@@ -91,11 +95,20 @@ export default defineEventHandler(async (event) => {
       }
     }
 
+    let access;
+    try {
+      access = await normalizeArticleAccess(user.id, accessType, columnId);
+    } catch (err) {
+      return error(err instanceof Error ? err.message : "访问类型无效");
+    }
+
     // 使用事务创建 ArticleBase 和 ArticleContent
     const result = await prisma.$transaction(async (tx) => {
       // 创建 ArticleBase
       const articleBase = await tx.articleBase.create({
         data: {
+          accessType: access.accessType,
+          columnId: access.columnId,
           featuredImage:
             (typeof featuredImage === "string"
               ? featuredImage.trim()
@@ -120,6 +133,7 @@ export default defineEventHandler(async (event) => {
           slug,
           title,
           content,
+          freeContent: splitFreeContent(String(content)),
           excerpt: excerpt || null,
           seoTitle: seoTitle || null,
           seoDescription: seoDescription || null,
@@ -147,6 +161,8 @@ export default defineEventHandler(async (event) => {
         categorySlug: articleBase.categorySlug,
         tagSlugs: tagSlugsArray,
         authorId: articleBase.authorId,
+        accessType: articleBase.accessType,
+        columnId: articleBase.columnId,
         seoTitle: articleContent.seoTitle,
         seoDescription: articleContent.seoDescription,
         seoKeyword: articleContent.seoKeyword,

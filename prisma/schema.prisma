@@ -68,6 +68,14 @@ model ArticleBase {
   categorySlug String? @db.VarChar(100) // 分类slug（可选，不存储语言信息）
   tags         String? @db.Text // 标签slugs，JSON数组格式，如 ["tag1", "tag2"]
 
+  // 阅读权：FREE 公开 / COLUMN 专栏订阅 / PAID 单篇永久解锁。三者互斥。
+  accessType String  @default("FREE") @db.VarChar(20) // FREE/COLUMN/PAID
+  columnId   String? @db.VarChar(36) // 仅 accessType=COLUMN 时有值，约定关联 Column.id
+
+  // 单篇售价。仅 PAID 使用；金额为空表示尚未标价。金额为最小货币单位（如分），不用小数。
+  priceAmount Int?
+  currency    String? @db.VarChar(3) // ISO 4217，如 CNY、USD
+
   // 时间戳
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -77,6 +85,8 @@ model ArticleBase {
   @@index([status, publishedAt])
   @@index([isPublished, publishedAt])
   @@index([pinOrder])
+  @@index([accessType])
+  @@index([columnId])
   @@map("article_bases")
 }
 
@@ -91,7 +101,8 @@ model ArticleContent {
   // 多语言内容
   slug           String  @db.VarChar(200) // URL友好标识符
   title          String  @db.VarChar(200) // 标题
-  content        String  @db.Text // 正文内容
+  content        String  @db.Text // 正文内容（保留 <!--free--> 标记）
+  freeContent    String? @db.Text // 第一次 <!--free--> 之前的免费段；无标记则为空
   excerpt        String? @db.Text // 摘要
   seoTitle       String? @db.VarChar(200) // SEO标题
   seoDescription String? @db.VarChar(500) // SEO描述
@@ -534,4 +545,220 @@ model InfoContent {
   @@index([languageCode])
   @@index([languageCode, infoBaseId])
   @@map("info_contents")
+}
+
+// 专栏基础信息。一篇文章最多属于一个专栏，且仅 accessType=COLUMN 时关联。
+model Column {
+  id            String   @id @default(cuid()) @db.VarChar(36)
+  authorId      String   @db.VarChar(36) // 约定关联 User.id，须为创作者
+  featuredImage String?  @db.VarChar(500)
+  status        String   @default("DRAFT") @db.VarChar(20) // DRAFT/PUBLISHED
+  isPublished   Boolean  @default(false)
+  currency      String?  @db.VarChar(3) // 各订阅档共用的 ISO 4217 货币；未标价则为空
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([authorId])
+  @@index([authorId, isPublished])
+  @@index([isPublished])
+  @@map("columns")
+}
+
+model ColumnContent {
+  id           String   @id @default(cuid()) @db.VarChar(36)
+  columnId     String   @db.VarChar(36) // 约定关联 Column.id
+  languageCode String   @db.VarChar(10)
+  slug         String   @db.VarChar(200)
+  title        String   @db.VarChar(200)
+  description  String?  @db.Text
+  seoTitle       String? @db.VarChar(200)
+  seoDescription String? @db.VarChar(500)
+  seoKeyword     String? @db.VarChar(500)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([columnId, languageCode])
+  @@unique([slug, languageCode])
+  @@index([columnId])
+  @@index([languageCode])
+  @@map("column_contents")
+}
+
+// 当前订阅权益。同一用户同一专栏只有一条，过期后再次开通会重写起止时间。
+model ColumnSubscription {
+  id        String   @id @default(cuid()) @db.VarChar(36)
+  userId    String   @db.VarChar(36)
+  columnId  String   @db.VarChar(36)
+  startsAt  DateTime
+  expiresAt DateTime
+  source    String   @default("REDEEM") @db.VarChar(20) // REDEEM/PAYMENT
+  orderId   String?  @db.VarChar(36) // 最近一次支付开通，约定关联 CommerceOrder.id；兑换为空
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, columnId])
+  @@index([userId])
+  @@index([columnId])
+  @@index([expiresAt])
+  @@index([orderId])
+  @@map("column_subscriptions")
+}
+
+// 订阅流水。每次成功兑换一条，不修改。
+model ColumnSubscriptionLog {
+  id                 String    @id @default(cuid()) @db.VarChar(36)
+  userId             String    @db.VarChar(36)
+  columnId           String    @db.VarChar(36)
+  source             String    @default("REDEEM") @db.VarChar(20) // REDEEM/PAYMENT
+  redeemCodeId       String?   @db.VarChar(36) // 兑换开通时有值
+  orderId            String?   @unique @db.VarChar(36) // 支付开通时有值，一笔订单只记一条流水
+  durationDays       Int
+  previousExpiresAt  DateTime?
+  appliedFrom        DateTime
+  appliedTo          DateTime
+  createdAt          DateTime  @default(now())
+
+  @@index([userId, columnId])
+  @@index([columnId, createdAt])
+  @@index([redeemCodeId])
+  @@index([orderId])
+  @@map("column_subscription_logs")
+}
+
+model ColumnRedeemCode {
+  id           String    @id @default(cuid()) @db.VarChar(36)
+  columnId     String    @db.VarChar(36)
+  code         String    @unique @db.VarChar(32)
+  durationDays Int // 仅 30/90/365
+  status       String    @default("UNUSED") @db.VarChar(20) // UNUSED/USED/REVOKED
+  createdBy    String    @db.VarChar(36)
+  usedBy       String?   @db.VarChar(36)
+  usedAt       DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([columnId, status])
+  @@index([createdBy])
+  @@map("column_redeem_codes")
+}
+
+// 单篇付费永久解锁。文章改离 PAID 后记录保留，但不再授予阅读权。
+model ArticleUnlock {
+  id            String   @id @default(cuid()) @db.VarChar(36)
+  userId        String   @db.VarChar(36)
+  articleBaseId String   @db.VarChar(36)
+  source        String   @default("REDEEM") @db.VarChar(20) // REDEEM/PAYMENT
+  redeemCodeId  String?  @db.VarChar(36) // 兑换开通时有值
+  orderId       String?  @unique @db.VarChar(36) // 支付开通时有值，一笔订单只解锁一次
+  unlockedAt    DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([userId, articleBaseId])
+  @@index([userId])
+  @@index([articleBaseId])
+  @@index([redeemCodeId])
+  @@index([orderId])
+  @@map("article_unlocks")
+}
+
+model ArticleRedeemCode {
+  id            String    @id @default(cuid()) @db.VarChar(36)
+  articleBaseId String    @db.VarChar(36)
+  code          String    @unique @db.VarChar(32)
+  status        String    @default("UNUSED") @db.VarChar(20) // UNUSED/USED/REVOKED
+  createdBy     String    @db.VarChar(36)
+  usedBy        String?   @db.VarChar(36)
+  usedAt        DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([articleBaseId, status])
+  @@index([createdBy])
+  @@map("article_redeem_codes")
+}
+
+// 专栏订阅标价。没有对应档位行表示该时长尚未标价，不影响兑换码开通。
+model ColumnPlan {
+  id           String   @id @default(cuid()) @db.VarChar(36)
+  columnId     String   @db.VarChar(36) // 约定关联 Column.id
+  durationDays Int // 仅 30/90/365
+  amount       Int // 最小货币单位，货币见 Column.currency
+  isActive     Boolean  @default(true) // 关闭后不再作为在售档位，已有订阅不受影响
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([columnId, durationDays])
+  @@index([columnId, isActive])
+  @@map("column_plans")
+}
+
+// 购买单。兑换码不走这张表。支付渠道未接入时可以没有订单。
+model CommerceOrder {
+  id               String    @id @default(cuid()) @db.VarChar(36)
+  userId           String    @db.VarChar(36) // 买家，约定关联 User.id
+  authorId         String    @db.VarChar(36) // 卖家快照，约定关联 User.id
+  status           String    @default("PENDING") @db.VarChar(20) // PENDING/PAID/CLOSED/REFUNDING/REFUNDED
+  productType      String    @db.VarChar(32) // COLUMN_SUBSCRIPTION/ARTICLE_UNLOCK
+  columnId         String?   @db.VarChar(36)
+  articleBaseId    String?   @db.VarChar(36)
+  durationDays     Int? // 专栏订阅档位；单篇解锁为空
+  amount           Int // 下单时的应付金额，最小货币单位
+  currency         String    @db.VarChar(3) // ISO 4217
+  provider         String?   @db.VarChar(32) // 支付渠道标识，如 stripe、wechat、alipay；未选择时为空
+  providerOrderId  String?   @db.VarChar(128) // 渠道侧订单号
+  idempotencyKey   String?   @unique @db.VarChar(64) // 客户端重试去重
+  paidAt           DateTime?
+  closedAt         DateTime?
+  refundedAt       DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([userId, status])
+  @@index([authorId, status])
+  @@index([columnId])
+  @@index([articleBaseId])
+  @@index([provider, providerOrderId])
+  @@index([status, createdAt])
+  @@map("commerce_orders")
+}
+
+// 一笔订单可以有多次支付尝试。权益以订单 PAID 为准，不以单次回调原文为准。
+model CommercePayment {
+  id                String    @id @default(cuid()) @db.VarChar(36)
+  orderId           String    @db.VarChar(36) // 约定关联 CommerceOrder.id
+  status            String    @default("PENDING") @db.VarChar(20) // PENDING/SUCCEEDED/FAILED
+  provider          String    @db.VarChar(32)
+  providerPaymentId String?   @db.VarChar(128)
+  amount            Int
+  currency          String    @db.VarChar(3)
+  failureMessage    String?   @db.VarChar(500)
+  payload           String?   @db.Text // 渠道回调原文，仅供对账
+  paidAt            DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([orderId, status])
+  @@index([provider, providerPaymentId])
+  @@map("commerce_payments")
+}
+
+// 退款。金额可以小于订单金额，便于部分退款；是否收回阅读权由后续业务决定。
+model CommerceRefund {
+  id               String    @id @default(cuid()) @db.VarChar(36)
+  orderId          String    @db.VarChar(36) // 约定关联 CommerceOrder.id
+  paymentId        String?   @db.VarChar(36) // 约定关联 CommercePayment.id
+  status           String    @default("PENDING") @db.VarChar(20) // PENDING/SUCCEEDED/FAILED
+  amount           Int
+  currency         String    @db.VarChar(3)
+  reason           String?   @db.VarChar(500)
+  providerRefundId String?   @db.VarChar(128)
+  refundedAt       DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([orderId, status])
+  @@index([paymentId])
+  @@index([providerRefundId])
+  @@map("commerce_refunds")
 }

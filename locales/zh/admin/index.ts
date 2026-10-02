@@ -17,6 +17,7 @@ import visit from "./visit.json";
 import comment from "./comment.json";
 import links from "./links.json";
 import creatorapplications from "./creatorapplications.json";
+import columns from "./columns.json";
 
 export default {
   ...common,
@@ -38,4 +39,5 @@ export default {
   ...comment,
   ...links,
   ...creatorapplications,
+  ...columns,
 };

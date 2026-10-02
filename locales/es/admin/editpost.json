@@ -143,6 +143,20 @@
         "selectLanguage": "Por favor, selecciona primero un idioma",
         "generateSlug": "Generar slug en inglés mediante traducción"
       }
+    },
+    "access": {
+      "title": "Acceso",
+      "type": "Tipo de acceso",
+      "free": "Público",
+      "column": "Suscripción a columna",
+      "paid": "Artículo de pago",
+      "selectColumn": "Elegir columna",
+      "noColumn": "Aún no hay columnas",
+      "insertMarker": "Insertar límite gratuito",
+      "markerHint": "Solo cuenta el primer <!--free-->. El texto anterior queda público.",
+      "preview": "Vista gratuita",
+      "noPreview": "Aún no hay vista gratuita. Quien no tenga permiso solo verá título, extracto y el muro de pago.",
+      "codes": "Códigos de desbloqueo"
     }
   }
 }

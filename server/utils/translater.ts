@@ -1,4 +1,5 @@
 import prisma from "~~/lib/prisma";
+import { splitFreeContent } from "~~/utils/column-access";
 import { translateWithRetry } from "../translations";
 import type {
   TranslationProviderConfig,
@@ -474,6 +475,7 @@ export async function saveOrUpdateTranslation(
       data: {
         title: translationResult.translatedTitle!,
         content: translationResult.translatedContent!,
+        freeContent: splitFreeContent(translationResult.translatedContent || ""),
         excerpt: translationResult.translatedExcerpt,
         seoTitle: translationResult.translatedSeoTitle,
         seoDescription: translationResult.translatedSeoDescription,
@@ -489,6 +491,7 @@ export async function saveOrUpdateTranslation(
         slug: finalSlug,
         title: translationResult.translatedTitle!,
         content: translationResult.translatedContent!,
+        freeContent: splitFreeContent(translationResult.translatedContent || ""),
         excerpt: translationResult.translatedExcerpt,
         seoTitle: translationResult.translatedSeoTitle,
         seoDescription: translationResult.translatedSeoDescription,

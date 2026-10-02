@@ -42,7 +42,8 @@
       "todayVisits": "Today's Visits",
       "totalVisitCount": "Total Visits",
       "totalHumanVisitCount": "Total Human Visits",
-      "totalBotVisitCount": "Total Bot Visits"
+      "totalBotVisitCount": "Total Bot Visits",
+      "pendingCreatorApplications": "Pending Applications"
     },
     "visitAnalysis": {
       "title": "Visit Analysis",

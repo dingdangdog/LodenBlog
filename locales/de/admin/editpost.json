@@ -143,6 +143,20 @@
         "selectLanguage": "Bitte wähle zuerst eine Sprache",
         "generateSlug": "Slug auf Englisch durch Übersetzung generieren"
       }
+    },
+    "access": {
+      "title": "Zugriff",
+      "type": "Zugriffsart",
+      "free": "Öffentlich",
+      "column": "Kolumnen-Abo",
+      "paid": "Kostenpflichtiger Artikel",
+      "selectColumn": "Kolumne wählen",
+      "noColumn": "Noch keine Kolumnen",
+      "insertMarker": "Kostenlose Grenze einfügen",
+      "markerHint": "Nur das erste <!--free--> zählt. Der Text davor bleibt öffentlich.",
+      "preview": "Kostenlose Vorschau",
+      "noPreview": "Noch keine kostenlose Vorschau. Ohne Berechtigung sieht man nur Titel, Auszug und Paywall.",
+      "codes": "Freischaltcodes"
     }
   }
 }

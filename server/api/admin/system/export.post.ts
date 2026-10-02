@@ -33,6 +33,17 @@ export default defineEventHandler(async (event) => {
       // 内容相关
       articleBases: () => prisma.articleBase.findMany({}),
       articleContents: () => prisma.articleContent.findMany({}),
+      columns: () => prisma.column.findMany({}),
+      columnContents: () => prisma.columnContent.findMany({}),
+      columnPlans: () => prisma.columnPlan.findMany({}),
+      commerceOrders: () => prisma.commerceOrder.findMany({}),
+      commercePayments: () => prisma.commercePayment.findMany({}),
+      commerceRefunds: () => prisma.commerceRefund.findMany({}),
+      columnSubscriptions: () => prisma.columnSubscription.findMany({}),
+      columnSubscriptionLogs: () => prisma.columnSubscriptionLog.findMany({}),
+      columnRedeemCodes: () => prisma.columnRedeemCode.findMany({}),
+      articleUnlocks: () => prisma.articleUnlock.findMany({}),
+      articleRedeemCodes: () => prisma.articleRedeemCode.findMany({}),
       comments: () => prisma.comment.findMany({}),
       articleLikes: () => prisma.articleLike.findMany({}),
 

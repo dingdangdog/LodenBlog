@@ -1,6 +1,7 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import type { Prisma } from "~~/prisma/generated/client";
+import { columnCardsForAuthor } from "~~/server/utils/column-domain";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -72,6 +73,7 @@ export default defineEventHandler(async (event) => {
           viewCount: true,
           categorySlug: true,
           tags: true,
+          accessType: true,
           createdAt: true,
           updatedAt: true,
         },
@@ -84,8 +86,15 @@ export default defineEventHandler(async (event) => {
       }),
     ]);
 
+    const columns = await columnCardsForAuthor(
+      creator.userId,
+      languageCode,
+      true
+    );
+
     if (articleBases.length === 0) {
       return success({
+        columns,
         creator: {
           id: creator.id,
           key: creator.key,
@@ -176,6 +185,7 @@ export default defineEventHandler(async (event) => {
           languageCode: content.languageCode,
           categorySlug: base.categorySlug,
           tagSlugs,
+          accessType: base.accessType,
         };
       })
       .filter((item): item is ArticleItem => item !== null);
@@ -205,6 +215,7 @@ export default defineEventHandler(async (event) => {
 
     return success({
       creator: creatorInfo,
+      columns,
       articles,
       stats,
       pagination: {

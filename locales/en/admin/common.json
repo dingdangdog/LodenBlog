@@ -12,6 +12,8 @@
   "menu": {
     "profile": "Profile",
     "posts": "Posts",
+    "columns": "Columns",
+    "columnRecords": "Subscriptions",
     "translationlogs": "Translation Logs",
     "categories": "Categories",
     "tags": "Tags",

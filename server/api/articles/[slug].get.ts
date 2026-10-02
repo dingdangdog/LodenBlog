@@ -1,5 +1,8 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
+import { getCurrentUser } from "~~/server/utils/permission";
+import { ROLE_LEVEL } from "~~/utils/role";
+import { resolveArticleRead } from "~~/server/utils/column-domain";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -134,13 +137,37 @@ export default defineEventHandler(async (event) => {
       },
     });
 
+    const viewer = await getCurrentUser(event);
+    const readable = await resolveArticleRead({
+      viewerId: viewer?.id ?? null,
+      viewerRole: viewer?.role ?? ROLE_LEVEL.USER,
+      articleBase: {
+        id: articleBase.id,
+        authorId: articleBase.authorId,
+        accessType: articleBase.accessType,
+        columnId: articleBase.columnId,
+      },
+      rawContent: articleContent.content,
+      freeContent: articleContent.freeContent,
+      languageCode: articleContent.languageCode,
+    });
+
+    if (articleBase.accessType !== "FREE") {
+      setResponseHeader(event, "Cache-Control", "private, no-store");
+    }
+
     // 合并数据
     const article = {
       id: articleBase.id,
       contentId: articleContent.id,
       slug: articleContent.slug,
       title: articleContent.title,
-      content: articleContent.content,
+      content: readable.content,
+      accessType: readable.accessType,
+      locked: readable.locked,
+      lockReason: readable.lockReason,
+      column: readable.column,
+      subscriptionExpiresAt: readable.subscriptionExpiresAt,
       excerpt: articleContent.excerpt,
       featuredImage: articleBase.featuredImage,
       publishedAt: articleBase.publishedAt,

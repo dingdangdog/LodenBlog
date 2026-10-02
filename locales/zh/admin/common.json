@@ -12,6 +12,8 @@
   "menu": {
     "profile": "个人资料",
     "posts": "文章管理",
+    "columns": "专栏",
+    "columnRecords": "订阅记录",
     "translationlogs": "翻译日志",
     "categories": "分类管理",
     "tags": "标签管理",

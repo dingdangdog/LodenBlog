@@ -143,6 +143,20 @@
         "selectLanguage": "请先选择语言",
         "generateSlug": "通过翻译生成英文 slug"
       }
+    },
+    "access": {
+      "title": "阅读权限",
+      "type": "访问类型",
+      "free": "免费公开",
+      "column": "专栏订阅",
+      "paid": "单篇付费",
+      "selectColumn": "选择专栏",
+      "noColumn": "还没有专栏",
+      "insertMarker": "插入免费分界",
+      "markerHint": "只认第一次 <!--free-->。它之前的内容可以公开阅读。",
+      "preview": "免费段预览",
+      "noPreview": "还没有免费段。未授权读者只能看到标题、摘要和付费墙。",
+      "codes": "解锁兑换码"
     }
   }
 }

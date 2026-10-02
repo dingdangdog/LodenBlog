@@ -137,6 +137,15 @@
       </div>
     </div>
 
+      <div class="mb-6 flex flex-col gap-2 sm:flex-row">
+        <NuxtLink :to="localePath('/my/subscriptions')" class="rounded-lg border border-border px-4 py-2 text-sm">
+          {{ $t("my.center.subscriptions") }}
+        </NuxtLink>
+        <NuxtLink :to="localePath('/my/unlocks')" class="rounded-lg border border-border px-4 py-2 text-sm">
+          {{ $t("my.center.unlocks") }}
+        </NuxtLink>
+      </div>
+
       <!-- 创作者信息卡片 -->
       <div
         v-if="user?.role >= ROLE_LEVEL.CREATOR"

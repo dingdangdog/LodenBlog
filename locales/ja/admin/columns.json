@@ -1,0 +1,65 @@
+{
+  "columns": {
+    "title": "コラム",
+    "create": "新規コラム",
+    "edit": "コラムを編集",
+    "empty": "コラムはまだありません",
+    "back": "コラム一覧へ",
+    "published": "公開",
+    "draft": "下書き",
+    "fields": {
+      "language": "言語",
+      "slug": "Slug",
+      "title": "タイトル",
+      "description": "紹介",
+      "cover": "カバー URL",
+      "seoTitle": "SEO タイトル",
+      "seoDescription": "SEO 説明",
+      "seoKeyword": "SEO キーワード"
+    },
+    "actions": {
+      "save": "保存",
+      "saving": "保存中...",
+      "publish": "公開",
+      "unpublish": "下書きに戻す",
+      "generate": "コードを生成",
+      "revoke": "無効化",
+      "copy": "コピー"
+    },
+    "codes": {
+      "title": "購読コード",
+      "duration": "期間",
+      "count": "数量",
+      "empty": "コードはまだありません",
+      "unused": "未使用",
+      "used": "使用済み",
+      "revoked": "無効",
+      "usedBy": "使用者",
+      "days30": "30 日",
+      "days90": "90 日",
+      "days365": "365 日"
+    },
+    "subscriptions": {
+      "title": "購読記録",
+      "empty": "購読はまだありません",
+      "all": "すべて",
+      "subscriber": "読者",
+      "column": "コラム"
+    },
+    "records": {
+      "title": "購読と交換コード",
+      "columns": "コラム",
+      "subscriptions": "購読",
+      "columnCodes": "コラムコード",
+      "articleCodes": "記事コード",
+      "readonly": "ここでは閲覧のみです。コード発行と編集は作者が行います。"
+    },
+    "messages": {
+      "saved": "保存しました",
+      "generated": "コードを生成しました",
+      "revoked": "無効にしました",
+      "copied": "コピーしました",
+      "failed": "操作に失敗しました"
+    }
+  }
+}

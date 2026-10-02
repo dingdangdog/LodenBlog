@@ -13,6 +13,7 @@ type ArticleBaseSelect = {
   categorySlug: string | null;
   tags: string | null;
   authorId: string;
+  accessType: string;
 };
 
 type ArticleContentType = {
@@ -61,6 +62,7 @@ type Article = {
   categorySlug: string | null;
   tagSlugs: string[];
   authorId: string;
+  accessType: string;
   author: ArticleAuthor | null;
 };
 
@@ -121,6 +123,7 @@ export default defineEventHandler(async (event) => {
           categorySlug: true,
           tags: true,
           authorId: true,
+          accessType: true,
         },
         orderBy: [{ pinOrder: "desc" }, { publishedAt: "desc" }],
       });
@@ -160,6 +163,7 @@ export default defineEventHandler(async (event) => {
           categorySlug: true,
           tags: true,
           authorId: true,
+          accessType: true,
         },
         orderBy: [{ pinOrder: "desc" }, { publishedAt: "desc" }],
         skip: (page - 1) * pageSize,
@@ -293,6 +297,7 @@ export default defineEventHandler(async (event) => {
           categorySlug: base.categorySlug,
           tagSlugs,
           authorId: base.authorId,
+          accessType: base.accessType,
           author,
         };
       })

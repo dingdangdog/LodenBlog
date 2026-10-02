@@ -63,8 +63,24 @@
       <img :src="article.featuredImage" :alt="article.title" class="w-full h-auto object-cover" />
     </div>
 
-    <MarkdownRenderer :content="article.content" :show-catalog="props.showToc"
-      :enable-in-article-ads="enableInArticleAds" />
+    <MarkdownRenderer :content="article.content" :show-catalog="props.showToc && !article.locked"
+      :enable-in-article-ads="enableInArticleAds && !article.locked" />
+
+    <section v-if="article.locked" class="rounded-xl border border-border bg-surface p-4 space-y-3">
+      <h2 class="text-lg font-semibold text-foreground">
+        {{ article.lockReason === "UNPAID" ? $t("column.paywallPaid") : $t("column.paywallColumn") }}
+      </h2>
+      <p v-if="article.lockReason === 'EXPIRED'" class="text-sm text-muted">
+        {{ $t("column.paywallExpired", { date: formatLockDate(article.subscriptionExpiresAt) }) }}
+      </p>
+      <p v-else-if="article.lockReason === 'COLUMN_UNPUBLISHED'" class="text-sm text-muted">
+        {{ $t("column.paywallUnpublished") }}
+      </p>
+      <NuxtLink v-if="article.column?.slug" :to="localePath(`/column/${article.column.slug}`)" class="inline-flex text-sm text-primary-600">
+        {{ article.column.title || $t("column.viewColumn") }}
+      </NuxtLink>
+      <CommonRedeemCodeForm v-if="article.lockReason !== 'COLUMN_UNPUBLISHED'" @success="refreshNuxtData()" />
+    </section>
 
     <!-- 文章结束标识 + 收藏 -->
     <div class="article-end-marker mt-16 mb-8">
@@ -192,6 +208,10 @@ const toggleBookmark = async () => {
 };
 
 const localePath = useLocalePath();
+
+function formatLockDate(value?: string | null) {
+  return value ? new Date(value).toLocaleDateString() : "";
+}
 
 const categoryPath = computed(() => {
   if (!props.article?.categorySlug) return "";

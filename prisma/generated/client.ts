@@ -166,3 +166,58 @@ export type ArticleAiGenerationLog = Prisma.ArticleAiGenerationLogModel
  * 
  */
 export type InfoContent = Prisma.InfoContentModel
+/**
+ * Model Column
+ * 
+ */
+export type Column = Prisma.ColumnModel
+/**
+ * Model ColumnContent
+ * 
+ */
+export type ColumnContent = Prisma.ColumnContentModel
+/**
+ * Model ColumnSubscription
+ * 
+ */
+export type ColumnSubscription = Prisma.ColumnSubscriptionModel
+/**
+ * Model ColumnSubscriptionLog
+ * 
+ */
+export type ColumnSubscriptionLog = Prisma.ColumnSubscriptionLogModel
+/**
+ * Model ColumnRedeemCode
+ * 
+ */
+export type ColumnRedeemCode = Prisma.ColumnRedeemCodeModel
+/**
+ * Model ArticleUnlock
+ * 
+ */
+export type ArticleUnlock = Prisma.ArticleUnlockModel
+/**
+ * Model ArticleRedeemCode
+ * 
+ */
+export type ArticleRedeemCode = Prisma.ArticleRedeemCodeModel
+/**
+ * Model ColumnPlan
+ * 
+ */
+export type ColumnPlan = Prisma.ColumnPlanModel
+/**
+ * Model CommerceOrder
+ * 
+ */
+export type CommerceOrder = Prisma.CommerceOrderModel
+/**
+ * Model CommercePayment
+ * 
+ */
+export type CommercePayment = Prisma.CommercePaymentModel
+/**
+ * Model CommerceRefund
+ * 
+ */
+export type CommerceRefund = Prisma.CommerceRefundModel

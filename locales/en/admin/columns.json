@@ -1,0 +1,65 @@
+{
+  "columns": {
+    "title": "Columns",
+    "create": "New column",
+    "edit": "Edit column",
+    "empty": "No columns yet",
+    "back": "Back to columns",
+    "published": "Published",
+    "draft": "Draft",
+    "fields": {
+      "language": "Language",
+      "slug": "Slug",
+      "title": "Title",
+      "description": "Description",
+      "cover": "Cover URL",
+      "seoTitle": "SEO title",
+      "seoDescription": "SEO description",
+      "seoKeyword": "SEO keywords"
+    },
+    "actions": {
+      "save": "Save",
+      "saving": "Saving...",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "generate": "Generate codes",
+      "revoke": "Revoke",
+      "copy": "Copy"
+    },
+    "codes": {
+      "title": "Subscription codes",
+      "duration": "Duration",
+      "count": "Count",
+      "empty": "No codes yet",
+      "unused": "Unused",
+      "used": "Used",
+      "revoked": "Revoked",
+      "usedBy": "Used by",
+      "days30": "30 days",
+      "days90": "90 days",
+      "days365": "365 days"
+    },
+    "subscriptions": {
+      "title": "Subscriptions",
+      "empty": "No subscriptions yet",
+      "all": "All",
+      "subscriber": "Reader",
+      "column": "Column"
+    },
+    "records": {
+      "title": "Subscriptions and codes",
+      "columns": "Columns",
+      "subscriptions": "Subscriptions",
+      "columnCodes": "Column codes",
+      "articleCodes": "Article codes",
+      "readonly": "This page is read-only. Authors create codes and edit their own columns."
+    },
+    "messages": {
+      "saved": "Saved",
+      "generated": "Codes generated",
+      "revoked": "Revoked",
+      "copied": "Copied",
+      "failed": "Something went wrong"
+    }
+  }
+}

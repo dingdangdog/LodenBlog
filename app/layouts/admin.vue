@@ -214,7 +214,7 @@
           </div>
         </aside>
       </Transition>
-      <div class="flex-1 overflow-y-auto p-2 md:p-4 bg-background min-h-0">
+      <div class="flex min-h-0 flex-1 flex-col overflow-y-auto bg-background p-2 md:p-4">
         <slot></slot>
       </div>
     </main>
@@ -279,6 +279,8 @@ import {
   ChatBubbleLeftIcon,
   LinkIcon,
   UserPlusIcon,
+  BookOpenIcon,
+  QueueListIcon,
 } from "@heroicons/vue/24/outline";
 import { ROLE_LEVEL } from "~~/utils/role";
 import { usePermission } from "~/composables/usePermission";
@@ -406,6 +408,20 @@ const menuItems = computed<MenuItem[]>(() => [
     group: "content",
   },
   {
+    label: t("admin.menu.columns"),
+    to: localePath("/admin/columns"),
+    icon: BookOpenIcon,
+    minRole: ROLE_LEVEL.CREATOR,
+    group: "content",
+  },
+  {
+    label: t("admin.menu.columnRecords"),
+    to: localePath("/admin/column-records"),
+    icon: QueueListIcon,
+    minRole: ROLE_LEVEL.ADMIN,
+    group: "system",
+  },
+  {
     label: t("admin.menu.translationlogs"),
     to: localePath("/admin/translationlogs"),
     icon: ArrowPathIcon,
@@ -505,6 +521,14 @@ const isActive = (path: string) => {
   // 创作者看板 /admin/creator
   if (path === localePath("/admin/creator")) {
     return currentPath === "/admin/creator" || /^\/[a-z]{2}\/admin\/creator$/i.test(currentPath);
+  }
+
+  if (path === localePath("/admin/columns")) {
+    return (
+      currentPath === path ||
+      currentPath.startsWith(path + "/") ||
+      currentPath.includes("/admin/editcolumn")
+    );
   }
 
   // 其他路径：完全匹配或以该路径开头

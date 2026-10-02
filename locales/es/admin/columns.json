@@ -1,0 +1,65 @@
+{
+  "columns": {
+    "title": "Columnas",
+    "create": "Nueva columna",
+    "edit": "Editar columna",
+    "empty": "Aún no hay columnas",
+    "back": "Volver a columnas",
+    "published": "Publicada",
+    "draft": "Borrador",
+    "fields": {
+      "language": "Idioma",
+      "slug": "Slug",
+      "title": "Título",
+      "description": "Descripción",
+      "cover": "URL de portada",
+      "seoTitle": "Título SEO",
+      "seoDescription": "Descripción SEO",
+      "seoKeyword": "Palabras SEO"
+    },
+    "actions": {
+      "save": "Guardar",
+      "saving": "Guardando...",
+      "publish": "Publicar",
+      "unpublish": "Pasar a borrador",
+      "generate": "Generar códigos",
+      "revoke": "Anular",
+      "copy": "Copiar"
+    },
+    "codes": {
+      "title": "Códigos de suscripción",
+      "duration": "Duración",
+      "count": "Cantidad",
+      "empty": "Aún no hay códigos",
+      "unused": "Sin usar",
+      "used": "Usado",
+      "revoked": "Anulado",
+      "usedBy": "Usado por",
+      "days30": "30 días",
+      "days90": "90 días",
+      "days365": "365 días"
+    },
+    "subscriptions": {
+      "title": "Suscripciones",
+      "empty": "Aún no hay suscripciones",
+      "all": "Todas",
+      "subscriber": "Lector",
+      "column": "Columna"
+    },
+    "records": {
+      "title": "Suscripciones y códigos",
+      "columns": "Columnas",
+      "subscriptions": "Suscripciones",
+      "columnCodes": "Códigos de columna",
+      "articleCodes": "Códigos de artículo",
+      "readonly": "Esta página es de solo lectura. El autor crea los códigos y edita su columna."
+    },
+    "messages": {
+      "saved": "Guardado",
+      "generated": "Códigos generados",
+      "revoked": "Anulado",
+      "copied": "Copiado",
+      "failed": "La operación falló"
+    }
+  }
+}

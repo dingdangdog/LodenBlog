@@ -75,7 +75,18 @@ export const ModelName = {
   SystemConfig: 'SystemConfig',
   InfoBase: 'InfoBase',
   ArticleAiGenerationLog: 'ArticleAiGenerationLog',
-  InfoContent: 'InfoContent'
+  InfoContent: 'InfoContent',
+  Column: 'Column',
+  ColumnContent: 'ColumnContent',
+  ColumnSubscription: 'ColumnSubscription',
+  ColumnSubscriptionLog: 'ColumnSubscriptionLog',
+  ColumnRedeemCode: 'ColumnRedeemCode',
+  ArticleUnlock: 'ArticleUnlock',
+  ArticleRedeemCode: 'ArticleRedeemCode',
+  ColumnPlan: 'ColumnPlan',
+  CommerceOrder: 'CommerceOrder',
+  CommercePayment: 'CommercePayment',
+  CommerceRefund: 'CommerceRefund'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -143,6 +154,10 @@ export const ArticleBaseScalarFieldEnum = {
   authorId: 'authorId',
   categorySlug: 'categorySlug',
   tags: 'tags',
+  accessType: 'accessType',
+  columnId: 'columnId',
+  priceAmount: 'priceAmount',
+  currency: 'currency',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -157,6 +172,7 @@ export const ArticleContentScalarFieldEnum = {
   slug: 'slug',
   title: 'title',
   content: 'content',
+  freeContent: 'freeContent',
   excerpt: 'excerpt',
   seoTitle: 'seoTitle',
   seoDescription: 'seoDescription',
@@ -509,6 +525,187 @@ export const InfoContentScalarFieldEnum = {
 } as const
 
 export type InfoContentScalarFieldEnum = (typeof InfoContentScalarFieldEnum)[keyof typeof InfoContentScalarFieldEnum]
+
+
+export const ColumnScalarFieldEnum = {
+  id: 'id',
+  authorId: 'authorId',
+  featuredImage: 'featuredImage',
+  status: 'status',
+  isPublished: 'isPublished',
+  currency: 'currency',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ColumnScalarFieldEnum = (typeof ColumnScalarFieldEnum)[keyof typeof ColumnScalarFieldEnum]
+
+
+export const ColumnContentScalarFieldEnum = {
+  id: 'id',
+  columnId: 'columnId',
+  languageCode: 'languageCode',
+  slug: 'slug',
+  title: 'title',
+  description: 'description',
+  seoTitle: 'seoTitle',
+  seoDescription: 'seoDescription',
+  seoKeyword: 'seoKeyword',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ColumnContentScalarFieldEnum = (typeof ColumnContentScalarFieldEnum)[keyof typeof ColumnContentScalarFieldEnum]
+
+
+export const ColumnSubscriptionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  columnId: 'columnId',
+  startsAt: 'startsAt',
+  expiresAt: 'expiresAt',
+  source: 'source',
+  orderId: 'orderId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ColumnSubscriptionScalarFieldEnum = (typeof ColumnSubscriptionScalarFieldEnum)[keyof typeof ColumnSubscriptionScalarFieldEnum]
+
+
+export const ColumnSubscriptionLogScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  columnId: 'columnId',
+  source: 'source',
+  redeemCodeId: 'redeemCodeId',
+  orderId: 'orderId',
+  durationDays: 'durationDays',
+  previousExpiresAt: 'previousExpiresAt',
+  appliedFrom: 'appliedFrom',
+  appliedTo: 'appliedTo',
+  createdAt: 'createdAt'
+} as const
+
+export type ColumnSubscriptionLogScalarFieldEnum = (typeof ColumnSubscriptionLogScalarFieldEnum)[keyof typeof ColumnSubscriptionLogScalarFieldEnum]
+
+
+export const ColumnRedeemCodeScalarFieldEnum = {
+  id: 'id',
+  columnId: 'columnId',
+  code: 'code',
+  durationDays: 'durationDays',
+  status: 'status',
+  createdBy: 'createdBy',
+  usedBy: 'usedBy',
+  usedAt: 'usedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ColumnRedeemCodeScalarFieldEnum = (typeof ColumnRedeemCodeScalarFieldEnum)[keyof typeof ColumnRedeemCodeScalarFieldEnum]
+
+
+export const ArticleUnlockScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  articleBaseId: 'articleBaseId',
+  source: 'source',
+  redeemCodeId: 'redeemCodeId',
+  orderId: 'orderId',
+  unlockedAt: 'unlockedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ArticleUnlockScalarFieldEnum = (typeof ArticleUnlockScalarFieldEnum)[keyof typeof ArticleUnlockScalarFieldEnum]
+
+
+export const ArticleRedeemCodeScalarFieldEnum = {
+  id: 'id',
+  articleBaseId: 'articleBaseId',
+  code: 'code',
+  status: 'status',
+  createdBy: 'createdBy',
+  usedBy: 'usedBy',
+  usedAt: 'usedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ArticleRedeemCodeScalarFieldEnum = (typeof ArticleRedeemCodeScalarFieldEnum)[keyof typeof ArticleRedeemCodeScalarFieldEnum]
+
+
+export const ColumnPlanScalarFieldEnum = {
+  id: 'id',
+  columnId: 'columnId',
+  durationDays: 'durationDays',
+  amount: 'amount',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ColumnPlanScalarFieldEnum = (typeof ColumnPlanScalarFieldEnum)[keyof typeof ColumnPlanScalarFieldEnum]
+
+
+export const CommerceOrderScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  authorId: 'authorId',
+  status: 'status',
+  productType: 'productType',
+  columnId: 'columnId',
+  articleBaseId: 'articleBaseId',
+  durationDays: 'durationDays',
+  amount: 'amount',
+  currency: 'currency',
+  provider: 'provider',
+  providerOrderId: 'providerOrderId',
+  idempotencyKey: 'idempotencyKey',
+  paidAt: 'paidAt',
+  closedAt: 'closedAt',
+  refundedAt: 'refundedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CommerceOrderScalarFieldEnum = (typeof CommerceOrderScalarFieldEnum)[keyof typeof CommerceOrderScalarFieldEnum]
+
+
+export const CommercePaymentScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  status: 'status',
+  provider: 'provider',
+  providerPaymentId: 'providerPaymentId',
+  amount: 'amount',
+  currency: 'currency',
+  failureMessage: 'failureMessage',
+  payload: 'payload',
+  paidAt: 'paidAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CommercePaymentScalarFieldEnum = (typeof CommercePaymentScalarFieldEnum)[keyof typeof CommercePaymentScalarFieldEnum]
+
+
+export const CommerceRefundScalarFieldEnum = {
+  id: 'id',
+  orderId: 'orderId',
+  paymentId: 'paymentId',
+  status: 'status',
+  amount: 'amount',
+  currency: 'currency',
+  reason: 'reason',
+  providerRefundId: 'providerRefundId',
+  refundedAt: 'refundedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CommerceRefundScalarFieldEnum = (typeof CommerceRefundScalarFieldEnum)[keyof typeof CommerceRefundScalarFieldEnum]
 
 
 export const SortOrder = {

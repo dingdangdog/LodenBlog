@@ -1,0 +1,65 @@
+{
+  "columns": {
+    "title": "专栏",
+    "create": "新建专栏",
+    "edit": "编辑专栏",
+    "empty": "还没有专栏",
+    "back": "返回专栏",
+    "published": "已发布",
+    "draft": "草稿",
+    "fields": {
+      "language": "语言",
+      "slug": "Slug",
+      "title": "标题",
+      "description": "简介",
+      "cover": "封面地址",
+      "seoTitle": "SEO 标题",
+      "seoDescription": "SEO 描述",
+      "seoKeyword": "SEO 关键词"
+    },
+    "actions": {
+      "save": "保存",
+      "saving": "保存中...",
+      "publish": "发布",
+      "unpublish": "转为草稿",
+      "generate": "生成兑换码",
+      "revoke": "作废",
+      "copy": "复制"
+    },
+    "codes": {
+      "title": "订阅兑换码",
+      "duration": "时长",
+      "count": "数量",
+      "empty": "还没有兑换码",
+      "unused": "未使用",
+      "used": "已使用",
+      "revoked": "已作废",
+      "usedBy": "使用者",
+      "days30": "30 天",
+      "days90": "90 天",
+      "days365": "365 天"
+    },
+    "subscriptions": {
+      "title": "订阅记录",
+      "empty": "还没有订阅",
+      "all": "全部",
+      "subscriber": "读者",
+      "column": "专栏"
+    },
+    "records": {
+      "title": "订阅与兑换记录",
+      "columns": "专栏",
+      "subscriptions": "订阅",
+      "columnCodes": "专栏兑换码",
+      "articleCodes": "文章兑换码",
+      "readonly": "这里只能查看，发码和修改专栏仍由作者自己操作。"
+    },
+    "messages": {
+      "saved": "已保存",
+      "generated": "兑换码已生成",
+      "revoked": "已作废",
+      "copied": "已复制",
+      "failed": "操作失败"
+    }
+  }
+}

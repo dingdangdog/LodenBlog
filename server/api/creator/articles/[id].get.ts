@@ -90,6 +90,8 @@ export default defineEventHandler(async (event) => {
       categorySlug: articleBase.categorySlug,
       tagSlugs,
       authorId: articleBase.authorId,
+      accessType: articleBase.accessType,
+      columnId: articleBase.columnId,
       seoTitle: articleContent.seoTitle,
       seoDescription: articleContent.seoDescription,
       seoKeyword: articleContent.seoKeyword,

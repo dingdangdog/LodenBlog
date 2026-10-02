@@ -68,6 +68,17 @@ export default defineEventHandler(async (event) => {
       // 文章与关联
       "articleBases",
       "articleContents",
+      "columns",
+      "columnContents",
+      "columnPlans",
+      "commerceOrders",
+      "commercePayments",
+      "commerceRefunds",
+      "columnSubscriptions",
+      "columnSubscriptionLogs",
+      "columnRedeemCodes",
+      "articleUnlocks",
+      "articleRedeemCodes",
       "comments",
       "media",
       "articleLikes",
@@ -92,6 +103,17 @@ export default defineEventHandler(async (event) => {
       creators: ["createdAt", "updatedAt"],
       articleBases: ["createdAt", "updatedAt", "publishedAt"],
       articleContents: ["createdAt", "updatedAt"],
+      columns: ["createdAt", "updatedAt"],
+      columnContents: ["createdAt", "updatedAt"],
+      columnPlans: ["createdAt", "updatedAt"],
+      commerceOrders: ["createdAt", "updatedAt", "paidAt", "closedAt", "refundedAt"],
+      commercePayments: ["createdAt", "updatedAt", "paidAt"],
+      commerceRefunds: ["createdAt", "updatedAt", "refundedAt"],
+      columnSubscriptions: ["createdAt", "updatedAt", "startsAt", "expiresAt"],
+      columnSubscriptionLogs: ["createdAt", "previousExpiresAt", "appliedFrom", "appliedTo"],
+      columnRedeemCodes: ["createdAt", "updatedAt", "usedAt"],
+      articleUnlocks: ["createdAt", "updatedAt", "unlockedAt"],
+      articleRedeemCodes: ["createdAt", "updatedAt", "usedAt"],
       comments: ["createdAt", "updatedAt"],
       media: ["createdAt", "updatedAt"],
       articleLikes: ["createdAt"],
@@ -118,6 +140,29 @@ export default defineEventHandler(async (event) => {
       articleBases: (tx, row) => tx.articleBase.create({ data: normalizeDates(row, dateFieldsByTable.articleBases) }),
       articleContents: (tx, row) =>
         tx.articleContent.create({ data: normalizeDates(row, dateFieldsByTable.articleContents) }),
+      columns: (tx, row) => tx.column.create({ data: normalizeDates(row, dateFieldsByTable.columns) }),
+      columnContents: (tx, row) =>
+        tx.columnContent.create({ data: normalizeDates(row, dateFieldsByTable.columnContents) }),
+      columnPlans: (tx, row) =>
+        tx.columnPlan.create({ data: normalizeDates(row, dateFieldsByTable.columnPlans) }),
+      commerceOrders: (tx, row) =>
+        tx.commerceOrder.create({ data: normalizeDates(row, dateFieldsByTable.commerceOrders) }),
+      commercePayments: (tx, row) =>
+        tx.commercePayment.create({ data: normalizeDates(row, dateFieldsByTable.commercePayments) }),
+      commerceRefunds: (tx, row) =>
+        tx.commerceRefund.create({ data: normalizeDates(row, dateFieldsByTable.commerceRefunds) }),
+      columnSubscriptions: (tx, row) =>
+        tx.columnSubscription.create({ data: normalizeDates(row, dateFieldsByTable.columnSubscriptions) }),
+      columnSubscriptionLogs: (tx, row) =>
+        tx.columnSubscriptionLog.create({
+          data: normalizeDates(row, dateFieldsByTable.columnSubscriptionLogs),
+        }),
+      columnRedeemCodes: (tx, row) =>
+        tx.columnRedeemCode.create({ data: normalizeDates(row, dateFieldsByTable.columnRedeemCodes) }),
+      articleUnlocks: (tx, row) =>
+        tx.articleUnlock.create({ data: normalizeDates(row, dateFieldsByTable.articleUnlocks) }),
+      articleRedeemCodes: (tx, row) =>
+        tx.articleRedeemCode.create({ data: normalizeDates(row, dateFieldsByTable.articleRedeemCodes) }),
       comments: (tx, row) => tx.comment.create({ data: normalizeDates(row, dateFieldsByTable.comments) }),
       media: (tx, row) => tx.media.create({ data: normalizeDates(row, dateFieldsByTable.media) }),
       articleLikes: (tx, row) => tx.articleLike.create({ data: normalizeDates(row, dateFieldsByTable.articleLikes) }),

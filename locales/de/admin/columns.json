@@ -1,0 +1,65 @@
+{
+  "columns": {
+    "title": "Kolumnen",
+    "create": "Neue Kolumne",
+    "edit": "Kolumne bearbeiten",
+    "empty": "Noch keine Kolumnen",
+    "back": "Zurück zu Kolumnen",
+    "published": "Veröffentlicht",
+    "draft": "Entwurf",
+    "fields": {
+      "language": "Sprache",
+      "slug": "Slug",
+      "title": "Titel",
+      "description": "Beschreibung",
+      "cover": "Cover-URL",
+      "seoTitle": "SEO-Titel",
+      "seoDescription": "SEO-Beschreibung",
+      "seoKeyword": "SEO-Schlüsselwörter"
+    },
+    "actions": {
+      "save": "Speichern",
+      "saving": "Speichert...",
+      "publish": "Veröffentlichen",
+      "unpublish": "Zurück zum Entwurf",
+      "generate": "Codes erzeugen",
+      "revoke": "Widerrufen",
+      "copy": "Kopieren"
+    },
+    "codes": {
+      "title": "Abo-Codes",
+      "duration": "Dauer",
+      "count": "Anzahl",
+      "empty": "Noch keine Codes",
+      "unused": "Ungenutzt",
+      "used": "Verwendet",
+      "revoked": "Widerrufen",
+      "usedBy": "Verwendet von",
+      "days30": "30 Tage",
+      "days90": "90 Tage",
+      "days365": "365 Tage"
+    },
+    "subscriptions": {
+      "title": "Abos",
+      "empty": "Noch keine Abos",
+      "all": "Alle",
+      "subscriber": "Leser",
+      "column": "Kolumne"
+    },
+    "records": {
+      "title": "Abos und Codes",
+      "columns": "Kolumnen",
+      "subscriptions": "Abos",
+      "columnCodes": "Kolumnen-Codes",
+      "articleCodes": "Artikel-Codes",
+      "readonly": "Diese Seite ist nur zum Lesen. Autoren erzeugen Codes und bearbeiten ihre Kolumnen."
+    },
+    "messages": {
+      "saved": "Gespeichert",
+      "generated": "Codes erzeugt",
+      "revoked": "Widerrufen",
+      "copied": "Kopiert",
+      "failed": "Vorgang fehlgeschlagen"
+    }
+  }
+}
