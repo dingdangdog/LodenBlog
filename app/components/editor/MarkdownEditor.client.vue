@@ -34,6 +34,13 @@
         >
           <MegaphoneIcon style="width: 16px; height: 16px" />
         </NormalToolbar>
+        <NormalToolbar
+          v-if="enableInsertFreeMarker"
+          :title="$t('admin.editpost.access.insertMarker')"
+          @onClick="handleInsertFreeMarker"
+        >
+          <LockOpenIcon style="width: 16px; height: 16px" />
+        </NormalToolbar>
       </template>
     </MdEditor>
 
@@ -50,9 +57,10 @@
 import { computed, ref, nextTick } from "vue";
 import { MdEditor, NormalToolbar } from "md-editor-v3";
 import { useThemeStore } from "~/stores/theme";
-import { ArrowPathIcon, PhotoIcon, MegaphoneIcon } from "@heroicons/vue/24/outline";
+import { ArrowPathIcon, PhotoIcon, MegaphoneIcon, LockOpenIcon } from "@heroicons/vue/24/outline";
 import MediaSelect from "~/components/common/MediaSelect.vue";
 import { ARTICLE_ADS_PLACEHOLDER_HTML } from "~/composables/useArticleAds";
+import { FREE_CONTENT_MARKER } from "~~/utils/column-access";
 import "md-editor-v3/lib/style.css";
 import "~/assets/css/fix-md-preview.css";
 
@@ -63,12 +71,15 @@ const props = withDefaults(
     height?: string;
     /** 发文编辑器显示「插入广告位」；信息页等场景关闭 */
     enableInsertAd?: boolean;
+    /** 发文编辑器显示「插入免费分界」 */
+    enableInsertFreeMarker?: boolean;
   }>(),
   {
     modelValue: "",
     placeholder: "请输入 Markdown 内容",
     height: "520px",
     enableInsertAd: false,
+    enableInsertFreeMarker: false,
   }
 );
 
@@ -85,7 +96,7 @@ const themeStore = useThemeStore();
 const uploading = ref(false);
 const showMediaSelect = ref(false);
 
-// 工具栏配置：0 选图，1 插入广告位
+// 自定义按钮在插槽中的顺序：0 选图，其后按是否启用依次为广告位、免费分界
 const toolbars = computed(() => {
   const items: Array<string | number> = [
     "bold",
@@ -108,8 +119,13 @@ const toolbars = computed(() => {
     "image",
     0,
   ];
+  let customIndex = 1;
   if (props.enableInsertAd) {
-    items.push(1);
+    items.push(customIndex);
+    customIndex += 1;
+  }
+  if (props.enableInsertFreeMarker) {
+    items.push(customIndex);
   }
   items.push(
     "-",
@@ -186,6 +202,10 @@ const insertContent = (text: string) => {
 
 const handleInsertAdSlot = () => {
   insertContent(`\n\n${ARTICLE_ADS_PLACEHOLDER_HTML}\n\n`);
+};
+
+const handleInsertFreeMarker = () => {
+  insertContent(FREE_CONTENT_MARKER);
 };
 
 // 打开媒体选择器

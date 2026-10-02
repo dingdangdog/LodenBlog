@@ -249,10 +249,6 @@
               </div>
             </div>
             <div v-if="form.accessType !== 'FREE'" class="space-y-2">
-              <button type="button" class="rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm" @click="insertFreeMarker">
-                {{ $t("admin.editpost.access.insertMarker") }}
-              </button>
-              <p class="text-xs text-gray-500 dark:text-gray-400">{{ $t("admin.editpost.access.markerHint") }}</p>
               <p class="text-sm font-medium">{{ $t("admin.editpost.access.preview") }}</p>
               <p v-if="freePreview === null" class="text-sm text-gray-500">{{ $t("admin.editpost.access.noPreview") }}</p>
               <pre v-else class="whitespace-pre-wrap rounded-lg bg-gray-50 dark:bg-gray-900 p-3 text-xs">{{ freePreview }}</pre>
@@ -329,12 +325,9 @@
         <div v-show="activeTab === 'content'" class="space-y-2 editpost-editor-wrap">
           <div>
             <MarkdownEditor ref="markdownEditorRef" v-model="form.content" :height="editorHeight"
-              enable-insert-ad @upload-error="setMessage" />
-            <p class="m-1 text-xs flex items-center justify-between">
-              <!-- <span class="text-gray-500 dark:text-gray-400">
-                {{ $t("admin.editpost.hints.content") }}
-              </span> -->
-              <span :class="contentCharCount < contentMinChars ||
+              enable-insert-ad enable-insert-free-marker @upload-error="setMessage" />
+            <p class="m-1 text-xs flex items-center justify-between gap-3">
+              <span class="shrink-0" :class="contentCharCount < contentMinChars ||
                 contentCharCount > contentMaxChars
                 ? 'text-red-500 dark:text-red-400'
                 : 'text-gray-500 dark:text-gray-400'
@@ -342,6 +335,9 @@
                 {{ contentCharCount }} / {{ contentMinChars }}-{{
                   contentMaxChars
                 }}
+              </span>
+              <span class="min-w-0 text-right text-gray-500 dark:text-gray-400">
+                {{ $t("admin.editpost.access.markerHint") }}
               </span>
             </p>
           </div>
@@ -590,7 +586,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch, onMounted } from "vue";
 import MarkdownEditor from "~/components/editor/MarkdownEditor.client.vue";
-import { splitFreeContent, FREE_CONTENT_MARKER } from "~~/utils/column-access";
+import { splitFreeContent } from "~~/utils/column-access";
 import MediaSelect from "~/components/common/MediaSelect.vue";
 const { t, locale } = useI18n();
 import {
@@ -734,10 +730,6 @@ const form = reactive(emptyForm());
 const ownColumns = ref<Array<{ id: string; title: string; slug: string }>>([]);
 const freePreview = computed(() => splitFreeContent(form.content || ""));
 const isEditMode = computed(() => !!form.id);
-
-function insertFreeMarker() {
-  markdownEditorRef.value?.insertContent?.(`\n${FREE_CONTENT_MARKER}\n`);
-}
 
 function accessPayload() {
   return {
