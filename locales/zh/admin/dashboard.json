@@ -42,7 +42,8 @@
       "todayVisits": "本日访问",
       "totalVisitCount": "总访问量",
       "totalHumanVisitCount": "总人类访问量",
-      "totalBotVisitCount": "总Bot访问量"
+      "totalBotVisitCount": "总Bot访问量",
+      "pendingCreatorApplications": "待审批申请"
     },
     "visitAnalysis": {
       "title": "访问分析",

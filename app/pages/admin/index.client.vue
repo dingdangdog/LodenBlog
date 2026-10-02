@@ -5,7 +5,7 @@
         <h2 class="text-xl font-semibold">{{ $t("admin.dashboard.siteOverview") }}</h2>
       </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-9 gap-3">
       <div class="rounded-xl border border-border p-3">
         <p class="text-xs text-muted">{{ $t("admin.dashboard.stats.totalVisitCount") }}</p>
         <p class="text-xl font-semibold mt-1">{{ totalVisitStats.totalVisitCount ?? "-" }}</p>
@@ -38,6 +38,13 @@
         <p class="text-xs text-muted">{{ $t("admin.dashboard.themeCount") }}</p>
         <p class="text-xl font-semibold mt-1">{{ stats.themeCount || 0 }}</p>
       </div>
+      <NuxtLink :to="localePath('/admin/creatorapplications')"
+        class="rounded-xl border border-border p-3 hover:bg-surface-muted transition-colors cursor-pointer block">
+        <p class="text-xs text-muted">{{ $t("admin.dashboard.stats.pendingCreatorApplications") }}</p>
+        <p class="text-xl font-semibold mt-1" :class="pendingApplicationCount > 0 ? 'text-red-500' : ''">
+          {{ pendingApplicationCount }}
+        </p>
+      </NuxtLink>
       <!-- <div class="rounded-xl border border-border p-3">
           <p class="text-xs text-muted">{{ $t("admin.dashboard.lastUpdated") }}</p>
           <p class="text-sm font-medium mt-1 truncate">{{ stats.lastUpdatedTitle || $t("admin.dashboard.noUpdate") }}
@@ -320,6 +327,8 @@ const todayStats = ref<{
   topBotVendors: [],
 });
 
+const pendingApplicationCount = ref(0);
+
 const rankingLoading = ref(false);
 const rankingAll = ref<RankingItem[]>([]);
 const rankingHuman = ref<RankingItem[]>([]);
@@ -381,6 +390,18 @@ const loadTotalVisit = async () => {
     totalVisitStats.value = data;
   } catch (error) {
     console.error("加载总访问量失败:", error);
+  }
+};
+
+const loadPendingApplications = async () => {
+  try {
+    const data = await api.get<{ pendingCount: number }>(
+      "/api/admin/creator-applications/stats"
+    );
+    pendingApplicationCount.value = data.pendingCount ?? 0;
+  } catch (error) {
+    console.error("加载待审批创作者申请数量失败:", error);
+    pendingApplicationCount.value = 0;
   }
 };
 
@@ -475,7 +496,7 @@ const loadTrendData = async (days: number) => {
   }
 };
 
-await Promise.all([loadStats(), loadTotalVisit(), loadTodayVisit(), loadRanking(rankingRange.value), loadTrendData(7)]);
+await Promise.all([loadStats(), loadTotalVisit(), loadTodayVisit(), loadPendingApplications(), loadRanking(rankingRange.value), loadTrendData(7)]);
 
 const trendData = computed(() => trendResponse.value);
 const trendSummary = computed<VisitSummary>(() => {
@@ -666,6 +687,7 @@ const refreshAll = async () => {
     loadStats(),
     loadTotalVisit(),
     loadTodayVisit(),
+    loadPendingApplications(),
     loadRanking(rankingRange.value),
     loadTrendData(selectedDays.value),
   ]);

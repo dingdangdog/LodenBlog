@@ -44,7 +44,8 @@
       "todayVisits": "Heutige Besuche",
       "totalVisitCount": "Gesamtbesuche",
       "totalHumanVisitCount": "Menschliche Besuche gesamt",
-      "totalBotVisitCount": "Bot-Besuche gesamt"
+      "totalBotVisitCount": "Bot-Besuche gesamt",
+      "pendingCreatorApplications": "Ausstehende Anträge"
     },
     "visitAnalysis": {
       "title": "Besuchsanalyse",

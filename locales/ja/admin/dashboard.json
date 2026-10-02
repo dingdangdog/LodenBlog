@@ -44,7 +44,8 @@
       "todayVisits": "本日の訪問",
       "totalVisitCount": "総訪問数",
       "totalHumanVisitCount": "総人間訪問数",
-      "totalBotVisitCount": "総Bot訪問数"
+      "totalBotVisitCount": "総Bot訪問数",
+      "pendingCreatorApplications": "承認待ち申請"
     },
     "visitAnalysis": {
       "title": "訪問分析",
