@@ -1,27 +1,16 @@
 <template>
   <form class="space-y-2" @submit.prevent="submit">
-    <label class="block text-sm font-medium text-foreground">{{ $t("column.redeemLabel") }}</label>
+    <!-- <label class="block text-sm font-medium text-foreground">{{ $t("column.redeemLabel") }}</label> -->
     <div class="flex flex-col sm:flex-row gap-2">
-      <input
-        v-model="code"
-        type="text"
-        autocomplete="off"
-        :placeholder="$t('column.redeemPlaceholder')"
-        class="w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm text-foreground"
-      />
-      <NuxtLink
-        v-if="!loggedIn"
-        :to="localePath('/login')"
-        class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white"
-      >
+      <input v-model="code" type="text" autocomplete="off" :placeholder="$t('column.redeemPlaceholder')"
+        class="flex-1 rounded-lg border border-border bg-transparent px-3 py-2 text-sm text-foreground" />
+      <NuxtLink v-if="!loggedIn" :to="localePath('/login')"
+        class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white">
         {{ $t("column.loginToRedeem") }}
       </NuxtLink>
-      <button
-        v-else
-        type="submit"
+      <button v-else type="submit"
         class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
-        :disabled="pending || !code.trim()"
-      >
+        :disabled="pending || !code.trim()">
         {{ pending ? $t("column.redeeming") : $t("column.redeemSubmit") }}
       </button>
     </div>

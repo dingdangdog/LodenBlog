@@ -14,14 +14,9 @@
         <NuxtLink
           class="block text-base md:text-xl font-semibold mb-2 text-foreground hover:text-primary-600 transition-colors"
           :to="articlePath">
-          {{ article.title }}
+          <CommonArticleAccessBadge :access-type="article.accessType" class="mr-2 -translate-y-px align-middle" />
+          <span class="align-middle">{{ article.title }}</span>
         </NuxtLink>
-        <span
-          v-if="article.accessType && article.accessType !== 'FREE'"
-          class="ml-2 inline-flex rounded-full bg-surface-muted px-2 py-0.5 align-middle text-xs font-medium text-muted"
-        >
-          {{ article.accessType === "PAID" ? $t("column.paid") : $t("column.column") }}
-        </span>
       </div>
       <p v-if="article.excerpt" class="text-sm md:text-base text-muted mb-2 line-clamp-2">
         {{ article.excerpt }}

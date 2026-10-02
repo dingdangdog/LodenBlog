@@ -2,8 +2,21 @@
   <article v-if="article" class="space-y-6">
     <header class="space-y-4">
       <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-        {{ article.title }}
+        <!-- <CommonArticleAccessBadge :access-type="article.accessType" size="lg"
+          class="mr-3 -translate-y-1 align-middle" /> -->
+        <span class="align-middle">{{ article.title }}</span>
       </h1>
+      <div v-if="isGated" class="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg px-3 py-2 text-sm"
+        :class="accessTone.panel">
+        <component :is="article.locked ? LockClosedIcon : LockOpenIcon" class="h-4 w-4 shrink-0"
+          :class="accessTone.icon" />
+        <span class="font-medium text-foreground">{{ accessStatusText }}</span>
+        <NuxtLink v-if="article.column?.slug && article.column.title" :to="localePath(`/column/${article.column.slug}`)"
+          class="inline-flex items-center gap-1 text-muted hover:text-primary-600 transition-colors">
+          <RectangleStackIcon class="h-4 w-4" />
+          {{ $t("column.inColumn", { title: article.column.title }) }}
+        </NuxtLink>
+      </div>
       <div class="flex items-center gap-2 flex-wrap">
         <p class="text-sm text-primary-600 uppercase tracking-wide">
           {{ formattedDate }}
@@ -63,24 +76,42 @@
       <img :src="article.featuredImage" :alt="article.title" class="w-full h-auto object-cover" />
     </div>
 
-    <MarkdownRenderer :content="article.content" :show-catalog="props.showToc && !article.locked"
-      :enable-in-article-ads="enableInArticleAds && !article.locked" />
+    <div :class="{ 'preview-fade': hasPreview }">
+      <MarkdownRenderer :content="article.content" :show-catalog="props.showToc && !article.locked"
+        :enable-in-article-ads="enableInArticleAds && !article.locked" />
+    </div>
 
-    <section v-if="article.locked" class="rounded-xl border border-border bg-surface p-4 space-y-3">
-      <h2 class="text-lg font-semibold text-foreground">
-        {{ article.lockReason === "UNPAID" ? $t("column.paywallPaid") : $t("column.paywallColumn") }}
-      </h2>
-      <p v-if="article.lockReason === 'EXPIRED'" class="text-sm text-muted">
-        {{ $t("column.paywallExpired", { date: formatLockDate(article.subscriptionExpiresAt) }) }}
-      </p>
-      <p v-else-if="article.lockReason === 'COLUMN_UNPUBLISHED'" class="text-sm text-muted">
-        {{ $t("column.paywallUnpublished") }}
-      </p>
-      <NuxtLink v-if="article.column?.slug" :to="localePath(`/column/${article.column.slug}`)" class="inline-flex text-sm text-primary-600">
-        {{ article.column.title || $t("column.viewColumn") }}
-      </NuxtLink>
-      <CommonRedeemCodeForm v-if="article.lockReason !== 'COLUMN_UNPUBLISHED'" @success="refreshNuxtData()" />
-    </section>
+    <template v-if="article.locked">
+      <div v-if="hasPreview" class="flex items-center gap-4" aria-hidden="true">
+        <div class="h-px flex-1 bg-gradient-to-r from-transparent to-border"></div>
+        <span class="text-xs font-medium tracking-wide text-muted">{{ $t("column.previewEnd") }}</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-transparent to-border"></div>
+      </div>
+
+      <section class="rounded-2xl border bg-surface px-5 py-8 md:px-10 text-center shadow-sm"
+        :class="accessTone.border">
+        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full" :class="accessTone.panel">
+          <LockClosedIcon class="h-6 w-6" :class="accessTone.icon" />
+        </div>
+        <h2 class="text-lg md:text-xl font-semibold text-foreground">
+          {{ article.lockReason === "UNPAID" ? $t("column.paywallPaid") : $t("column.paywallColumn") }}
+        </h2>
+        <p v-if="article.lockReason === 'EXPIRED'" class="mx-auto mt-2 max-w-md text-sm text-muted">
+          {{ $t("column.paywallExpired", { date: formatLockDate(article.subscriptionExpiresAt) }) }}
+        </p>
+        <p v-else-if="article.lockReason === 'COLUMN_UNPUBLISHED'" class="mx-auto mt-2 max-w-md text-sm text-muted">
+          {{ $t("column.paywallUnpublished") }}
+        </p>
+        <CommonRedeemCodeForm v-if="article.lockReason !== 'COLUMN_UNPUBLISHED'" class="mx-auto mt-5 max-w-md text-left"
+          @success="refreshNuxtData()" />
+        <NuxtLink v-if="article.column?.slug" :to="localePath(`/column/${article.column.slug}`)"
+          class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors">
+          <RectangleStackIcon class="h-4 w-4" />
+          {{ article.column.title || $t("column.viewColumn") }}
+          <ChevronRightIcon class="h-4 w-4" />
+        </NuxtLink>
+      </section>
+    </template>
 
     <!-- 文章结束标识 + 收藏 -->
     <div class="article-end-marker mt-16 mb-8">
@@ -126,6 +157,12 @@
 <script setup lang="ts">
 import { BookmarkIcon } from "@heroicons/vue/24/outline";
 import { BookmarkIcon as BookmarkSolidIcon } from "@heroicons/vue/24/solid";
+import {
+  ChevronRightIcon,
+  LockClosedIcon,
+  LockOpenIcon,
+  RectangleStackIcon,
+} from "@heroicons/vue/20/solid";
 import MarkdownRenderer from "~/components/MarkdownRenderer.vue";
 import CommentSection from "~/components/common/CommentSection.vue";
 import { normalizeAvatarUrl } from "~/utils/avatar";
@@ -213,6 +250,39 @@ function formatLockDate(value?: string | null) {
   return value ? new Date(value).toLocaleDateString() : "";
 }
 
+const { t } = useI18n();
+
+const isGated = computed(() => {
+  const type = props.article?.accessType;
+  return type === "PAID" || type === "COLUMN";
+});
+
+const hasPreview = computed(() => !!props.article?.locked && !!props.article.content?.trim());
+
+const accessTone = computed(() =>
+  props.article?.accessType === "PAID"
+    ? {
+      panel: "bg-amber-50 dark:bg-amber-500/10",
+      icon: "text-amber-600 dark:text-amber-400",
+      border: "border-amber-200 dark:border-amber-500/30",
+    }
+    : {
+      panel: "bg-primary-50 dark:bg-primary-500/10",
+      icon: "text-primary-600 dark:text-primary-400",
+      border: "border-primary-200 dark:border-primary-500/30",
+    },
+);
+
+const accessStatusText = computed(() => {
+  const article = props.article;
+  if (!article) return "";
+  if (article.locked) return t("column.previewing");
+  if (article.subscriptionExpiresAt) {
+    return t("column.subscribedUntil", { date: formatLockDate(article.subscriptionExpiresAt) });
+  }
+  return t("column.fullAccess");
+});
+
 const categoryPath = computed(() => {
   if (!props.article?.categorySlug) return "";
   return localePath(`/category/${props.article.categorySlug}`);
@@ -246,3 +316,10 @@ const handleAuthorClick = () => {
   }
 };
 </script>
+
+<style scoped>
+.preview-fade {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 8rem), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 8rem), transparent);
+}
+</style>
