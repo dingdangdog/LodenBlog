@@ -1,8 +1,8 @@
 <template>
-  <div class="space-y-8">
-    <section class="bg-surface text-foreground">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-2xl font-bold text-foreground">
+  <div class="flex h-full min-h-0 flex-1 flex-col">
+    <section class="flex min-h-0 flex-1 flex-col bg-surface text-foreground">
+      <div class="mb-4 flex shrink-0 flex-wrap items-center justify-between gap-3">
+        <h2 class="text-xl font-bold text-foreground md:text-2xl">
           {{ $t("admin.ai.title") }}
         </h2>
         <div class="flex items-center gap-3">
@@ -21,17 +21,17 @@
         </div>
       </div>
 
-      <div v-if="message.text" class="mb-4 p-3 rounded-lg text-sm" :class="message.type === 'success'
+      <div v-if="message.text" class="mb-4 shrink-0 rounded-lg p-3 text-sm" :class="message.type === 'success'
         ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300'
         : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300'
         ">
         {{ message.text }}
       </div>
 
-      <div class="overflow-x-auto max-h-[50vh] overflow-y-auto">
+      <div class="min-h-0 flex-1 overflow-auto">
         <table class="w-full">
           <thead>
-            <tr class="border-b border-border">
+            <tr class="border-b border-border [&>th]:sticky [&>th]:top-0 [&>th]:z-10 [&>th]:bg-surface">
               <th class="text-left py-3 px-4 text-sm font-semibold text-muted min-w-[100px]">
                 {{ $t("admin.ai.table.name") }}
               </th>

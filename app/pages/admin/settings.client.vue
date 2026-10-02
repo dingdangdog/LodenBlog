@@ -1,9 +1,9 @@
 <template>
-  <div class="space-y-6">
-    <!-- 设置表单 -->
-    <div class="bg-surface text-foreground border border-border rounded-2xl overflow-hidden">
+  <div class="flex h-full min-h-0 flex-1 flex-col">
+    <!-- 设置表单：铺满后台内容区，选项卡固定，内容在剩余高度内滚动 -->
+    <div class="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-surface text-foreground">
       <!-- 选项卡导航 -->
-      <div class="border-b border-border overflow-x-auto">
+      <div class="shrink-0 overflow-x-auto border-b border-border">
         <nav class="flex -mb-px min-w-0">
           <button v-for="tab in TABS" :key="tab.key" type="button" @click="setTab(tab.key)"
             class="flex items-center flex-shrink-0 px-3 sm:px-6 py-4 text-sm font-medium border-b-2 transition-colors whitespace-nowrap"
@@ -19,8 +19,8 @@
         </nav>
       </div>
 
-      <!-- 表单内容：主题管理需要更高密度，单独收紧内边距 -->
-      <div :class="activeTab === 'themes' ? 'p-2 md:p-3' : 'p-2 md:p-6'">
+      <!-- 表单内容：主题管理收紧内边距；AI 列表铺满剩余高度，由表格自己滚动 -->
+      <div class="min-h-0 flex-1" :class="contentPaneClass">
         <!-- 站点设置选项卡 -->
         <SystemSiteSettings v-show="activeTab === 'site'" />
 
@@ -117,6 +117,16 @@ const route = useRoute();
 const router = useRouter();
 
 const activeTab = ref<TabKey>(parseTabQuery(route.query.tab) ?? DEFAULT_TAB);
+
+const contentPaneClass = computed(() => {
+  if (activeTab.value === "ai") {
+    return "flex flex-col overflow-hidden p-2 md:p-4";
+  }
+  if (activeTab.value === "themes") {
+    return "overflow-y-auto p-2 md:p-3";
+  }
+  return "overflow-y-auto p-2 md:p-6";
+});
 
 function replaceUrlTab(tab: TabKey) {
   if (parseTabQuery(route.query.tab) === tab) {
