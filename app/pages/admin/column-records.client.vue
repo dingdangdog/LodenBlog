@@ -16,11 +16,14 @@
     </ul>
 
     <div v-else-if="tab === 'subscriptions'" class="space-y-3">
-      <select v-model="status" class="rounded-lg border border-border bg-transparent px-3 py-2 text-sm" @change="loadSubscriptions">
-        <option value="all">{{ $t("admin.columns.subscriptions.all") }}</option>
-        <option value="active">{{ $t("column.active") }}</option>
-        <option value="expired">{{ $t("column.expired") }}</option>
-      </select>
+      <div class="w-full sm:w-48">
+        <AppSelect
+          v-model="status"
+          :options="statusOptions"
+          :allow-clear="false"
+          @change="loadSubscriptions"
+        />
+      </div>
       <article v-for="item in subscriptions" :key="item.id" class="rounded-lg border border-border p-3 text-sm">
         <p class="font-medium">{{ item.columnTitle }} · {{ item.user?.name || item.user?.username }}</p>
         <p class="text-muted">{{ item.active ? $t("column.active") : $t("column.expired") }} · {{ formatDate(item.startsAt) }} - {{ formatDate(item.expiresAt) }}</p>
@@ -50,6 +53,11 @@ definePageMeta({
 const { t, locale } = useI18n();
 const tab = ref("columns");
 const status = ref("all");
+const statusOptions = computed(() => [
+  { value: "all", label: t("admin.columns.subscriptions.all") },
+  { value: "active", label: t("column.active") },
+  { value: "expired", label: t("column.expired") },
+]);
 const columns = ref<any[]>([]);
 const subscriptions = ref<any[]>([]);
 const codes = ref<any[]>([]);

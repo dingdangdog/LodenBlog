@@ -8,12 +8,17 @@
     </div>
 
     <form class="space-y-4 rounded-xl border border-border bg-surface p-4" @submit.prevent="save(false)">
-      <label class="block text-sm text-muted">
-        {{ $t("admin.columns.fields.language") }}
-        <select v-model="form.languageCode" class="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-foreground" @change="loadContent">
-          <option v-for="lang in locales" :key="lang.code" :value="lang.code">{{ lang.nativeName || lang.name }}</option>
-        </select>
-      </label>
+      <div class="block text-sm text-muted">
+        <p class="mb-1">{{ $t("admin.columns.fields.language") }}</p>
+        <AppSelect
+          v-model="form.languageCode"
+          :options="languageOptions"
+          :placeholder="$t('admin.columns.fields.language')"
+          :allow-clear="false"
+          :searchable="true"
+          @change="loadContent"
+        />
+      </div>
       <label class="block text-sm text-muted">
         {{ $t("admin.columns.fields.title") }}
         <input v-model="form.title" required class="mt-1 w-full rounded-lg border border-border bg-transparent px-3 py-2 text-foreground" />
@@ -64,11 +69,14 @@
     <section v-if="columnId" class="space-y-3 rounded-xl border border-border bg-surface p-4">
       <div class="flex flex-wrap items-center justify-between gap-2">
         <h2 class="text-base font-semibold">{{ $t("admin.columns.subscriptions.title") }}</h2>
-        <select v-model="subscriptionStatus" class="rounded-lg border border-border bg-transparent px-3 py-2 text-sm" @change="loadSubscriptions">
-          <option value="all">{{ $t("admin.columns.subscriptions.all") }}</option>
-          <option value="active">{{ $t("column.active") }}</option>
-          <option value="expired">{{ $t("column.expired") }}</option>
-        </select>
+        <div class="w-full sm:w-48">
+          <AppSelect
+            v-model="subscriptionStatus"
+            :options="subscriptionStatusOptions"
+            :allow-clear="false"
+            @change="loadSubscriptions"
+          />
+        </div>
       </div>
       <p v-if="subscriptions.length === 0" class="text-sm text-muted">{{ $t("admin.columns.subscriptions.empty") }}</p>
       <article v-for="item in subscriptions" :key="item.id" class="rounded-lg border border-border p-3 text-sm">
@@ -101,6 +109,17 @@ const localePath = useLocalePath();
 const { t } = useI18n();
 const { list: localeList } = useEnabledLocales();
 const locales = computed(() => localeList.value || []);
+const languageOptions = computed(() =>
+  locales.value.map((lang) => ({
+    value: lang.code,
+    label: lang.nativeName || lang.name,
+  }))
+);
+const subscriptionStatusOptions = computed(() => [
+  { value: "all", label: t("admin.columns.subscriptions.all") },
+  { value: "active", label: t("column.active") },
+  { value: "expired", label: t("column.expired") },
+]);
 const columnId = ref(String(route.query.id || ""));
 const saving = ref(false);
 const message = ref("");

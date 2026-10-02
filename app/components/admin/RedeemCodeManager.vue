@@ -2,14 +2,14 @@
   <section class="space-y-3 rounded-xl border border-border bg-surface p-4">
     <h2 class="text-base font-semibold text-foreground">{{ title }}</h2>
     <div class="flex flex-col gap-2 sm:flex-row sm:items-end">
-      <label v-if="showDuration" class="text-sm text-muted">
-        {{ $t("admin.columns.codes.duration") }}
-        <select v-model.number="durationDays" class="mt-1 block w-full rounded-lg border border-border bg-transparent px-3 py-2 text-foreground">
-          <option :value="30">{{ $t("admin.columns.codes.days30") }}</option>
-          <option :value="90">{{ $t("admin.columns.codes.days90") }}</option>
-          <option :value="365">{{ $t("admin.columns.codes.days365") }}</option>
-        </select>
-      </label>
+      <div v-if="showDuration" class="text-sm text-muted sm:w-48">
+        <p class="mb-1">{{ $t("admin.columns.codes.duration") }}</p>
+        <AppSelect
+          v-model="durationDays"
+          :options="durationOptions"
+          :allow-clear="false"
+        />
+      </div>
       <label class="text-sm text-muted">
         {{ $t("admin.columns.codes.count") }}
         <input v-model.number="count" type="number" min="1" max="100" class="mt-1 block w-full rounded-lg border border-border bg-transparent px-3 py-2 text-foreground" />
@@ -52,7 +52,12 @@ const props = defineProps<{
 }>();
 
 const { t } = useI18n();
-const durationDays = ref(30);
+const durationDays = ref<number>(30);
+const durationOptions = computed(() => [
+  { value: 30, label: t("admin.columns.codes.days30") },
+  { value: 90, label: t("admin.columns.codes.days90") },
+  { value: 365, label: t("admin.columns.codes.days365") },
+]);
 const count = ref(1);
 const pending = ref(false);
 const notice = ref("");

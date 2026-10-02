@@ -227,21 +227,26 @@
             <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
               {{ $t("admin.editpost.access.type") }}
             </label>
-            <select v-model="form.accessType" class="w-full sm:w-64 rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 text-sm">
-              <option value="FREE">{{ $t("admin.editpost.access.free") }}</option>
-              <option value="COLUMN">{{ $t("admin.editpost.access.column") }}</option>
-              <option value="PAID">{{ $t("admin.editpost.access.paid") }}</option>
-            </select>
+            <div class="w-full sm:w-64">
+              <AppSelect
+                v-model="form.accessType"
+                :options="accessTypeOptions"
+                :placeholder="$t('admin.editpost.access.type')"
+                :allow-clear="false"
+              />
+            </div>
             <div v-if="form.accessType === 'COLUMN'">
               <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                 {{ $t("admin.editpost.access.selectColumn") }}
               </label>
-              <select v-model="form.columnId" class="w-full sm:w-64 rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 text-sm">
-                <option value="">{{ $t("admin.editpost.access.noColumn") }}</option>
-                <option v-for="column in ownColumns" :key="column.id" :value="column.id">
-                  {{ column.title || column.slug }}
-                </option>
-              </select>
+              <div class="w-full sm:w-64">
+                <AppSelect
+                  v-model="form.columnId"
+                  :options="columnOptions"
+                  :placeholder="$t('admin.editpost.access.noColumn')"
+                  :searchable="true"
+                />
+              </div>
             </div>
             <div v-if="form.accessType !== 'FREE'" class="space-y-2">
               <button type="button" class="rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm" @click="insertFreeMarker">
@@ -833,6 +838,19 @@ const addTag = (value?: string | number | null) => {
     selectedTagSlug.value = "";
   }
 };
+
+const accessTypeOptions = computed(() => [
+  { value: "FREE", label: t("admin.editpost.access.free") },
+  { value: "COLUMN", label: t("admin.editpost.access.column") },
+  { value: "PAID", label: t("admin.editpost.access.paid") },
+]);
+
+const columnOptions = computed(() =>
+  ownColumns.value.map((column) => ({
+    value: column.id,
+    label: column.title || column.slug,
+  }))
+);
 
 // 语言选项
 const languageOptions = computed(() => {
