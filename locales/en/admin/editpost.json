@@ -154,8 +154,6 @@
       "noColumn": "No columns yet",
       "insertMarker": "Insert free-preview marker",
       "markerHint": "Content before <!--free--> can be read for free",
-      "preview": "Free preview",
-      "noPreview": "No free preview yet. Unauthorized readers only see the title, excerpt, and paywall.",
       "codes": "Unlock codes"
     }
   }

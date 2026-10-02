@@ -154,8 +154,6 @@
       "noColumn": "Noch keine Kolumnen",
       "insertMarker": "Kostenlose Grenze einfügen",
       "markerHint": "Inhalt vor <!--free--> kann kostenlos gelesen werden",
-      "preview": "Kostenlose Vorschau",
-      "noPreview": "Noch keine kostenlose Vorschau. Ohne Berechtigung sieht man nur Titel, Auszug und Paywall.",
       "codes": "Freischaltcodes"
     }
   }

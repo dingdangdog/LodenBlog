@@ -154,8 +154,6 @@
       "noColumn": "Aún no hay columnas",
       "insertMarker": "Insertar límite gratuito",
       "markerHint": "El contenido anterior a <!--free--> se puede leer gratis",
-      "preview": "Vista gratuita",
-      "noPreview": "Aún no hay vista gratuita. Quien no tenga permiso solo verá título, extracto y el muro de pago.",
       "codes": "Códigos de desbloqueo"
     }
   }

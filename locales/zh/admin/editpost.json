@@ -154,8 +154,6 @@
       "noColumn": "还没有专栏",
       "insertMarker": "插入免费分界",
       "markerHint": "<!--free-->之前的内容可以免费阅读",
-      "preview": "免费段预览",
-      "noPreview": "还没有免费段。未授权读者只能看到标题、摘要和付费墙。",
       "codes": "解锁兑换码"
     }
   }

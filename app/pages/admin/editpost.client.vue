@@ -248,11 +248,6 @@
                 />
               </div>
             </div>
-            <div v-if="form.accessType !== 'FREE'" class="space-y-2">
-              <p class="text-sm font-medium">{{ $t("admin.editpost.access.preview") }}</p>
-              <p v-if="freePreview === null" class="text-sm text-gray-500">{{ $t("admin.editpost.access.noPreview") }}</p>
-              <pre v-else class="whitespace-pre-wrap rounded-lg bg-gray-50 dark:bg-gray-900 p-3 text-xs">{{ freePreview }}</pre>
-            </div>
             <AdminRedeemCodeManager
               v-if="form.accessType === 'PAID' && form.id"
               :title="$t('admin.editpost.access.codes')"
@@ -586,7 +581,6 @@
 <script setup lang="ts">
 import { ref, reactive, computed, watch, onMounted } from "vue";
 import MarkdownEditor from "~/components/editor/MarkdownEditor.client.vue";
-import { splitFreeContent } from "~~/utils/column-access";
 import MediaSelect from "~/components/common/MediaSelect.vue";
 const { t, locale } = useI18n();
 import {
@@ -728,7 +722,6 @@ const emptyForm = (): any => ({
 
 const form = reactive(emptyForm());
 const ownColumns = ref<Array<{ id: string; title: string; slug: string }>>([]);
-const freePreview = computed(() => splitFreeContent(form.content || ""));
 const isEditMode = computed(() => !!form.id);
 
 function accessPayload() {
