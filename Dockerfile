@@ -22,8 +22,10 @@ RUN pnpm install --frozen-lockfile --ignore-scripts --registry=https://registry.
 
 COPY . .
 
+# 版本以发布 tag 为准：同步改写 package.json，使构建产物里的默认版本也一致
 ENV NUXT_PUBLIC_VERSION=$APP_VERSION
-RUN pnpm run postinstall && pnpm build
+RUN if [ "$APP_VERSION" != "dev" ]; then npm pkg set version="$APP_VERSION"; fi \
+    && pnpm run postinstall && pnpm build
 
 # 阶段 2: 生产运行环境
 FROM node:22.21.1-alpine3.22 AS runner
@@ -34,7 +36,8 @@ ARG BUILD_SHA=unknown
 LABEL author.name="Loden"
 LABEL project.name="loden"
 LABEL org.opencontainers.image.title="loden"
-LABEL org.opencontainers.image.version="2.0.0"
+LABEL org.opencontainers.image.version=$APP_VERSION
+LABEL org.opencontainers.image.revision=$BUILD_SHA
 
 WORKDIR /app
 
@@ -59,6 +62,7 @@ ENV NODE_ENV=production
 ENV PORT=7061
 ENV DATABASE_MODE=postgre
 ENV NUXT_RESOURCE=/app/resources
-ENV NUXT_PUBLIC_VERSION=2.0.0
+# 由发布工作流按 Git tag 传入 APP_VERSION；运行时会覆盖 runtimeConfig.public.version
+ENV NUXT_PUBLIC_VERSION=$APP_VERSION
 
 CMD ["node", ".output/server/index.mjs"]
