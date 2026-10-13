@@ -58,3 +58,41 @@ export async function findUsableProviderById(id: string) {
   }
   return found;
 }
+
+export function readProviderModel(
+  extraConfig: string | null | undefined
+): string | null {
+  if (!extraConfig?.trim()) return null;
+  try {
+    const parsed = JSON.parse(extraConfig) as { model?: unknown };
+    if (typeof parsed.model !== "string") return null;
+    const model = parsed.model.trim();
+    return model || null;
+  } catch {
+    return null;
+  }
+}
+
+export async function resolveRequestedProviderId(
+  providerId: unknown
+): Promise<
+  | { ok: true; providerId: string | null }
+  | { ok: false; message: string }
+> {
+  if (providerId === null || providerId === "") {
+    return { ok: true, providerId: null };
+  }
+  if (typeof providerId !== "string") {
+    return { ok: false, message: "模型参数无效" };
+  }
+  const id = providerId.trim();
+  if (!id) return { ok: true, providerId: null };
+  const found = await findUsableProviderById(id);
+  if (!found) {
+    return {
+      ok: false,
+      message: "指定的模型不存在、未启用或未配置 API Key",
+    };
+  }
+  return { ok: true, providerId: found.row.id };
+}

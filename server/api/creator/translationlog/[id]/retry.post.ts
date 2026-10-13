@@ -2,6 +2,7 @@ import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator, ROLE_LEVEL } from "~~/server/utils/permission";
 import { translationQueueExecutor } from "~~/server/utils/translation-queue";
+import { resolveRequestedProviderId } from "~~/server/utils/provider-config";
 
 /**
  * 重新执行翻译任务
@@ -64,6 +65,29 @@ export default defineEventHandler(async (event) => {
       return error("该翻译任务已存在待处理或处理中的任务，请勿重复提交");
     }
 
+    let body: { providerId?: unknown } = {};
+    try {
+      const raw = await readBody(event);
+      if (raw && typeof raw === "object") {
+        body = raw as { providerId?: unknown };
+      }
+    } catch {
+      body = {};
+    }
+
+    const updateProvider = Object.prototype.hasOwnProperty.call(
+      body,
+      "providerId"
+    );
+    let nextProviderId = task.providerId;
+    if (updateProvider) {
+      const resolved = await resolveRequestedProviderId(body.providerId);
+      if (!resolved.ok) {
+        return error(resolved.message);
+      }
+      nextProviderId = resolved.providerId;
+    }
+
     // 直接更新原任务状态，而不是创建新任务
     const updatedTask = await prisma.translationLog.update({
       where: { id: taskId },
@@ -74,6 +98,7 @@ export default defineEventHandler(async (event) => {
         startedAt: null,
         completedAt: null,
         resolvedAt: null,
+        ...(updateProvider ? { providerId: nextProviderId } : {}),
         retryCount: {
           increment: 1, // 增加重试次数
         },

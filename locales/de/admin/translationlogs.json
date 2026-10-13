@@ -35,11 +35,23 @@
       "loading": "Wird geladen...",
       "noLogs": "Keine Übersetzungsprotokolle",
       "retry": "Erneut ausführen",
-      "retryTitle": "Erneut ausführen",
+      "retryTitle": "Modell wählen und erneut ausführen",
       "retryAllFailed": "Alle Versuche wiederholen",
       "copyArticleId": "Artikel-ID kopieren",
       "delete": "Löschen",
       "deleteTitle": "Protokoll löschen"
+    },
+    "retryDialog": {
+      "title": "Modell wählen und ausführen",
+      "titleAll": "Alle fehlgeschlagenen Aufgaben wiederholen",
+      "model": "Modell",
+      "useDefault": "Systemstandard verwenden",
+      "keepOriginal": "Ursprüngliches Modell jeder Aufgabe behalten",
+      "currentModel": "Aktuelles Modell:",
+      "unavailable": "Das aktuelle Modell ist deaktiviert oder nicht konfiguriert. Wähle ein anderes oder den Systemstandard.",
+      "allHint": "Das gewählte Modell gilt für alle fehlgeschlagenen Aufgaben. Beim Behalten bleibt jede Aufgabe bei ihrer letzten Konfiguration. Nach dem Ausführen werden die Aufgaben erneut eingereiht, die früheste startet zuerst.",
+      "confirm": "Ausführen",
+      "executing": "Wird gesendet..."
     },
     "pagination": {
       "total": "Gesamt {total} Einträge, Seite {page} / {totalPages}",

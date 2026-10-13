@@ -1,6 +1,7 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator, ROLE_LEVEL } from "~~/server/utils/permission";
+import { readProviderModel } from "~~/server/utils/provider-config";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -68,6 +69,7 @@ export default defineEventHandler(async (event) => {
           id: true,
           name: true,
           provider: true,
+          extraConfig: true,
         },
       }),
       prisma.translationConfig.findMany({
@@ -75,12 +77,21 @@ export default defineEventHandler(async (event) => {
           id: true,
           name: true,
           provider: true,
+          extraConfig: true,
         },
       }),
     ]);
 
     const providerMap = new Map(
-      [...aiProviders, ...translationProviders].map((p) => [p.id, p])
+      [...aiProviders, ...translationProviders].map((p) => [
+        p.id,
+        {
+          id: p.id,
+          name: p.name,
+          provider: p.provider,
+          model: readProviderModel(p.extraConfig),
+        },
+      ])
     );
 
     // 组装返回数据

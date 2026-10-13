@@ -35,11 +35,23 @@
       "loading": "読み込み中...",
       "noLogs": "翻訳ログがありません",
       "retry": "再実行",
-      "retryTitle": "再実行",
+      "retryTitle": "モデルを選んで再実行",
       "retryAllFailed": "一括再起動",
       "copyArticleId": "記事IDをコピー",
       "delete": "削除",
       "deleteTitle": "ログを削除"
+    },
+    "retryDialog": {
+      "title": "モデルを選んで実行",
+      "titleAll": "失敗したタスクをすべて再試行",
+      "model": "モデル",
+      "useDefault": "システムのデフォルトを使う",
+      "keepOriginal": "各タスクの元のモデルを維持",
+      "currentModel": "現在のモデル:",
+      "unavailable": "現在のモデルは無効か、設定されていません。別のモデルかシステムのデフォルトを選んでください。",
+      "allHint": "選んだモデルは失敗したすべてのタスクに適用されます。元のモデルを維持すると、各タスクは前回の設定のままです。実行すると再びキューに入り、最も古いタスクから処理されます。",
+      "confirm": "実行",
+      "executing": "送信中..."
     },
     "pagination": {
       "total": "合計 {total} 件、{page} / {totalPages} ページ",

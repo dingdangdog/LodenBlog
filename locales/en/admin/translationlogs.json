@@ -35,11 +35,23 @@
       "loading": "Loading...",
       "noLogs": "No translation logs",
       "retry": "Retry",
-      "retryTitle": "Retry",
+      "retryTitle": "Choose a model and run again",
       "retryAllFailed": "Retry All",
       "copyArticleId": "Copy Article ID",
       "delete": "Delete",
       "deleteTitle": "Delete log"
+    },
+    "retryDialog": {
+      "title": "Choose a model and run",
+      "titleAll": "Retry all failed tasks",
+      "model": "Model",
+      "useDefault": "Use system default",
+      "keepOriginal": "Keep each task's model",
+      "currentModel": "Current model:",
+      "unavailable": "The current model is disabled or not configured. Choose another one, or use the system default.",
+      "allHint": "The selected model is applied to every failed task. Keeping the original model leaves each task on its last configuration. After you run this, the tasks are queued again and the earliest one starts first.",
+      "confirm": "Run",
+      "executing": "Submitting..."
     },
     "pagination": {
       "total": "Total {total} items, Page {page} / {totalPages}",

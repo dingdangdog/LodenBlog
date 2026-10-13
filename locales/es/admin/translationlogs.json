@@ -35,11 +35,23 @@
       "loading": "Cargando...",
       "noLogs": "No hay registros de traducción",
       "retry": "Reejecutar",
-      "retryTitle": "Reejecutar",
+      "retryTitle": "Elegir modelo y volver a ejecutar",
       "retryAllFailed": "Reintentar todo",
       "copyArticleId": "Copiar ID del artículo",
       "delete": "Eliminar",
       "deleteTitle": "Eliminar registro"
+    },
+    "retryDialog": {
+      "title": "Elegir modelo y ejecutar",
+      "titleAll": "Reintentar todas las tareas fallidas",
+      "model": "Modelo",
+      "useDefault": "Usar el predeterminado del sistema",
+      "keepOriginal": "Mantener el modelo de cada tarea",
+      "currentModel": "Modelo actual:",
+      "unavailable": "El modelo actual está desactivado o no está configurado. Elige otro o usa el predeterminado del sistema.",
+      "allHint": "El modelo elegido se aplica a todas las tareas fallidas. Si mantienes el original, cada tarea sigue con su última configuración. Al ejecutar, las tareas vuelven a la cola y la más antigua empieza primero.",
+      "confirm": "Ejecutar",
+      "executing": "Enviando..."
     },
     "pagination": {
       "total": "Total {total} registros, página {page} / {totalPages}",

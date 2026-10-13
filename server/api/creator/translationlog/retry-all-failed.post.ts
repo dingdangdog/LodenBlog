@@ -2,6 +2,7 @@ import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator, ROLE_LEVEL } from "~~/server/utils/permission";
 import { translationQueueExecutor } from "~~/server/utils/translation-queue";
+import { resolveRequestedProviderId } from "~~/server/utils/provider-config";
 
 /**
  * 一键重新处理所有失败的任务
@@ -10,6 +11,40 @@ import { translationQueueExecutor } from "~~/server/utils/translation-queue";
 export default defineEventHandler(async (event) => {
   try {
     const user = await requireCreator(event);
+
+    let body: { providerId?: unknown } = {};
+    try {
+      const raw = await readBody(event);
+      if (raw && typeof raw === "object") {
+        body = raw as { providerId?: unknown };
+      }
+    } catch {
+      body = {};
+    }
+
+    const updateProvider = Object.prototype.hasOwnProperty.call(
+      body,
+      "providerId"
+    );
+    let nextProviderId: string | null = null;
+    if (updateProvider) {
+      const resolved = await resolveRequestedProviderId(body.providerId);
+      if (!resolved.ok) {
+        return error(resolved.message);
+      }
+      nextProviderId = resolved.providerId;
+    }
+
+    const resetFailedTask = () => ({
+      status: "PENDING" as const,
+      errorMessage: null,
+      errorDetails: null,
+      startedAt: null,
+      completedAt: null,
+      resolvedAt: null,
+      retryCount: { increment: 1 },
+      ...(updateProvider ? { providerId: nextProviderId } : {}),
+    });
 
     // 构建查询条件
     const where: any = {
@@ -77,34 +112,14 @@ export default defineEventHandler(async (event) => {
       const updatePromises = validOtherTasks.map((task) =>
         prisma.translationLog.update({
           where: { id: task.id },
-          data: {
-            status: "PENDING",
-            errorMessage: null,
-            errorDetails: null,
-            startedAt: null,
-            completedAt: null,
-            resolvedAt: null,
-            retryCount: {
-              increment: 1,
-            },
-          },
+          data: resetFailedTask(),
         })
       );
 
       // 更新最早的任务
       const updatedEarliestTask = await prisma.translationLog.update({
         where: { id: validEarliestTask.id },
-        data: {
-          status: "PENDING",
-          errorMessage: null,
-          errorDetails: null,
-          startedAt: null,
-          completedAt: null,
-          resolvedAt: null,
-          retryCount: {
-            increment: 1,
-          },
-        },
+        data: resetFailedTask(),
       });
 
       await Promise.all(updatePromises);
@@ -148,17 +163,7 @@ export default defineEventHandler(async (event) => {
       const updatePromises = otherTasks.map((task) =>
         prisma.translationLog.update({
           where: { id: task.id },
-          data: {
-            status: "PENDING",
-            errorMessage: null,
-            errorDetails: null,
-            startedAt: null,
-            completedAt: null,
-            resolvedAt: null,
-            retryCount: {
-              increment: 1,
-            },
-          },
+          data: resetFailedTask(),
         })
       );
 
@@ -186,34 +191,14 @@ export default defineEventHandler(async (event) => {
     const updatePromises = otherTasks.map((task) =>
       prisma.translationLog.update({
         where: { id: task.id },
-        data: {
-          status: "PENDING",
-          errorMessage: null,
-          errorDetails: null,
-          startedAt: null,
-          completedAt: null,
-          resolvedAt: null,
-          retryCount: {
-            increment: 1,
-          },
-        },
+        data: resetFailedTask(),
       })
     );
 
     // 更新最早的任务
     const updatedEarliestTask = await prisma.translationLog.update({
       where: { id: earliestTask.id },
-      data: {
-        status: "PENDING",
-        errorMessage: null,
-        errorDetails: null,
-        startedAt: null,
-        completedAt: null,
-        resolvedAt: null,
-        retryCount: {
-          increment: 1,
-        },
-      },
+      data: resetFailedTask(),
     });
 
     await Promise.all(updatePromises);

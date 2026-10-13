@@ -39,7 +39,7 @@
         </button>
         <button type="button"
           class="px-4 py-2 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-          @click="handleRetryAllFailed" :disabled="retryAllLoading">
+          @click="openRetryAllDialog" :disabled="retryAllLoading">
           <span class="flex items-center gap-2">
             <ArrowPathIcon :class="['w-4 h-4', retryAllLoading && 'animate-spin']" />
             {{ $t("admin.translationlogs.actions.retryAllFailed") }}
@@ -90,7 +90,7 @@
                   </span>
                   <span v-if="log.provider"
                     class="px-2 py-0.5 rounded text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
-                    {{ log.provider.name }} ({{ log.provider.provider }})
+                    {{ formatProviderLabel(log.provider) }}
                   </span>
                 </div>
 
@@ -139,12 +139,12 @@
               </div>
 
               <div class="flex items-center gap-2 flex-shrink-0">
-                <button v-if="log.taskType === 'TASK' && canRetry(log.status)" @click="handleRetry(log)"
+                <button v-if="log.taskType === 'TASK' && canRetry(log.status)" @click="openRetryDialog(log)"
                   :disabled="retryingTasks.has(log.id)"
-                  class="p-2 rounded text-muted hover:text-blue-600 hover:bg-surface-muted transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-border text-xs font-medium text-foreground hover:bg-surface-muted transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   :title="$t('admin.translationlogs.actions.retryTitle')">
-                  <ArrowPathIcon v-if="!retryingTasks.has(log.id)" class="w-5 h-5" />
-                  <ArrowPathIcon v-else class="w-5 h-5 animate-spin" />
+                  <ArrowPathIcon class="w-4 h-4" :class="retryingTasks.has(log.id) && 'animate-spin'" />
+                  {{ $t("admin.translationlogs.actions.retry") }}
                 </button>
                 <button @click="handleDelete(log)" :disabled="deletingTasks.has(log.id)"
                   class="p-2 rounded text-muted hover:text-red-600 hover:bg-surface-muted transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
@@ -182,6 +182,86 @@
         </div>
       </div>
     </div>
+
+    <div v-if="retryDialog.open"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+      <div class="bg-surface text-foreground border border-border rounded-xl shadow-xl w-full max-w-lg p-5"
+        role="dialog" aria-modal="true"
+        :aria-labelledby="retryDialog.mode === 'all' ? 'retry-all-title' : 'retry-title'" @click.stop>
+        <div class="flex items-start justify-between gap-3 mb-4">
+          <h3 :id="retryDialog.mode === 'all' ? 'retry-all-title' : 'retry-title'"
+            class="text-base font-semibold text-foreground">
+            {{
+              retryDialog.mode === "all"
+                ? $t("admin.translationlogs.retryDialog.titleAll")
+                : $t("admin.translationlogs.retryDialog.title")
+            }}
+          </h3>
+          <button type="button"
+            class="p-1 rounded text-muted hover:text-foreground hover:bg-surface-muted transition-colors"
+            :aria-label="$t('common.cancel')" :disabled="retrySubmitting" @click="closeRetryDialog">
+            <XMarkIcon class="w-5 h-5" />
+          </button>
+        </div>
+
+        <div v-if="retryDialog.log" class="mb-4 space-y-1.5 text-sm">
+          <p class="flex items-start gap-2 min-w-0">
+            <span class="text-muted shrink-0">{{ $t("admin.translationlogs.fields.articleId") }}</span>
+            <span class="font-mono text-xs break-all">{{ retryDialog.log.articleBaseId }}</span>
+          </p>
+          <p>
+            <span class="text-muted">{{ $t("admin.translationlogs.fields.translationDirection") }}</span>
+            {{ getLanguageName(retryDialog.log.sourceLanguageCode) }} →
+            {{ getLanguageName(retryDialog.log.targetLanguageCode) }}
+          </p>
+          <p>
+            <span class="text-muted">{{ $t("admin.translationlogs.retryDialog.currentModel") }}</span>
+            {{
+              retryDialog.log.provider
+                ? formatProviderLabel(retryDialog.log.provider)
+                : $t("admin.translationlogs.retryDialog.useDefault")
+            }}
+          </p>
+          <p v-if="retryDialog.log.errorMessage" class="text-xs text-red-600 dark:text-red-400 break-words">
+            {{ retryDialog.log.errorMessage }}
+          </p>
+        </div>
+        <p v-else class="mb-4 text-sm text-muted">
+          {{ $t("admin.translationlogs.retryDialog.allHint") }}
+        </p>
+
+        <label class="block text-sm font-medium text-foreground mb-2">
+          {{ $t("admin.translationlogs.retryDialog.model") }}
+        </label>
+        <AppSelect v-model="retryDialog.providerId" :options="retryModelOptions" :allow-clear="false" searchable
+          placement="top" :disabled="retrySubmitting"
+          :placeholder="$t('admin.translationlogs.retryDialog.model')" />
+        <p v-if="retryDialog.originalMissing" class="mt-2 text-xs text-amber-700 dark:text-amber-300">
+          {{ $t("admin.translationlogs.retryDialog.unavailable") }}
+        </p>
+        <p v-if="retryDialogError" class="mt-2 text-xs text-red-600 dark:text-red-400 break-words">
+          {{ retryDialogError }}
+        </p>
+
+        <div class="mt-5 flex flex-wrap justify-end gap-2">
+          <button type="button"
+            class="px-4 py-2 rounded-lg border border-border text-foreground hover:bg-surface-muted transition-colors text-sm font-medium disabled:opacity-50"
+            :disabled="retrySubmitting" @click="closeRetryDialog">
+            {{ $t("common.cancel") }}
+          </button>
+          <button type="button"
+            class="px-4 py-2 rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-2"
+            :disabled="retrySubmitting" @click="submitRetryDialog">
+            <ArrowPathIcon v-if="retrySubmitting" class="w-4 h-4 animate-spin" />
+            {{
+              retrySubmitting
+                ? $t("admin.translationlogs.retryDialog.executing")
+                : $t("admin.translationlogs.retryDialog.confirm")
+            }}
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -192,6 +272,7 @@ import {
   DocumentTextIcon,
   ClipboardDocumentIcon,
   TrashIcon,
+  XMarkIcon,
 } from "@heroicons/vue/24/outline";
 import { useConfirm } from "~/composables/useConfirm";
 
@@ -235,10 +316,19 @@ interface TranslationLogItem {
     id: string;
     name: string;
     provider: string;
+    model?: string | null;
   } | null;
 }
 
+interface TranslationProviderOption {
+  id: string;
+  name: string;
+  provider: string;
+  model?: string | null;
+}
+
 const languages = ref<LanguageItem[]>([]);
+const translationProviders = ref<TranslationProviderOption[]>([]);
 const logs = ref<TranslationLogItem[]>([]);
 const listLoading = ref(false);
 const pagination = reactive({
@@ -317,6 +407,63 @@ const deletingTasks = ref<Set<string>>(new Set());
 
 // 一键重新处理所有失败任务相关状态
 const retryAllLoading = ref(false);
+
+const retryDialog = reactive({
+  open: false,
+  mode: "single" as "single" | "all",
+  log: null as TranslationLogItem | null,
+  providerId: "__default__",
+  originalMissing: false,
+});
+const retryDialogError = ref("");
+
+const formatProviderLabel = (provider: {
+  name: string;
+  provider: string;
+  model?: string | null;
+}) => {
+  if (provider.model) return `${provider.name} · ${provider.model}`;
+  return `${provider.name} (${provider.provider})`;
+};
+
+const retryModelOptions = computed(() => {
+  const models = translationProviders.value.map((provider) => ({
+    value: provider.id,
+    label: formatProviderLabel(provider),
+  }));
+  if (retryDialog.mode === "all") {
+    return [
+      {
+        value: "__keep__",
+        label: t("admin.translationlogs.retryDialog.keepOriginal"),
+      },
+      {
+        value: "__default__",
+        label: t("admin.translationlogs.retryDialog.useDefault"),
+      },
+      ...models,
+    ];
+  }
+  return [
+    {
+      value: "__default__",
+      label: t("admin.translationlogs.retryDialog.useDefault"),
+    },
+    ...models,
+  ];
+});
+
+const retrySubmitting = computed(() => {
+  if (retryDialog.mode === "all") return retryAllLoading.value;
+  return !!retryDialog.log && retryingTasks.value.has(retryDialog.log.id);
+});
+
+const setRetrying = (id: string, active: boolean) => {
+  const next = new Set(retryingTasks.value);
+  if (active) next.add(id);
+  else next.delete(id);
+  retryingTasks.value = next;
+};
 
 // 获取语言名称
 const getLanguageName = (code: string) => {
@@ -400,6 +547,51 @@ const formatDate = (date: string | null) => {
   } else {
     return d.toLocaleString();
   }
+};
+
+const loadTranslationProviders = async () => {
+  try {
+    const response: any = await $fetch("/api/creator/translations");
+    if (response?.c === 200 && Array.isArray(response.d)) {
+      translationProviders.value = response.d;
+    }
+  } catch (error) {
+    console.error("加载翻译模型失败", error);
+  }
+};
+
+const providerBody = () => {
+  if (retryDialog.providerId === "__keep__") return {};
+  if (retryDialog.providerId === "__default__") return { providerId: null };
+  return { providerId: retryDialog.providerId };
+};
+
+const openRetryDialog = (log: TranslationLogItem) => {
+  if (!canRetry(log.status)) return;
+  const available = translationProviders.value.some(
+    (provider) => provider.id === log.providerId
+  );
+  retryDialog.mode = "single";
+  retryDialog.log = log;
+  retryDialog.originalMissing = !!log.providerId && !available;
+  retryDialog.providerId =
+    available && log.providerId ? log.providerId : "__default__";
+  retryDialogError.value = "";
+  retryDialog.open = true;
+};
+
+const openRetryAllDialog = () => {
+  retryDialog.mode = "all";
+  retryDialog.log = null;
+  retryDialog.originalMissing = false;
+  retryDialog.providerId = "__keep__";
+  retryDialogError.value = "";
+  retryDialog.open = true;
+};
+
+const closeRetryDialog = () => {
+  if (retrySubmitting.value) return;
+  retryDialog.open = false;
 };
 
 // 加载语言列表
@@ -497,33 +689,43 @@ const handleRetry = async (log: TranslationLogItem) => {
     return;
   }
 
-  retryingTasks.value.add(log.id);
+  setRetrying(log.id, true);
 
   try {
     const response: any = await $fetch(
       `/api/creator/translationlog/${log.id}/retry`,
       {
         method: "POST",
+        body: providerBody(),
       }
     );
 
     if (response?.c === 200) {
+      retryDialog.open = false;
       setMessage(t("admin.translationlogs.messages.retrySuccess"), "success");
-      // 刷新列表
       await loadLogs();
     } else {
-      setMessage(
-        response?.m || t("admin.translationlogs.messages.retryFailed"),
-        "error"
-      );
+      retryDialogError.value =
+        response?.m || t("admin.translationlogs.messages.retryFailed");
     }
   } catch (err: any) {
-    setMessage(
-      err?.message || t("admin.translationlogs.messages.retryFailed"),
-      "error"
-    );
+    retryDialogError.value =
+      err?.data?.m ||
+      err?.message ||
+      t("admin.translationlogs.messages.retryFailed");
   } finally {
-    retryingTasks.value.delete(log.id);
+    setRetrying(log.id, false);
+  }
+};
+
+const submitRetryDialog = async () => {
+  retryDialogError.value = "";
+  if (retryDialog.mode === "all") {
+    await handleRetryAllFailed();
+    return;
+  }
+  if (retryDialog.log) {
+    await handleRetry(retryDialog.log);
   }
 };
 
@@ -575,18 +777,6 @@ const handleDelete = async (log: TranslationLogItem) => {
 
 // 处理一键重新处理所有失败任务
 const handleRetryAllFailed = async () => {
-  const confirmed = await showConfirm({
-    title: t("admin.translationlogs.actions.retryAllFailed"),
-    message: t("admin.translationlogs.messages.retryAllFailedConfirm"),
-    type: "warning",
-    confirmText: t("common.confirm"),
-    cancelText: t("common.cancel"),
-  });
-
-  if (!confirmed) {
-    return;
-  }
-
   retryAllLoading.value = true;
 
   try {
@@ -594,27 +784,26 @@ const handleRetryAllFailed = async () => {
       "/api/creator/translationlog/retry-all-failed",
       {
         method: "POST",
+        body: providerBody(),
       }
     );
 
     if (response?.c === 200) {
+      retryDialog.open = false;
       setMessage(
         response?.m || t("admin.translationlogs.messages.retryAllFailedSuccess"),
         "success"
       );
-      // 刷新列表
       await loadLogs();
     } else {
-      setMessage(
-        response?.m || t("admin.translationlogs.messages.retryAllFailedFailed"),
-        "error"
-      );
+      retryDialogError.value =
+        response?.m || t("admin.translationlogs.messages.retryAllFailedFailed");
     }
   } catch (err: any) {
-    setMessage(
-      err?.message || t("admin.translationlogs.messages.retryAllFailedFailed"),
-      "error"
-    );
+    retryDialogError.value =
+      err?.data?.m ||
+      err?.message ||
+      t("admin.translationlogs.messages.retryAllFailedFailed");
   } finally {
     retryAllLoading.value = false;
   }
@@ -622,6 +811,6 @@ const handleRetryAllFailed = async () => {
 
 // 初始化
 onMounted(async () => {
-  await Promise.all([loadLanguages(), loadLogs()]);
+  await Promise.all([loadLanguages(), loadTranslationProviders(), loadLogs()]);
 });
 </script>

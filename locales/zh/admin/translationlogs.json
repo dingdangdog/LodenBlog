@@ -34,11 +34,23 @@
       "loading": "加载中...",
       "noLogs": "暂无翻译日志",
       "retry": "重新执行",
-      "retryTitle": "重新执行",
+      "retryTitle": "选择模型并重新执行",
       "retryAllFailed": "重试所有",
       "copyArticleId": "复制文章ID",
       "delete": "删除",
       "deleteTitle": "删除日志"
+    },
+    "retryDialog": {
+      "title": "选择模型并执行",
+      "titleAll": "重试所有失败任务",
+      "model": "模型",
+      "useDefault": "使用系统默认",
+      "keepOriginal": "保持各任务原模型",
+      "currentModel": "当前模型:",
+      "unavailable": "当前模型已停用或未配置，请另选一个，或改用系统默认。",
+      "allHint": "可以选择一个模型应用到所有失败任务。保持原模型时，每条任务仍用上次的配置。提交后会重新入队，最早的任务会先执行。",
+      "confirm": "执行",
+      "executing": "提交中..."
     },
     "pagination": {
       "total": "共 {total} 条，第 {page} / {totalPages} 页",
