@@ -1,12 +1,16 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  EXTERNAL_LINK_MAX_COUNT,
   FREE_CONTENT_MARKER,
   REDEEM_CODE_ALPHABET,
   REDEEM_CODE_LENGTH,
   buildRedeemCode,
   nextSubscriptionWindow,
+  normalizeExternalLinks,
+  parseExternalLinks,
   remainingDays,
+  serializeExternalLinks,
   splitFreeContent,
   stripFreeMarker,
 } from "./column-access.ts";
@@ -83,5 +87,52 @@ describe("buildRedeemCode", () => {
     assert.equal(code.length, REDEEM_CODE_LENGTH);
     assert.equal(code, REDEEM_CODE_ALPHABET.at(-1)!.repeat(REDEEM_CODE_LENGTH));
     assert.equal(/[01ILO]/.test(code), false);
+  });
+});
+
+describe("normalizeExternalLinks", () => {
+  it("去掉空行并修剪空白，空说明不保留", () => {
+    const result = normalizeExternalLinks([
+      { name: " 小报童 ", url: " https://xiaobot.net/p/demo ", description: " " },
+      { name: "", url: "", description: "只有说明" },
+    ]);
+    assert.deepEqual(result, {
+      ok: true,
+      links: [{ name: "小报童", url: "https://xiaobot.net/p/demo" }],
+    });
+  });
+
+  it("缺名称或非 http(s) 链接时拒绝", () => {
+    assert.equal(normalizeExternalLinks([{ name: "", url: "https://a.com" }]).ok, false);
+    assert.equal(normalizeExternalLinks([{ name: "x", url: "javascript:alert(1)" }]).ok, false);
+    assert.equal(normalizeExternalLinks([{ name: "x", url: "mp.weixin.qq.com" }]).ok, false);
+  });
+
+  it("超过数量上限时拒绝", () => {
+    const links = Array.from({ length: EXTERNAL_LINK_MAX_COUNT + 1 }, (_, i) => ({
+      name: `p${i}`,
+      url: `https://a.com/${i}`,
+    }));
+    assert.equal(normalizeExternalLinks(links).ok, false);
+    assert.equal(normalizeExternalLinks(links.slice(1)).ok, true);
+  });
+
+  it("非数组输入拒绝，空值视为没有外链", () => {
+    assert.equal(normalizeExternalLinks("https://a.com").ok, false);
+    assert.deepEqual(normalizeExternalLinks(undefined), { ok: true, links: [] });
+  });
+});
+
+describe("parseExternalLinks", () => {
+  it("损坏或不合规的 JSON 返回空列表", () => {
+    assert.deepEqual(parseExternalLinks("not json"), []);
+    assert.deepEqual(parseExternalLinks('[{"name":"x","url":"ftp://a"}]'), []);
+    assert.deepEqual(parseExternalLinks(null), []);
+  });
+
+  it("与序列化结果往返一致", () => {
+    const links = [{ name: "公众号", url: "https://mp.weixin.qq.com/s/x", description: "回复关键词" }];
+    assert.deepEqual(parseExternalLinks(serializeExternalLinks(links)), links);
+    assert.equal(serializeExternalLinks([]), null);
   });
 });

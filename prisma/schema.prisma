@@ -76,6 +76,9 @@ model ArticleBase {
   priceAmount Int?
   currency    String? @db.VarChar(3) // ISO 4217，如 CNY、USD
 
+  // 付费墙外链（引流到公众号、小报童等平台），JSON数组：[{ "name": "小报童", "url": "https://...", "description": "..." }]
+  externalLinks String? @db.Text
+
   // 时间戳
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

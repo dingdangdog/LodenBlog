@@ -3,6 +3,7 @@ import prisma from "~~/lib/prisma";
 import { getCurrentUser } from "~~/server/utils/permission";
 import { ROLE_LEVEL } from "~~/utils/role";
 import { resolveArticleRead } from "~~/server/utils/column-domain";
+import { parseExternalLinks } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -168,6 +169,9 @@ export default defineEventHandler(async (event) => {
       lockReason: readable.lockReason,
       column: readable.column,
       subscriptionExpiresAt: readable.subscriptionExpiresAt,
+      externalLinks: readable.locked
+        ? parseExternalLinks(articleBase.externalLinks)
+        : [],
       excerpt: articleContent.excerpt,
       featuredImage: articleBase.featuredImage,
       publishedAt: articleBase.publishedAt,

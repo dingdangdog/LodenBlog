@@ -3208,6 +3208,7 @@ export const ArticleBaseScalarFieldEnum = {
   columnId: 'columnId',
   priceAmount: 'priceAmount',
   currency: 'currency',
+  externalLinks: 'externalLinks',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

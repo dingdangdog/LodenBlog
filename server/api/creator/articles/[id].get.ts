@@ -2,6 +2,7 @@ import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator, ROLE_LEVEL } from "~~/server/utils/permission";
 import { createError } from "h3";
+import { parseExternalLinks } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -92,6 +93,7 @@ export default defineEventHandler(async (event) => {
       authorId: articleBase.authorId,
       accessType: articleBase.accessType,
       columnId: articleBase.columnId,
+      externalLinks: parseExternalLinks(articleBase.externalLinks),
       seoTitle: articleContent.seoTitle,
       seoDescription: articleContent.seoDescription,
       seoKeyword: articleContent.seoKeyword,

@@ -154,7 +154,13 @@
       "noColumn": "No columns yet",
       "insertMarker": "Insert free-preview marker",
       "markerHint": "Content before <!--free--> can be read for free",
-      "codes": "Unlock codes"
+      "codes": "Unlock codes",
+      "externalLinks": "External platform links",
+      "externalLinksHint": "Shown on the paywall to send readers to platforms such as a newsletter or WeChat Official Account to subscribe or buy. Saved with the article, up to {max} links.",
+      "addExternalLink": "Add link",
+      "removeExternalLink": "Remove link",
+      "externalLinkName": "Platform name, e.g. Substack",
+      "externalLinkDescription": "Note (optional), e.g. Message me after subscribing to get a code"
     }
   }
 }

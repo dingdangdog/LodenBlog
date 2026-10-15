@@ -154,7 +154,13 @@
       "noColumn": "Noch keine Kolumnen",
       "insertMarker": "Kostenlose Grenze einfügen",
       "markerHint": "Inhalt vor <!--free--> kann kostenlos gelesen werden",
-      "codes": "Freischaltcodes"
+      "codes": "Freischaltcodes",
+      "externalLinks": "Links zu externen Plattformen",
+      "externalLinksHint": "Werden in der Paywall angezeigt und führen Leser zu Plattformen wie einem Newsletter oder WeChat-Konto, um dort zu abonnieren oder zu kaufen. Werden mit dem Artikel gespeichert, höchstens {max} Links.",
+      "addExternalLink": "Link hinzufügen",
+      "removeExternalLink": "Link entfernen",
+      "externalLinkName": "Plattformname, z. B. Substack",
+      "externalLinkDescription": "Hinweis (optional), z. B. Nach dem Abo per Nachricht einen Code erhalten"
     }
   }
 }

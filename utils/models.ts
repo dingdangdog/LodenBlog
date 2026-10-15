@@ -1,3 +1,5 @@
+import type { ArticleExternalLink } from "./column-access";
+
 export interface Result<T> {
   c: number;
   m: string;
@@ -36,6 +38,7 @@ export interface Article {
   lockReason?: string | null;
   subscriptionExpiresAt?: string | null;
   column?: { id: string; slug: string; title: string } | null;
+  externalLinks?: ArticleExternalLink[];
   author?: {
     id: string;
     name: string;

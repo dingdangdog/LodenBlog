@@ -154,7 +154,13 @@
       "noColumn": "Aún no hay columnas",
       "insertMarker": "Insertar límite gratuito",
       "markerHint": "El contenido anterior a <!--free--> se puede leer gratis",
-      "codes": "Códigos de desbloqueo"
+      "codes": "Códigos de desbloqueo",
+      "externalLinks": "Enlaces a plataformas externas",
+      "externalLinksHint": "Se muestran en el muro de pago para llevar a los lectores a plataformas como un boletín o una cuenta oficial de WeChat para suscribirse o comprar. Se guardan con el artículo, hasta {max} enlaces.",
+      "addExternalLink": "Añadir enlace",
+      "removeExternalLink": "Quitar enlace",
+      "externalLinkName": "Nombre de la plataforma, p. ej. Substack",
+      "externalLinkDescription": "Nota (opcional), p. ej. Escríbeme tras suscribirte para recibir un código"
     }
   }
 }

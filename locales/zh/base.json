@@ -218,6 +218,8 @@
     "paywallExpired": "订阅已于 {date} 过期",
     "paywallUnpublished": "专栏暂未开放，订阅时间内也无法阅读全文",
     "viewColumn": "查看专栏",
+    "externalLinksOr": "或前往以下平台",
+    "externalLinksTitle": "前往以下平台阅读",
     "redeemLabel": "兑换码",
     "redeemPlaceholder": "输入兑换码",
     "redeemSubmit": "兑换",

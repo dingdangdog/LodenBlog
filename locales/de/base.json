@@ -217,6 +217,8 @@
     "paywallExpired": "Das Abo ist am {date} abgelaufen",
     "paywallUnpublished": "Die Kolumne ist nicht geöffnet, der volle Text bleibt verborgen",
     "viewColumn": "Kolumne ansehen",
+    "externalLinksOr": "Oder weiter auf",
+    "externalLinksTitle": "Auf diesen Plattformen lesen",
     "redeemLabel": "Code",
     "redeemPlaceholder": "Code eingeben",
     "redeemSubmit": "Einlösen",

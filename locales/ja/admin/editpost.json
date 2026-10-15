@@ -154,7 +154,13 @@
       "noColumn": "コラムがまだありません",
       "insertMarker": "無料境界を挿入",
       "markerHint": "<!--free--> より前の内容は無料で読めます",
-      "codes": "解除コード"
+      "codes": "解除コード",
+      "externalLinks": "外部プラットフォームのリンク",
+      "externalLinksHint": "ペイウォールに表示され、WeChat 公式アカウントや有料ニュースレターなどで購読・購入するよう読者を案内します。記事と一緒に保存され、最大 {max} 件です。",
+      "addExternalLink": "リンクを追加",
+      "removeExternalLink": "リンクを削除",
+      "externalLinkName": "プラットフォーム名（例：note）",
+      "externalLinkDescription": "説明（任意）例：購読後にメッセージで交換コードをお送りします"
     }
   }
 }

@@ -3,7 +3,12 @@ import prisma from "~~/lib/prisma";
 import { requireCreator, ROLE_LEVEL } from "~~/server/utils/permission";
 import { createError } from "h3";
 import { normalizeArticleAccess } from "~~/server/utils/column-domain";
-import { splitFreeContent } from "~~/utils/column-access";
+import {
+  normalizeExternalLinks,
+  parseExternalLinks,
+  serializeExternalLinks,
+  splitFreeContent,
+} from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -49,6 +54,7 @@ export default defineEventHandler(async (event) => {
       isPublished,
       accessType,
       columnId,
+      externalLinks,
       contentId, // 如果提供了 contentId，更新指定的 ArticleContent
     } = body;
 
@@ -139,6 +145,18 @@ export default defineEventHandler(async (event) => {
       }
     }
 
+    let externalLinksUpdate: string | null | undefined;
+    if (externalLinks !== undefined) {
+      if (articleBase.authorId !== user.id) {
+        return error("只有作者可以修改文章的外链");
+      }
+      const links = normalizeExternalLinks(externalLinks);
+      if (!links.ok) {
+        return error(links.message);
+      }
+      externalLinksUpdate = serializeExternalLinks(links.links);
+    }
+
     // 使用事务更新
     const result = await prisma.$transaction(async (tx) => {
       // 更新 ArticleBase
@@ -154,6 +172,9 @@ export default defineEventHandler(async (event) => {
       if (accessUpdate) {
         baseUpdateData.accessType = accessUpdate.accessType;
         baseUpdateData.columnId = accessUpdate.columnId;
+      }
+      if (externalLinksUpdate !== undefined) {
+        baseUpdateData.externalLinks = externalLinksUpdate;
       }
       if (status !== undefined) baseUpdateData.status = status;
       if (isPublished !== undefined) {
@@ -313,6 +334,7 @@ export default defineEventHandler(async (event) => {
         authorId: updatedBase.authorId,
         accessType: updatedBase.accessType,
         columnId: updatedBase.columnId,
+        externalLinks: parseExternalLinks(updatedBase.externalLinks),
         seoTitle: updatedContent.seoTitle,
         seoDescription: updatedContent.seoDescription,
         seoKeyword: updatedContent.seoKeyword,

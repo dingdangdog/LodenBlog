@@ -2,7 +2,11 @@ import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator } from "~~/server/utils/permission";
 import { normalizeArticleAccess } from "~~/server/utils/column-domain";
-import { splitFreeContent } from "~~/utils/column-access";
+import {
+  normalizeExternalLinks,
+  serializeExternalLinks,
+  splitFreeContent,
+} from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -26,6 +30,7 @@ export default defineEventHandler(async (event) => {
       isPublished = false,
       accessType,
       columnId,
+      externalLinks,
     } = body;
 
     // slug 统一转为小写
@@ -102,6 +107,11 @@ export default defineEventHandler(async (event) => {
       return error(err instanceof Error ? err.message : "访问类型无效");
     }
 
+    const links = normalizeExternalLinks(externalLinks);
+    if (!links.ok) {
+      return error(links.message);
+    }
+
     // 使用事务创建 ArticleBase 和 ArticleContent
     const result = await prisma.$transaction(async (tx) => {
       // 创建 ArticleBase
@@ -109,6 +119,7 @@ export default defineEventHandler(async (event) => {
         data: {
           accessType: access.accessType,
           columnId: access.columnId,
+          externalLinks: serializeExternalLinks(links.links),
           featuredImage:
             (typeof featuredImage === "string"
               ? featuredImage.trim()
@@ -163,6 +174,7 @@ export default defineEventHandler(async (event) => {
         authorId: articleBase.authorId,
         accessType: articleBase.accessType,
         columnId: articleBase.columnId,
+        externalLinks: links.links,
         seoTitle: articleContent.seoTitle,
         seoDescription: articleContent.seoDescription,
         seoKeyword: articleContent.seoKeyword,

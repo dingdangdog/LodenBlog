@@ -216,6 +216,8 @@
     "paywallExpired": "購読は {date} に終了しました",
     "paywallUnpublished": "コラムは未公開のため、全文は表示されません",
     "viewColumn": "コラムを見る",
+    "externalLinksOr": "または以下のプラットフォームへ",
+    "externalLinksTitle": "以下のプラットフォームで読む",
     "redeemLabel": "交換コード",
     "redeemPlaceholder": "コードを入力",
     "redeemSubmit": "交換",

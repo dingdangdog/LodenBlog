@@ -217,6 +217,8 @@
     "paywallExpired": "Subscription expired on {date}",
     "paywallUnpublished": "This column is not open, so the full article stays hidden",
     "viewColumn": "View column",
+    "externalLinksOr": "Or continue on",
+    "externalLinksTitle": "Read on these platforms",
     "redeemLabel": "Redeem code",
     "redeemPlaceholder": "Enter code",
     "redeemSubmit": "Redeem",

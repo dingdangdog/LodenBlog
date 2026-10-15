@@ -217,6 +217,8 @@
     "paywallExpired": "La suscripción venció el {date}",
     "paywallUnpublished": "La columna no está abierta, así que el texto completo sigue oculto",
     "viewColumn": "Ver columna",
+    "externalLinksOr": "O continúa en",
+    "externalLinksTitle": "Leer en estas plataformas",
     "redeemLabel": "Código",
     "redeemPlaceholder": "Introduce el código",
     "redeemSubmit": "Canjear",

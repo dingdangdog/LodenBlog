@@ -154,7 +154,13 @@
       "noColumn": "还没有专栏",
       "insertMarker": "插入免费分界",
       "markerHint": "<!--free-->之前的内容可以免费阅读",
-      "codes": "解锁兑换码"
+      "codes": "解锁兑换码",
+      "externalLinks": "外部平台链接",
+      "externalLinksHint": "显示在付费墙中，引导读者前往微信公众号、小报童等平台订阅或购买。随文章一起保存，最多 {max} 个。",
+      "addExternalLink": "添加链接",
+      "removeExternalLink": "删除链接",
+      "externalLinkName": "平台名称，如 小报童",
+      "externalLinkDescription": "说明（选填），如 订阅后私信获取兑换码"
     }
   }
 }

@@ -101,3 +101,75 @@ export function normalizeRedeemCode(raw: unknown): string {
     .trim()
     .toUpperCase();
 }
+
+export interface ArticleExternalLink {
+  name: string;
+  url: string;
+  description?: string;
+}
+
+export const EXTERNAL_LINK_MAX_COUNT = 10;
+export const EXTERNAL_LINK_NAME_MAX = 30;
+export const EXTERNAL_LINK_URL_MAX = 500;
+export const EXTERNAL_LINK_DESCRIPTION_MAX = 100;
+
+export function isHttpUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+export type ExternalLinksResult =
+  | { ok: true; links: ArticleExternalLink[] }
+  | { ok: false; message: string };
+
+/** 名称和链接都为空的行视为未填写，直接丢弃。 */
+export function normalizeExternalLinks(raw: unknown): ExternalLinksResult {
+  if (raw == null) return { ok: true, links: [] };
+  if (!Array.isArray(raw)) return { ok: false, message: "外链格式无效" };
+
+  const links: ArticleExternalLink[] = [];
+  for (const item of raw) {
+    const row = (item ?? {}) as Record<string, unknown>;
+    const name = String(row.name ?? "").trim();
+    const url = String(row.url ?? "").trim();
+    const description = String(row.description ?? "").trim();
+    if (!name && !url) continue;
+    if (!name) return { ok: false, message: "外链缺少平台名称" };
+    if (name.length > EXTERNAL_LINK_NAME_MAX) {
+      return { ok: false, message: `平台名称不能超过 ${EXTERNAL_LINK_NAME_MAX} 个字符` };
+    }
+    if (!url || url.length > EXTERNAL_LINK_URL_MAX || !isHttpUrl(url)) {
+      return { ok: false, message: `「${name}」的链接需以 http:// 或 https:// 开头` };
+    }
+    if (description.length > EXTERNAL_LINK_DESCRIPTION_MAX) {
+      return {
+        ok: false,
+        message: `外链说明不能超过 ${EXTERNAL_LINK_DESCRIPTION_MAX} 个字符`,
+      };
+    }
+    links.push(description ? { name, url, description } : { name, url });
+  }
+  if (links.length > EXTERNAL_LINK_MAX_COUNT) {
+    return { ok: false, message: `外链最多 ${EXTERNAL_LINK_MAX_COUNT} 个` };
+  }
+  return { ok: true, links };
+}
+
+export function serializeExternalLinks(links: ArticleExternalLink[]): string | null {
+  return links.length > 0 ? JSON.stringify(links) : null;
+}
+
+/** 读取库内 JSON；损坏或不合规的数据不下发到前台。 */
+export function parseExternalLinks(stored: string | null | undefined): ArticleExternalLink[] {
+  if (!stored) return [];
+  try {
+    const result = normalizeExternalLinks(JSON.parse(stored));
+    return result.ok ? result.links : [];
+  } catch {
+    return [];
+  }
+}

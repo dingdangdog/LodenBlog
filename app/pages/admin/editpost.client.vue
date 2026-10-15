@@ -252,6 +252,42 @@
                 />
               </div>
             </div>
+            <div v-if="form.accessType !== 'FREE'" class="space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-200">
+                  {{ $t("admin.editpost.access.externalLinks") }}
+                </label>
+                <button type="button"
+                  class="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-medium text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-500/10 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+                  :disabled="form.externalLinks.length >= EXTERNAL_LINK_MAX_COUNT" @click="addExternalLink">
+                  <PlusIcon class="w-4 h-4" />
+                  {{ $t("admin.editpost.access.addExternalLink") }}
+                </button>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400">
+                {{ $t("admin.editpost.access.externalLinksHint", { max: EXTERNAL_LINK_MAX_COUNT }) }}
+              </p>
+              <div v-for="(link, index) in form.externalLinks" :key="link.key"
+                class="flex gap-2 rounded-lg border border-border p-3">
+                <div class="grid min-w-0 flex-1 gap-2 sm:grid-cols-[10rem_minmax(0,1fr)]">
+                  <input v-model="link.name" type="text" :maxlength="EXTERNAL_LINK_NAME_MAX"
+                    class="w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm text-foreground placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary-500 transition"
+                    :placeholder="$t('admin.editpost.access.externalLinkName')" />
+                  <input v-model="link.url" type="url" :maxlength="EXTERNAL_LINK_URL_MAX"
+                    class="w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm text-foreground placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary-500 transition"
+                    placeholder="https://" />
+                  <input v-model="link.description" type="text" :maxlength="EXTERNAL_LINK_DESCRIPTION_MAX"
+                    class="w-full rounded-lg border border-border bg-transparent px-3 py-2 text-sm text-foreground placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary-500 transition sm:col-span-2"
+                    :placeholder="$t('admin.editpost.access.externalLinkDescription')" />
+                </div>
+                <button type="button"
+                  class="self-start rounded-lg p-2 text-gray-400 hover:bg-gray-100 hover:text-red-600 dark:hover:bg-gray-800 transition-colors"
+                  :title="$t('admin.editpost.access.removeExternalLink')"
+                  :aria-label="$t('admin.editpost.access.removeExternalLink')" @click="removeExternalLink(index)">
+                  <XMarkIcon class="w-4 h-4" />
+                </button>
+              </div>
+            </div>
             <AdminRedeemCodeManager
               v-if="form.accessType === 'PAID' && persistedAccessType === 'PAID' && form.id && !savingOnly"
               :title="$t('admin.editpost.access.codes')"
@@ -597,6 +633,13 @@ import {
   PlusIcon,
   XMarkIcon,
 } from "@heroicons/vue/24/outline";
+import {
+  EXTERNAL_LINK_DESCRIPTION_MAX,
+  EXTERNAL_LINK_MAX_COUNT,
+  EXTERNAL_LINK_NAME_MAX,
+  EXTERNAL_LINK_URL_MAX,
+  type ArticleExternalLink,
+} from "~~/utils/column-access";
 
 definePageMeta({
   layout: "admin",
@@ -631,6 +674,14 @@ interface ArticleItem {
   seoKeyword?: string | null;
   accessType?: string;
   columnId?: string | null;
+  externalLinks?: ArticleExternalLink[];
+}
+
+interface ExternalLinkRow {
+  key: number;
+  name: string;
+  url: string;
+  description: string;
 }
 
 const route = useRoute();
@@ -722,6 +773,7 @@ const emptyForm = (): any => ({
   isPublished: false,
   accessType: "FREE",
   columnId: "",
+  externalLinks: [] as ExternalLinkRow[],
 });
 
 const form = reactive(emptyForm());
@@ -752,7 +804,34 @@ function accessPayload() {
   return {
     accessType: form.accessType || "FREE",
     columnId: form.accessType === "COLUMN" ? form.columnId || null : null,
+    externalLinks: (form.externalLinks as ExternalLinkRow[])
+      .map(({ name, url, description }) => ({
+        name: name.trim(),
+        url: url.trim(),
+        description: description.trim(),
+      }))
+      .filter((link) => link.name || link.url),
   };
+}
+
+let externalLinkKey = 0;
+
+function toExternalLinkRows(links: ArticleExternalLink[] = []): ExternalLinkRow[] {
+  return links.map((link) => ({
+    key: ++externalLinkKey,
+    name: link.name,
+    url: link.url,
+    description: link.description || "",
+  }));
+}
+
+function addExternalLink() {
+  if (form.externalLinks.length >= EXTERNAL_LINK_MAX_COUNT) return;
+  form.externalLinks.push({ key: ++externalLinkKey, name: "", url: "", description: "" });
+}
+
+function removeExternalLink(index: number) {
+  form.externalLinks.splice(index, 1);
 }
 
 const formMessage = reactive({
@@ -1093,6 +1172,7 @@ const loadArticle = async (id: string, languageCode?: string) => {
       form.isPublished = article.isPublished;
       form.accessType = article.accessType || "FREE";
       form.columnId = article.columnId || "";
+      form.externalLinks = toExternalLinkRows(article.externalLinks);
       rememberPersistedAccess();
       originalIsPublished.value = article.isPublished;
       originalStatus.value = article.status || "DRAFT"; // 保存原始状态

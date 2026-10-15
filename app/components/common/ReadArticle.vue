@@ -102,8 +102,30 @@
         <p v-else-if="article.lockReason === 'COLUMN_UNPUBLISHED'" class="mx-auto mt-2 max-w-md text-sm text-muted">
           {{ $t("column.paywallUnpublished") }}
         </p>
-        <CommonRedeemCodeForm v-if="article.lockReason !== 'COLUMN_UNPUBLISHED'" class="mx-auto mt-5 max-w-md text-left"
+        <CommonRedeemCodeForm v-if="canRedeem" class="mx-auto mt-5 max-w-md text-left"
           @success="refreshNuxtData()" />
+        <div v-if="externalLinks.length" class="mx-auto mt-6 max-w-md text-left">
+          <div class="mb-3 flex items-center gap-3 text-xs text-muted">
+            <span class="h-px flex-1 bg-border"></span>
+            <span>{{ canRedeem ? $t("column.externalLinksOr") : $t("column.externalLinksTitle") }}</span>
+            <span class="h-px flex-1 bg-border"></span>
+          </div>
+          <ul class="space-y-2">
+            <li v-for="(link, index) in externalLinks" :key="`${index}-${link.url}`">
+              <a :href="link.url" target="_blank" rel="noopener noreferrer nofollow"
+                class="group flex items-center gap-3 rounded-lg border border-border px-3 py-2.5 transition-colors hover:border-primary-300 hover:bg-surface-muted dark:hover:border-primary-500/40">
+                <span class="min-w-0 flex-1">
+                  <span class="block truncate text-sm font-medium text-foreground">{{ link.name }}</span>
+                  <span v-if="link.description" class="mt-0.5 block break-words text-xs text-muted">
+                    {{ link.description }}
+                  </span>
+                </span>
+                <ArrowTopRightOnSquareIcon
+                  class="h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-primary-600" />
+              </a>
+            </li>
+          </ul>
+        </div>
         <NuxtLink v-if="article.column?.slug" :to="localePath(`/column/${article.column.slug}`)"
           class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors">
           <RectangleStackIcon class="h-4 w-4" />
@@ -158,6 +180,7 @@
 import { BookmarkIcon } from "@heroicons/vue/24/outline";
 import { BookmarkIcon as BookmarkSolidIcon } from "@heroicons/vue/24/solid";
 import {
+  ArrowTopRightOnSquareIcon,
   ChevronRightIcon,
   LockClosedIcon,
   LockOpenIcon,
@@ -258,6 +281,9 @@ const isGated = computed(() => {
 });
 
 const hasPreview = computed(() => !!props.article?.locked && !!props.article.content?.trim());
+
+const canRedeem = computed(() => props.article?.lockReason !== "COLUMN_UNPUBLISHED");
+const externalLinks = computed(() => props.article?.externalLinks ?? []);
 
 const accessTone = computed(() =>
   props.article?.accessType === "PAID"
