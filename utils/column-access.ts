@@ -1,6 +1,7 @@
 export const FREE_CONTENT_MARKER = "<!--free-->";
 
 export const ACCESS_TYPES = ["FREE", "COLUMN", "PAID"] as const;
+export const REMOVED_STATUS = "DELETED";
 export type AccessType = (typeof ACCESS_TYPES)[number];
 
 export const SUBSCRIPTION_DURATIONS = [30, 90, 365] as const;
@@ -164,6 +165,33 @@ export function serializeExternalLinks(links: ArticleExternalLink[]): string | n
 }
 
 /** 读取库内 JSON；损坏或不合规的数据不下发到前台。 */
+const SLUG_MAX_LENGTH = 200;
+
+/** 逻辑删除后让出原来的公开地址，同一行重复执行不会叠加深后缀。 */
+export function tombstoneSlug(slug: string, id: string, max = SLUG_MAX_LENGTH): string {
+  const marker = "-deleted-";
+  if (slug.includes(marker)) return slug.slice(0, max);
+  const suffix = `${marker}${id}`;
+  return `${slug.slice(0, Math.max(0, max - suffix.length))}${suffix}`.slice(0, max);
+}
+
+export function isRemovedStatus(status: string | null | undefined): boolean {
+  return status === REMOVED_STATUS;
+}
+
+/**
+ * 删除专栏时如何处理专栏文章。
+ * 保留时改为单篇付费并脱离专栏，不改价格；删除时只标记状态并取消发布。
+ */
+export function columnRemovalArticleData(deleteArticles: boolean):
+  | { status: typeof REMOVED_STATUS; isPublished: false }
+  | { accessType: "PAID"; columnId: null } {
+  if (deleteArticles) {
+    return { status: REMOVED_STATUS, isPublished: false };
+  }
+  return { accessType: "PAID", columnId: null };
+}
+
 export function parseExternalLinks(stored: string | null | undefined): ArticleExternalLink[] {
   if (!stored) return [];
   try {

@@ -4,6 +4,7 @@ import {
   splitSearchKeywords,
   buildAllKeywordsMatchWhere,
 } from "~~/utils/search-keywords";
+import { REMOVED_STATUS } from "~~/utils/column-access";
 
 const SEARCH_LIMIT = 20;
 
@@ -24,7 +25,33 @@ export default defineEventHandler(async (event) => {
       slug: true,
       title: true,
       languageCode: true,
+      articleBaseId: true,
     } as const;
+
+    const present = (row: {
+      id: string;
+      slug: string;
+      title: string;
+      languageCode: string;
+    }) => ({
+      id: row.id,
+      slug: row.slug,
+      title: row.title,
+      languageCode: row.languageCode,
+    });
+
+    async function keepLive<T extends { articleBaseId: string }>(rows: T[]) {
+      if (rows.length === 0) return [];
+      const bases = await prisma.articleBase.findMany({
+        where: {
+          id: { in: [...new Set(rows.map((row) => row.articleBaseId))] },
+          status: { not: REMOVED_STATUS },
+        },
+        select: { id: true },
+      });
+      const live = new Set(bases.map((item) => item.id));
+      return rows.filter((row) => live.has(row.articleBaseId));
+    }
 
     // 标题优先：每个关键词都必须出现在标题中
     const titleResults = await prisma.articleContent.findMany({
@@ -36,14 +63,15 @@ export default defineEventHandler(async (event) => {
       },
     });
 
-    if (titleResults.length >= SEARCH_LIMIT) {
+    const titleLive = await keepLive(titleResults);
+    if (titleLive.length >= SEARCH_LIMIT) {
       return success({
-        articles: titleResults,
+        articles: titleLive.slice(0, SEARCH_LIMIT).map(present),
       });
     }
 
-    const titleResultIds = titleResults.map((item: { id: string }) => item.id);
-    const remainingCount = SEARCH_LIMIT - titleResults.length;
+    const titleResultIds = titleLive.map((item) => item.id);
+    const remainingCount = SEARCH_LIMIT - titleLive.length;
 
     // 付费段不能参与公开搜索。免费段命中优先；公开文章再用全文补齐。
     const freeResults = await prisma.articleContent.findMany({
@@ -56,12 +84,18 @@ export default defineEventHandler(async (event) => {
       orderBy: { updatedAt: "desc" },
     });
 
-    let publicBodyResults: typeof titleResults = [];
-    const stillNeeded = remainingCount - freeResults.length;
+    const freeLive = await keepLive(freeResults);
+    let publicBodyResults: Array<{
+      id: string;
+      slug: string;
+      title: string;
+      languageCode: string;
+    }> = [];
+    const stillNeeded = remainingCount - freeLive.length;
     if (stillNeeded > 0) {
       const excludedIds = [
         ...titleResultIds,
-        ...freeResults.map((item: { id: string }) => item.id),
+        ...freeLive.map((item) => item.id),
       ];
       const bodyCandidates = await prisma.articleContent.findMany({
         where: {
@@ -82,7 +116,11 @@ export default defineEventHandler(async (event) => {
       const freeBases =
         baseIds.length > 0
           ? await prisma.articleBase.findMany({
-              where: { id: { in: baseIds }, accessType: "FREE" },
+              where: {
+                id: { in: baseIds },
+                accessType: "FREE",
+                status: { not: REMOVED_STATUS },
+              },
               select: { id: true },
             })
           : [];
@@ -108,7 +146,11 @@ export default defineEventHandler(async (event) => {
         );
     }
 
-    const articles = [...titleResults, ...freeResults, ...publicBodyResults];
+    const articles = [
+      ...titleLive.map(present),
+      ...freeLive.map(present),
+      ...publicBodyResults,
+    ].slice(0, SEARCH_LIMIT);
 
     return success({
       articles,

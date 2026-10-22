@@ -5,6 +5,7 @@ import {
   splitSearchKeywords,
   buildAllKeywordsMatchWhere,
 } from "~~/utils/search-keywords";
+import { REMOVED_STATUS } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -33,7 +34,7 @@ export default defineEventHandler(async (event) => {
     const defaultLanguageCode = defaultLang?.code || "zh";
 
     // 构建 ArticleBase 的 where 条件
-    const baseWhere: any = {};
+    const baseWhere: any = { status: { not: REMOVED_STATUS } };
 
     if (user.role < ROLE_LEVEL.ADMIN) {
       baseWhere.authorId = user.id;

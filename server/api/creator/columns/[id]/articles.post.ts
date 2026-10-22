@@ -6,6 +6,7 @@ import {
   normalizeArticleAccess,
   requireOwnColumn,
 } from "~~/server/utils/column-domain";
+import { isRemovedStatus } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -20,9 +21,11 @@ export default defineEventHandler(async (event) => {
 
     const article = await prisma.articleBase.findUnique({
       where: { id: articleId },
-      select: { id: true, authorId: true, accessType: true, columnId: true },
+      select: { id: true, authorId: true, accessType: true, columnId: true, status: true },
     });
-    if (!article || article.authorId !== user.id) return error("文章不存在");
+    if (!article || isRemovedStatus(article.status) || article.authorId !== user.id) {
+      return error("文章不存在");
+    }
     if (article.columnId === id && article.accessType === "COLUMN") {
       return success({ articleId });
     }

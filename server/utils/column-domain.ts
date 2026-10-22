@@ -3,8 +3,12 @@ import prisma from "~~/lib/prisma";
 import { ROLE_LEVEL } from "~~/utils/role";
 import {
   buildRedeemCode,
+  columnRemovalArticleData,
   isAccessType,
+  isRemovedStatus,
   isSubscriptionDuration,
+  REMOVED_STATUS,
+  tombstoneSlug,
   nextSubscriptionWindow,
   normalizeRedeemCode,
   REDEEM_CODE_MAX_BATCH,
@@ -37,7 +41,7 @@ export async function normalizeArticleAccess(
     where: { id: columnId },
     select: { id: true, authorId: true },
   });
-  if (!column || column.authorId !== authorId) {
+  if (!column || isRemovedStatus(column.status) || column.authorId !== authorId) {
     throw new DomainError("专栏不存在或不属于该作者");
   }
   return { accessType, columnId };
@@ -71,7 +75,7 @@ export async function loadColumnSummary(
   languageCode: string
 ) {
   const column = await prisma.column.findUnique({ where: { id: columnId } });
-  if (!column) return null;
+  if (!column || isRemovedStatus(column.status)) return null;
   const contents = await prisma.columnContent.findMany({
     where: { columnId },
   });
@@ -286,7 +290,9 @@ async function redeemColumnCode(userId: string, codeId: string) {
   }
 
   const column = await prisma.column.findUnique({ where: { id: code.columnId } });
-  if (!column || !column.isPublished) throw new DomainError("专栏未发布");
+  if (!column || isRemovedStatus(column.status) || !column.isPublished) {
+    throw new DomainError("专栏未发布");
+  }
   if (column.authorId === userId) throw new DomainError("不能兑换自己的专栏");
 
   const now = new Date();
@@ -406,17 +412,83 @@ async function redeemArticleCode(userId: string, codeId: string) {
 
 export async function requireOwnColumn(userId: string, columnId: string) {
   const column = await prisma.column.findUnique({ where: { id: columnId } });
-  if (!column || column.authorId !== userId) {
+  if (!column || isRemovedStatus(column.status) || column.authorId !== userId) {
     throw new DomainError("专栏不存在");
   }
   return column;
+}
+
+export async function removeColumn(
+  userId: string,
+  columnId: string,
+  deleteArticles: boolean
+) {
+  await requireOwnColumn(userId, columnId);
+  return prisma.$transaction(async (tx) => {
+    const column = await tx.column.findUnique({ where: { id: columnId } });
+    if (!column || isRemovedStatus(column.status) || column.authorId !== userId) {
+      throw new DomainError("专栏不存在");
+    }
+
+    const articles = await tx.articleBase.findMany({
+      where: {
+        authorId: userId,
+        columnId,
+        status: { not: REMOVED_STATUS },
+      },
+      select: { id: true },
+    });
+    const articleIds = articles.map((item) => item.id);
+    if (articleIds.length > 0) {
+      if (deleteArticles) {
+        const contents = await tx.articleContent.findMany({
+          where: { articleBaseId: { in: articleIds } },
+          select: { id: true, slug: true },
+        });
+        for (const content of contents) {
+          await tx.articleContent.update({
+            where: { id: content.id },
+            data: { slug: tombstoneSlug(content.slug, content.id) },
+          });
+        }
+        await tx.articleRedeemCode.updateMany({
+          where: { articleBaseId: { in: articleIds }, status: "UNUSED" },
+          data: { status: "REVOKED" },
+        });
+      }
+      await tx.articleBase.updateMany({
+        where: { id: { in: articleIds }, status: { not: REMOVED_STATUS } },
+        data: columnRemovalArticleData(deleteArticles),
+      });
+    }
+
+    const columnContents = await tx.columnContent.findMany({
+      where: { columnId },
+      select: { id: true, slug: true },
+    });
+    for (const content of columnContents) {
+      await tx.columnContent.update({
+        where: { id: content.id },
+        data: { slug: tombstoneSlug(content.slug, content.id) },
+      });
+    }
+    await tx.column.update({
+      where: { id: columnId },
+      data: { status: REMOVED_STATUS, isPublished: false },
+    });
+    await tx.columnRedeemCode.updateMany({
+      where: { columnId, status: "UNUSED" },
+      data: { status: "REVOKED" },
+    });
+    return { articleCount: articleIds.length, deleteArticles };
+  });
 }
 
 export async function requireOwnArticle(userId: string, articleBaseId: string) {
   const article = await prisma.articleBase.findUnique({
     where: { id: articleBaseId },
   });
-  if (!article || article.authorId !== userId) {
+  if (!article || isRemovedStatus(article.status) || article.authorId !== userId) {
     throw new DomainError("文章不存在");
   }
   return article;
@@ -441,6 +513,7 @@ export async function columnCardsForAuthor(
   const columns = await prisma.column.findMany({
     where: {
       authorId,
+      status: { not: REMOVED_STATUS },
       ...(onlyPublished ? { isPublished: true } : {}),
     },
     orderBy: { updatedAt: "desc" },

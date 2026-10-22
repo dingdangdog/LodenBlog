@@ -32,6 +32,17 @@
       "copy": "复制",
       "createHint": "从右上角新建一个专栏"
     },
+    "delete": {
+      "title": "删除专栏",
+      "intro": "「{title}」删除后不再公开，也不能在这里恢复。未使用的专栏兑换码会作废，已有订阅记录会保留。",
+      "articleHint": "这个专栏里有 {count} 篇文章。",
+      "articleHintEmpty": "这个专栏里没有文章。",
+      "articleHintUnknown": "专栏里的文章会按你下面的选择处理。",
+      "keepPaid": "保留文章，改为单篇付费",
+      "keepPaidHint": "文章会留下来。读者不能再凭专栏订阅阅读，需要单独解锁。还没标价的文章仍然未标价。",
+      "deleteArticles": "连同文章一起删除",
+      "deleteArticlesHint": "这些文章也会从站点消失。正文仍留在数据库里，不会被物理删除。"
+    },
     "codes": {
       "title": "订阅兑换码",
       "duration": "时长",

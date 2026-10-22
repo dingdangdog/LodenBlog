@@ -3,7 +3,7 @@ import prisma from "~~/lib/prisma";
 import { getCurrentUser } from "~~/server/utils/permission";
 import { ROLE_LEVEL } from "~~/utils/role";
 import { resolveArticleRead } from "~~/server/utils/column-domain";
-import { parseExternalLinks } from "~~/utils/column-access";
+import { isRemovedStatus, parseExternalLinks } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -87,7 +87,7 @@ export default defineEventHandler(async (event) => {
       return error("文章不存在", null);
     }
 
-    if (!articleBase || !articleBase.isPublished) {
+    if (!articleBase || isRemovedStatus(articleBase.status) || !articleBase.isPublished) {
       return error("文章不存在或未发布", null);
     }
 

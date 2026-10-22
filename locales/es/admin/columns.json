@@ -32,6 +32,17 @@
       "copy": "Copiar",
       "createHint": "Crea una columna con el botón de arriba"
     },
+    "delete": {
+      "title": "Eliminar columna",
+      "intro": "«{title}» dejará de ser pública y no se puede restaurar aquí. Los códigos de columna sin usar se anulan. Las suscripciones ya registradas se conservan.",
+      "articleHint": "Esta columna tiene {count} artículos.",
+      "articleHintEmpty": "Esta columna no tiene artículos.",
+      "articleHintUnknown": "Los artículos de la columna siguen la opción de abajo.",
+      "keepPaid": "Conservar artículos como publicaciones de pago",
+      "keepPaidHint": "Los artículos se quedan. Los lectores ya no los leen con la suscripción y necesitan un desbloqueo individual. Si no tenían precio, siguen sin precio.",
+      "deleteArticles": "Eliminar también los artículos",
+      "deleteArticlesHint": "Esos artículos desaparecen del sitio. El texto permanece en la base de datos y no se borra físicamente."
+    },
     "codes": {
       "title": "Códigos de suscripción",
       "duration": "Duración",

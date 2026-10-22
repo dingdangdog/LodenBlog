@@ -1,6 +1,7 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { getCurrentUser } from "~~/server/utils/permission";
+import { isRemovedStatus, REMOVED_STATUS } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -31,7 +32,9 @@ export default defineEventHandler(async (event) => {
     const column = await prisma.column.findUnique({
       where: { id: content.columnId },
     });
-    if (!column || !column.isPublished) return error("专栏不存在", null);
+    if (!column || isRemovedStatus(column.status) || !column.isPublished) {
+      return error("专栏不存在", null);
+    }
 
     const viewer = await getCurrentUser(event);
     const subscription = viewer
@@ -49,6 +52,7 @@ export default defineEventHandler(async (event) => {
         columnId: column.id,
         accessType: "COLUMN",
         isPublished: true,
+        status: { not: REMOVED_STATUS },
         publishedAt: { lte: now },
       },
       orderBy: { publishedAt: "desc" },

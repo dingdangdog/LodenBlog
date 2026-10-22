@@ -7,6 +7,7 @@ import {
   normalizeExternalLinks,
   parseExternalLinks,
   serializeExternalLinks,
+  isRemovedStatus,
   splitFreeContent,
 } from "~~/utils/column-access";
 
@@ -25,7 +26,7 @@ export default defineEventHandler(async (event) => {
       where: { id },
     });
 
-    if (!articleBase) {
+    if (!articleBase || isRemovedStatus(articleBase.status)) {
       return error("文章不存在");
     }
 

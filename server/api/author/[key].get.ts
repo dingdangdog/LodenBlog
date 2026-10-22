@@ -2,6 +2,7 @@ import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import type { Prisma } from "~~/prisma/generated/client";
 import { columnCardsForAuthor } from "~~/server/utils/column-domain";
+import { REMOVED_STATUS } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -59,6 +60,7 @@ export default defineEventHandler(async (event) => {
     const baseWhere: Prisma.ArticleBaseWhereInput = {
       authorId: creator.userId,
       isPublished: true,
+      status: { not: REMOVED_STATUS },
       publishedAt: { lte: new Date() },
     };
 

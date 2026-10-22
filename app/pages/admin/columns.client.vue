@@ -75,15 +75,102 @@
             >
               <PencilSquareIcon class="h-5 w-5" />
             </NuxtLink>
+            <button
+              type="button"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-muted transition-colors hover:bg-red-50 hover:text-red-600 disabled:opacity-50 dark:hover:bg-red-950/40 dark:hover:text-red-300"
+              :title="$t('common.delete')"
+              :disabled="pending || openingId === item.id || deleteDialog.working !== ''"
+              @click="openDelete(item)"
+            >
+              <ArrowPathIcon v-if="openingId === item.id" class="h-5 w-5 animate-spin" />
+              <TrashIcon v-else class="h-5 w-5" />
+            </button>
           </div>
         </article>
       </div>
     </section>
+
+    <Teleport to="body">
+      <div
+        v-if="deleteDialog.open"
+        class="fixed inset-0 z-[9999] flex items-end justify-center bg-black/50 p-4 sm:items-center"
+        @click.self="closeDelete"
+      >
+        <div
+          role="dialog"
+          aria-modal="true"
+          class="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-2xl border border-border bg-surface text-foreground shadow-2xl"
+          @click.stop
+        >
+          <div class="flex items-center justify-between gap-3 border-b border-border p-4">
+            <h2 class="text-base font-semibold">{{ $t("admin.columns.delete.title") }}</h2>
+            <button
+              type="button"
+              class="text-muted transition-colors hover:text-foreground disabled:opacity-50"
+              :disabled="deleteDialog.working !== ''"
+              :aria-label="$t('common.cancel')"
+              @click="closeDelete"
+            >
+              <XMarkIcon class="h-5 w-5" />
+            </button>
+          </div>
+          <div class="space-y-3 p-4">
+            <p class="text-sm text-foreground">
+              {{ $t("admin.columns.delete.intro", { title: deleteDialog.title }) }}
+            </p>
+            <p class="text-sm text-muted">
+              {{
+                deleteDialog.count === null
+                  ? $t("admin.columns.delete.articleHintUnknown")
+                  : deleteDialog.count === 0
+                    ? $t("admin.columns.delete.articleHintEmpty")
+                    : $t("admin.columns.delete.articleHint", { count: deleteDialog.count })
+              }}
+            </p>
+            <button
+              type="button"
+              class="w-full rounded-xl border border-border p-3 text-left transition-colors hover:bg-surface-muted disabled:opacity-50"
+              :disabled="deleteDialog.working !== ''"
+              @click="confirmDelete(false)"
+            >
+              <span class="flex items-center gap-2 text-sm font-medium text-foreground">
+                <ArrowPathIcon v-if="deleteDialog.working === 'keep'" class="h-4 w-4 animate-spin" />
+                {{ $t("admin.columns.delete.keepPaid") }}
+              </span>
+              <span class="mt-1 block text-xs text-muted">{{ $t("admin.columns.delete.keepPaidHint") }}</span>
+            </button>
+            <button
+              type="button"
+              class="w-full rounded-xl border border-red-200 p-3 text-left transition-colors hover:bg-red-50 disabled:opacity-50 dark:border-red-900/60 dark:hover:bg-red-950/40"
+              :disabled="deleteDialog.working !== ''"
+              @click="confirmDelete(true)"
+            >
+              <span class="flex items-center gap-2 text-sm font-medium text-red-700 dark:text-red-300">
+                <ArrowPathIcon v-if="deleteDialog.working === 'delete'" class="h-4 w-4 animate-spin" />
+                {{ $t("admin.columns.delete.deleteArticles") }}
+              </span>
+              <span class="mt-1 block text-xs text-muted">{{ $t("admin.columns.delete.deleteArticlesHint") }}</span>
+            </button>
+            <p v-if="deleteDialog.error" class="text-sm text-red-600 dark:text-red-300">{{ deleteDialog.error }}</p>
+          </div>
+          <div class="flex justify-end border-t border-border p-4">
+            <button
+              type="button"
+              class="rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-muted disabled:opacity-50"
+              :disabled="deleteDialog.working !== ''"
+              @click="closeDelete"
+            >
+              {{ $t("common.cancel") }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ArrowPathIcon, ArrowTopRightOnSquareIcon, PencilSquareIcon, PlusIcon, RectangleStackIcon } from "@heroicons/vue/24/outline";
+import { ArrowPathIcon, ArrowTopRightOnSquareIcon, PencilSquareIcon, PlusIcon, RectangleStackIcon, TrashIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 import { formatDate } from "~/utils/common";
 
 definePageMeta({
@@ -93,9 +180,18 @@ definePageMeta({
 });
 
 const localePath = useLocalePath();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 const pending = ref(true);
 const columns = ref<any[]>([]);
+const openingId = ref("");
+const deleteDialog = reactive({
+  open: false,
+  id: "",
+  title: "",
+  count: null as number | null,
+  error: "",
+  working: "" as "" | "keep" | "delete",
+});
 
 async function load() {
   pending.value = true;
@@ -109,5 +205,66 @@ async function load() {
   }
 }
 
-onMounted(load);
+function closeDelete() {
+  if (deleteDialog.working) return;
+  deleteDialog.open = false;
+}
+
+function onKeydown(event: KeyboardEvent) {
+  if (event.key === "Escape") closeDelete();
+}
+
+async function openDelete(item: { id: string; title?: string; slug?: string }) {
+  openingId.value = item.id;
+  deleteDialog.id = item.id;
+  deleteDialog.title = item.title || item.slug || item.id;
+  deleteDialog.count = null;
+  deleteDialog.error = "";
+  deleteDialog.working = "";
+  try {
+    const response = await $fetch<{ c: number; d?: { memberCount?: number } }>(
+      `/api/creator/columns/${item.id}/articles`,
+      { query: { languageCode: locale.value } }
+    );
+    deleteDialog.count = response?.c === 200 ? response.d?.memberCount ?? null : null;
+  } catch {
+    deleteDialog.count = null;
+  } finally {
+    openingId.value = "";
+  }
+  deleteDialog.open = true;
+}
+
+async function confirmDelete(deleteArticles: boolean) {
+  if (!deleteDialog.id || deleteDialog.working) return;
+  deleteDialog.working = deleteArticles ? "delete" : "keep";
+  deleteDialog.error = "";
+  try {
+    const response = await $fetch<{ c: number; m?: string }>(
+      `/api/creator/columns/${deleteDialog.id}`,
+      {
+        method: "DELETE",
+        query: { deleteArticles: String(deleteArticles) },
+        body: { deleteArticles },
+      }
+    );
+    if (response?.c !== 200) {
+      deleteDialog.error = response?.m || t("admin.columns.messages.failed");
+      return;
+    }
+    deleteDialog.working = "";
+    deleteDialog.open = false;
+    await load();
+  } catch {
+    deleteDialog.error = t("admin.columns.messages.failed");
+  } finally {
+    deleteDialog.working = "";
+  }
+}
+
+onMounted(() => {
+  load();
+  window.addEventListener("keydown", onKeydown);
+});
+onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
 </script>

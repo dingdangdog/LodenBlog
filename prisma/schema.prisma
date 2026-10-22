@@ -57,7 +57,7 @@ model ArticleBase {
 
   // 基础信息（跨语言共享）
   featuredImage String?   @db.VarChar(500) // 封面图
-  status        String    @default("DRAFT") @db.VarChar(20) // 状态：DRAFT/PUBLISHED/ARCHIVED
+  status        String    @default("DRAFT") @db.VarChar(20) // 状态：DRAFT/PUBLISHED/ARCHIVED/DELETED（DELETED 为逻辑删除）
   isPublished   Boolean   @default(false) // 是否发布
   publishedAt   DateTime? // 发布时间
   viewCount     Int       @default(0) // 浏览次数（所有语言版本累计）
@@ -555,7 +555,7 @@ model Column {
   id            String   @id @default(cuid()) @db.VarChar(36)
   authorId      String   @db.VarChar(36) // 约定关联 User.id，须为创作者
   featuredImage String?  @db.VarChar(500)
-  status        String   @default("DRAFT") @db.VarChar(20) // DRAFT/PUBLISHED
+  status        String   @default("DRAFT") @db.VarChar(20) // DRAFT/PUBLISHED/DELETED（DELETED 为逻辑删除）
   isPublished   Boolean  @default(false)
   currency      String?  @db.VarChar(3) // 各订阅档共用的 ISO 4217 货币；未标价则为空
   createdAt     DateTime @default(now())

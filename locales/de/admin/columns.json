@@ -32,6 +32,17 @@
       "copy": "Kopieren",
       "createHint": "Oben rechts eine Kolumne anlegen"
     },
+    "delete": {
+      "title": "Kolumne löschen",
+      "intro": "„{title}“ ist danach nicht mehr öffentlich und kann hier nicht wiederhergestellt werden. Ungenutzte Kolumnen-Codes werden widerrufen. Bestehende Abo-Einträge bleiben.",
+      "articleHint": "Diese Kolumne hat {count} Artikel.",
+      "articleHintEmpty": "Diese Kolumne hat keine Artikel.",
+      "articleHintUnknown": "Artikel in der Kolumne folgen der Auswahl unten.",
+      "keepPaid": "Artikel behalten und einzeln kostenpflichtig machen",
+      "keepPaidHint": "Die Artikel bleiben. Leser können sie nicht mehr über das Kolumnen-Abo lesen und brauchen eine einzelne Freischaltung. Artikel ohne Preis bleiben ohne Preis.",
+      "deleteArticles": "Artikel mitlöschen",
+      "deleteArticlesHint": "Diese Artikel verschwinden von der Website. Der Text bleibt in der Datenbank und wird nicht physikalisch gelöscht."
+    },
     "codes": {
       "title": "Abo-Codes",
       "duration": "Dauer",

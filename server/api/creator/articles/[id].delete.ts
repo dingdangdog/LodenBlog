@@ -2,6 +2,7 @@ import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator, ROLE_LEVEL } from "~~/server/utils/permission";
 import { createError } from "h3";
+import { isRemovedStatus } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +19,7 @@ export default defineEventHandler(async (event) => {
       where: { id },
     });
 
-    if (!articleBase) {
+    if (!articleBase || isRemovedStatus(articleBase.status)) {
       return error("文章不存在");
     }
 

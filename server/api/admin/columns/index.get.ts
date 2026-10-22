@@ -1,12 +1,17 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireAdmin } from "~~/server/utils/permission";
+import { REMOVED_STATUS } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
     await requireAdmin(event);
     const languageCode = String(getQuery(event).languageCode || "zh");
-    const columns = await prisma.column.findMany({ orderBy: { updatedAt: "desc" }, take: 200 });
+    const columns = await prisma.column.findMany({
+      where: { status: { not: REMOVED_STATUS } },
+      orderBy: { updatedAt: "desc" },
+      take: 200,
+    });
     const [contents, authors] = await Promise.all([
       columns.length
         ? prisma.columnContent.findMany({

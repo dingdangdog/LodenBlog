@@ -1,5 +1,6 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
+import { isRemovedStatus } from "~~/utils/column-access";
 
 // 获取客户端信息的辅助函数
 function getClientInfo(event: any): {
@@ -67,7 +68,7 @@ export default defineEventHandler(async (event) => {
       where: { id: articleContent.articleBaseId },
     });
 
-    if (!articleBase || !articleBase.isPublished) {
+    if (!articleBase || isRemovedStatus(articleBase.status) || !articleBase.isPublished) {
       return error("文章不存在或未发布", null);
     }
 

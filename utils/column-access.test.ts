@@ -11,8 +11,10 @@ import {
   parseExternalLinks,
   remainingDays,
   serializeExternalLinks,
+  columnRemovalArticleData,
   splitFreeContent,
   stripFreeMarker,
+  tombstoneSlug,
 } from "./column-access.ts";
 
 describe("splitFreeContent", () => {
@@ -134,5 +136,34 @@ describe("parseExternalLinks", () => {
     const links = [{ name: "公众号", url: "https://mp.weixin.qq.com/s/x", description: "回复关键词" }];
     assert.deepEqual(parseExternalLinks(serializeExternalLinks(links)), links);
     assert.equal(serializeExternalLinks([]), null);
+  });
+});
+
+describe("columnRemovalArticleData", () => {
+  it("保留文章时改为单篇付费，不写价格", () => {
+    const data = columnRemovalArticleData(false);
+    assert.deepEqual(data, { accessType: "PAID", columnId: null });
+    assert.equal("priceAmount" in data, false);
+    assert.equal("currency" in data, false);
+  });
+
+  it("删除文章时只标记删除并取消发布", () => {
+    assert.deepEqual(columnRemovalArticleData(true), {
+      status: "DELETED",
+      isPublished: false,
+    });
+  });
+});
+
+describe("tombstoneSlug", () => {
+  it("让出原来的 slug，重复执行不再叠加", () => {
+    assert.equal(tombstoneSlug("hello", "abc"), "hello-deleted-abc");
+    assert.equal(tombstoneSlug("hello-deleted-abc", "xyz"), "hello-deleted-abc");
+  });
+
+  it("超长 slug 仍不超过 200 且保留删除后缀", () => {
+    const next = tombstoneSlug("a".repeat(200), "id");
+    assert.equal(next.length <= 200, true);
+    assert.equal(next.endsWith("-deleted-id"), true);
   });
 });

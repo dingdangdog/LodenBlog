@@ -1,6 +1,7 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireUser, ROLE_LEVEL } from "~~/server/utils/permission";
+import { REMOVED_STATUS } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -9,7 +10,10 @@ export default defineEventHandler(async (event) => {
     const isCreator = authUser.role >= ROLE_LEVEL.CREATOR;
 
     // 构建 ArticleBase 的 where 条件
-    const articleBaseWhere = isAdmin ? {} : { authorId: authUser.id };
+    const articleBaseWhere = {
+      ...(isAdmin ? {} : { authorId: authUser.id }),
+      status: { not: REMOVED_STATUS },
+    };
 
     // 统计文章数据（基于 ArticleBase）
     const [

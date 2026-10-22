@@ -32,6 +32,17 @@
       "copy": "Copy",
       "createHint": "Create a column with the button above"
     },
+    "delete": {
+      "title": "Delete column",
+      "intro": "\"{title}\" will no longer be public, and it cannot be restored here. Unused column codes will be revoked. Existing subscription records stay.",
+      "articleHint": "This column has {count} articles.",
+      "articleHintEmpty": "This column has no articles.",
+      "articleHintUnknown": "Articles in this column follow the choice below.",
+      "keepPaid": "Keep articles as paid posts",
+      "keepPaidHint": "Articles stay. Readers can no longer open them with a column subscription and need an individual unlock. Unpriced articles stay unpriced.",
+      "deleteArticles": "Delete the articles too",
+      "deleteArticlesHint": "These articles disappear from the site. Their text stays in the database and is not physically removed."
+    },
     "codes": {
       "title": "Subscription codes",
       "duration": "Duration",

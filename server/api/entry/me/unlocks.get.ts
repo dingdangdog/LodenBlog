@@ -1,6 +1,7 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireUser } from "~~/server/utils/permission";
+import { isRemovedStatus } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -15,7 +16,7 @@ export default defineEventHandler(async (event) => {
       articleIds.length
         ? prisma.articleBase.findMany({
             where: { id: { in: articleIds } },
-            select: { id: true, accessType: true, isPublished: true },
+            select: { id: true, accessType: true, isPublished: true, status: true },
           })
         : Promise.resolve([]),
       articleIds.length
@@ -42,14 +43,15 @@ export default defineEventHandler(async (event) => {
           contents.find((content) => content.articleBaseId === item.articleBaseId) ||
           null;
         const base = baseMap.get(item.articleBaseId);
+        const removed = !base || isRemovedStatus(base.status);
         return {
           id: item.id,
           articleBaseId: item.articleBaseId,
           unlockedAt: item.unlockedAt,
           source: item.source,
-          slug: localized?.slug || "",
+          slug: removed ? "" : localized?.slug || "",
           title: localized?.title || "",
-          readable: base?.accessType === "PAID" && base.isPublished,
+          readable: !removed && base?.accessType === "PAID" && base.isPublished,
         };
       }),
     });

@@ -21,13 +21,14 @@
         <div class="flex flex-wrap items-start justify-between gap-3">
           <div class="min-w-0">
             <NuxtLink
-              v-if="item.slug"
+              v-if="item.slug && !item.removed"
               :to="localePath(`/column/${item.slug}`)"
               class="text-base font-semibold text-foreground hover:text-primary-600 md:text-lg"
             >
               {{ item.title }}
             </NuxtLink>
             <p v-else class="text-base font-semibold text-foreground md:text-lg">{{ item.title }}</p>
+            <p v-if="item.removed" class="mt-1 text-sm text-muted">{{ $t("column.removed") }}</p>
             <p class="mt-1 text-sm text-muted">
               {{ formatDate(item.startsAt) }} – {{ formatDate(item.expiresAt) }}
             </p>

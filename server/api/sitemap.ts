@@ -1,4 +1,5 @@
 import prisma from "~~/lib/prisma";
+import { REMOVED_STATUS } from "~~/utils/column-access";
 
 type Changefreq =
   | "always"
@@ -30,6 +31,7 @@ export default defineSitemapEventHandler(async (e) => {
       where: {
         isPublished: true,
         publishedAt: { lte: new Date() },
+        status: { not: REMOVED_STATUS },
       },
       select: {
         id: true,
@@ -151,7 +153,7 @@ export default defineSitemapEventHandler(async (e) => {
     );
 
     const publishedColumns = await prisma.column.findMany({
-      where: { isPublished: true },
+      where: { isPublished: true, status: { not: REMOVED_STATUS } },
       select: { id: true, updatedAt: true },
     });
     const columnIds = publishedColumns.map((item: { id: string }) => item.id);

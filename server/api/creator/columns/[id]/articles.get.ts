@@ -2,6 +2,7 @@ import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
 import { requireCreator } from "~~/server/utils/permission";
 import { DomainError, requireOwnColumn } from "~~/server/utils/column-domain";
+import { REMOVED_STATUS } from "~~/utils/column-access";
 import {
   buildAllKeywordsMatchWhere,
   splitSearchKeywords,
@@ -30,19 +31,27 @@ export default defineEventHandler(async (event) => {
     const languageCode = String(query.languageCode || "zh");
     const keywords = splitSearchKeywords(String(query.q || ""));
 
-    const members = await prisma.articleBase.findMany({
-      where: { authorId: user.id, columnId: id },
-      orderBy: { updatedAt: "desc" },
-      take: 200,
-      select: {
-        id: true,
-        featuredImage: true,
-        isPublished: true,
-        accessType: true,
-        columnId: true,
-        updatedAt: true,
-      },
-    });
+    const memberWhere = {
+      authorId: user.id,
+      columnId: id,
+      status: { not: REMOVED_STATUS },
+    };
+    const [members, memberCount] = await Promise.all([
+      prisma.articleBase.findMany({
+        where: memberWhere,
+        orderBy: { updatedAt: "desc" },
+        take: 200,
+        select: {
+          id: true,
+          featuredImage: true,
+          isPublished: true,
+          accessType: true,
+          columnId: true,
+          updatedAt: true,
+        },
+      }),
+      prisma.articleBase.count({ where: memberWhere }),
+    ]);
 
     let candidateBases: typeof members = [];
     if (keywords.length > 0) {
@@ -60,6 +69,7 @@ export default defineEventHandler(async (event) => {
             where: {
               id: { in: ids },
               authorId: user.id,
+              status: { not: REMOVED_STATUS },
               OR: [{ columnId: null }, { columnId: { not: id } }],
             },
             orderBy: { updatedAt: "desc" },
@@ -78,6 +88,7 @@ export default defineEventHandler(async (event) => {
       candidateBases = await prisma.articleBase.findMany({
         where: {
           authorId: user.id,
+          status: { not: REMOVED_STATUS },
           OR: [{ columnId: null }, { columnId: { not: id } }],
         },
         orderBy: { updatedAt: "desc" },
@@ -144,6 +155,7 @@ export default defineEventHandler(async (event) => {
     return success({
       articles: members.map(present).filter((item) => item.title || item.slug),
       candidates: candidateBases.map(present).filter((item) => item.title || item.slug),
+      memberCount,
     });
   } catch (err: unknown) {
     if (err instanceof DomainError) return error(err.message);

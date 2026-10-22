@@ -1,5 +1,6 @@
 import { success, error } from "~~/server/utils/result";
 import prisma from "~~/lib/prisma";
+import { REMOVED_STATUS } from "~~/utils/column-access";
 
 // 定义类型
 type ArticleBaseSelect = {
@@ -98,7 +99,7 @@ export default defineEventHandler(async (event) => {
     if (status === "PUBLISHED") {
       baseWhere.isPublished = true;
       baseWhere.publishedAt = { lte: new Date() };
-    } else if (status) {
+    } else if (status && status !== REMOVED_STATUS) {
       baseWhere.status = status;
     }
 
