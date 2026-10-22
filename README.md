@@ -1,85 +1,96 @@
-<div align="center" style="display:flex;align-items:center;justify-content:center;">
-<img src="/public/logo.webp" width="80px" alt="cashbook" />
-<h1 style="margin-left:1rem;">LodenBlog</h1>
+<p align="center">
+  <a href="./README.md"><strong>English</strong></a>
+  &nbsp;·&nbsp;
+  <a href="./README.zh-CN.md">中文</a>
+</p>
+
+<div align="center">
+  <h1>LodenBlog</h1>
+  <p>An open-source multilingual blog for a personal site or a small writing team.</p>
 </div>
 
 <p align="center">
   <img alt="release" src="https://img.shields.io/github/v/release/dingdangdog/lodenblog" />
   <img alt="stars" src="https://img.shields.io/github/stars/dingdangdog/lodenblog" />
-  <img alt="dorks" src="https://img.shields.io/github/forks/dingdangdog/lodenblog" />
+  <img alt="forks" src="https://img.shields.io/github/forks/dingdangdog/lodenblog" />
 </p>
 <p align="center">
   <img alt="issues-open" src="https://img.shields.io/github/issues/dingdangdog/lodenblog?color=important" />
-  <img alt="issues-close" src="https://img.shields.io/github/issues-closed/dingdangdog/lodenblog?color=green" />
+  <img alt="issues-closed" src="https://img.shields.io/github/issues-closed/dingdangdog/lodenblog?color=green" />
   <img alt="license" src="https://img.shields.io/badge/license-MIT-yellow.svg" />
-  <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/dingdangdog/lodenblog.svg" />
+  <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/dingdangdog/loden.svg" />
 </p>
 
-LodenBlog 是一个开源的多语言个人博客。用一套系统同时管理中文、英文、日文、德语、西班牙语等内容，内置 AI 写作、多服务商翻译、主题与 SEO，适合个人站点与小型创作团队。
+Publish Chinese, English, Japanese, German, and Spanish from one install, and add more content languages in the admin. The same article stays linked across languages. AI writing, machine translation, themes, and SEO are built in, and the site still runs if you leave them unset.
 
-## 案例
+## Live sites
+
 - [LodenHu](https://www.lodenhu.com)
 - [月上老狗](https://www.oldmoon.top)
 
-## 功能
+## Features
 
-- **多语言内容**：文章、分类、标签、信息页均可按语言维护；前台按语言前缀访问，并支持浏览器语言检测。
-- **AI 写作与翻译**：后台可用大模型写文章；文章可一键翻译到多种语言。
-- **多服务商接入**：大模型支持 OpenAI 兼容接口、Gemini、DeepSeek、阿里云等；机器翻译支持 DeepL、Google、百度、腾讯、有道、火山等。
-- **完整创作后台**：文章、分类、标签、媒体、评论审核、用户与创作者申请、访问统计、翻译日志。
-- **主题与品牌**：明暗模式、多套主题色，以及 Logo / Favicon、自定义 CSS / JS / Head。
-- **账号与权限**：邮箱密码登录，可选 GitHub / Google 登录；角色分为普通用户、创作者、管理员。
-- **SEO 与变现**：独立站点信息、sitemap、robots、Google Analytics、Google AdSense、友情链接、信息页。
-- **媒体存储**：图片等文件上传到 Cloudflare R2，可绑定自定义访问域名。
+- **Multilingual content.** Articles, categories, tags, info pages, and columns each keep per-language fields. Public URLs use a language prefix, and the first visit can follow the browser language.
+- **Linked translations.** Language versions of one article point at each other. Readers switch language instead of opening an unrelated copy.
+- **AI writing and translation.** Draft with a model in the admin, then translate an article into the other languages. Provider keys are saved in admin settings. Writing, comments, and browsing keep working when AI is not configured.
+- **Providers.** Models: OpenAI-compatible APIs, Gemini, DeepSeek, Alibaba Cloud (DashScope). Machine translation: DeepL, Google, Baidu, Tencent, Youdao, Volcano Engine. Any other OpenAI-compatible endpoint can be added as an OpenAI provider.
+- **Columns and paid reading.** An article is free, part of a column, or paid on its own. Readers without access see only the free section. Access is granted with redeem codes: column subscriptions last a set number of days, and a single article stays unlocked. Online checkout is not included.
+- **Admin.** Posts, categories, tags, media, comment review, users, creator applications, visit stats, and translation logs.
+- **Theme and brand.** Light and dark mode, theme colors, logo and favicon, plus custom CSS, JS, and head markup.
+- **Accounts.** Email and password, with optional GitHub and Google login. Roles are reader, creator, and admin.
+- **SEO.** Site metadata, sitemap, robots, Google Analytics, Google AdSense, friend links, and info pages.
+- **Media.** Uploads go to Cloudflare R2. A custom public domain can be bound to the bucket.
 
-## 特点
+Interface language and content language are separate. The interface ships with Chinese, English, Japanese, German, and Spanish. Content languages can be added or removed in the admin.
 
-- 首次访问进入初始化向导，创建管理员、站点 SEO、R2 与语言，不必先改数据库。
-- 内容语言与界面语言分开：站点界面内置中/英/日/德/西，内容语言可在后台继续增删。
-- 同一篇文章的多语言版本互相关联，读者可在语言间切换而不是看到孤立副本。
-- 翻译与 AI 在后台配置密钥即可使用，未配置时其余功能仍可独立运行。
-- 使用 Docker 镜像即可部署，默认端口 `7061`，也可用 Nginx 等反代到 443。
+## Deploy
 
-## 部署流程
+Production uses Docker and listens on port **7061**. Server prep, callback URLs, and vendor console links are in [DEPLOY.md](DEPLOY.md) (Chinese).
 
-生产环境推荐 Docker。完整准备项、回调地址和第三方控制台链接见 [DEPLOY.md](DEPLOY.md)。
+1. **Server.** A public Linux host with [Docker](https://docs.docker.com/engine/install/) and Compose. Open `7061`, or put Nginx, Caddy, or Cloudflare in front of HTTPS.
+2. **PostgreSQL.** Self-hosted or managed. Set `DATABASE_URL`. On startup the container applies `prisma/migrations`. Set `DATABASE_AUTO_MIGRATE=false` to apply them yourself.
+3. **Domain and R2.** Point the domain at the server. Hosting the DNS on [Cloudflare](https://dash.cloudflare.com/) makes a custom R2 domain easier. Image upload needs an R2 bucket. Those values are entered in the setup wizard, not in `.env`.
+4. **Optional accounts.**
 
-1. **准备服务器与 Docker**  
-   一台可公网访问的 Linux 主机，安装 [Docker](https://docs.docker.com/engine/install/) 与 Compose，开放 `7061` 或交给 Nginx / Caddy 反代。
+   | Use | Required | Console |
+   | --- | --- | --- |
+   | Image upload | Yes | [Cloudflare R2](https://dash.cloudflare.com/?to=/:account/r2/overview) |
+   | GitHub login | No | [Create a GitHub OAuth App](https://github.com/settings/applications/new) |
+   | Google login | No | [Google Auth clients](https://console.cloud.google.com/auth/clients) |
+   | AI / translation | No | [DEPLOY.md §8](DEPLOY.md#8-ai-与机器翻译可选) |
+   | Analytics / ads | No | [Google Analytics](https://analytics.google.com/) · [AdSense](https://www.google.com/adsense/) |
 
-2. **准备 PostgreSQL**  
-   自建或云数据库均可，记下 `DATABASE_URL`。容器启动后会自动应用 `prisma/migrations`（不要提交手写 migration）。若要改由外部迁移，设 `DATABASE_AUTO_MIGRATE=false`。
-
-3. **准备域名和R2存储桶**  
-   解析到服务器。建议托管到 [Cloudflare](https://dash.cloudflare.com/)，方便给 R2 绑自定义域名。
-
-4. **准备第三方账号（按需）**
-
-   | 用途        | 是否必需 | 快捷入口                                                                                       |
-   | ----------- | -------- | ---------------------------------------------------------------------------------------------- |
-   | 图片上传    | 必需     | [Cloudflare R2](https://dash.cloudflare.com/?to=/:account/r2/overview)                         |
-   | GitHub 登录 | 可选     | [创建 GitHub OAuth App](https://github.com/settings/applications/new)                          |
-   | Google 登录 | 可选     | [Google Auth 客户端](https://console.cloud.google.com/auth/clients)                            |
-   | AI / 翻译   | 可选     | 见 [DEPLOY.md](DEPLOY.md#8-ai-与机器翻译可选)                                                  |
-   | 统计 / 广告 | 可选     | [Google Analytics](https://analytics.google.com/) · [AdSense](https://www.google.com/adsense/) |
-
-5. **填写环境变量并启动**
-   可以在 docker-compose.yml 文件中修改环境变量，至少设置 `DATABASE_URL`、`NUXT_AUTH_SECRET`、`NUXT_SALT`、`NUXT_AUTH_BASE_URL`（形如 `https://你的域名/api/auth`）。然后：然后运行命令：
+5. **Environment and start.** Copy `.env.example` to `.env`. At minimum set `DATABASE_URL`, `NUXT_AUTH_SECRET`, `NUXT_SALT`, and `NUXT_AUTH_BASE_URL` (for example `https://your-domain/api/auth`). The same variables can be edited in `docker-compose.yml`.
 
    ```bash
    docker compose up -d
    ```
 
-6. **完成初始化向导**  
-   打开站点，按向导填写主语言、SEO、R2、管理员账号。之后可在后台打开 GitHub / Google 登录开关，并配置翻译服务商。
+   Image: [`dingdangdog/loden`](https://hub.docker.com/r/dingdangdog/loden).
 
-## 文档
+6. **Setup wizard.** The first visit opens the wizard for the primary language, SEO, R2, and the admin account. GitHub and Google login switches, and translation providers, are turned on later in the admin.
 
-- [部署教程](DEPLOY.md)：服务器、数据库、R2、OAuth、AI 密钥与启动步骤
-- [快速开始](docs/quick-start.md)
-- [功能说明](docs/features.md)
-- [架构说明](docs/ARCHITECTURE.md)
+## Local development
 
-## 许可证
+Use Node.js 22 and the pnpm version in `package.json` (`packageManager`). PostgreSQL must already be reachable.
+
+```bash
+cp .env.example .env
+pnpm install
+pnpm dev
+```
+
+The dev server listens on port `7061`. When the schema changes, generate the Prisma migration yourself. Do not commit hand-written migration SQL.
+
+## Docs
+
+Detailed docs are in Chinese.
+
+- [Deploy guide](DEPLOY.md): server, database, R2, OAuth, and AI keys
+- [Quick start](docs/quick-start.md)
+- [Features](docs/features.md)
+- [Architecture](docs/ARCHITECTURE.md)
+
+## License
 
 [MIT](LICENSE)

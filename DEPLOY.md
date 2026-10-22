@@ -2,7 +2,7 @@
 
 生产环境推荐 **Docker**。按下面顺序准备服务器、数据库和第三方账号，再启动容器。首次打开站点会进入系统初始化向导。
 
-更短的功能介绍与流程摘要见 [README.md](README.md)。
+更短的功能介绍与流程摘要见 [中文 README](README.zh-CN.md)，英文版见 [README.md](README.md)。
 
 ---
 
