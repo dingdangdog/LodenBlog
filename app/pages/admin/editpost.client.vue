@@ -237,7 +237,7 @@
                 @change="persistAccessChange"
               />
             </div>
-            <div v-if="form.accessType === 'COLUMN'">
+            <div v-if="form.accessType === 'COLUMN' || form.accessType === 'FREE'">
               <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                 {{ $t("admin.editpost.access.selectColumn") }}
               </label>
@@ -788,8 +788,8 @@ function rememberPersistedAccess() {
 }
 
 function accessMatchesPersisted() {
-  const columnId = form.accessType === "COLUMN" ? form.columnId || "" : "";
-  const savedColumnId = persistedAccessType.value === "COLUMN" ? persistedColumnId.value || "" : "";
+  const columnId = form.accessType === "PAID" ? "" : form.columnId || "";
+  const savedColumnId = persistedAccessType.value === "PAID" ? "" : persistedColumnId.value || "";
   return (form.accessType || "FREE") === persistedAccessType.value && columnId === savedColumnId;
 }
 
@@ -803,7 +803,7 @@ async function persistAccessChange() {
 function accessPayload() {
   return {
     accessType: form.accessType || "FREE",
-    columnId: form.accessType === "COLUMN" ? form.columnId || null : null,
+    columnId: form.accessType === "PAID" ? null : form.columnId || null,
     externalLinks: (form.externalLinks as ExternalLinkRow[])
       .map(({ name, url, description }) => ({
         name: name.trim(),

@@ -23,9 +23,11 @@
                 class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium"
                 :class="column.subscribed
                   ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-                  : 'bg-surface-muted text-muted'"
+                  : !column.hasSubscriptionContent
+                    ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+                    : 'bg-surface-muted text-muted'"
               >
-                {{ column.subscribed ? $t("column.active") : $t("column.column") }}
+                {{ !column.hasSubscriptionContent ? $t("column.free") : column.subscribed ? $t("column.active") : $t("column.column") }}
               </span>
             </div>
             <p v-if="column.description" class="whitespace-pre-wrap text-sm text-muted md:text-base">
@@ -40,7 +42,7 @@
                 {{ $t("column.subscribedUntil", { date: formatDate(column.subscriptionExpiresAt) }) }}
               </span>
             </div>
-            <div class="rounded-lg border border-border bg-background p-3">
+            <div v-if="column.hasSubscriptionContent" class="rounded-lg border border-border bg-background p-3">
               <p v-if="!column.subscribed" class="mb-2 text-sm text-muted">{{ $t("column.subscribeHint") }}</p>
               <CommonRedeemCodeForm @success="refresh" />
             </div>

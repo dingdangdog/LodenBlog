@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-4xl flex-1 flex flex-col min-w-0 overflow-hidden h-full bg-surface">
+  <div class="flex h-auto min-h-0 min-w-0 max-w-4xl flex-1 flex-col self-stretch overflow-hidden bg-surface">
     <!-- 语言选择器 -->
     <div class="flex items-center mb-4 pb-3 border-b border-border flex-shrink-0 px-4 pt-4 gap-3 bg-surface">
       <div class="w-40">
@@ -12,7 +12,7 @@
     </div>
 
     <!-- 文章内容（可滚动区域） -->
-    <div ref="scrollContainerRef" class="flex-1 overflow-y-auto overscroll-contain min-h-0">
+    <div ref="scrollContainerRef" class="min-h-0 flex-1 overflow-y-auto overscroll-contain">
       <div class="w-full mx-auto px-4 pt-4 pb-8">
         <div v-if="loading" class="text-center py-8 text-muted">
           {{ $t("common.loading") }}

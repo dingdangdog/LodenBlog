@@ -30,12 +30,15 @@ export async function normalizeArticleAccess(
   if (!isAccessType(accessType)) {
     throw new DomainError("访问类型无效");
   }
-  if (accessType !== "COLUMN") {
+  if (accessType === "PAID") {
     return { accessType, columnId: null };
   }
   const columnId = typeof columnIdRaw === "string" ? columnIdRaw.trim() : "";
   if (!columnId) {
-    throw new DomainError("专栏文章必须选择专栏");
+    if (accessType === "COLUMN") {
+      throw new DomainError("专栏文章必须选择专栏");
+    }
+    return { accessType, columnId: null };
   }
   const column = await prisma.column.findUnique({
     where: { id: columnId },
@@ -182,13 +185,27 @@ export async function resolveArticleRead(input: {
     };
   }
 
+  if (accessType === "FREE" && input.articleBase.columnId) {
+    const summary = await loadColumnSummary(
+      input.articleBase.columnId,
+      input.languageCode
+    );
+    if (summary && (summary.column.isPublished || isStaff) && summary.content) {
+      column = {
+        id: summary.column.id,
+        slug: summary.content.slug,
+        title: summary.content.title,
+      };
+    }
+  }
+
   if (isStaff || accessType === "FREE") {
     return {
       content: full,
       locked: false,
       lockReason: null,
       accessType,
-      column: null,
+      column,
       subscriptionExpiresAt: null,
     };
   }

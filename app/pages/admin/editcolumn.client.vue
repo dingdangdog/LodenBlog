@@ -179,7 +179,12 @@
         </div>
 
         <div>
-          <h2 class="text-lg font-semibold text-foreground">{{ $t("admin.columns.articles.current") }}</h2>
+          <div>
+            <h2 class="text-lg font-semibold text-foreground">{{ $t("admin.columns.articles.current") }}</h2>
+            <p v-if="columnArticles.length" class="mt-1 text-sm text-muted">
+              {{ $t("admin.columns.articles.orderHint") }}
+            </p>
+          </div>
           <p v-if="articlesPending && columnArticles.length === 0" class="py-8 text-center text-sm text-muted">
             {{ $t("common.loading") }}
           </p>
@@ -187,22 +192,47 @@
             {{ $t("admin.columns.articles.empty") }}
           </p>
           <ul v-else class="mt-2 divide-y divide-border overflow-hidden rounded-xl border border-border">
-            <li v-for="item in columnArticles" :key="item.id" class="flex items-center justify-between gap-3 p-3">
-              <div class="min-w-0">
-                <p class="truncate font-medium text-foreground">{{ item.title || item.slug }}</p>
-                <p class="mt-0.5 text-xs text-muted">
-                  {{ item.isPublished ? $t("admin.columns.published") : $t("admin.columns.draft") }}
-                  <span v-if="item.slug"> · /post/{{ item.slug }}</span>
-                </p>
+            <li v-for="(item, index) in columnArticles" :key="item.id" class="flex items-center justify-between gap-3 p-3">
+              <div class="flex min-w-0 items-center gap-3">
+                <span class="w-6 shrink-0 text-center text-sm tabular-nums text-muted">{{ index + 1 }}</span>
+                <div class="min-w-0">
+                  <p class="truncate font-medium text-foreground">{{ item.title || item.slug }}</p>
+                  <p class="mt-0.5 text-xs text-muted">
+                    {{ item.isPublished ? $t("admin.columns.published") : $t("admin.columns.draft") }}
+                    <span v-if="item.slug"> · /post/{{ item.slug }}</span>
+                  </p>
+                </div>
               </div>
-              <button
-                type="button"
-                class="shrink-0 rounded-lg border border-border px-3 py-1.5 text-sm font-medium text-foreground hover:bg-surface-muted disabled:opacity-50"
-                :disabled="articleBusyId === item.id"
-                @click="removeArticle(item)"
-              >
-                {{ $t("admin.columns.articles.remove") }}
-              </button>
+              <div class="flex shrink-0 items-center gap-1">
+                <button
+                  type="button"
+                  class="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground hover:bg-surface-muted disabled:cursor-not-allowed disabled:opacity-40"
+                  :aria-label="$t('admin.columns.articles.moveUp', { title: item.title || item.slug })"
+                  :title="$t('admin.columns.articles.moveUp', { title: item.title || item.slug })"
+                  :disabled="articlesPending || articleOrderSaving || !!articleBusyId || index === 0"
+                  @click="moveArticle(index, -1)"
+                >
+                  <ChevronUpIcon class="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  class="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground hover:bg-surface-muted disabled:cursor-not-allowed disabled:opacity-40"
+                  :aria-label="$t('admin.columns.articles.moveDown', { title: item.title || item.slug })"
+                  :title="$t('admin.columns.articles.moveDown', { title: item.title || item.slug })"
+                  :disabled="articlesPending || articleOrderSaving || !!articleBusyId || index === columnArticles.length - 1"
+                  @click="moveArticle(index, 1)"
+                >
+                  <ChevronDownIcon class="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  class="shrink-0 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground hover:bg-surface-muted disabled:opacity-50"
+                  :disabled="articleBusyId === item.id || articleOrderSaving"
+                  @click="removeArticle(item)"
+                >
+                  {{ $t("admin.columns.articles.remove") }}
+                </button>
+              </div>
             </li>
           </ul>
         </div>
@@ -268,7 +298,16 @@
 </template>
 
 <script setup lang="ts">
-import { DocumentTextIcon, KeyIcon, NewspaperIcon, UsersIcon, PhotoIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  DocumentTextIcon,
+  KeyIcon,
+  NewspaperIcon,
+  UsersIcon,
+  PhotoIcon,
+  XMarkIcon,
+} from "@heroicons/vue/24/outline";
 import MediaSelect from "~/components/common/MediaSelect.vue";
 import { useConfirm } from "~/composables/useConfirm";
 
@@ -306,6 +345,7 @@ const activeTab = ref("content");
 const articleQuery = ref("");
 const articlesPending = ref(false);
 const articleBusyId = ref("");
+const articleOrderSaving = ref(false);
 const columnArticles = ref<any[]>([]);
 const articleCandidates = ref<any[]>([]);
 let articleQueryTimer: ReturnType<typeof setTimeout> | null = null;
@@ -417,6 +457,48 @@ async function addArticle(item: { id: string; accessType?: string; columnId?: st
     }
   } finally {
     articleBusyId.value = "";
+  }
+}
+
+async function moveArticle(index: number, direction: -1 | 1) {
+  const targetIndex = index + direction;
+  if (
+    articleOrderSaving.value ||
+    articleBusyId.value ||
+    targetIndex < 0 ||
+    targetIndex >= columnArticles.value.length
+  ) {
+    return;
+  }
+
+  const previousArticles = [...columnArticles.value];
+  const nextArticles = [...columnArticles.value];
+  [nextArticles[index], nextArticles[targetIndex]] = [nextArticles[targetIndex], nextArticles[index]];
+  columnArticles.value = nextArticles;
+  articleOrderSaving.value = true;
+  message.value = "";
+  try {
+    const response = await $fetch<{ c: number; m?: string }>(
+      `/api/creator/columns/${columnId.value}/articles/order`,
+      {
+        method: "PUT",
+        body: { articleIds: nextArticles.map((item) => item.id) },
+      }
+    );
+    if (response?.c === 200) {
+      messageOk.value = true;
+      message.value = t("admin.columns.articles.reordered");
+    } else {
+      columnArticles.value = previousArticles;
+      messageOk.value = false;
+      message.value = response?.m || t("admin.columns.messages.failed");
+    }
+  } catch {
+    columnArticles.value = previousArticles;
+    messageOk.value = false;
+    message.value = t("admin.columns.messages.failed");
+  } finally {
+    articleOrderSaving.value = false;
   }
 }
 

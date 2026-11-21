@@ -5,7 +5,7 @@
         <h2 class="text-xl font-semibold">{{ $t("admin.dashboard.siteOverview") }}</h2>
       </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-9 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-10 gap-3">
       <div class="rounded-xl border border-border p-3">
         <p class="text-xs text-muted">{{ $t("admin.dashboard.stats.totalVisitCount") }}</p>
         <p class="text-xl font-semibold mt-1">{{ totalVisitStats.totalVisitCount ?? "-" }}</p>
@@ -38,6 +38,11 @@
         <p class="text-xs text-muted">{{ $t("admin.dashboard.themeCount") }}</p>
         <p class="text-xl font-semibold mt-1">{{ stats.themeCount || 0 }}</p>
       </div>
+      <NuxtLink :to="localePath('/admin/users')"
+        class="rounded-xl border border-border p-3 hover:bg-surface-muted transition-colors cursor-pointer block">
+        <p class="text-xs text-muted">{{ $t("admin.dashboard.stats.userCount") }}</p>
+        <p class="text-xl font-semibold mt-1">{{ userCount }}</p>
+      </NuxtLink>
       <NuxtLink :to="localePath('/admin/creatorapplications')"
         class="rounded-xl border border-border p-3 hover:bg-surface-muted transition-colors cursor-pointer block">
         <p class="text-xs text-muted">{{ $t("admin.dashboard.stats.pendingCreatorApplications") }}</p>
@@ -327,6 +332,7 @@ const todayStats = ref<{
   topBotVendors: [],
 });
 
+const userCount = ref(0);
 const pendingApplicationCount = ref(0);
 
 const rankingLoading = ref(false);
@@ -390,6 +396,16 @@ const loadTotalVisit = async () => {
     totalVisitStats.value = data;
   } catch (error) {
     console.error("加载总访问量失败:", error);
+  }
+};
+
+const loadUserCount = async () => {
+  try {
+    const data = await api.get<{ userCount: number }>("/api/admin/users/stats");
+    userCount.value = data.userCount ?? 0;
+  } catch (error) {
+    console.error("加载用户数量失败:", error);
+    userCount.value = 0;
   }
 };
 
@@ -496,7 +512,7 @@ const loadTrendData = async (days: number) => {
   }
 };
 
-await Promise.all([loadStats(), loadTotalVisit(), loadTodayVisit(), loadPendingApplications(), loadRanking(rankingRange.value), loadTrendData(7)]);
+await Promise.all([loadStats(), loadTotalVisit(), loadTodayVisit(), loadUserCount(), loadPendingApplications(), loadRanking(rankingRange.value), loadTrendData(7)]);
 
 const trendData = computed(() => trendResponse.value);
 const trendSummary = computed<VisitSummary>(() => {
@@ -687,6 +703,7 @@ const refreshAll = async () => {
     loadStats(),
     loadTotalVisit(),
     loadTodayVisit(),
+    loadUserCount(),
     loadPendingApplications(),
     loadRanking(rankingRange.value),
     loadTrendData(selectedDays.value),

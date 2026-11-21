@@ -43,6 +43,7 @@
       "totalVisitCount": "Total Visits",
       "totalHumanVisitCount": "Total Human Visits",
       "totalBotVisitCount": "Total Bot Visits",
+      "userCount": "Users",
       "pendingCreatorApplications": "Pending Applications"
     },
     "visitAnalysis": {

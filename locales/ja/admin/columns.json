@@ -61,6 +61,7 @@
       "searchPlaceholder": "自分の記事を検索",
       "recent": "最近の記事",
       "current": "このコラムの記事",
+      "orderHint": "右側の矢印で並べ替えると、コラムページにも同じ順序で表示されます。",
       "empty": "コラムの記事はまだありません",
       "noMatch": "追加できる記事がありません",
       "add": "追加",
@@ -70,7 +71,10 @@
       "confirmMove": "この記事は「{title}」を離れ、このコラムの購読で読めるようになります。",
       "confirmRemove": "「{title}」は無料になります。コラム購読では読めなくなります。",
       "added": "コラムに追加しました",
-      "removed": "コラムから外しました"
+      "removed": "コラムから外しました",
+      "moveUp": "「{title}」を上へ移動",
+      "moveDown": "「{title}」を下へ移動",
+      "reordered": "記事の順序を保存しました"
     },
     "subscriptions": {
       "title": "購読記録",

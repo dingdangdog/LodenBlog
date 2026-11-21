@@ -61,6 +61,7 @@
       "searchPlaceholder": "搜索我的文章",
       "recent": "最近的文章",
       "current": "专栏中的文章",
+      "orderHint": "使用右侧箭头调整顺序，专栏页面会按这里的顺序展示。",
       "empty": "还没有专栏文章",
       "noMatch": "没有可加入的文章",
       "add": "加入",
@@ -70,7 +71,10 @@
       "confirmMove": "这篇文章会离开「{title}」，改由这个专栏的订阅阅读。",
       "confirmRemove": "「{title}」移出后变为免费，专栏订阅者不能再凭订阅阅读它。",
       "added": "已加入专栏",
-      "removed": "已移出专栏"
+      "removed": "已移出专栏",
+      "moveUp": "将“{title}”上移",
+      "moveDown": "将“{title}”下移",
+      "reordered": "文章顺序已保存"
     },
     "subscriptions": {
       "title": "订阅记录",

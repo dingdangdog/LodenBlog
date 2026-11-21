@@ -69,8 +69,9 @@ model ArticleBase {
   tags         String? @db.Text // 标签slugs，JSON数组格式，如 ["tag1", "tag2"]
 
   // 阅读权：FREE 公开 / COLUMN 专栏订阅 / PAID 单篇永久解锁。三者互斥。
-  accessType String  @default("FREE") @db.VarChar(20) // FREE/COLUMN/PAID
-  columnId   String? @db.VarChar(36) // 仅 accessType=COLUMN 时有值，约定关联 Column.id
+  accessType  String  @default("FREE") @db.VarChar(20) // FREE/COLUMN/PAID
+  columnId    String? @db.VarChar(36) // 仅 accessType=COLUMN 时有值，约定关联 Column.id
+  columnOrder Int     @default(0) // 专栏内手动排序，数字越小越靠前
 
   // 单篇售价。仅 PAID 使用；金额为空表示尚未标价。金额为最小货币单位（如分），不用小数。
   priceAmount Int?
@@ -550,7 +551,7 @@ model InfoContent {
   @@map("info_contents")
 }
 
-// 专栏基础信息。一篇文章最多属于一个专栏，且仅 accessType=COLUMN 时关联。
+// 专栏基础信息。一篇文章最多属于一个专栏；FREE 可公开关联，COLUMN 需要专栏订阅。
 model Column {
   id            String   @id @default(cuid()) @db.VarChar(36)
   authorId      String   @db.VarChar(36) // 约定关联 User.id，须为创作者

@@ -61,6 +61,7 @@
       "searchPlaceholder": "Eigene Artikel suchen",
       "recent": "Neueste Artikel",
       "current": "Artikel in dieser Kolumne",
+      "orderHint": "Mit den Pfeilen legst du die Reihenfolge auf der Kolumnenseite fest.",
       "empty": "Noch keine Kolumnenartikel",
       "noMatch": "Keine Artikel zum Hinzufügen",
       "add": "Hinzufügen",
@@ -70,7 +71,10 @@
       "confirmMove": "Der Artikel verlässt „{title}“ und wird über diese Kolumne gelesen.",
       "confirmRemove": "„{title}“ wird kostenlos. Abonnenten können ihn nicht mehr über diese Kolumne lesen.",
       "added": "Zur Kolumne hinzugefügt",
-      "removed": "Aus der Kolumne entfernt"
+      "removed": "Aus der Kolumne entfernt",
+      "moveUp": "„{title}“ nach oben verschieben",
+      "moveDown": "„{title}“ nach unten verschieben",
+      "reordered": "Artikelreihenfolge gespeichert"
     },
     "subscriptions": {
       "title": "Abos",

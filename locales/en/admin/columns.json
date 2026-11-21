@@ -61,6 +61,7 @@
       "searchPlaceholder": "Search my articles",
       "recent": "Recent articles",
       "current": "In this column",
+      "orderHint": "Use the arrows to set the order shown on the column page.",
       "empty": "No articles in this column yet",
       "noMatch": "No articles to add",
       "add": "Add",
@@ -70,7 +71,10 @@
       "confirmMove": "This article will leave \"{title}\" and be read through this column.",
       "confirmRemove": "\"{title}\" will become free. Column subscribers will no longer read it with this subscription.",
       "added": "Added to the column",
-      "removed": "Removed from the column"
+      "removed": "Removed from the column",
+      "moveUp": "Move “{title}” up",
+      "moveDown": "Move “{title}” down",
+      "reordered": "Article order saved"
     },
     "subscriptions": {
       "title": "Subscriptions",

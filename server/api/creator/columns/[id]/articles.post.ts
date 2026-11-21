@@ -6,7 +6,7 @@ import {
   normalizeArticleAccess,
   requireOwnColumn,
 } from "~~/server/utils/column-domain";
-import { isRemovedStatus } from "~~/utils/column-access";
+import { isRemovedStatus, REMOVED_STATUS } from "~~/utils/column-access";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -26,14 +26,30 @@ export default defineEventHandler(async (event) => {
     if (!article || isRemovedStatus(article.status) || article.authorId !== user.id) {
       return error("文章不存在");
     }
-    if (article.columnId === id && article.accessType === "COLUMN") {
+    if (article.columnId === id && article.accessType !== "PAID") {
       return success({ articleId });
     }
 
-    const access = await normalizeArticleAccess(user.id, "COLUMN", id);
+    const access = await normalizeArticleAccess(
+      user.id,
+      article.accessType === "FREE" ? "FREE" : "COLUMN",
+      id
+    );
+    const maxOrder = await prisma.articleBase.aggregate({
+      where: {
+        authorId: user.id,
+        columnId: id,
+        status: { not: REMOVED_STATUS },
+      },
+      _max: { columnOrder: true },
+    });
     await prisma.articleBase.update({
       where: { id: articleId },
-      data: { accessType: access.accessType, columnId: access.columnId },
+      data: {
+        accessType: access.accessType,
+        columnId: access.columnId,
+        columnOrder: (maxOrder._max.columnOrder ?? -1) + 1,
+      },
     });
     return success({ articleId }, "已加入专栏");
   } catch (err: unknown) {

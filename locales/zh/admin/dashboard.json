@@ -43,6 +43,7 @@
       "totalVisitCount": "总访问量",
       "totalHumanVisitCount": "总人类访问量",
       "totalBotVisitCount": "总Bot访问量",
+      "userCount": "用户数量",
       "pendingCreatorApplications": "待审批申请"
     },
     "visitAnalysis": {

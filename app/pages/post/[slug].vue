@@ -65,13 +65,13 @@
       </div>
 
       <!-- 文章阅读区域（全屏） -->
-      <div class="flex-1 flex items-start justify-center gap-4 lg:gap-6 overflow-hidden px-4 min-h-0">
+      <div class="flex min-h-0 flex-1 items-stretch justify-center gap-4 overflow-hidden px-4 lg:gap-6">
         <DualLanguageArticlePanel :slug="slug" :label="$t('article.leftLanguage')"
           :initial-language="leftLanguageDefault" :sync-scroll="true" :is-left="true" :other-panel-ref="rightPanelRef"
-          ref="leftPanelRef" class="flex-1 min-w-0 h-full" />
+          ref="leftPanelRef" class="min-h-0 min-w-0 flex-1 self-stretch" />
         <DualLanguageArticlePanel :slug="slug" :label="$t('article.rightLanguage')"
           :initial-language="rightLanguageDefault" :sync-scroll="true" :is-left="false" :other-panel-ref="leftPanelRef"
-          ref="rightPanelRef" class="flex-1 min-w-0 h-full" />
+          ref="rightPanelRef" class="min-h-0 min-w-0 flex-1 self-stretch" />
       </div>
     </div>
 

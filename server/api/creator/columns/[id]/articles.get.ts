@@ -39,14 +39,18 @@ export default defineEventHandler(async (event) => {
     const [members, memberCount] = await Promise.all([
       prisma.articleBase.findMany({
         where: memberWhere,
-        orderBy: { updatedAt: "desc" },
-        take: 200,
+        orderBy: [
+          { columnOrder: "asc" },
+          { publishedAt: "desc" },
+          { createdAt: "desc" },
+        ],
         select: {
           id: true,
           featuredImage: true,
           isPublished: true,
           accessType: true,
           columnId: true,
+          columnOrder: true,
           updatedAt: true,
         },
       }),
@@ -148,6 +152,7 @@ export default defineEventHandler(async (event) => {
         isPublished: base.isPublished,
         accessType: base.accessType,
         columnId: base.columnId,
+        columnOrder: base.columnOrder,
         columnTitle,
       };
     };

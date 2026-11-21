@@ -45,6 +45,7 @@
       "totalVisitCount": "Total de visitas",
       "totalHumanVisitCount": "Total visitas humanas",
       "totalBotVisitCount": "Total visitas bot",
+      "userCount": "Usuarios",
       "pendingCreatorApplications": "Solicitudes pendientes"
     },
     "visitAnalysis": {

@@ -50,12 +50,16 @@ export default defineEventHandler(async (event) => {
     const bases = await prisma.articleBase.findMany({
       where: {
         columnId: column.id,
-        accessType: "COLUMN",
+        accessType: { in: ["FREE", "COLUMN"] },
         isPublished: true,
         status: { not: REMOVED_STATUS },
         publishedAt: { lte: now },
       },
-      orderBy: { publishedAt: "desc" },
+      orderBy: [
+        { columnOrder: "asc" },
+        { publishedAt: "desc" },
+        { createdAt: "desc" },
+      ],
     });
     const contents = bases.length
       ? await prisma.articleContent.findMany({
@@ -87,7 +91,10 @@ export default defineEventHandler(async (event) => {
           featuredImage: base.featuredImage,
           publishedAt: base.publishedAt,
           accessType: base.accessType,
-          locked: !subscribed && viewer?.id !== column.authorId,
+          locked:
+            base.accessType === "COLUMN" &&
+            !subscribed &&
+            viewer?.id !== column.authorId,
         };
       })
       .filter((item) => item !== null);
@@ -110,6 +117,7 @@ export default defineEventHandler(async (event) => {
         languageCode: content.languageCode,
         subscribed,
         subscriptionExpiresAt: subscription?.expiresAt ?? null,
+        hasSubscriptionContent: bases.some((base) => base.accessType === "COLUMN"),
         languages,
       },
       articles,
