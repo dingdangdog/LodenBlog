@@ -29,12 +29,14 @@ export type AggregateArticleBase = {
 export type ArticleBaseAvgAggregateOutputType = {
   viewCount: number | null
   pinOrder: number | null
+  columnOrder: number | null
   priceAmount: number | null
 }
 
 export type ArticleBaseSumAggregateOutputType = {
   viewCount: number | null
   pinOrder: number | null
+  columnOrder: number | null
   priceAmount: number | null
 }
 
@@ -51,6 +53,7 @@ export type ArticleBaseMinAggregateOutputType = {
   tags: string | null
   accessType: string | null
   columnId: string | null
+  columnOrder: number | null
   priceAmount: number | null
   currency: string | null
   externalLinks: string | null
@@ -71,6 +74,7 @@ export type ArticleBaseMaxAggregateOutputType = {
   tags: string | null
   accessType: string | null
   columnId: string | null
+  columnOrder: number | null
   priceAmount: number | null
   currency: string | null
   externalLinks: string | null
@@ -91,6 +95,7 @@ export type ArticleBaseCountAggregateOutputType = {
   tags: number
   accessType: number
   columnId: number
+  columnOrder: number
   priceAmount: number
   currency: number
   externalLinks: number
@@ -103,12 +108,14 @@ export type ArticleBaseCountAggregateOutputType = {
 export type ArticleBaseAvgAggregateInputType = {
   viewCount?: true
   pinOrder?: true
+  columnOrder?: true
   priceAmount?: true
 }
 
 export type ArticleBaseSumAggregateInputType = {
   viewCount?: true
   pinOrder?: true
+  columnOrder?: true
   priceAmount?: true
 }
 
@@ -125,6 +132,7 @@ export type ArticleBaseMinAggregateInputType = {
   tags?: true
   accessType?: true
   columnId?: true
+  columnOrder?: true
   priceAmount?: true
   currency?: true
   externalLinks?: true
@@ -145,6 +153,7 @@ export type ArticleBaseMaxAggregateInputType = {
   tags?: true
   accessType?: true
   columnId?: true
+  columnOrder?: true
   priceAmount?: true
   currency?: true
   externalLinks?: true
@@ -165,6 +174,7 @@ export type ArticleBaseCountAggregateInputType = {
   tags?: true
   accessType?: true
   columnId?: true
+  columnOrder?: true
   priceAmount?: true
   currency?: true
   externalLinks?: true
@@ -272,6 +282,7 @@ export type ArticleBaseGroupByOutputType = {
   tags: string | null
   accessType: string
   columnId: string | null
+  columnOrder: number
   priceAmount: number | null
   currency: string | null
   externalLinks: string | null
@@ -315,6 +326,7 @@ export type ArticleBaseWhereInput = {
   tags?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
   accessType?: Prisma.StringFilter<"ArticleBase"> | string
   columnId?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
+  columnOrder?: Prisma.IntFilter<"ArticleBase"> | number
   priceAmount?: Prisma.IntNullableFilter<"ArticleBase"> | number | null
   currency?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
   externalLinks?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
@@ -335,6 +347,7 @@ export type ArticleBaseOrderByWithRelationInput = {
   tags?: Prisma.SortOrderInput | Prisma.SortOrder
   accessType?: Prisma.SortOrder
   columnId?: Prisma.SortOrderInput | Prisma.SortOrder
+  columnOrder?: Prisma.SortOrder
   priceAmount?: Prisma.SortOrderInput | Prisma.SortOrder
   currency?: Prisma.SortOrderInput | Prisma.SortOrder
   externalLinks?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -358,6 +371,7 @@ export type ArticleBaseWhereUniqueInput = Prisma.AtLeast<{
   tags?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
   accessType?: Prisma.StringFilter<"ArticleBase"> | string
   columnId?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
+  columnOrder?: Prisma.IntFilter<"ArticleBase"> | number
   priceAmount?: Prisma.IntNullableFilter<"ArticleBase"> | number | null
   currency?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
   externalLinks?: Prisma.StringNullableFilter<"ArticleBase"> | string | null
@@ -378,6 +392,7 @@ export type ArticleBaseOrderByWithAggregationInput = {
   tags?: Prisma.SortOrderInput | Prisma.SortOrder
   accessType?: Prisma.SortOrder
   columnId?: Prisma.SortOrderInput | Prisma.SortOrder
+  columnOrder?: Prisma.SortOrder
   priceAmount?: Prisma.SortOrderInput | Prisma.SortOrder
   currency?: Prisma.SortOrderInput | Prisma.SortOrder
   externalLinks?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -406,6 +421,7 @@ export type ArticleBaseScalarWhereWithAggregatesInput = {
   tags?: Prisma.StringNullableWithAggregatesFilter<"ArticleBase"> | string | null
   accessType?: Prisma.StringWithAggregatesFilter<"ArticleBase"> | string
   columnId?: Prisma.StringNullableWithAggregatesFilter<"ArticleBase"> | string | null
+  columnOrder?: Prisma.IntWithAggregatesFilter<"ArticleBase"> | number
   priceAmount?: Prisma.IntNullableWithAggregatesFilter<"ArticleBase"> | number | null
   currency?: Prisma.StringNullableWithAggregatesFilter<"ArticleBase"> | string | null
   externalLinks?: Prisma.StringNullableWithAggregatesFilter<"ArticleBase"> | string | null
@@ -426,6 +442,7 @@ export type ArticleBaseCreateInput = {
   tags?: string | null
   accessType?: string
   columnId?: string | null
+  columnOrder?: number
   priceAmount?: number | null
   currency?: string | null
   externalLinks?: string | null
@@ -446,6 +463,7 @@ export type ArticleBaseUncheckedCreateInput = {
   tags?: string | null
   accessType?: string
   columnId?: string | null
+  columnOrder?: number
   priceAmount?: number | null
   currency?: string | null
   externalLinks?: string | null
@@ -466,6 +484,7 @@ export type ArticleBaseUpdateInput = {
   tags?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessType?: Prisma.StringFieldUpdateOperationsInput | string
   columnId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  columnOrder?: Prisma.IntFieldUpdateOperationsInput | number
   priceAmount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   currency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalLinks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -486,6 +505,7 @@ export type ArticleBaseUncheckedUpdateInput = {
   tags?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessType?: Prisma.StringFieldUpdateOperationsInput | string
   columnId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  columnOrder?: Prisma.IntFieldUpdateOperationsInput | number
   priceAmount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   currency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalLinks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -506,6 +526,7 @@ export type ArticleBaseCreateManyInput = {
   tags?: string | null
   accessType?: string
   columnId?: string | null
+  columnOrder?: number
   priceAmount?: number | null
   currency?: string | null
   externalLinks?: string | null
@@ -526,6 +547,7 @@ export type ArticleBaseUpdateManyMutationInput = {
   tags?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessType?: Prisma.StringFieldUpdateOperationsInput | string
   columnId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  columnOrder?: Prisma.IntFieldUpdateOperationsInput | number
   priceAmount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   currency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalLinks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -546,6 +568,7 @@ export type ArticleBaseUncheckedUpdateManyInput = {
   tags?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessType?: Prisma.StringFieldUpdateOperationsInput | string
   columnId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  columnOrder?: Prisma.IntFieldUpdateOperationsInput | number
   priceAmount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   currency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   externalLinks?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -566,6 +589,7 @@ export type ArticleBaseCountOrderByAggregateInput = {
   tags?: Prisma.SortOrder
   accessType?: Prisma.SortOrder
   columnId?: Prisma.SortOrder
+  columnOrder?: Prisma.SortOrder
   priceAmount?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   externalLinks?: Prisma.SortOrder
@@ -576,6 +600,7 @@ export type ArticleBaseCountOrderByAggregateInput = {
 export type ArticleBaseAvgOrderByAggregateInput = {
   viewCount?: Prisma.SortOrder
   pinOrder?: Prisma.SortOrder
+  columnOrder?: Prisma.SortOrder
   priceAmount?: Prisma.SortOrder
 }
 
@@ -592,6 +617,7 @@ export type ArticleBaseMaxOrderByAggregateInput = {
   tags?: Prisma.SortOrder
   accessType?: Prisma.SortOrder
   columnId?: Prisma.SortOrder
+  columnOrder?: Prisma.SortOrder
   priceAmount?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   externalLinks?: Prisma.SortOrder
@@ -612,6 +638,7 @@ export type ArticleBaseMinOrderByAggregateInput = {
   tags?: Prisma.SortOrder
   accessType?: Prisma.SortOrder
   columnId?: Prisma.SortOrder
+  columnOrder?: Prisma.SortOrder
   priceAmount?: Prisma.SortOrder
   currency?: Prisma.SortOrder
   externalLinks?: Prisma.SortOrder
@@ -622,6 +649,7 @@ export type ArticleBaseMinOrderByAggregateInput = {
 export type ArticleBaseSumOrderByAggregateInput = {
   viewCount?: Prisma.SortOrder
   pinOrder?: Prisma.SortOrder
+  columnOrder?: Prisma.SortOrder
   priceAmount?: Prisma.SortOrder
 }
 
@@ -652,6 +680,7 @@ export type ArticleBaseSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   tags?: boolean
   accessType?: boolean
   columnId?: boolean
+  columnOrder?: boolean
   priceAmount?: boolean
   currency?: boolean
   externalLinks?: boolean
@@ -672,6 +701,7 @@ export type ArticleBaseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   tags?: boolean
   accessType?: boolean
   columnId?: boolean
+  columnOrder?: boolean
   priceAmount?: boolean
   currency?: boolean
   externalLinks?: boolean
@@ -692,6 +722,7 @@ export type ArticleBaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   tags?: boolean
   accessType?: boolean
   columnId?: boolean
+  columnOrder?: boolean
   priceAmount?: boolean
   currency?: boolean
   externalLinks?: boolean
@@ -712,6 +743,7 @@ export type ArticleBaseSelectScalar = {
   tags?: boolean
   accessType?: boolean
   columnId?: boolean
+  columnOrder?: boolean
   priceAmount?: boolean
   currency?: boolean
   externalLinks?: boolean
@@ -719,7 +751,7 @@ export type ArticleBaseSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ArticleBaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "featuredImage" | "status" | "isPublished" | "publishedAt" | "viewCount" | "pinOrder" | "authorId" | "categorySlug" | "tags" | "accessType" | "columnId" | "priceAmount" | "currency" | "externalLinks" | "createdAt" | "updatedAt", ExtArgs["result"]["articleBase"]>
+export type ArticleBaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "featuredImage" | "status" | "isPublished" | "publishedAt" | "viewCount" | "pinOrder" | "authorId" | "categorySlug" | "tags" | "accessType" | "columnId" | "columnOrder" | "priceAmount" | "currency" | "externalLinks" | "createdAt" | "updatedAt", ExtArgs["result"]["articleBase"]>
 
 export type $ArticleBasePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ArticleBase"
@@ -737,6 +769,7 @@ export type $ArticleBasePayload<ExtArgs extends runtime.Types.Extensions.Interna
     tags: string | null
     accessType: string
     columnId: string | null
+    columnOrder: number
     priceAmount: number | null
     currency: string | null
     externalLinks: string | null
@@ -1177,6 +1210,7 @@ export interface ArticleBaseFieldRefs {
   readonly tags: Prisma.FieldRef<"ArticleBase", 'String'>
   readonly accessType: Prisma.FieldRef<"ArticleBase", 'String'>
   readonly columnId: Prisma.FieldRef<"ArticleBase", 'String'>
+  readonly columnOrder: Prisma.FieldRef<"ArticleBase", 'Int'>
   readonly priceAmount: Prisma.FieldRef<"ArticleBase", 'Int'>
   readonly currency: Prisma.FieldRef<"ArticleBase", 'String'>
   readonly externalLinks: Prisma.FieldRef<"ArticleBase", 'String'>

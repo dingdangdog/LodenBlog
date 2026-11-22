@@ -3206,6 +3206,7 @@ export const ArticleBaseScalarFieldEnum = {
   tags: 'tags',
   accessType: 'accessType',
   columnId: 'columnId',
+  columnOrder: 'columnOrder',
   priceAmount: 'priceAmount',
   currency: 'currency',
   externalLinks: 'externalLinks',
